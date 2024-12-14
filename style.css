@@ -153,6 +153,48 @@ body {
   text-align: right;
 }
 
+/* Content Section */
+.content-section {
+    background-color: #fff; /* White background */
+    padding: 50px 20px; /* Padding around the content */
+    text-align: center; /* Center align all content */
+}
+
+.content-container {
+    max-width: 1200px; /* Limit the width */
+    margin: 0 auto; /* Center the content container */
+}
+
+.content-container h2 {
+    font-size: 2rem;
+    font-weight: 700; /* Bold text for heading */
+    margin-bottom: 20px; /* Space below the heading */
+    color: #1b1b1b; /* Dark text color */
+}
+
+.content-container p {
+    font-size: 1.25rem;
+    line-height: 1.6; /* Line height for readability */
+    margin-bottom: 30px; /* Space below the paragraph */
+    color: #555; /* Slightly lighter gray for paragraph text */
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #ff4e00; /* Orange button background */
+    color: #fff; /* White text color */
+    text-decoration: none;
+    border-radius: 25px; /* Pill-shaped button */
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.cta-button:hover {
+    background-color: #d94400; /* Slightly darker orange on hover */
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .nav-links {
