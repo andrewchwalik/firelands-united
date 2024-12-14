@@ -59,7 +59,7 @@ body {
 .hero {
   position: relative;
   height: 100vh;
-  background: url('img/firelands-hero.png') no-repeat center center/cover;
+  background: url('img/firelands-hero.jpg') no-repeat center center/cover;
   display: flex;
   align-items: center;
   justify-content: flex-start;
