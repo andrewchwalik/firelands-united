@@ -4,55 +4,54 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Firelands United</title>
+  <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
   <!-- Navigation Bar -->
-  <nav class="navbar">
+  <header class="navbar">
     <div class="logo">
       <img src="img/firelands-badge.png" alt="Firelands Badge">
     </div>
-    <div class="nav-links">
+    <nav class="nav-links">
       <a href="#" class="active">Home</a>
       <a href="#">News</a>
       <a href="#">Roster</a>
-    </div>
+    </nav>
     <div class="hamburger-menu">
       <span></span>
       <span></span>
       <span></span>
     </div>
-  </nav>
+  </header>
 
   <!-- Hero Section -->
-<section class="hero">
-  <div class="hero-content">
-    <h1 class="hero-title">Determination is the most important feature</h1>
-    <p class="hero-subtitle">This is the most important mental trait of a player who wants to achieve the most goals</p>
-    <a href="#" class="hero-button">Read More</a>
-  </div>
-  <div class="hero-image">
-    <img src="img/firelands-hero.png" alt="Hero Image">
-  </div>
-</section>
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Determination is the most important feature</h1>
+      <p class="hero-subtitle">This is the most important mental trait of a player who wants to achieve the most goals</p>
+      <a href="#" class="hero-button">Read More</a>
+    </div>
+  </section>
 
-  <!-- White Box Timer -->
-  <div class="white-box">
-    <div class="teams">
-      <p>Firelands United <span>vs.</span> ABC Team</p>
+  <!-- Match Info Section -->
+  <section class="match-info">
+    <div class="match-card">
+      <div class="match-teams">
+        <span class="team firelands">Firelands United</span>
+        <span class="vs">vs.</span>
+        <span class="team opponent">ABC Team</span>
+      </div>
+      <div class="match-timer">
+        <span class="time days">00</span> <span>Days</span>
+        <span class="time hours">11</span> <span>Hours</span>
+        <span class="time minutes">41</span> <span>Minutes</span>
+        <span class="time seconds">13</span> <span>Seconds</span>
+      </div>
+      <div class="match-details">
+        <span class="time-location">December 20th, 7:30 PM - Firelands Stadium</span>
+      </div>
     </div>
-    <div class="timer">
-      <span>00</span> D : 
-      <span>11</span> H : 
-      <span>41</span> M : 
-      <span>13</span> S
-    </div>
-    <div class="match-details">
-      <p>10 Dec 2024, 7:30 PM | Firelands Stadium</p>
-    </div>
-  </div>
-
+  </section>
 </body>
 </html>
