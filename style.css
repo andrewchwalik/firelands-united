@@ -100,10 +100,15 @@ body {
 
 /* Match Info Section */
 .match-info {
-  background-color: #fff;
-  color: #1b1b1b;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative; /* Keep it relative for easy placement */
+    background-color: #fff; /* White background */
+    color: #1b1b1b; /* Dark text color */
+    padding: 20px; /* Padding inside the box */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for elevation */
+    border-radius: 8px; /* Rounded corners */
+    max-width: 1200px; /* Centered width */
+    margin: -50px auto 0; /* Pull the box up by 50px to overlap the hero section */
+    z-index: 10; /* Ensure it stays above the hero section */
 }
 
 .match-card {
