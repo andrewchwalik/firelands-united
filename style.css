@@ -76,15 +76,15 @@ body {
 
 /* Hero Content */
 .hero-content {
-    position: absolute; /* Position content over the image */
+    position: absolute; /* Keeps the content over the image */
     top: 50%; /* Vertically center the content */
-    left: 20px; /* Align content to the left with padding */
-    transform: translateY(-50%); /* Center vertically without affecting the horizontal position */
+    left: 40px; /* Adds more space from the left */
+    transform: translateY(-50%); /* Centers content vertically */
     text-align: left; /* Align text to the left */
-    z-index: 1; /* Ensure content stays above the image */
-    color: #fff; /* Keep text readable on the image */
-    background: none; /* Remove the black box */
-    padding: 0; /* No extra padding around the text */
+    z-index: 1; /* Ensure it stays above the image */
+    color: #fff; /* White text for readability */
+    max-width: 50%; /* Restricts the content to half the screen width */
+    padding: 0; /* Removes extra spacing */
     margin: 0;
 }
 
