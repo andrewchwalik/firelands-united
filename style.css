@@ -58,12 +58,9 @@ body {
 /* Hero Section */
 .hero {
   position: relative;
-  height: 100vh;
-  background: url('img/firelands-hero.jpg') no-repeat center center/cover;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 0 20px;
+  height: auto; /* Adjusts height to fit the background image */
+  background: url('img/firelands-hero.jpg') no-repeat center center;
+  background-size: contain; /* Ensures the image fits within the container */
 }
 
 .hero-content {
