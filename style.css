@@ -57,25 +57,35 @@ body {
 
 /* Hero Section */
 .hero {
-  position: relative;
-  background: url('img/firelands-hero.jpg') no-repeat center center;
-  background-size: contain; /* Ensures the image fits without cropping */
-  background-attachment: scroll; /* Prevents fixed background behavior */
-  padding: 0; /* Removes unnecessary padding */
-  width: 100%; /* Ensure it spans the full width */
-  height: auto; /* Dynamically adjusts based on content */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
+/* Hero Image */
+.hero-image {
+    display: block;
+    width: auto; /* Retain the image's natural width */
+    height: auto; /* Retain the image's natural height */
+    max-width: 100%; /* Ensure it doesn’t overflow the viewport width */
+}
+
+/* Hero Content */
 .hero-content {
-  position: relative;
-  z-index: 1; /* Ensures content appears on top of the background */
-  padding: 20px;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.5); /* Optional: semi-transparent overlay for readability */
-  border-radius: 10px; /* Optional: rounded corners for overlay */
+    position: absolute; /* Position the content over the image */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+    color: #fff; /* Ensure text is readable */
+    background: rgba(0, 0, 0, 0.5); /* Optional: Add semi-transparent background for readability */
+    padding: 20px;
+    border-radius: 10px; /* Optional: Rounded corners for content background */
 }
 
 .hero-title {
