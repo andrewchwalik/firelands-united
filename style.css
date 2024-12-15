@@ -58,14 +58,24 @@ body {
 /* Hero Section */
 .hero {
   position: relative;
-  height: auto; /* Adjusts height to fit the background image */
   background: url('img/firelands-hero.jpg') no-repeat center center;
-  background-size: contain; /* Ensures the image fits within the container */
+  background-size: contain; /* Ensures the image fits without cropping */
+  background-attachment: scroll; /* Prevents fixed background behavior */
+  padding: 0; /* Removes unnecessary padding */
+  width: 100%; /* Ensure it spans the full width */
+  height: auto; /* Dynamically adjusts based on content */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-content {
-  z-index: 1;
-  max-width: 600px;
+  position: relative;
+  z-index: 1; /* Ensures content appears on top of the background */
+  padding: 20px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5); /* Optional: semi-transparent overlay for readability */
+  border-radius: 10px; /* Optional: rounded corners for overlay */
 }
 
 .hero-title {
