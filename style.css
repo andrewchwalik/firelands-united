@@ -26,8 +26,9 @@ body {
 }
 
 .logo img {
-  height: 50px;
-  margin: 10px;
+  height: 80px; /* Increase the height to make the logo bigger */
+  width: auto; /* Maintain the aspect ratio */
+  margin: 10px; /* Adjust margin as needed */
 }
 
 .nav-links {
