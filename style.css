@@ -14,40 +14,39 @@ body {
 
 /* Navigation Bar */
 .navbar {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start; /* Align everything to the left */
+  display: flex; /* Align logo and links in a row */
+  align-items: center; /* Vertically center logo and links */
   padding: 10px 20px;
-  position: sticky; /* Keeps the navbar sticky */
+  position: sticky; /* Sticky navbar */
   top: 0;
   z-index: 10;
-  background-color: #f05a27; /* Navbar color */
+  background-color: #f05a27; /* Navbar background color */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   height: 80px; /* Navbar height */
 }
 
 .logo {
-  margin-right: 20px; /* Add spacing between the logo and nav-links */
+  position: relative; /* Position relative for precise adjustments */
+  margin-right: 20px; /* Space between the logo and nav-links */
 }
 
 .logo img {
-  height: 120px; /* Larger than navbar */
-  position: absolute; /* Keeps logo half on/half off */
-  top: -20px; /* Moves logo upward to overlap navbar */
-  left: 20px; /* Adjust position from the left edge */
-  z-index: 15; /* Ensures the logo stays on top */
+  height: 120px; /* Larger than the navbar */
+  position: absolute;
+  top: -20px; /* Move the logo upward to overlap */
+  left: 20px; /* Adjust horizontal position as needed */
 }
 
 .nav-links {
   display: flex; /* Align links horizontally */
   gap: 20px; /* Space between links */
   align-items: center; /* Vertically align links with the logo */
-  margin-left: auto; /* Push nav-links to the right of the logo */
+  margin-left: 140px; /* Create space to the right of the logo */
 }
 
 .nav-links a {
   text-decoration: none;
-  color: #474e5a; /* Default link color */
+  color: #474e5a; /* Default link text color */
   font-weight: 700;
   font-size: 1rem;
   text-transform: uppercase;
@@ -56,7 +55,7 @@ body {
 }
 
 .nav-links a:hover, .nav-links a.active {
-  color: #d8dde5; /* Link hover and active color */
+  color: #d8dde5; /* Link hover and active state color */
   border-bottom: 2px solid #d8dde5; /* Underline effect */
 }
 
