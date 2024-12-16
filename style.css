@@ -30,11 +30,12 @@ body {
 .navbar::after {
   content: ''; /* Empty content for the line */
   position: absolute;
-  bottom: 0; /* Place it at the bottom of the navbar */
-  right: 0; /* Start the line from the right edge */
-  height: 1px; /* Skinny line */
+  bottom: -4px; /* Moves the line slightly below the navbar */
+  right: 0; /* Starts the line from the right edge */
+  height: 4px; /* Adjust thickness of the line */
   background-color: #d8dde5; /* Line color */
   width: calc(100% - 120px); /* Adjust width to stop at the logo */
+  z-index: -1; /* Pushes the line below the navbar logo */
 }
 
 .logo {
