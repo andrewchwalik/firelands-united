@@ -57,7 +57,7 @@ body {
 
 .nav-links a:hover, .nav-links a.active {
   color: #d8dde5; /* Link hover and active state color */
-  border-bottom: 2px solid #d8dde5; /* Underline effect */
+  border-bottom: none; /* Remove the underline */
 }
 
 .hamburger-menu {
