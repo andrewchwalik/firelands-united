@@ -28,14 +28,14 @@ body {
 
 .navbar::after {
   content: ''; /* Empty content for the line */
-  position: absolute; /* Relative to navbar */
+  position: absolute;
   bottom: -3px; /* Moves the line slightly below the navbar */
-  left: 0; /* Aligns to the left edge of the navbar */
-  height: 3px; /* Adjust thickness of the line */
+  right: 0; /* Starts the line at the right edge of the navbar */
+  height: 3px; /* Line thickness */
   background-color: #d8dde5; /* Line color */
-  width: calc(100% - 120px); /* Adjust width to stop at the logo */
-  z-index: 9; /* Ensure it is below the navbar text/logo */
-  pointer-events: none; /* Prevent the line from interfering with interactions */
+  width: calc(100% - 140px); /* Adjust width to stop under the logo */
+  z-index: -1; /* Ensures the line is under the logo */
+  pointer-events: none; /* Prevent interaction */
 }
 
 .logo {
