@@ -34,7 +34,7 @@ body {
 .logo img {
   height: 120px; /* Larger than the navbar */
   position: absolute;
-  top: -20px; /* Move the logo upward to overlap */
+  top: -30px; /* Move the logo upward to overlap */
   left: 20px; /* Adjust horizontal position as needed */
 }
 
