@@ -18,24 +18,24 @@ body {
   align-items: center;
   justify-content: flex-start; /* Align content to the left */
   padding: 10px 50px; /* Navbar padding */
-  position: sticky;
-  top: 0;
-  z-index: 10;
+  position: sticky; /* Sticky behavior */
+  top: 0; /* Sticks to the top of the viewport */
+  z-index: 10; /* Keeps the navbar above other elements */
   background-color: #f05a27; /* Navbar background color */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   height: 80px; /* Navbar height */
-  position: relative; /* Needed for pseudo-element positioning */
 }
 
 .navbar::after {
   content: ''; /* Empty content for the line */
-  position: absolute;
+  position: absolute; /* Relative to navbar */
   bottom: -3px; /* Moves the line slightly below the navbar */
-  right: 0; /* Starts the line from the right edge */
+  left: 0; /* Aligns to the left edge of the navbar */
   height: 3px; /* Adjust thickness of the line */
   background-color: #d8dde5; /* Line color */
   width: calc(100% - 120px); /* Adjust width to stop at the logo */
-  z-index: -1; /* Pushes the line below the navbar logo */
+  z-index: 9; /* Ensure it is below the navbar text/logo */
+  pointer-events: none; /* Prevent the line from interfering with interactions */
 }
 
 .logo {
