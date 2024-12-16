@@ -1,20 +1,19 @@
 backend:
   name: git-gateway
-  branch: main # Your repository branch
+  branch: main # Adjust if your default branch is different
 
-media_folder: "img" # Where images will be stored
-public_folder: "/img"
+media_folder: "img" # Path to store uploaded images
+public_folder: "/img" # Public-facing path for images
 
 collections:
-  - name: "blog" # Collection name
-    label: "Blog"
-    folder: "blogs" # Where blog files are stored
+  - name: "blog" # Collection identifier
+    label: "Blog" # Admin UI label
+    folder: "blogs" # Folder where Markdown files will be stored
     create: true # Allow users to create new entries
-    slug: "{{slug}}" # URL structure
-
-    fields:
+    slug: "{{slug}}" # URL slug based on the title
+    fields: # Fields for the blog post
       - { name: "title", label: "Title", widget: "string" }
       - { name: "date", label: "Date", widget: "datetime" }
-      - { name: "excerpt", label: "Excerpt", widget: "string" }
+      - { name: "excerpt", label: "Excerpt", widget: "text" }
       - { name: "body", label: "Body", widget: "markdown" }
       - { name: "image", label: "Featured Image", widget: "image" }
