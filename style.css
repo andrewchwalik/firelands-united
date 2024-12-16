@@ -15,41 +15,53 @@ body {
 /* Navigation Bar */
 .navbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: flex-start; /* Align logo and nav-links to the left */
   padding: 10px 20px;
-  position: fixed;
-  width: 100%;
+  position: sticky; /* Makes the navbar sticky */
   top: 0;
   z-index: 10;
-  background: transparent;
+  background-color: #fff; /* White background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  height: 80px; /* Adjust height of the navbar */
+}
+
+.logo {
+  position: relative; /* Enables absolute positioning for the image */
+  margin-right: 20px; /* Adds space between the logo and nav-links */
 }
 
 .logo img {
-  height: 80px; /* Increase the height to make the logo bigger */
-  width: auto; /* Maintain the aspect ratio */
-  margin: 10px; /* Adjust margin as needed */
+  height: 120px; /* Larger than navbar height */
+  position: absolute;
+  top: -20px; /* Moves the logo upward to overlap the navbar */
+  left: 0; /* Aligns the logo to the left edge */
+  z-index: 15; /* Keeps the logo above other elements */
 }
 
 .nav-links {
   display: flex;
-  gap: 20px;
+  gap: 20px; /* Spacing between links */
+  flex-grow: 1; /* Pushes links to the right to align next to the logo */
 }
 
 .nav-links a {
   text-decoration: none;
-  color: #fff;
+  color: #1b1b1b; /* Dark gray text for visibility */
   font-weight: 700;
   text-transform: uppercase;
-  transition: color 0.3s ease;
-}
-
-.nav-links a.active {
-  color: orange;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  padding: 5px 0;
 }
 
 .nav-links a:hover {
-  color: orange;
+  color: #ff4e00; /* Orange on hover */
+  border-bottom: 2px solid #ff4e00; /* Underline effect */
+}
+
+.nav-links a.active {
+  color: #ff4e00;
+  border-bottom: 2px solid #ff4e00;
 }
 
 .hamburger-menu {
