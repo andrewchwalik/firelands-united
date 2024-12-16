@@ -16,52 +16,48 @@ body {
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Align logo and nav-links to the left */
+  justify-content: flex-start; /* Align everything to the left */
   padding: 10px 20px;
-  position: sticky; /* Makes the navbar sticky */
+  position: sticky; /* Keeps the navbar sticky */
   top: 0;
   z-index: 10;
-  background-color: #fff; /* White background */
+  background-color: #f05a27; /* Navbar color */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  height: 80px; /* Adjust height of the navbar */
+  height: 80px; /* Navbar height */
 }
 
 .logo {
-  position: relative; /* Enables absolute positioning for the image */
-  margin-right: 20px; /* Adds space between the logo and nav-links */
+  position: relative; /* Enables precise positioning for the logo */
+  margin-right: 20px; /* Space between the logo and nav-links */
 }
 
 .logo img {
-  height: 120px; /* Larger than navbar height */
+  height: 120px; /* Larger than navbar */
   position: absolute;
   top: -20px; /* Moves the logo upward to overlap the navbar */
-  left: 0; /* Aligns the logo to the left edge */
-  z-index: 15; /* Keeps the logo above other elements */
+  left: 0; /* Aligns the logo to the left */
+  z-index: 15; /* Keeps logo above other elements */
 }
 
 .nav-links {
   display: flex;
-  gap: 20px; /* Spacing between links */
-  flex-grow: 1; /* Pushes links to the right to align next to the logo */
+  gap: 20px; /* Space between links */
+  align-items: center; /* Center links vertically */
 }
 
 .nav-links a {
   text-decoration: none;
-  color: #1b1b1b; /* Dark gray text for visibility */
+  color: #474e5a; /* Text color */
   font-weight: 700;
+  font-size: 1rem;
   text-transform: uppercase;
   transition: color 0.3s ease, border-bottom 0.3s ease;
   padding: 5px 0;
 }
 
-.nav-links a:hover {
-  color: #ff4e00; /* Orange on hover */
-  border-bottom: 2px solid #ff4e00; /* Underline effect */
-}
-
-.nav-links a.active {
-  color: #ff4e00;
-  border-bottom: 2px solid #ff4e00;
+.nav-links a:hover, .nav-links a.active {
+  color: #d8dde5; /* Text color for hover/active state */
+  border-bottom: 2px solid #d8dde5; /* Underline effect */
 }
 
 .hamburger-menu {
@@ -227,14 +223,20 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .logo img {
+    height: 80px; /* Adjust logo size for mobile */
+    top: -10px; /* Adjust overlap */
+  }
+
   .nav-links {
-    display: none;
+    display: none; /* Hide links for smaller screens */
   }
 
   .hamburger-menu {
-    display: block;
+    display: block; /* Show hamburger menu */
     cursor: pointer;
   }
+}
 
   .hero-content {
     padding: 20px;
