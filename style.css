@@ -16,14 +16,25 @@ body {
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Align elements to the left */
-  padding: 10px 50px 10px 50px; /* Adjust left padding to add 30px */
-  position: sticky; /* Sticky navbar */
+  justify-content: flex-start; /* Align content to the left */
+  padding: 10px 50px; /* Navbar padding */
+  position: sticky;
   top: 0;
   z-index: 10;
   background-color: #f05a27; /* Navbar background color */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   height: 80px; /* Navbar height */
+  position: relative; /* Needed for pseudo-element positioning */
+}
+
+.navbar::after {
+  content: ''; /* Empty content for the line */
+  position: absolute;
+  bottom: 0; /* Place it at the bottom of the navbar */
+  right: 0; /* Start the line from the right edge */
+  height: 1px; /* Skinny line */
+  background-color: #d8dde5; /* Line color */
+  width: calc(100% - 120px); /* Adjust width to stop at the logo */
 }
 
 .logo {
