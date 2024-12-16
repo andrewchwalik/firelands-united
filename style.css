@@ -14,9 +14,10 @@ body {
 
 /* Navigation Bar */
 .navbar {
-  display: flex; /* Align logo and links in a row */
-  align-items: center; /* Vertically center logo and links */
-  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align elements to the left */
+  padding: 10px 50px 10px 50px; /* Adjust left padding to add 30px */
   position: sticky; /* Sticky navbar */
   top: 0;
   z-index: 10;
