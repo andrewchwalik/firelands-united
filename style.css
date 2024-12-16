@@ -27,27 +27,27 @@ body {
 }
 
 .logo {
-  position: relative; /* Enables precise positioning for the logo */
-  margin-right: 20px; /* Space between the logo and nav-links */
+  margin-right: 20px; /* Add spacing between the logo and nav-links */
 }
 
 .logo img {
   height: 120px; /* Larger than navbar */
-  position: absolute;
-  top: -20px; /* Moves the logo upward to overlap the navbar */
-  left: 0; /* Aligns the logo to the left */
-  z-index: 15; /* Keeps logo above other elements */
+  position: absolute; /* Keeps logo half on/half off */
+  top: -20px; /* Moves logo upward to overlap navbar */
+  left: 20px; /* Adjust position from the left edge */
+  z-index: 15; /* Ensures the logo stays on top */
 }
 
 .nav-links {
-  display: flex;
+  display: flex; /* Align links horizontally */
   gap: 20px; /* Space between links */
-  align-items: center; /* Center links vertically */
+  align-items: center; /* Vertically align links with the logo */
+  margin-left: auto; /* Push nav-links to the right of the logo */
 }
 
 .nav-links a {
   text-decoration: none;
-  color: #474e5a; /* Text color */
+  color: #474e5a; /* Default link color */
   font-weight: 700;
   font-size: 1rem;
   text-transform: uppercase;
@@ -56,7 +56,7 @@ body {
 }
 
 .nav-links a:hover, .nav-links a.active {
-  color: #d8dde5; /* Text color for hover/active state */
+  color: #d8dde5; /* Link hover and active color */
   border-bottom: 2px solid #d8dde5; /* Underline effect */
 }
 
@@ -229,7 +229,7 @@ body {
   }
 
   .nav-links {
-    display: none; /* Hide links for smaller screens */
+    display: none; /* Hide links on mobile */
   }
 
   .hamburger-menu {
