@@ -27,8 +27,8 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  height: 80px; /* Force thicker height */
-  min-height: 80px; /* Prevent other styles from shrinking it */
+  height: 70px; /* Force thicker height */
+  min-height: 70px; /* Prevent other styles from shrinking it */
   box-sizing: border-box;
 }
 
