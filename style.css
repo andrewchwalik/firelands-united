@@ -153,28 +153,27 @@ body {
 
 /* Upcoming Match Section */
 .match-info {
-    position: relative;
+    position: relative; /* Position to allow controlled overlap */
     background-color: #fff; /* Solid white background */
-    color: #1b1b1b;
-    padding: 20px; /* Spacing inside the box */
+    padding: 20px; /* Internal spacing */
+    margin: -50px auto 0; /* Overlaps the hero section */
     border-radius: 8px; /* Rounded corners */
     max-width: 1200px;
-    margin: -50px auto 0; /* Pull it into the hero section */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    z-index: 10;
+    z-index: 10; /* Ensure it stays above the hero section */
 }
 
-.match-info::before, 
+.match-info::before,
 .match-info::after {
-    content: none; /* Ensure no pseudo-elements are causing extra boxes */
+    content: none !important; /* Remove any pseudo-elements */
 }
 
-.match-info > * {
-    background: transparent; /* Remove any child backgrounds */
-    box-shadow: none; /* Remove child shadows */
-    border: none; /* Remove unwanted borders */
-    margin: 0; /* Remove unwanted spacing */
-    padding: 0;
+.match-info * {
+    box-shadow: none !important; /* Remove all child element shadows */
+    background: none !important; /* Remove any background overrides */
+    border: none !important; /* Remove any unwanted borders */
+    margin: 0; /* Remove margin that causes breaks */
+    padding: 0; /* Remove extra padding */
 }
 
 .match-card {
