@@ -140,6 +140,17 @@ body {
   background-color: darkorange;
 }
 
+/* Fade animation for hero content */
+.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
 /* Match Info Section */
 .match-info {
     position: relative; /* Keep it relative for easy placement */
