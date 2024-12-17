@@ -1,1 +1,135 @@
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  /* Adjust Navigation Bar */
+  .navbar {
+    padding: 10px 20px; /* Reduce padding */
+    height: auto; /* Let the height adjust dynamically */
+    flex-direction: column; /* Stack logo and nav links */
+    align-items: flex-start; /* Align to the left */
+  }
 
+  .logo img {
+    height: 80px; /* Reduce logo size */
+    top: 0; /* Align logo correctly */
+    position: relative;
+  }
+
+  .nav-links {
+    margin-left: 0; /* Remove unnecessary margin */
+    gap: 10px; /* Reduce space between links */
+    flex-direction: column; /* Stack links vertically */
+  }
+
+  .nav-links a {
+    font-size: 0.875rem; /* Reduce font size for links */
+  }
+
+/* Hamburger Menu Styling */
+.hamburger-menu {
+  display: none; /* Hidden by default */
+  flex-direction: column; /* Stack the hamburger lines */
+  gap: 5px;
+  cursor: pointer;
+  position: absolute; /* Position within the nav bar */
+  right: 20px; /* Align to the right side */
+  top: 50%; /* Vertically center */
+  transform: translateY(-50%);
+  z-index: 15; /* Ensures it stays on top of the navbar */
+}
+
+.hamburger-menu span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #d8dde5; /* Match navbar link color */
+  transition: all 0.3s ease;
+}
+  
+  /* Hero Section */
+  .hero {
+    flex-direction: column; /* Stack hero content */
+    padding: 0; /* Remove excess padding */
+  }
+
+  .hero-content {
+    position: relative; /* Make content static */
+    top: auto; /* Reset positioning */
+    left: 0;
+    transform: none; /* Remove transform */
+    text-align: center; /* Center-align text */
+    padding: 20px; /* Add padding for spacing */
+    max-width: 90%; /* Ensure content fits smaller screens */
+  }
+
+  .hero-title {
+    font-size: 2rem; /* Reduce title size */
+  }
+
+  .hero-subtitle {
+    font-size: 1rem; /* Adjust subtitle size */
+  }
+
+  .hero-button {
+    font-size: 0.875rem; /* Reduce button size */
+    padding: 8px 20px;
+  }
+
+  /* Match Info Section */
+  .match-card {
+    flex-direction: column; /* Stack content vertically */
+    text-align: center; /* Center-align all text */
+    gap: 15px; /* Add space between elements */
+  }
+
+  .match-teams,
+  .match-timer,
+  .match-details {
+    flex: none; /* Allow each section to size naturally */
+  }
+
+/* Mobile Responsive: Hamburger Menu */
+@media (max-width: 768px) {
+  .hamburger-menu {
+    display: flex; /* Display hamburger menu */
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .hamburger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #d8dde5; /* Match navbar link color */
+    transition: all 0.3s ease;
+  }
+
+  .nav-links {
+    display: none; /* Hide nav links by default */
+    flex-direction: column;
+    background-color: #f05a27; /* Same as navbar */
+    position: absolute;
+    top: 90px; /* Place it below the navbar */
+    right: 0;
+    width: 100%; /* Full width */
+    text-align: center;
+    gap: 15px;
+    padding: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+  }
+
+  .nav-links.show {
+    display: flex; /* Show links when toggled */
+  }
+}
+  
+  /* Footer Section */
+  .site-footer {
+    padding: 20px 10px; /* Reduce footer padding */
+  }
+
+  .footer-content p {
+    font-size: 0.875rem; /* Smaller footer text */
+  }
+}
