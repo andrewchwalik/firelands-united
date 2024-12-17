@@ -67,6 +67,42 @@
         <a href="#" class="cta-button">Learn More</a>
     </div>
 </section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const heroTitle = document.getElementById("hero-title");
+    const heroSubtitle = document.getElementById("hero-subtitle");
+    const heroButton = document.getElementById("hero-button");
+
+    let blogPosts = [];
+    let currentIndex = 0;
+
+    // Fetch blog data from the blogs.json file
+    fetch("blogs.json")
+      .then(response => response.json())
+      .then(data => {
+        blogPosts = data; // Store blog posts
+        updateHeroContent(); // Display the first blog post
+        setInterval(updateHeroContent, 5000); // Change content every 5 seconds
+      })
+      .catch(error => {
+        console.error("Error loading blog data:", error);
+      });
+
+    // Function to update the hero section content
+    function updateHeroContent() {
+      if (blogPosts.length === 0) return;
+
+      const post = blogPosts[currentIndex];
+      heroTitle.textContent = post.title;
+      heroSubtitle.textContent = post.excerpt;
+      heroButton.href = post.link;
+
+      // Cycle to the next blog post
+      currentIndex = (currentIndex + 1) % blogPosts.length;
+    }
+  });
+</script>
   
 </body>
 </html>
