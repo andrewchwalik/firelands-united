@@ -17,17 +17,19 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 10px 50px; /* Navbar padding */
-  position: sticky; /* Sticky behavior */
+  padding: 20px 50px; /* Increase padding to make the bar thicker */
+  position: sticky; /* Stick the nav bar at the top */
   top: 0;
-  z-index: 10; /* Keeps navbar above most content */
-  background-color: #f05a27; /* Orange background */
-  background-image: url('img/navigation-bar-texture.png'); /* Add the texture */
-  background-size: cover; /* Scale the texture to fit */
-  background-repeat: no-repeat; /* Prevent tiling */
-  background-position: center; /* Center the texture */
+  z-index: 10;
+  background-color: #f05a27; /* Navigation bar color */
+  background-image: url('img/navigation-bar-texture.png'); /* Texture overlay */
+  background-size: cover; /* Cover the entire nav bar */
+  background-repeat: no-repeat;
+  background-position: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  height: 90px; /* Navbar height */
+  height: 120px; /* Force thicker height */
+  min-height: 120px; /* Prevent other styles from shrinking it */
+  box-sizing: border-box;
 }
 
 .navbar::after {
