@@ -70,6 +70,7 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
+    const heroContent = document.getElementById("hero-content");
     const heroTitle = document.getElementById("hero-title");
     const heroSubtitle = document.getElementById("hero-subtitle");
     const heroButton = document.getElementById("hero-button");
@@ -81,13 +82,29 @@
     fetch("blogs.json")
       .then(response => response.json())
       .then(data => {
-        blogPosts = data; // Store blog posts
+        blogPosts = data;
         updateHeroContent(); // Display the first blog post
-        setInterval(updateHeroContent, 5000); // Change content every 5 seconds
+        setInterval(() => {
+          fadeOutAndUpdate();
+        }, 5000); // Change content every 5 seconds
       })
       .catch(error => {
         console.error("Error loading blog data:", error);
       });
+
+    // Function to fade out, update content, and fade back in
+    function fadeOutAndUpdate() {
+      heroContent.classList.add("fade-out");
+
+      setTimeout(() => {
+        updateHeroContent();
+        heroContent.classList.remove("fade-out");
+        heroContent.classList.add("fade-in");
+
+        // Remove fade-in class after animation completes
+        setTimeout(() => heroContent.classList.remove("fade-in"), 1000);
+      }, 1000); // Matches the fade-out duration
+    }
 
     // Function to update the hero section content
     function updateHeroContent() {
