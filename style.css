@@ -190,6 +190,7 @@ body {
 .match-teams {
   font-size: 1.25rem;
   font-weight: 700;
+  color: #1b1b1b;
 }
 
 .match-teams .vs {
@@ -216,6 +217,7 @@ body {
   font-size: 1rem;
   font-weight: 400;
   text-align: right;
+  color: #1b1b1b;
 }
 
 /* Content Section */
