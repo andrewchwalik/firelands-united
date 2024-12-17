@@ -107,7 +107,7 @@ body {
     transform: translateY(-50%); /* Centers content vertically */
     text-align: left; /* Align text to the left */
     z-index: 1; /* Ensure it stays above the image */
-    color: #fff; /* White text for readability */
+    color: #d8dde5; /* White text for readability */
     max-width: 50%; /* Restricts the content to half the screen width */
     padding: 0; /* Removes extra spacing */
     margin: 0;
@@ -127,8 +127,8 @@ body {
 .hero-button {
   display: inline-block;
   padding: 10px 30px;
-  background-color: orange;
-  color: #f05a27;
+  background-color: #f05a27;
+  color: #d8dde5;
   text-decoration: none;
   border-radius: 30px;
   font-weight: 700;
