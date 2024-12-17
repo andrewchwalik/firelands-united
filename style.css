@@ -151,23 +151,29 @@ body {
   transition: opacity 1s ease-in-out;
 }
 
+/* Upcoming Match Section */
 .match-info {
-    position: relative; /* Ensure it stays on top */
-    background-color: #fff; /* White background */
-    color: #1b1b1b; /* Text color */
-    padding: 20px; /* Internal spacing */
+    position: relative;
+    background-color: #fff; /* Solid white background */
+    color: #1b1b1b;
+    padding: 20px; /* Spacing inside the box */
     border-radius: 8px; /* Rounded corners */
-    max-width: 1200px; /* Set max width */
-    margin: -50px auto 0; /* Pull the box up into the hero section */
+    max-width: 1200px;
+    margin: -50px auto 0; /* Pull it into the hero section */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    z-index: 10; /* Ensure it stays above the hero */
+    z-index: 10;
+}
+
+.match-info::before, 
+.match-info::after {
+    content: none; /* Ensure no pseudo-elements are causing extra boxes */
 }
 
 .match-info > * {
-    /* Remove shadow or border from any child elements */
-    box-shadow: none;
-    border: none;
-    margin: 0; /* Remove unwanted margin */
+    background: transparent; /* Remove any child backgrounds */
+    box-shadow: none; /* Remove child shadows */
+    border: none; /* Remove unwanted borders */
+    margin: 0; /* Remove unwanted spacing */
     padding: 0;
 }
 
