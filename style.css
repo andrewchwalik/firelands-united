@@ -177,21 +177,23 @@ body {
 }
 
 .match-card {
-  display: flex !important; /* Force Flexbox */
-  justify-content: space-between !important; /* Space the items */
-  align-items: center !important; /* Align items vertically */
-  flex-wrap: nowrap; /* Prevent wrapping */
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  display: flex; /* Use Flexbox */
+  justify-content: space-between; /* Space elements evenly (left, center, right) */
+  align-items: center; /* Vertically center all items */
+  max-width: 1200px; /* Limit width */
+  margin: 0 auto; /* Center horizontally */
+  padding: 20px; /* Internal padding */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background-color: #fff; /* White background */
 }
 
 .match-teams {
-  text-align: left;
-  flex: 1; /* Equal spacing */
+  flex: 1; /* Allow it to take up 1 part of the space */
+  text-align: left; /* Align text to the left */
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1b1b1b;
 }
 
 .match-teams .vs {
@@ -200,16 +202,20 @@ body {
 }
 
 .match-timer {
-  text-align: center;
-  flex: 1;
+  flex: 1; /* Allow it to take up 1 part of the space */
   display: flex;
-  justify-content: center;
-  gap: 10px;
+  justify-content: center; /* Center the timer */
+  gap: 10px; /* Space between timer segments */
+  align-items: center; /* Vertically center items */
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ff4e00; /* Timer text color */
 }
 
-.match-details {
-  text-align: right;
-  flex: 1;
+.match-timer .time {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #000; /* Ensure numbers are black */
 }
 
 .match-details {
