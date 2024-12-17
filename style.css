@@ -151,17 +151,24 @@ body {
   transition: opacity 1s ease-in-out;
 }
 
-/* Match Info Section */
 .match-info {
-    position: relative; /* Keep it relative for easy placement */
+    position: relative; /* Ensure it stays on top */
     background-color: #fff; /* White background */
-    color: #1b1b1b; /* Dark text color */
-    padding: 20px; /* Padding inside the box */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for elevation */
+    color: #1b1b1b; /* Text color */
+    padding: 20px; /* Internal spacing */
     border-radius: 8px; /* Rounded corners */
-    max-width: 1200px; /* Centered width */
-    margin: -50px auto 0; /* Pull the box up by 50px to overlap the hero section */
-    z-index: 10; /* Ensure it stays above the hero section */
+    max-width: 1200px; /* Set max width */
+    margin: -50px auto 0; /* Pull the box up into the hero section */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    z-index: 10; /* Ensure it stays above the hero */
+}
+
+.match-info > * {
+    /* Remove shadow or border from any child elements */
+    box-shadow: none;
+    border: none;
+    margin: 0; /* Remove unwanted margin */
+    padding: 0;
 }
 
 .match-card {
