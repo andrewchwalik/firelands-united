@@ -9,21 +9,29 @@
   <link rel="icon" href="img/firelands-united-favicon.png" type="image/png">
 </head>
 <body>
+  
   <!-- Navigation Bar -->
 <header class="navbar">
+  <!-- Logo -->
   <div class="logo">
-    <a href="index.html"><img src="img/firelands-badge.png" alt="Firelands Badge"></a>
+    <a href="index.html">
+      <img src="img/firelands-badge.png" alt="Firelands United Logo">
+    </a>
   </div>
-  <nav class="nav-links">
-    <a href="#" class="active">Home</a>
+
+  <!-- Hamburger Menu Button -->
+  <div class="hamburger-menu" id="hamburger-menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Navigation Links -->
+  <nav class="nav-links" id="nav-links">
+    <a href="index.html">Home</a>
     <a href="news.html">News</a>
     <a href="#">Roster</a>
   </nav>
-  <div class="hamburger-menu">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
 </header>
 
   <!-- Hero Section -->
@@ -127,5 +135,15 @@
   });
 </script>
 
+<script>
+  // Hamburger Menu Toggle
+  const hamburger = document.getElementById('hamburger-menu');
+  const navLinks = document.getElementById('nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
+</script>
+  
 </body>
 </html>
