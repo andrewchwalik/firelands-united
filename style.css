@@ -103,7 +103,7 @@ body {
 .hero-content {
     position: absolute; /* Keeps the content over the image */
     top: 50%; /* Vertically center the content */
-    left: 50px; /* Adds more space from the left */
+    left: 80px; /* Adds more space from the left */
     transform: translateY(-50%); /* Centers content vertically */
     text-align: left; /* Align text to the left */
     z-index: 1; /* Ensure it stays above the image */
