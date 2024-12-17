@@ -338,6 +338,43 @@ body {
     flex: none; /* Allow each section to size naturally */
   }
 
+/* Mobile Responsive: Hamburger Menu */
+@media (max-width: 768px) {
+  .hamburger-menu {
+    display: flex; /* Display hamburger menu */
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .hamburger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #d8dde5; /* Match navbar link color */
+    transition: all 0.3s ease;
+  }
+
+  .nav-links {
+    display: none; /* Hide nav links by default */
+    flex-direction: column;
+    background-color: #f05a27; /* Same as navbar */
+    position: absolute;
+    top: 90px; /* Place it below the navbar */
+    right: 0;
+    width: 100%; /* Full width */
+    text-align: center;
+    gap: 15px;
+    padding: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+  }
+
+  .nav-links.show {
+    display: flex; /* Show links when toggled */
+  }
+}
+  
   /* Footer Section */
   .site-footer {
     padding: 20px 10px; /* Reduce footer padding */
