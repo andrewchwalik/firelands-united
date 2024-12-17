@@ -27,7 +27,7 @@ body {
   background-repeat: no-repeat; /* Prevent tiling */
   background-position: center; /* Center the texture */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  height: 80px; /* Navbar height */
+  height: 90px; /* Navbar height */
 }
 
 .navbar::after {
