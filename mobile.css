@@ -1,0 +1,155 @@
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  /* Adjust Navigation Bar */
+  .navbar {
+    padding: 5px 20px; /* Reduce padding for a thinner navbar */
+    height: 60px; /* Thinner navbar */
+    min-height: 60px; /* Prevent shrinking */
+    position: sticky; /* Keeps the navbar fixed */
+    top: 0;
+    z-index: 15;
+  }
+
+  .navbar::after {
+    content: ''; /* Extend light grey line */
+    position: absolute;
+    bottom: -1px; /* Adjust to make it 1px thinner */
+    left: 0; /* Start from the very left */
+    height: 2px; /* Line thickness */
+    background-color: #d8dde5; /* Light grey line */
+    width: 100%; /* Full width under the logo */
+    z-index: -1; /* Keep it under the logo */
+  }
+
+  /* Logo Positioning */
+  .logo img {
+    height: 70px; /* Logo size remains consistent */
+    position: absolute;
+    top: -15px; /* Align to overlap */
+    left: 20px; /* Horizontal alignment */
+  }
+
+  /* Hamburger Menu */
+  .hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px; /* Align to right */
+    top: 50%; /* Vertically centered */
+    transform: translateY(-50%);
+    z-index: 20; /* Stay above other content */
+  }
+
+  .hamburger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #d8dde5; /* Same color as nav links */
+    transition: all 0.3s ease;
+  }
+
+  /* Navigation Links (Hidden by Default) */
+  .nav-links {
+    display: none; /* Hide links initially */
+    flex-direction: column;
+    background-color: #f05a27; /* Navbar color */
+    position: absolute;
+    top: 60px; /* Below the thinner navbar */
+    right: 0;
+    width: 100%; /* Full width */
+    text-align: center;
+    gap: 15px;
+    padding: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 15;
+  }
+
+  .nav-links.show {
+    display: flex; /* Show links when toggled */
+  }
+
+  /* Hero Section */
+  .hero-content {
+    position: relative;
+    top: auto;
+    left: 0;
+    transform: none;
+    text-align: center;
+    padding: 15px; /* Reduce padding */
+    max-width: 90%;
+  }
+
+  .hero-title {
+    font-size: 1.8rem; /* Slightly smaller font size */
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-button {
+    font-size: 0.875rem;
+    padding: 8px 15px;
+  }
+
+  /* Match Info Section */
+  .match-card {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+/* Footer Optimization for Mobile Devices */
+@media (max-width: 768px) {
+  /* Adjust Footer Layout */
+  .footer-links-container {
+    flex-direction: column; /* Stack columns vertically */
+    align-items: center; /* Center-align content */
+    text-align: center; /* Center text */
+    gap: 20px; /* Add spacing between sections */
+  }
+
+  .footer-column {
+    margin: 10px 0; /* Add spacing between columns */
+  }
+
+  .footer-column h3 {
+    font-size: 1.1rem; /* Slightly smaller headings */
+  }
+
+  .footer-column ul {
+    padding: 0; /* Remove padding */
+  }
+
+  .footer-column ul li {
+    margin-bottom: 8px; /* Add space between links */
+  }
+
+  .footer-column ul li a {
+    font-size: 0.9rem; /* Smaller font size for links */
+  }
+
+  /* Social Media Icons */
+  .footer-social {
+    margin-top: 10px; /* Add spacing above social icons */
+  }
+
+  .footer-social a img {
+    height: 20px; /* Smaller icons for mobile */
+    margin-right: 8px; /* Reduce spacing between icons */
+  }
+
+  /* GIF Column */
+  .footer-gif img {
+    max-width: 120px; /* Reduce GIF size */
+    margin-top: 10px; /* Add spacing above the GIF */
+  }
+
+  /* Footer Bottom Text */
+  .footer-bottom p {
+    font-size: 0.8rem; /* Smaller copyright text */
+    margin-top: 15px; /* Space it out */
+  }
+}

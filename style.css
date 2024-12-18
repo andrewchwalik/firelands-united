@@ -17,17 +17,19 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 10px 50px; /* Navbar padding */
-  position: sticky; /* Sticky behavior */
+  padding: 20px 50px; /* Increase padding to make the bar thicker */
+  position: sticky; /* Stick the nav bar at the top */
   top: 0;
-  z-index: 10; /* Keeps navbar above most content */
-  background-color: #f05a27; /* Orange background */
-  background-image: url('img/navigation-bar-texture.png'); /* Add the texture */
-  background-size: cover; /* Scale the texture to fit */
-  background-repeat: no-repeat; /* Prevent tiling */
-  background-position: center; /* Center the texture */
+  z-index: 10;
+  background-color: #f05a27; /* Navigation bar color */
+  background-image: url('img/navigation-bar-texture.png'); /* Texture overlay */
+  background-size: cover; /* Cover the entire nav bar */
+  background-repeat: no-repeat;
+  background-position: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  height: 80px; /* Navbar height */
+  height: 70px; /* Force thicker height */
+  min-height: 70px; /* Prevent other styles from shrinking it */
+  box-sizing: border-box;
 }
 
 .navbar::after {
@@ -103,11 +105,11 @@ body {
 .hero-content {
     position: absolute; /* Keeps the content over the image */
     top: 50%; /* Vertically center the content */
-    left: 40px; /* Adds more space from the left */
+    left: 80px; /* Adds more space from the left */
     transform: translateY(-50%); /* Centers content vertically */
     text-align: left; /* Align text to the left */
     z-index: 1; /* Ensure it stays above the image */
-    color: #fff; /* White text for readability */
+    color: #d8dde5; /* White text for readability */
     max-width: 50%; /* Restricts the content to half the screen width */
     padding: 0; /* Removes extra spacing */
     margin: 0;
@@ -127,8 +129,8 @@ body {
 .hero-button {
   display: inline-block;
   padding: 10px 30px;
-  background-color: orange;
-  color: #fff;
+  background-color: #f05a27;
+  color: #d8dde5;
   text-decoration: none;
   border-radius: 30px;
   font-weight: 700;
@@ -140,59 +142,90 @@ body {
   background-color: darkorange;
 }
 
-/* Match Info Section */
+/* Fade animation for hero content */
+.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Upcoming Match Section */
 .match-info {
-    position: relative; /* Keep it relative for easy placement */
-    background-color: #fff; /* White background */
-    color: #1b1b1b; /* Dark text color */
-    padding: 20px; /* Padding inside the box */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for elevation */
+    position: relative; /* Position to allow controlled overlap */
+    background-color: #fff; /* Solid white background */
+    padding: 20px; /* Internal spacing */
+    margin: -50px auto 0; /* Overlaps the hero section */
     border-radius: 8px; /* Rounded corners */
-    max-width: 1200px; /* Centered width */
-    margin: -50px auto 0; /* Pull the box up by 50px to overlap the hero section */
+    max-width: 1200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     z-index: 10; /* Ensure it stays above the hero section */
 }
 
+.match-info::before,
+.match-info::after {
+    content: none !important; /* Remove any pseudo-elements */
+}
+
+.match-info * {
+    box-shadow: none !important; /* Remove all child element shadows */
+    background: none !important; /* Remove any background overrides */
+    border: none !important; /* Remove any unwanted borders */
+    margin: 0; /* Remove margin that causes breaks */
+    padding: 0; /* Remove extra padding */
+}
+
 .match-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex; /* Use Flexbox */
+  justify-content: space-between; /* Space elements evenly (left, center, right) */
+  align-items: center; /* Vertically center all items */
+  max-width: 1200px; /* Limit width */
+  margin: 0 auto; /* Center horizontally */
+  padding: 20px; /* Internal padding */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background-color: #fff; /* White background */
 }
 
 .match-teams {
+  flex: 1; /* Allow it to take up 1 part of the space */
+  text-align: left; /* Align text to the left */
   font-size: 1.25rem;
   font-weight: 700;
+  color: #1b1b1b;
 }
 
 .match-teams .vs {
   margin: 0 10px;
-  color: #666;
+  color: #666; /* Slightly lighter for 'vs' */
 }
 
 .match-timer {
+  flex: 1; /* Allow it to take up 1 part of the space */
   display: flex;
-  gap: 10px;
-  align-items: center;
+  justify-content: center; /* Center the timer */
+  gap: 10px; /* Space between timer segments */
+  align-items: center; /* Vertically center items */
   font-size: 1rem;
   font-weight: 700;
-  color: #ff4e00;
+  color: #ff4e00; /* Timer text color */
 }
 
 .match-timer .time {
   font-size: 2rem;
   font-weight: 700;
-  color: #000;
+  color: #000; /* Ensure numbers are black */
 }
 
 .match-details {
+  flex: 1; /* Allow it to take up 1 part of the space */
+  text-align: right; /* Align text to the right */
   font-size: 1rem;
   font-weight: 400;
-  text-align: right;
+  color: #1b1b1b; /* Dark text color */
 }
 
 /* Content Section */
@@ -235,42 +268,6 @@ body {
 
 .cta-button:hover {
     background-color: #d94400; /* Slightly darker orange on hover */
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .logo img {
-    height: 80px; /* Adjust logo size for mobile */
-    top: -10px; /* Adjust overlap */
-  }
-
-  .nav-links {
-    display: none; /* Hide links on mobile */
-  }
-
-  .hamburger-menu {
-    display: block; /* Show hamburger menu */
-    cursor: pointer;
-  }
-}
-
-  .hero-content {
-    padding: 20px;
-  }
-
-  .match-card {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-  }
-
-  .match-timer {
-    justify-content: center;
-  }
-
-  .match-details {
-    text-align: left;
-  }
 }
 
 /* News Section */
@@ -331,4 +328,123 @@ body {
 
 .read-more:hover {
   background-color: #d94400;
+}
+
+/* Footer Section */
+.site-footer {
+  background-color: #f05a27; /* Same as nav bar */
+  background-image: url('img/navigation-bar-texture.png'); /* Texture */
+  background-size: cover;
+  background-position: center;
+  color: #d8dde5; /* Light grey text */
+  padding: 30px 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.875rem; /* Smaller text for footer */
+}
+
+/* Footer Layout */
+.footer-links-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 30px;
+}
+
+/* Logo Column */
+.footer-logo {
+  flex: 1;
+  text-align: left;
+}
+
+.footer-logo img {
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+.footer-bottom {
+  margin-top: 10px;
+  font-size: 0.75rem; /* Smaller copyright text */
+}
+
+.footer-bottom a {
+  color: #d8dde5;
+  text-decoration: none;
+  margin: 0 5px;
+  transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Footer Columns */
+.footer-column {
+  flex: 1;
+  min-width: 150px;
+}
+
+.footer-column h3 {
+  font-size: 1rem; /* Smaller heading size */
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 5px; /* Reduced spacing */
+}
+
+.footer-column ul li a {
+  color: #d8dde5;
+  text-decoration: none;
+  font-size: 0.875rem; /* Smaller link text */
+  transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+  color: #fff;
+}
+
+/* Social Media Icons */
+.footer-social {
+  margin-top: 10px;
+}
+
+.footer-social a {
+  display: inline-block;
+  margin-right: 10px; /* Space between icons */
+  transition: transform 0.3s ease; /* Hover effect */
+}
+
+.footer-social a img {
+  height: 20px; /* Uniform size */
+  filter: brightness(0) saturate(100%) invert(94%) sepia(4%) saturate(268%) hue-rotate(167deg) brightness(94%) contrast(94%);
+  /* Converts the icon to color #d8dde5 */
+}
+
+.footer-social a:hover {
+  transform: scale(1.1); /* Slightly larger on hover */
+}
+
+/* GIF Column */
+.footer-gif {
+    display: flex; /* Center align if needed */
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Space from other elements */
+}
+
+.footer-gif img {
+    max-width: 150px; /* Adjust size of the GIF */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Slight rounding if desired */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for emphasis */
 }
