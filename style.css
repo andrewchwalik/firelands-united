@@ -436,12 +436,15 @@ body {
 
 /* GIF Column */
 .footer-gif {
-  flex: 1;
-  text-align: center;
+    display: flex; /* Center align if needed */
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Space from other elements */
 }
 
 .footer-gif img {
-  max-height: 100px;
-  object-fit: contain;
-  border-radius: 8px;
+    max-width: 150px; /* Adjust size of the GIF */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Slight rounding if desired */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for emphasis */
 }
