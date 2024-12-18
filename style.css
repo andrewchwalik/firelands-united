@@ -337,18 +337,19 @@ body {
   background-size: cover;
   background-position: center;
   color: #d8dde5; /* Light grey text */
-  padding: 40px 20px;
+  padding: 30px 20px;
   font-family: 'Montserrat', sans-serif;
+  font-size: 0.875rem; /* Smaller text for footer */
 }
 
 /* Footer Layout */
 .footer-links-container {
   display: flex;
-  justify-content: space-between; /* Space the columns evenly */
-  align-items: flex-start; /* Align items to the top */
+  justify-content: space-between;
+  align-items: flex-start;
   max-width: 1200px;
   margin: 0 auto;
-  gap: 30px; /* Add spacing between columns */
+  gap: 30px;
 }
 
 /* Logo Column */
@@ -358,13 +359,13 @@ body {
 }
 
 .footer-logo img {
-  height: 80px; /* Adjust logo size */
-  margin-bottom: 15px;
+  height: 60px;
+  margin-bottom: 10px;
 }
 
 .footer-bottom {
   margin-top: 10px;
-  font-size: 0.9rem;
+  font-size: 0.75rem; /* Smaller copyright text */
 }
 
 .footer-bottom a {
@@ -379,15 +380,15 @@ body {
   text-decoration: underline;
 }
 
-/* Footer Columns (Roster, Info, Reach Out) */
+/* Footer Columns */
 .footer-column {
   flex: 1;
-  min-width: 150px; /* Ensure responsiveness */
+  min-width: 150px;
 }
 
 .footer-column h3 {
-  font-size: 1.2rem;
-  margin-bottom: 15px;
+  font-size: 1rem; /* Smaller heading size */
+  margin-bottom: 10px;
   color: #fff;
 }
 
@@ -398,12 +399,13 @@ body {
 }
 
 .footer-column ul li {
-  margin-bottom: 8px;
+  margin-bottom: 5px; /* Reduced spacing */
 }
 
 .footer-column ul li a {
   color: #d8dde5;
   text-decoration: none;
+  font-size: 0.875rem; /* Smaller link text */
   transition: color 0.3s ease;
 }
 
@@ -416,14 +418,20 @@ body {
   margin-top: 10px;
 }
 
-.footer-social a img {
-  height: 24px;
+.footer-social a {
+  display: inline-block;
   margin-right: 10px;
   transition: transform 0.3s ease;
 }
 
-.footer-social a img:hover {
-  transform: scale(1.1);
+.footer-social a img {
+  height: 20px; /* Icon size */
+  filter: brightness(0) saturate(100%) invert(94%) sepia(4%) saturate(268%) hue-rotate(167deg) brightness(94%) contrast(94%);
+  /* This filter makes the icons #d8dde5 */
+}
+
+.footer-social a:hover {
+  transform: scale(1.1); /* Slightly increase size on hover */
 }
 
 /* GIF Column */
@@ -433,7 +441,7 @@ body {
 }
 
 .footer-gif img {
-  max-height: 120px;
+  max-height: 100px;
   object-fit: contain;
-  border-radius: 8px; /* Optional curve */
+  border-radius: 8px;
 }
