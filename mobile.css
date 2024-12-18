@@ -101,15 +101,55 @@
     text-align: center;
   }
 
-  /* Footer Section */
-  .site-footer {
-    padding: 15px 10px;
-    background-color: #f05a27; /* Match navbar */
-    background-image: url('img/navigation-bar-texture.png');
-    background-size: cover;
+/* Footer Optimization for Mobile Devices */
+@media (max-width: 768px) {
+  /* Adjust Footer Layout */
+  .footer-links-container {
+    flex-direction: column; /* Stack columns vertically */
+    align-items: center; /* Center-align content */
+    text-align: center; /* Center text */
+    gap: 20px; /* Add spacing between sections */
   }
 
-  .footer-content p {
-    font-size: 0.875rem;
+  .footer-column {
+    margin: 10px 0; /* Add spacing between columns */
+  }
+
+  .footer-column h3 {
+    font-size: 1.1rem; /* Slightly smaller headings */
+  }
+
+  .footer-column ul {
+    padding: 0; /* Remove padding */
+  }
+
+  .footer-column ul li {
+    margin-bottom: 8px; /* Add space between links */
+  }
+
+  .footer-column ul li a {
+    font-size: 0.9rem; /* Smaller font size for links */
+  }
+
+  /* Social Media Icons */
+  .footer-social {
+    margin-top: 10px; /* Add spacing above social icons */
+  }
+
+  .footer-social a img {
+    height: 20px; /* Smaller icons for mobile */
+    margin-right: 8px; /* Reduce spacing between icons */
+  }
+
+  /* GIF Column */
+  .footer-gif img {
+    max-width: 120px; /* Reduce GIF size */
+    margin-top: 10px; /* Add spacing above the GIF */
+  }
+
+  /* Footer Bottom Text */
+  .footer-bottom p {
+    font-size: 0.8rem; /* Smaller copyright text */
+    margin-top: 15px; /* Space it out */
   }
 }
