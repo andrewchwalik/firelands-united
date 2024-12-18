@@ -420,18 +420,18 @@ body {
 
 .footer-social a {
   display: inline-block;
-  margin-right: 10px;
-  transition: transform 0.3s ease;
+  margin-right: 10px; /* Space between icons */
+  transition: transform 0.3s ease; /* Hover effect */
 }
 
 .footer-social a img {
-  height: 20px; /* Icon size */
+  height: 20px; /* Uniform size */
   filter: brightness(0) saturate(100%) invert(94%) sepia(4%) saturate(268%) hue-rotate(167deg) brightness(94%) contrast(94%);
-  /* This filter makes the icons #d8dde5 */
+  /* Converts the icon to color #d8dde5 */
 }
 
 .footer-social a:hover {
-  transform: scale(1.1); /* Slightly increase size on hover */
+  transform: scale(1.1); /* Slightly larger on hover */
 }
 
 /* GIF Column */
