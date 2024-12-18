@@ -336,47 +336,65 @@ body {
   background-image: url('img/navigation-bar-texture.png'); /* Texture */
   background-size: cover;
   background-position: center;
-  color: #d8dde5;
+  color: #d8dde5; /* Light grey text */
   padding: 40px 20px;
   font-family: 'Montserrat', sans-serif;
 }
 
-.footer-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.footer-logo img {
-  height: 60px; /* Logo size */
-  margin-bottom: 20px;
-}
-
+/* Footer Layout */
 .footer-links-container {
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  justify-content: space-between; /* Space the columns evenly */
+  align-items: flex-start; /* Align items to the top */
   max-width: 1200px;
-  margin: 0 auto 30px;
+  margin: 0 auto;
+  gap: 30px; /* Add spacing between columns */
 }
 
-.footer-column {
+/* Logo Column */
+.footer-logo {
   flex: 1;
-  min-width: 150px;
-  margin: 10px;
   text-align: left;
 }
 
+.footer-logo img {
+  height: 80px; /* Adjust logo size */
+  margin-bottom: 15px;
+}
+
+.footer-bottom {
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.footer-bottom a {
+  color: #d8dde5;
+  text-decoration: none;
+  margin: 0 5px;
+  transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Footer Columns (Roster, Info, Reach Out) */
+.footer-column {
+  flex: 1;
+  min-width: 150px; /* Ensure responsiveness */
+}
+
 .footer-column h3 {
-  font-size: 1.25rem;
-  margin-bottom: 10px;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
   color: #fff;
 }
 
 .footer-column ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .footer-column ul li {
@@ -384,8 +402,8 @@ body {
 }
 
 .footer-column ul li a {
-  text-decoration: none;
   color: #d8dde5;
+  text-decoration: none;
   transition: color 0.3s ease;
 }
 
@@ -393,8 +411,13 @@ body {
   color: #fff;
 }
 
+/* Social Media Icons */
+.footer-social {
+  margin-top: 10px;
+}
+
 .footer-social a img {
-  height: 24px; /* Icon size */
+  height: 24px;
   margin-right: 10px;
   transition: transform 0.3s ease;
 }
@@ -403,18 +426,14 @@ body {
   transform: scale(1.1);
 }
 
-.footer-gif img {
-  max-width: 150px;
-  border-radius: 8px; /* Slight curve */
-}
-
-.footer-bottom {
+/* GIF Column */
+.footer-gif {
+  flex: 1;
   text-align: center;
-  font-size: 0.875rem;
-  color: #d8dde5;
-  margin-top: 20px;
 }
 
-.footer-bottom p {
-  margin: 0;
+.footer-gif img {
+  max-height: 120px;
+  object-fit: contain;
+  border-radius: 8px; /* Optional curve */
 }
