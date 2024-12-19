@@ -61,7 +61,7 @@ body {
   gap: 30px; /* Space between links */
   align-items: center; /* Vertically align links with the logo */
   margin-left: 140px; /* Create space to the right of the logo */
-  margin-top: 3px; /* Move links down by 3 pixels */
+  margin-top: 8px; /* Move links down by 3 pixels */
 }
 
 .nav-links a {
