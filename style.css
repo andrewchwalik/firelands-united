@@ -65,7 +65,7 @@ body {
 
 .nav-links a {
   text-decoration: none;
-  color: #474e5a; /* Default link text color */
+  color: #d8dde5; /* Default link text color */
   font-weight: 700;
   font-size: 1rem;
   text-transform: uppercase;
@@ -74,7 +74,7 @@ body {
 }
 
 .nav-links a:hover, .nav-links a.active {
-  color: #d8dde5; /* Link hover and active state color */
+  color: #474e5a; /* Link hover and active state color */
   border-bottom: none; /* Remove the underline */
 }
 
