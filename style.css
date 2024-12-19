@@ -427,13 +427,14 @@ body {
 }
 
 .footer-social a img {
-  height: 20px; /* Uniform size */
-  filter: brightness(0) saturate(100%) invert(94%) sepia(4%) saturate(268%) hue-rotate(167deg) brightness(94%) contrast(94%);
-  /* Converts the icon to color #d8dde5 */
+  height: 24px; /* Icon size */
+  margin-right: 10px;
+  display: inline-block;
+  transition: transform 0.3s ease; /* Smooth hover effect */
 }
 
-.footer-social a:hover {
-  transform: scale(1.1); /* Slightly larger on hover */
+.footer-social a img:hover {
+  transform: scale(1.1); /* Slight zoom effect on hover */
 }
 
 /* GIF Column */
