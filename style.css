@@ -345,17 +345,18 @@ body {
 /* Footer Layout */
 .footer-links-container {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  max-width: 1200px;
-  margin: 0 auto;
-  gap: 30px;
+  justify-content: space-between; /* Spread out the columns evenly */
+  align-items: flex-start; /* Align columns to the top */
+  max-width: 1200px; /* Center container width */
+  margin: 0 auto; /* Center the footer content */
+  gap: 60px; /* Add more space between columns */
 }
 
 /* Logo Column */
 .footer-logo {
   flex: 1;
   text-align: left;
+  margin-right: 20px; /* Space between logo and columns */
 }
 
 .footer-logo img {
@@ -383,7 +384,8 @@ body {
 /* Footer Columns */
 .footer-column {
   flex: 1;
-  min-width: 150px;
+  min-width: 200px; /* Increase column size for better spacing */
+  text-align: left;
 }
 
 .footer-column h3 {
@@ -399,7 +401,7 @@ body {
 }
 
 .footer-column ul li {
-  margin-bottom: 5px; /* Reduced spacing */
+  margin-bottom: 8px; /* Adjust spacing between list items */
 }
 
 .footer-column ul li a {
@@ -425,31 +427,29 @@ body {
 }
 
 .footer-social a img {
-  height: 20px; /* Uniform size */
-  filter: brightness(0) saturate(100%) invert(94%) sepia(4%) saturate(268%) hue-rotate(167deg) brightness(94%) contrast(94%);
-  /* Converts the icon to color #d8dde5 */
+  height: 24px; /* Icon size */
+  margin-right: 0; /* Adjust icon spacing */
+  display: inline-block;
+  transition: transform 0.3s ease; /* Smooth hover effect */
 }
 
-.footer-social a:hover {
-  transform: scale(1.1); /* Slightly larger on hover */
+.footer-social a img:hover {
+  transform: scale(1.1); /* Slight zoom effect on hover */
 }
 
 /* GIF Column */
 .footer-gif {
-  margin: 0; /* No external margins */
-  padding: 0; /* No internal padding */
-  border: none; /* No border */
-  display: flex; /* Optional: to control alignment if needed */
-  justify-content: center; /* Centers the GIF horizontally */
-  align-items: center; /* Centers the GIF vertically */
+  flex: 1; /* Allow it to take up a full column */
+  text-align: right; /* Align the GIF to the right */
+  padding-right: 10px; /* Add space between the GIF and the page edge */
 }
 
 .footer-gif img {
   display: block; /* Removes inline spacing issues */
-  max-width: 30%; /* Sets the GIF to 30% of its original size */
-  height: auto; /* Maintains the aspect ratio */
-  margin: 0 auto; /* Centers the GIF within its container */
-  padding: 0; /* Removes any default padding */
-  border: none; /* Ensures no border is applied */
-  box-shadow: none; /* Removes any shadow effects */
+  max-width: 50%; /* Adjust the GIF size */
+  height: auto; /* Maintain aspect ratio */
+  margin: 0; /* Remove extra margin */
+  padding: 0; /* Remove padding */
+  border: none; /* No border */
+  box-shadow: none; /* Remove shadow effects */
 }
