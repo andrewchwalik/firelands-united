@@ -332,16 +332,16 @@ body {
 
 /* Footer Section */
 .site-footer {
-  position: relative; /* Allows child elements (like the GIF) to be positioned absolutely */
-  background-color: #f05a27; /* Same as nav bar */
-  background-image: url('img/navigation-bar-texture.png'); /* Texture */
+  position: relative; /* Establishes the positioning context for the GIF */
+  background-color: #f05a27;
+  background-image: url('img/navigation-bar-texture.png');
   background-size: cover;
   background-position: center;
-  color: #d8dde5; /* Light grey text */
+  color: #d8dde5;
   padding: 30px 20px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.875rem; /* Smaller text for footer */
-  overflow: hidden; /* Prevents content from overflowing */
+  font-size: 0.875rem;
+  overflow: hidden; /* Prevent content overflow */
 }
 
 /* Footer Layout */
@@ -441,16 +441,16 @@ body {
 
 /* GIF */
 .footer-gif {
-  position: absolute; /* Position the GIF relative to the footer */
-  bottom: 10px; /* Place the GIF 10px above the bottom edge */
-  right: 10px; /* Place the GIF 10px from the right edge */
-  z-index: 10; /* Ensure it appears above other footer elements */
+  position: absolute; /* Position relative to the .site-footer */
+  bottom: 10px; /* Space from the bottom of the footer */
+  right: 10px; /* Space from the right of the footer */
+  z-index: 10; /* Ensures it stays above other footer elements */
 }
 
 .footer-gif img {
-  max-width: 30%; /* Adjust the GIF size */
+  max-width: 150px; /* Ensure the GIF fits well */
   height: auto; /* Maintain aspect ratio */
-  display: block; /* Ensure no inline spacing issues */
-  border: none; /* Remove any borders */
-  box-shadow: none; /* Remove shadow effects */
+  display: block;
+  border: none;
+  box-shadow: none;
 }
