@@ -445,10 +445,10 @@ body {
 }
 
 .footer-gif img {
-  display: block; /* Removes inline image spacing issues */
-  max-width: 100%; /* Prevents the image from overflowing */
-  height: auto; /* Maintains aspect ratio */
-  margin: 0; /* Removes any default margins */
+  display: block; /* Removes inline spacing issues */
+  max-width: 30%; /* Sets the GIF to 30% of its original size */
+  height: auto; /* Maintains the aspect ratio */
+  margin: 0 auto; /* Centers the GIF within its container */
   padding: 0; /* Removes any default padding */
   border: none; /* Ensures no border is applied */
   box-shadow: none; /* Removes any shadow effects */
