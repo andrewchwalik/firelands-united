@@ -341,6 +341,7 @@ body {
   padding: 30px 20px;
   font-family: 'Montserrat', sans-serif;
   font-size: 0.875rem; /* Smaller text for footer */
+  overflow: hidden; /* Prevents content from overflowing */
 }
 
 /* Footer Layout */
@@ -438,20 +439,18 @@ body {
   transform: scale(1.1); /* Slight zoom effect on hover */
 }
 
-/* GIF Column */
+/* GIF */
 .footer-gif {
-  position: absolute; /* Allows precise positioning */
-  bottom: 0; /* Align to the bottom of the footer */
-  right: 0; /* Align to the right of the footer */
-  padding: 0; /* Remove padding */
-  margin: 0; /* Remove margins */
-  text-align: right; /* Ensure alignment if needed */
+  position: absolute; /* Position the GIF relative to the footer */
+  bottom: 10px; /* Place the GIF 10px above the bottom edge */
+  right: 10px; /* Place the GIF 10px from the right edge */
+  z-index: 10; /* Ensure it appears above other footer elements */
 }
 
 .footer-gif img {
-  display: block; /* Prevent inline spacing issues */
-  max-width: 20%; /* Adjust the GIF size to fit well */
+  max-width: 30%; /* Adjust the GIF size */
   height: auto; /* Maintain aspect ratio */
-  border: none; /* No border */
+  display: block; /* Ensure no inline spacing issues */
+  border: none; /* Remove any borders */
   box-shadow: none; /* Remove shadow effects */
 }
