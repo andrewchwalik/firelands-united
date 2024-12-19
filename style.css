@@ -439,17 +439,18 @@ body {
 
 /* GIF Column */
 .footer-gif {
-  flex: 1; /* Allow it to take up a full column */
-  text-align: right; /* Align the GIF to the right */
-  padding-right: 10px; /* Add space between the GIF and the page edge */
+  position: absolute; /* Allows positioning relative to the footer */
+  bottom: 10px; /* Place 10px above the footer bottom */
+  right: 10px; /* Place 10px from the right edge */
+  padding: 0; /* Remove extra padding */
+  margin: 0; /* Remove margin */
+  text-align: right; /* Align the GIF content to the right */
 }
 
 .footer-gif img {
-  display: block; /* Removes inline spacing issues */
-  max-width: 50%; /* Adjust the GIF size */
+  display: block; /* Ensure no inline spacing issues */
+  max-width: 30%; /* Adjust the GIF size (30% of its original size) */
   height: auto; /* Maintain aspect ratio */
-  margin: 0; /* Remove extra margin */
-  padding: 0; /* Remove padding */
   border: none; /* No border */
   box-shadow: none; /* Remove shadow effects */
 }
