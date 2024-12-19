@@ -345,11 +345,11 @@ body {
 /* Footer Layout */
 .footer-links-container {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content: space-between; /* Spread out the columns evenly */
+  flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
   max-width: 1200px;
-  margin: 0 auto;
-  gap: 30px;
+  margin: 0 auto 30px;
+  gap: 50px; /* Add spacing between columns */
 }
 
 /* Logo Column */
@@ -383,7 +383,9 @@ body {
 /* Footer Columns */
 .footer-column {
   flex: 1;
-  min-width: 150px;
+  min-width: 180px; /* Increase minimum width for better spacing */
+  margin: 10px;
+  text-align: left;
 }
 
 .footer-column h3 {
@@ -446,7 +448,7 @@ body {
 
 .footer-gif img {
   display: block; /* Removes inline spacing issues */
-  max-width: 30%; /* Sets the GIF to 30% of its original size */
+  max-width: 40%; /* Sets the GIF to 30% of its original size */
   height: auto; /* Maintains the aspect ratio */
   margin: 0 auto; /* Centers the GIF within its container */
   padding: 0; /* Removes any default padding */
