@@ -332,6 +332,7 @@ body {
 
 /* Footer Section */
 .site-footer {
+  position: relative; /* Allows child elements (like the GIF) to be positioned absolutely */
   background-color: #f05a27; /* Same as nav bar */
   background-image: url('img/navigation-bar-texture.png'); /* Texture */
   background-size: cover;
