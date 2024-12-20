@@ -21,32 +21,39 @@
     </div>
   </div>
 
-  <!-- Hero Section -->
-  <div class="hero">
-    <div class="hero-content">
-    </div>
-  </div>
-
   <!-- News Section -->
   <section class="news-section">
     <div class="content-container">
-      <h2>Recent Blogs</h2>
-      <div class="blog-list">
-        <!-- Individual Blog Post -->
-        <div class="blog-card">
-          <h3 class="blog-title">Firelands United to Join NOSL Northwest</h3>
-          <p class="blog-excerpt">We're excited to be joining the Northern Ohio Soccer League Northwest to help grow the beautiful game in Northern Ohio! Click to read more!</p>
-          <a href="blogs/firelands-united-to-join-nosl-northwest.html" class="read-more">Read More</a>
-        </div>
-        <div class="blog-card">
-          <h3 class="blog-title">Join Firelands United for Our Summer Season</h3>
-          <p class="blog-excerpt">Think you have what it takes to play minor league soccer? Submit your information to join the coolest soccer team in Northern Ohio.</p>
-          <a href="#" class="read-more">Read More</a>
-        </div>
-        <!-- Add more blog cards as needed -->
+      <h2>Blog</h2>
+
+      <!-- Search and Filter -->
+      <div class="blog-controls">
+        <input type="text" id="search-input" placeholder="Search by title...">
+        <select id="category-filter">
+          <option value="all">All categories</option>
+          <option value="news">News</option>
+          <option value="updates">Updates</option>
+        </select>
+      </div>
+
+      <!-- Blog List -->
+      <div class="blog-list" id="blog-list">
+        <!-- Blog Cards will be dynamically added here -->
       </div>
     </div>
   </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-links-container">
+      <!-- Footer Content -->
+      <!-- Keep your existing footer here -->
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
 
    <!-- Footer Section -->
 <footer class="site-footer">
