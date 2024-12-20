@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Hero Section for Blog Rotation (If applicable, keep as is)
   const heroContent = document.getElementById("hero-content");
   const heroTitle = document.getElementById("hero-title");
   const heroSubtitle = document.getElementById("hero-subtitle");
@@ -7,52 +8,105 @@ document.addEventListener("DOMContentLoaded", () => {
   let blogPosts = [];
   let currentIndex = 0;
 
-  // Fetch blog data from the blogs.json file
   fetch("blogs.json")
     .then(response => response.json())
     .then(data => {
       blogPosts = data;
-      updateHeroContent(); // Display the first blog post
-      setInterval(() => {
-        fadeOutAndUpdate();
-      }, 8000); // Change content every 5 seconds
+      updateHeroContent();
+      setInterval(() => fadeOutAndUpdate(), 8000);
     })
-    .catch(error => {
-      console.error("Error loading blog data:", error);
-    });
+    .catch(error => console.error("Error loading blog data:", error));
 
-  // Function to fade out, update content, and fade back in
   function fadeOutAndUpdate() {
     heroContent.classList.add("fade-out");
-
     setTimeout(() => {
       updateHeroContent();
       heroContent.classList.remove("fade-out");
       heroContent.classList.add("fade-in");
-
-      // Remove fade-in class after animation completes
       setTimeout(() => heroContent.classList.remove("fade-in"), 1000);
-    }, 1000); // Matches the fade-out duration
+    }, 1000);
   }
 
-  // Function to update the hero section content
   function updateHeroContent() {
     if (blogPosts.length === 0) return;
-
     const post = blogPosts[currentIndex];
     heroTitle.textContent = post.title;
     heroSubtitle.textContent = post.excerpt;
     heroButton.href = post.link;
-
-    // Cycle to the next blog post
     currentIndex = (currentIndex + 1) % blogPosts.length;
   }
-});
 
-// Hamburger Menu Toggle
-const hamburger = document.getElementById('hamburger-menu');
-const navLinks = document.getElementById('nav-links');
+  // Blog Section with Search and Filter Functionality
+  const blogList = document.getElementById("blog-list");
+  const searchInput = document.getElementById("search-input");
+  const categoryFilter = document.getElementById("category-filter");
 
-hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('show');
+  const blogs = [
+    {
+      title: "Firelands United to Join NOSL Northwest",
+      excerpt: "We're excited to be joining the Northern Ohio Soccer League Northwest to help grow the beautiful game in Northern Ohio!",
+      image: "img/blogs/nosl-northwest.jpg",
+      link: "blogs/firelands-united-to-join-nosl-northwest.html",
+      category: "news",
+    },
+    {
+      title: "Join Firelands United for Our Summer Season",
+      excerpt: "Think you have what it takes to play minor league soccer? Submit your information to join the coolest soccer team in Northern Ohio.",
+      image: "img/blogs/summer-season.jpg",
+      link: "#",
+      category: "updates",
+    },
+  ];
+
+  function renderBlogs(filteredBlogs) {
+    blogList.innerHTML = "";
+
+    if (filteredBlogs.length === 0) {
+      blogList.innerHTML = `<p>No blogs found.</p>`;
+      return;
+    }
+
+    filteredBlogs.forEach((blog) => {
+      const blogCard = document.createElement("div");
+      blogCard.classList.add("blog-card");
+
+      blogCard.innerHTML = `
+        <img src="${blog.image}" alt="${blog.title}">
+        <div class="blog-card-content">
+          <h3>${blog.title}</h3>
+          <p>${blog.excerpt}</p>
+          <a href="${blog.link}" target="_blank">Read More</a>
+        </div>
+      `;
+
+      blogList.appendChild(blogCard);
+    });
+  }
+
+  function filterBlogs() {
+    const searchText = searchInput.value.toLowerCase();
+    const selectedCategory = categoryFilter.value;
+
+    const filteredBlogs = blogs.filter((blog) => {
+      const matchesSearch = blog.title.toLowerCase().includes(searchText);
+      const matchesCategory =
+        selectedCategory === "all" || blog.category === selectedCategory;
+      return matchesSearch && matchesCategory;
+    });
+
+    renderBlogs(filteredBlogs);
+  }
+
+  searchInput.addEventListener("input", filterBlogs);
+  categoryFilter.addEventListener("change", filterBlogs);
+
+  renderBlogs(blogs); // Initial render
+
+  // Hamburger Menu Toggle
+  const hamburger = document.getElementById("hamburger-menu");
+  const navLinks = document.getElementById("nav-links");
+
+  hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+  });
 });
