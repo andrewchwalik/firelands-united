@@ -273,62 +273,88 @@ body {
 
 /* News Section */
 .news-section {
-  background-color: #fff;
   padding: 50px 20px;
+  background-color: #fff;
   text-align: center;
 }
 
 .news-section h2 {
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 2.5rem;
+  font-weight: bold;
   margin-bottom: 30px;
-  color: #1b1b1b;
+}
+
+.blog-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.blog-controls input {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 250px;
+}
+
+.blog-controls select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
 }
 
 .blog-list {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 20px;
-  max-width: 800px;
-  margin: 0 auto;
+  justify-content: center;
 }
 
 .blog-card {
-  background-color: #f9f9f9;
+  width: calc(25% - 20px); /* Adjust based on screen size */
   border: 1px solid #ddd;
-  padding: 20px;
   border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.blog-card:hover {
+  transform: scale(1.05);
+}
+
+.blog-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.blog-card-content {
+  padding: 15px;
   text-align: left;
 }
 
-.blog-title {
-  font-size: 1.5rem;
-  font-weight: 700;
+.blog-card-content h3 {
+  font-size: 1.25rem;
   margin-bottom: 10px;
-  color: #1b1b1b;
+  color: #333;
 }
 
-.blog-excerpt {
-  font-size: 1rem;
-  line-height: 1.5;
-  margin-bottom: 20px;
-  color: #555;
-}
-
-.read-more {
-  display: inline-block;
-  padding: 8px 15px;
-  background-color: #ff4e00;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
+.blog-card-content p {
   font-size: 0.875rem;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
+  color: #666;
+  margin-bottom: 15px;
 }
 
-.read-more:hover {
-  background-color: #d94400;
+.blog-card-content a {
+  text-decoration: none;
+  color: #f05a27;
+  font-weight: bold;
 }
 
 /* Footer Section */
