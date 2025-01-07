@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Firelands United to Join NOSL Northwest",
       excerpt: "We're excited to be joining the Northern Ohio Soccer League Northwest to help grow the beautiful game in Northern Ohio!",
       image: "/img/blogs/firelands-united-to-join-nosl-northwest.jpg",
-      link: "blogs/firelands-united-to-join-nosl-northwest.html",
+      link: "/blogs/firelands-united-to-join-nosl-northwest.html",
       category: "news",
     },
     {
