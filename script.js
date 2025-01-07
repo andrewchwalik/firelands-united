@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let blogPosts = [];
   let currentIndex = 0;
 
-  fetch("blogs.json")
+  fetch("../blogs.json")
     .then(response => response.json())
     .then(data => {
       blogPosts = data;
