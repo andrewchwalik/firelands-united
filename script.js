@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="blog-card-content">
           <h3>${blog.title}</h3>
           <p>${blog.excerpt}</p>
-          <a href="${blog.link}" target="_blank">Read More</a>
+          <a href="${blog.link}">Read More</a>
         </div>
       `;
 
