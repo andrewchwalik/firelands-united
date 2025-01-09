@@ -68,11 +68,14 @@ body {
   margin-bottom: 70px; /* Space between footer and blog content */
 }
 
-.blog-post img {
-  width: 100%; /* Full width of the content area */
+/* Blog Post Image */
+.blog-post-image {
+  max-width: 80%; /* Set the maximum width as a percentage of the container */
   height: auto; /* Maintain aspect ratio */
-  margin-bottom: 30px; /* Space below the image */
-  border-radius: 8px; /* Rounded corners for the image */
+  display: block; /* Ensure it's treated as a block element */
+  margin: 20px auto; /* Center the image with space around it */
+  border-radius: 8px; /* Add rounded corners for aesthetics */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .blog-post .content-container {
