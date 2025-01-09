@@ -91,7 +91,7 @@ body {
 
 /* Blog Post Image */
 .blog-post-image {
-  max-width: 80%; /* Set the maximum width as a percentage of the container */
+  max-width: 50%; /* Limit the width to 50% of the container */
   height: auto; /* Maintain aspect ratio */
   display: block; /* Ensure it's treated as a block element */
   margin: 20px auto; /* Center the image with space around it */
