@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let blogPosts = [];
   let currentIndex = 0;
 
-  fetch("blogs.json")
+  fetch("../blogs.json")
     .then(response => response.json())
     .then(data => {
       blogPosts = data;
@@ -45,14 +45,14 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       title: "Firelands United to Join NOSL Northwest",
       excerpt: "We're excited to be joining the Northern Ohio Soccer League Northwest to help grow the beautiful game in Northern Ohio!",
-      image: "img/blogs/firelands-united-to-join-nosl-northwest.jpg",
-      link: "blogs/firelands-united-to-join-nosl-northwest.html",
+      image: "/img/blogs/firelands-united-to-join-nosl-northwest.jpg",
+      link: "/blogs/firelands-united-to-join-nosl-northwest.html",
       category: "news",
     },
     {
       title: "Join Firelands United for Our Summer Season",
       excerpt: "Think you have what it takes to play minor league soccer? Submit your information to join the coolest soccer team in Northern Ohio.",
-      image: "img/blogs/summer-season.jpg",
+      image: "/img/blogs/summer-season.jpg",
       link: "#",
       category: "updates",
     },
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="blog-card-content">
           <h3>${blog.title}</h3>
           <p>${blog.excerpt}</p>
-          <a href="${blog.link}" target="_blank">Read More</a>
+          <a href="${blog.link}">Read More</a>
         </div>
       `;
 

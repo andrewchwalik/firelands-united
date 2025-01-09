@@ -1,0 +1,254 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.5;
+  color: #fff;
+  background-color: #fff;
+}
+
+/* Navigation Bar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px 50px; /* Increase padding to make the bar thicker */
+  position: sticky; /* Stick the nav bar at the top */
+  top: 0;
+  z-index: 10;
+  background-color: #f05a27; /* Navigation bar color */
+  background-image: url('img/navigation-bar-texture.png'); /* Texture overlay */
+  background-size: cover; /* Cover the entire nav bar */
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  height: 70px; /* Force thicker height */
+  min-height: 70px; /* Prevent other styles from shrinking it */
+  box-sizing: border-box;
+}
+
+.navbar::after {
+  content: ''; /* Empty content for the line */
+  position: absolute;
+  bottom: -3px; /* Moves the line slightly below the navbar */
+  right: 0; /* Starts the line at the right edge of the navbar */
+  height: 3px; /* Line thickness */
+  background-color: #d8dde5; /* Line color */
+  width: calc(100% - 140px); /* Adjust width to stop under the logo */
+  z-index: -1; /* Ensures the line is under the logo */
+  pointer-events: none; /* Prevent interaction */
+}
+
+.logo {
+  position: relative; /* Position relative for precise adjustments */
+  margin-right: 20px; /* Space between the logo and nav-links */
+}
+
+.logo img {
+  height: 120px; /* Larger than the navbar */
+  position: absolute;
+  top: -30px; /* Move the logo upward to overlap */
+  left: 20px; /* Adjust horizontal position as needed */
+}
+
+.nav-links {
+  display: flex; /* Align links horizontally */
+  gap: 30px; /* Space between links */
+  align-items: center; /* Vertically align links with the logo */
+  margin-left: 140px; /* Create space to the right of the logo */
+  margin-top: 8px; /* Move links down by 3 pixels */
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #d8dde5; /* Default link text color */
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  padding: 5px 0;
+}
+
+.nav-links a:hover, .nav-links a.active {
+  color: #474e5a; /* Link hover and active state color */
+  border-bottom: none; /* Remove the underline */
+}
+
+.hamburger-menu {
+  display: none;
+}
+
+/* Blog Post Section */
+.blog-post {
+  margin-top: 70px; /* Space between nav bar and blog content */
+  margin-bottom: 70px; /* Space between footer and blog content */
+}
+
+/* Blog Post Image */
+.blog-post-image {
+  width: 70%; /* Ensure the image takes up the full width of its container */
+  max-width: 800px; /* Limit the maximum width of the image */
+  height: auto; /* Maintain the aspect ratio */
+  display: block; /* Treat as a block element */
+  margin: 20px auto; /* Center the image and add space around it */
+  border-radius: 8px; /* Add rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+.blog-post .content-container {
+  max-width: 800px; /* Limit the width of the blog content */
+  margin: 0 auto; /* Center the content container */
+  padding: 20px; /* Padding around the content */
+}
+
+.blog-post h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.blog-post p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.blog-post .post-date {
+  font-size: 0.9rem;
+  color: #999;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Footer Section */
+.site-footer {
+  position: relative; /* Establishes the positioning context for the GIF */
+  background-color: #f05a27;
+  background-image: url('img/navigation-bar-texture.png');
+  background-size: cover;
+  background-position: center;
+  color: #d8dde5;
+  padding: 30px 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.875rem;
+  overflow: hidden; /* Prevent content overflow */
+}
+
+/* Footer Layout */
+.footer-links-container {
+  display: flex;
+  justify-content: space-between; /* Spread out the columns evenly */
+  align-items: flex-start; /* Align columns to the top */
+  max-width: 1200px; /* Center container width */
+  margin: 0 auto; /* Center the footer content */
+  gap: 60px; /* Add more space between columns */
+}
+
+/* Logo Column */
+.footer-logo {
+  flex: 1;
+  text-align: left;
+  margin-right: 20px; /* Space between logo and columns */
+}
+
+.footer-logo img {
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+.footer-bottom {
+  margin-top: 10px;
+  font-size: 0.75rem; /* Smaller copyright text */
+}
+
+.footer-bottom a {
+  color: #d8dde5;
+  text-decoration: none;
+  margin: 0 5px;
+  transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Footer Columns */
+.footer-column {
+  flex: 1;
+  min-width: 200px; /* Increase column size for better spacing */
+  text-align: left;
+}
+
+.footer-column h3 {
+  font-size: 1rem; /* Smaller heading size */
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px; /* Adjust spacing between list items */
+}
+
+.footer-column ul li a {
+  color: #d8dde5;
+  text-decoration: none;
+  font-size: 0.875rem; /* Smaller link text */
+  transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+  color: #fff;
+}
+
+/* Social Media Icons */
+.footer-social {
+  margin-top: 10px;
+}
+
+.footer-social a {
+  display: inline-block;
+  margin-right: 10px; /* Space between icons */
+  transition: transform 0.3s ease; /* Hover effect */
+}
+
+.footer-social a img {
+  height: 24px; /* Icon size */
+  margin-right: 0; /* Adjust icon spacing */
+  display: inline-block;
+  transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.footer-social a img:hover {
+  transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* GIF */
+.footer-gif {
+  position: absolute; /* Position relative to the .site-footer */
+  bottom: 10px; /* Space from the bottom of the footer */
+  right: 10px; /* Space from the right of the footer */
+  z-index: 10; /* Ensures it stays above other footer elements */
+}
+
+.footer-gif img {
+  max-width: 150px; /* Ensure the GIF fits well */
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+  border: none;
+  box-shadow: none;
+}
