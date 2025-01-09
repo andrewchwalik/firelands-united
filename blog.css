@@ -8,9 +8,8 @@
 body {
   font-family: 'Montserrat', sans-serif;
   line-height: 1.5;
-  color: #333; /* Darker color for readability on blog pages */
+  color: #fff;
   background-color: #fff;
-  margin: 0; /* Reset any margins to prevent unexpected spaces */
 }
 
 /* Navigation Bar */
@@ -18,48 +17,70 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 20px 50px;
-  position: sticky;
+  padding: 20px 50px; /* Increase padding to make the bar thicker */
+  position: sticky; /* Stick the nav bar at the top */
   top: 0;
   z-index: 10;
-  background-color: #f05a27;
-  background-image: url('../img/navigation-bar-texture.png');
-  background-size: cover;
+  background-color: #f05a27; /* Navigation bar color */
+  background-image: url('img/navigation-bar-texture.png'); /* Texture overlay */
+  background-size: cover; /* Cover the entire nav bar */
   background-repeat: no-repeat;
   background-position: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  height: 70px;
-  min-height: 70px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  height: 70px; /* Force thicker height */
+  min-height: 70px; /* Prevent other styles from shrinking it */
   box-sizing: border-box;
 }
 
-.logo img {
-  height: 120px;
+.navbar::after {
+  content: ''; /* Empty content for the line */
   position: absolute;
-  top: -30px;
-  left: 20px;
+  bottom: -3px; /* Moves the line slightly below the navbar */
+  right: 0; /* Starts the line at the right edge of the navbar */
+  height: 3px; /* Line thickness */
+  background-color: #d8dde5; /* Line color */
+  width: calc(100% - 140px); /* Adjust width to stop under the logo */
+  z-index: -1; /* Ensures the line is under the logo */
+  pointer-events: none; /* Prevent interaction */
+}
+
+.logo {
+  position: relative; /* Position relative for precise adjustments */
+  margin-right: 20px; /* Space between the logo and nav-links */
+}
+
+.logo img {
+  height: 120px; /* Larger than the navbar */
+  position: absolute;
+  top: -30px; /* Move the logo upward to overlap */
+  left: 20px; /* Adjust horizontal position as needed */
 }
 
 .nav-links {
-  display: flex;
-  gap: 30px;
-  align-items: center;
-  margin-left: 140px;
-  margin-top: 8px;
+  display: flex; /* Align links horizontally */
+  gap: 30px; /* Space between links */
+  align-items: center; /* Vertically align links with the logo */
+  margin-left: 140px; /* Create space to the right of the logo */
+  margin-top: 8px; /* Move links down by 3 pixels */
 }
 
 .nav-links a {
   text-decoration: none;
-  color: #d8dde5;
+  color: #d8dde5; /* Default link text color */
   font-weight: 700;
   font-size: 1rem;
   text-transform: uppercase;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
   padding: 5px 0;
 }
 
 .nav-links a:hover, .nav-links a.active {
-  color: #474e5a;
+  color: #474e5a; /* Link hover and active state color */
+  border-bottom: none; /* Remove the underline */
+}
+
+.hamburger-menu {
+  display: none;
 }
 
 /* Blog Post Section */
