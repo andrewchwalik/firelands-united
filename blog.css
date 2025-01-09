@@ -100,7 +100,7 @@ body {
 }
 
 .blog-post .content-container {
-  max-width: 800px; /* Limit the width of the blog content */
+  max-width: 400px; /* Limit the width of the blog content */
   margin: 0 auto; /* Center the content container */
   padding: 20px; /* Padding around the content */
 }
