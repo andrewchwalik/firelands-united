@@ -90,13 +90,14 @@ body {
 }
 
 /* Blog Post Image */
-section.blog-post .blog-post-image {
-    max-width: 50% !important; /* Set maximum width */
-    height: auto !important; /* Maintain aspect ratio */
-    display: block; /* Block-level element */
-    margin: 20px auto; /* Center and add spacing */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+.blog-post-image {
+  width: 100%; /* Ensure the image takes up the full width of its container */
+  max-width: 800px; /* Limit the maximum width of the image */
+  height: auto; /* Maintain the aspect ratio */
+  display: block; /* Treat as a block element */
+  margin: 20px auto; /* Center the image and add space around it */
+  border-radius: 8px; /* Add rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
 }
 
 .blog-post .content-container {
