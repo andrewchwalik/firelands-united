@@ -102,7 +102,10 @@ body {
 
 /* Blog Meta Information */
 .blog-meta {
-  text-align: center;
+  display: flex; /* Use flexbox for alignment */
+  justify-content: center; /* Center the content */
+  align-items: center; /* Vertically align items */
+  gap: 10px; /* Add space between the date and category */
   margin: 10px auto 20px; /* Space above and below the meta section */
   color: #666; /* Slightly darker text color */
 }
@@ -110,7 +113,6 @@ body {
 .blog-meta .blog-date,
 .blog-meta .blog-category {
   font-size: 1rem; /* Adjust font size */
-  margin: 5px 0; /* Add spacing between the lines */
   font-weight: 600; /* Bold font for emphasis */
 }
 
