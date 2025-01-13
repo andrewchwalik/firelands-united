@@ -103,20 +103,20 @@ body {
 /* Blog Meta Information */
 .blog-meta {
   display: flex; /* Use flexbox for alignment */
-  justify-content: center; /* Center the content */
-  align-items: center; /* Vertically align items */
-  gap: 10px; /* Add space between the date and category */
-  margin: 10px auto 20px; /* Space above and below the meta section */
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Align items vertically */
+  gap: 15px; /* Space between the date and category */
+  margin: 20px auto; /* Add space above and below the meta section */
+  font-size: 1rem; /* Adjust font size */
   color: #666; /* Slightly darker text color */
 }
 
-.blog-meta .blog-date,
-.blog-meta .blog-category {
-  font-size: 1rem; /* Adjust font size */
-  font-weight: 600; /* Bold font for emphasis */
+.blog-meta .blog-date {
+  font-weight: 300; /* Lighter font weight for the date */
 }
 
 .blog-meta .blog-category {
+  font-weight: 600; /* Slightly bolder font for the category */
   color: #f05a27; /* Distinct color for the category */
   text-transform: uppercase; /* Capitalize category */
 }
