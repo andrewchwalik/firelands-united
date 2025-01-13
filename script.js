@@ -47,14 +47,14 @@ document.addEventListener("DOMContentLoaded", () => {
       excerpt: "We're excited to be joining the Northern Ohio Soccer League Northwest to help grow the beautiful game in Northern Ohio!",
       image: "/img/blogs/firelands-united-to-join-nosl-northwest.jpg",
       link: "/blogs/firelands-united-to-join-nosl-northwest/",
-      category: "news",
+      category: "club news",
     },
     {
       title: "Join Firelands United for Our Summer Season",
       excerpt: "Think you have what it takes to play minor league soccer? Submit your information to join the coolest soccer team in Northern Ohio.",
-      image: "/img/blogs/summer-season.jpg",
-      link: "#",
-      category: "updates",
+      image: "/img/blogs/join-firelands-united-for-our-summer-season.jpg",
+      link: "/blogs/join-firelands-united-for-our-summer-season",
+      category: "club news",
     },
   ];
 
