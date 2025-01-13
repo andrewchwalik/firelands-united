@@ -475,7 +475,7 @@ body {
 }
 
 .footer-gif img {
-  max-width: 150px; /* Ensure the GIF fits well */
+  max-width: 100px; /* Ensure the GIF fits well */
   height: auto; /* Maintain aspect ratio */
   display: block;
   border: none;
