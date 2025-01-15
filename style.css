@@ -130,7 +130,7 @@ body {
 .hero-button {
   display: inline-block;
   padding: 10px 30px;
-  background-color: #f05a27;
+  background-color: #f18a01;
   color: #d8dde5;
   text-decoration: none;
   border-radius: 30px;
@@ -212,7 +212,7 @@ body {
   align-items: center; /* Vertically center items */
   font-size: 1rem;
   font-weight: 700;
-  color: #ff4e00; /* Timer text color */
+  color: #f18a01; /* Timer text color */
 }
 
 .match-timer .time {
@@ -258,7 +258,7 @@ body {
 .cta-button {
     display: inline-block;
     padding: 10px 25px;
-    background-color: #ff4e00; /* Orange button background */
+    background-color: #f18a01; /* Orange button background */
     color: #fff; /* White text color */
     text-decoration: none;
     border-radius: 25px; /* Pill-shaped button */
@@ -353,7 +353,7 @@ body {
 
 .blog-card-content a {
   text-decoration: none;
-  color: #f05a27;
+  color: #f18a01;
   font-weight: bold;
 }
 
