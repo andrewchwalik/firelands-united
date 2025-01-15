@@ -110,7 +110,7 @@ body {
     transform: translateY(-50%); /* Centers content vertically */
     text-align: left; /* Align text to the left */
     z-index: 1; /* Ensure it stays above the image */
-    color: #d8dde5; /* White text for readability */
+    color: #ffffff; /* White text for readability */
     max-width: 50%; /* Restricts the content to half the screen width */
     padding: 0; /* Removes extra spacing */
     margin: 0;
@@ -131,7 +131,7 @@ body {
   display: inline-block;
   padding: 10px 30px;
   background-color: #f18a01;
-  color: #d8dde5;
+  color: #ffffff;
   text-decoration: none;
   border-radius: 30px;
   font-weight: 700;
@@ -364,7 +364,7 @@ body {
   background-image: url('img/navigation-bar-texture.png');
   background-size: cover;
   background-position: center;
-  color: #d8dde5;
+  color: #ffffff;
   padding: 30px 20px;
   font-family: 'Montserrat', sans-serif;
   font-size: 0.875rem;
@@ -399,7 +399,7 @@ body {
 }
 
 .footer-bottom a {
-  color: #d8dde5;
+  color: #ffffff;
   text-decoration: none;
   margin: 0 5px;
   transition: color 0.3s ease;
@@ -434,7 +434,7 @@ body {
 }
 
 .footer-column ul li a {
-  color: #d8dde5;
+  color: #ffffff;
   text-decoration: none;
   font-size: 0.875rem; /* Smaller link text */
   transition: color 0.3s ease;
