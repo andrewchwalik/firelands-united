@@ -21,7 +21,7 @@ body {
   position: sticky; /* Stick the nav bar at the top */
   top: 0;
   z-index: 10;
-  background-color: #f05a27; /* Navigation bar color */
+  background-color: #f18a01; /* Navigation bar color */
   background-image: url('img/navigation-bar-texture.png'); /* Texture overlay */
   background-size: cover; /* Cover the entire nav bar */
   background-repeat: no-repeat;
@@ -117,7 +117,7 @@ body {
 
 .blog-meta .blog-category {
   font-weight: 600; /* Slightly bolder font for the category */
-  color: #f05a27; /* Distinct color for the category */
+  color: #f18a01; /* Distinct color for the category */
   text-transform: uppercase; /* Capitalize category */
 }
 
@@ -152,7 +152,7 @@ body {
 /* Footer Section */
 .site-footer {
   position: relative; /* Establishes the positioning context for the GIF */
-  background-color: #f05a27;
+  background-color: #f18a01;
   background-image: url('img/navigation-bar-texture.png');
   background-size: cover;
   background-position: center;
