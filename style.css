@@ -38,7 +38,7 @@ body {
   bottom: -3px; /* Moves the line slightly below the navbar */
   right: 0; /* Starts the line at the right edge of the navbar */
   height: 3px; /* Line thickness */
-  background-color: #d8dde5; /* Line color */
+  background-color: #474e5a; /* Line color */
   width: calc(100% - 140px); /* Adjust width to stop under the logo */
   z-index: -1; /* Ensures the line is under the logo */
   pointer-events: none; /* Prevent interaction */
