@@ -383,14 +383,36 @@ body {
 
 /* Logo Column */
 .footer-logo {
-  flex: 1;
-  text-align: left;
-  margin-right: 20px; /* Space between logo and columns */
+  display: flex; /* Align items horizontally */
+  align-items: center; /* Vertically center items */
+  gap: 20px; /* Space between the logo and text */
+  margin-right: 20px; /* Space between logo and other columns */
 }
 
 .footer-logo img {
-  height: 60px;
-  margin-bottom: 10px;
+  height: 80px; /* Adjust logo size */
+  width: auto; /* Maintain aspect ratio */
+}
+
+.footer-text {
+  font-size: 0.875rem; /* Adjust text size */
+  color: #ffffff; /* Text color */
+}
+
+.footer-text p {
+  margin: 0; /* Remove extra margin */
+}
+
+.footer-text a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 5px;
+  transition: color 0.3s ease;
+}
+
+.footer-text a:hover {
+  color: #fff;
+  text-decoration: underline;
 }
 
 .footer-bottom {
