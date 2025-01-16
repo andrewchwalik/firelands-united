@@ -382,11 +382,27 @@ body {
 }
 
 /* Logo Column */
+/* Footer Layout */
 .footer-logo {
   display: flex; /* Align items horizontally */
-  align-items: center; /* Vertically center items */
+  align-items: center; /* Center items vertically */
   gap: 20px; /* Space between the logo and text */
   margin-right: 20px; /* Space between logo and other columns */
+  height: 100%; /* Make it take the full height of the footer */
+}
+
+.site-footer {
+  display: flex; /* Flexbox for the footer container */
+  align-items: center; /* Center everything vertically */
+  justify-content: space-between; /* Space out footer columns evenly */
+  padding: 30px 20px; /* Padding around the footer content */
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.875rem;
+  background-color: #f18a01;
+  background-image: url('img/navigation-bar-texture.png');
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
 }
 
 .footer-logo img {
