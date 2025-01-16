@@ -386,8 +386,8 @@ body {
 .footer-logo {
   display: flex; /* Align items horizontally */
   align-items: center; /* Vertically center items */
-  gap: 20px; /* Space between the logo and text */
-  margin-left: -30px; /* Move the logo and text further to the left */
+  gap: 15px; /* Space between the logo and text */
+  margin-left: -40px; /* Move the logo and text further to the left */
   margin-top: 10px; /* Move the logo and text slightly down */
 }
 
