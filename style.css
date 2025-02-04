@@ -570,7 +570,7 @@ body {
 
 /* Contact Info Section */
 .contact-info {
-    background-color: #f18a01; /* Firelands United orange */
+    background-color: ##474E5A; /* Firelands United orange */
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -579,7 +579,7 @@ body {
 }
 
 .contact-box {
-    background-color: #474E5A;
+    background-color: #000000;
     padding: 30px;
     border-radius: 10px;
     width: 30%;
