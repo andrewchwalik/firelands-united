@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Hero Section for Blog Rotation (If applicable, keep as is)
+  // Hero Section for Blog Rotation
   const heroContent = document.getElementById("hero-content");
   const heroTitle = document.getElementById("hero-title");
   const heroSubtitle = document.getElementById("hero-subtitle");
@@ -109,4 +109,37 @@ document.addEventListener("DOMContentLoaded", () => {
   hamburger.addEventListener("click", () => {
     navLinks.classList.toggle("show");
   });
+
+  // COUNTDOWN TIMER FOR NEXT GAME
+  // Set the date and time for the next game (YYYY, MM - 1, DD, HH, MM, SS)
+  const gameDate = new Date(2025, 4, 24, 11, 0, 0).getTime();
+
+  function updateCountdown() {
+    const now = new Date().getTime(); // Get current time
+    const timeLeft = gameDate - now; // Calculate time difference
+
+    if (timeLeft <= 0) {
+      // If the countdown reaches zero, show "Game Day!"
+      document.querySelector(".match-timer").innerHTML = "<span>Game Day!</span>";
+      return;
+    }
+
+    // Time calculations for days, hours, minutes, and seconds
+    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+    // Update countdown display
+    document.querySelector(".match-timer .days").textContent = days.toString().padStart(2, "0");
+    document.querySelector(".match-timer .hours").textContent = hours.toString().padStart(2, "0");
+    document.querySelector(".match-timer .minutes").textContent = minutes.toString().padStart(2, "0");
+    document.querySelector(".match-timer .seconds").textContent = seconds.toString().padStart(2, "0");
+  }
+
+  // Update countdown every second
+  setInterval(updateCountdown, 1000);
+
+  // Initial call to display the correct time immediately
+  updateCountdown();
 });
