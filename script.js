@@ -111,12 +111,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // COUNTDOWN TIMER FOR NEXT GAME
-  // Set the date and time for the next game (YYYY, MM - 1, DD, HH, MM, SS)
-  const gameDate = new Date(2025, 4, 24, 11, 0, 0).getTime();
+  const gameDate = new Date("May 24, 2025 11:00:00").getTime(); // Fix: Use correct string format
 
   function updateCountdown() {
-    const now = new Date().getTime(); // Get current time
-    const timeLeft = gameDate - now; // Calculate time difference
+    const now = new Date().getTime();
+    const timeLeft = gameDate - now;
 
     if (timeLeft <= 0) {
       // If the countdown reaches zero, show "Game Day!"
@@ -124,22 +123,22 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Time calculations for days, hours, minutes, and seconds
+    // Time calculations
     const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
     const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-    // Update countdown display
-    document.querySelector(".match-timer .days").textContent = days.toString().padStart(2, "0");
-    document.querySelector(".match-timer .hours").textContent = hours.toString().padStart(2, "0");
-    document.querySelector(".match-timer .minutes").textContent = minutes.toString().padStart(2, "0");
-    document.querySelector(".match-timer .seconds").textContent = seconds.toString().padStart(2, "0");
+    // Ensure HTML elements exist before updating them
+    if (document.querySelector(".match-timer .days")) {
+      document.querySelector(".match-timer .days").textContent = days.toString().padStart(2, "0");
+      document.querySelector(".match-timer .hours").textContent = hours.toString().padStart(2, "0");
+      document.querySelector(".match-timer .minutes").textContent = minutes.toString().padStart(2, "0");
+      document.querySelector(".match-timer .seconds").textContent = seconds.toString().padStart(2, "0");
+    }
   }
 
-  // Update countdown every second
+  // Run countdown every second
   setInterval(updateCountdown, 1000);
-
-  // Initial call to display the correct time immediately
-  updateCountdown();
+  updateCountdown(); // Run immediately on page load
 });
