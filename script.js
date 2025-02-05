@@ -110,35 +110,5 @@ document.addEventListener("DOMContentLoaded", () => {
     navLinks.classList.toggle("show");
   });
 
-  // COUNTDOWN TIMER FOR NEXT GAME
-  const gameDate = new Date("May 24, 2025 11:00:00").getTime(); // Fix: Use correct string format
-
-  function updateCountdown() {
-    const now = new Date().getTime();
-    const timeLeft = gameDate - now;
-
-    if (timeLeft <= 0) {
-      // If the countdown reaches zero, show "Game Day!"
-      document.querySelector(".match-timer").innerHTML = "<span>Game Day!</span>";
-      return;
-    }
-
-    // Time calculations
-    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-    // Ensure HTML elements exist before updating them
-    if (document.querySelector(".match-timer .days")) {
-      document.querySelector(".match-timer .days").textContent = days.toString().padStart(2, "0");
-      document.querySelector(".match-timer .hours").textContent = hours.toString().padStart(2, "0");
-      document.querySelector(".match-timer .minutes").textContent = minutes.toString().padStart(2, "0");
-      document.querySelector(".match-timer .seconds").textContent = seconds.toString().padStart(2, "0");
-    }
-  }
-
-  // Run countdown every second
-  setInterval(updateCountdown, 1000);
-  updateCountdown(); // Run immediately on page load
+  // Remove the countdown timer logic, keeping only match info display
 });
