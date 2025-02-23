@@ -361,7 +361,7 @@ body {
 .sponsor-section {
   width: 100%; /* Full width */
   background-color: #474E5A; /* Light gray background */
-  padding: 30px 0; /* Padding above and below */
+  padding: 50px 0; /* Padding above and below */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -372,15 +372,15 @@ body {
   display: flex;
   justify-content: center; /* Center the logos */
   align-items: center;
-  gap: 40px; /* Space between logos */
+  gap: 60px; /* Space between logos */
   max-width: 1200px;
   flex-wrap: wrap; /* Ensures wrapping for smaller screens */
 }
 
 .sponsor-logo {
-  height: 60px; /* Adjust as needed */
+  height: 120px; /* Adjust as needed */
   width: auto; /* Maintain aspect ratio */
-  max-width: 200px; /* Prevents logos from being too large */
+  max-width: 300px; /* Prevents logos from being too large */
   object-fit: contain; /* Ensures logos display properly */
 }
 
