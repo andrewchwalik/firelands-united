@@ -382,12 +382,6 @@ body {
   width: auto; /* Maintain aspect ratio */
   max-width: 200px; /* Prevents logos from being too large */
   object-fit: contain; /* Ensures logos display properly */
-  filter: grayscale(100%); /* Optional: Make logos black & white */
-  transition: filter 0.3s ease-in-out;
-}
-
-.sponsor-logo:hover {
-  filter: grayscale(0%); /* Show full color on hover */
 }
 
 /* Footer Section */
