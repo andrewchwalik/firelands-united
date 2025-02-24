@@ -102,13 +102,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderBlogs(blogs); // Initial render
 
-  // Hamburger Menu Toggle
+  // Hamburger Menu Toggle (Fixed for Mobile)
   const hamburger = document.getElementById("hamburger-menu");
   const navLinks = document.getElementById("nav-links");
 
   hamburger.addEventListener("click", () => {
     navLinks.classList.toggle("show");
+
+    // Disable scrolling when menu is open
+    if (navLinks.classList.contains("show")) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
   });
 
-  // Remove the countdown timer logic, keeping only match info display
+  // Close menu when clicking outside
+  document.addEventListener("click", (event) => {
+    if (!hamburger.contains(event.target) && !navLinks.contains(event.target)) {
+      navLinks.classList.remove("show");
+      document.body.style.overflow = ""; // Re-enable scrolling
+    }
+  });
+
+  // Ensure menu closes when resizing window
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) {
+      navLinks.classList.remove("show");
+      document.body.style.overflow = "";
+    }
+  });
 });
