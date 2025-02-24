@@ -397,7 +397,7 @@ body {
 .sponsor-logo {
   height: 80px; /* Adjust as needed */
   width: auto; /* Maintain aspect ratio */
-  max-width: 270px; /* Prevents logos from being too large */
+  max-width: 230px; /* Prevents logos from being too large */
   object-fit: contain; /* Ensures logos display properly */
 }
 
