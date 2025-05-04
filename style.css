@@ -12,7 +12,7 @@ body {
   background-color: #fff;
 }
 
-/* Navigation Bar */
+/* NAVIGATION BAR */ -------------------------------------------------------------------------------
 .navbar {
   display: flex;
   align-items: center;
@@ -83,6 +83,7 @@ body {
   display: none;
 }
 
+/* HOME PAGE */ -------------------------------------------------------------------------------
 /* Hero Section */
 .hero {
     position: relative;
@@ -364,7 +365,7 @@ body {
   font-weight: bold;
 }
 
-/* Footer Sponsor Section */
+/* FOOTER SPONSOR SECTION */ -------------------------------------------------------------------------------
 .sponsor-section {
   width: 100%; /* Full width */
   background-color: #474E5A; /* Light gray background */
@@ -408,7 +409,7 @@ body {
   object-fit: contain; /* Ensures logos display properly */
 }
 
-/* Footer Section */
+/* FOOTER */ -------------------------------------------------------------------------------
 .site-footer {
   position: relative; /* Establishes the positioning context for the GIF */
   background-color: #f18a01;
@@ -564,40 +565,4 @@ body {
 
 .matchday-page .guide-section {
   margin-top: 60px;
-}
-
-/* Contact Info Section */
-.contact-info {
-    background-color: ##474E5A; /* Firelands United orange */
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 50px 20px;
-    flex-wrap: wrap;
-}
-
-.contact-box {
-    background-color: #000000;
-    padding: 30px;
-    border-radius: 10px;
-    width: 30%;
-    text-align: center;
-}
-
-.contact-box i {
-    font-size: 3rem;
-    color: #f18a01;
-    margin-bottom: 10px;
-}
-
-.contact-box h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #1b1b1b;
-    margin-bottom: 10px;
-}
-
-.contact-box p {
-    font-size: 1rem;
-    color: #333;
 }
