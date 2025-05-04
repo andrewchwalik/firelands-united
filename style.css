@@ -573,7 +573,7 @@ body {
   box-shadow: none;
 }
 
-/* MATCH DAY GUIDE PAGE */ -------------------------------------------------------------------------------
+/* MATCH DAY GUIDE PAGE */ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 .matchday-page .content-container {
   padding-top: 60px !important;
 }
@@ -583,7 +583,7 @@ body {
 }
 
 .guide-section:last-of-type {
-  margin-bottom: 60px;
+  margin-bottom: 90px;
 }
 
 /* Contact Info Section */
