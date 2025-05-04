@@ -241,6 +241,13 @@ body {
     margin: 0 auto; /* Center the content container */
 }
 
+.content-container h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #1b1b1b; /* Dark visible text */
+}
+
 .content-container h2 {
     font-size: 2rem;
     font-weight: 700; /* Bold text for heading */
