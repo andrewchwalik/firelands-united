@@ -257,6 +257,7 @@ body {
 .guide-section h2,
 .guide-section h3,
 .guide-section h4 {
+  font-family: 'Bermont', sans-serif;
   color: #474E5A;
   font-weight: 700;
   margin-bottom: 20px;
