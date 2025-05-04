@@ -559,68 +559,7 @@ body {
 
 /* MATCH DAY GUIDE PAGE */ -------------------------------------------------------------------------------
 .matchday-page .content-container {
-  padding-top: 60px;
-}
-
-/* CONTACT PAGE */
-/* Contact Section */
-.contact-section {
-    padding: 50px 20px;
-    text-align: center;
-    background-color: #fff; /* White background */
-}
-
-.contact-section h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #1b1b1b; /* Dark text */
-}
-
-.contact-section p {
-    font-size: 1.2rem;
-    color: #555; /* Slightly lighter gray */
-    margin-bottom: 30px;
-}
-
-/* Contact Form */
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.input-group {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-}
-
-.input-group input {
-    flex: 1;
-    padding: 15px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-}
-
-.submit-button {
-    display: block;
-    width: 100%;
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 15px;
-    font-size: 1.2rem;
-    font-weight: 700;
-    background-color: #f18a01; /* Firelands United orange */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.submit-button:hover {
-    background-color: darkorange;
+  padding-top: 60px !important;
 }
 
 /* Contact Info Section */
