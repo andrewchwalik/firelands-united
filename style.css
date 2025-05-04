@@ -582,6 +582,10 @@ body {
   margin-top: 60px;
 }
 
+.guide-section:last-of-type {
+  margin-bottom: 60px;
+}
+
 /* Contact Info Section */
 .contact-info {
     background-color: ##474E5A; /* Firelands United orange */
