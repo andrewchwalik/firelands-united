@@ -562,6 +562,10 @@ body {
   padding-top: 60px !important;
 }
 
+.matchday-page .guide-section {
+  margin-top: 60px;
+}
+
 /* Contact Info Section */
 .contact-info {
     background-color: ##474E5A; /* Firelands United orange */
