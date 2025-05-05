@@ -20,14 +20,26 @@
     </nav>
   </header>
 
-  <main class="content-container">
-    <section class="guide-section" style="text-align: center; margin-top: 60px;">
+<main class="content-container">
+  <section class="guide-section" style="display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; margin-top: 60px; text-align: left;">
+    
+    <!-- Text Column -->
+    <div style="flex: 1; min-width: 280px;">
       <h1>🥒 Looks like you're in a bit of a pickle.</h1>
-      <p>Sorry, but the page you're looking for doesn't exist. Maybe you clicked on an old URL that we're updating.
+      <p>
+        Sorry, but the page you're looking for doesn't exist. Maybe you clicked on an old URL that we're updating.
         Maybe we hid the page you're trying to find on purpose so you could see this cool image of a cat in a pickle suit.
-        Either way, you can hit the back button to return to the page you were just on or navigate to a new one at the top or bottom of this page.</p>
-    </section>
-  </main>
+        Either way, you can hit the back button to return to the page you were just on or navigate to a new one at the top or bottom of this page.
+      </p>
+    </div>
+
+    <!-- Image Column -->
+    <div style="flex: 1; min-width: 280px; text-align: center;">
+      <img src="/img/404-error-cat.png" alt="Cat in Pickle Suit" style="max-width: 100%; height: auto; border-radius: 8px;">
+    </div>
+
+  </section>
+</main>
 
   <!-- Sponsor Section (Now Outside the Footer) -->
   <section class="sponsor-section">
