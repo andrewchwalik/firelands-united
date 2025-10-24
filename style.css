@@ -581,6 +581,20 @@ body {
   box-shadow: none;
 }
 
+/* ORANGE HTML LINK COLORING */ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.orange-link {
+  color: #f18a01; /* Firelands orange */
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.orange-link:hover {
+  color: #d94400; /* Slightly darker orange on hover */
+  text-decoration: underline;
+}
+
 /* MATCH DAY GUIDE PAGE */ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 .matchday-page .content-container {
   padding-top: 60px !important;
