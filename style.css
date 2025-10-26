@@ -581,6 +581,17 @@ body {
   box-shadow: none;
 }
 
+
+/* PRESS KIT PAGE */ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.presskit-page h1,
+.presskit-page h2,
+.presskit-page h3,
+.presskit-page h4 {
+  margin-top: 10px;     /* reduces space above */
+  margin-bottom: 10px;  /* reduces space below */
+}
+
 /* ORANGE HTML LINK COLORING */ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 .orange-link {
