@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // ----- Hero rotation (keep as you have) -----
+  // ----- Hero rotation -----
   const heroContent  = document.getElementById("hero-content");
   const heroTitle    = document.getElementById("hero-title");
   const heroSubtitle = document.getElementById("hero-subtitle");
@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch(err => console.error("Error loading blog data:", err));
 
   function fadeOutAndUpdate() {
+    if (!heroContent) return;
     heroContent.classList.add("fade-out");
     setTimeout(() => {
       updateHeroContent();
@@ -28,8 +29,9 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => heroContent.classList.remove("fade-in"), 1000);
     }, 1000);
   }
+
   function updateHeroContent() {
-    if (blogPosts.length === 0) return;
+    if (blogPosts.length === 0 || !heroTitle || !heroSubtitle || !heroButton) return;
     const post = blogPosts[currentIndex];
     heroTitle.textContent = post.title;
     heroSubtitle.textContent = post.excerpt;
@@ -37,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     currentIndex = (currentIndex + 1) % blogPosts.length;
   }
 
-  // ----- Hamburger menu (attach ALWAYS) -----
+  // ----- Hamburger menu (always attach) -----
   const hamburger = document.getElementById("hamburger-menu");
   const navLinks  = document.getElementById("nav-links");
 
@@ -67,10 +69,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ----- Blog list/search (only if those elements exist) -----
-  const blogList      = document.getElementById("blog-list");
-  const searchInput   = document.getElementById("search-input");
-  const categoryFilter= document.getElementById("category-filter");
+  // ----- Blog list/search (only if present) -----
+  const blogList       = document.getElementById("blog-list");
+  const searchInput    = document.getElementById("search-input");
+  const categoryFilter = document.getElementById("category-filter");
 
   if (blogList && searchInput && categoryFilter) {
     const blogs = [
