@@ -655,7 +655,7 @@ body.presskit-page .content-section {
 
 /* Hero section (first one) */
 body.presskit-page .hero-section {
-  padding-top: 60px !important;   /* extra space under navbar */
+  padding-top: 80px !important;   /* extra space under navbar */
   padding-bottom: 30px !important;
 }
 
@@ -679,6 +679,6 @@ body.presskit-page .content-section:nth-of-type(4) {
 
 /* Media Contact section (light gray background) */
 body.presskit-page .content-section:nth-of-type(5) {
-  padding-top: 20px !important;
-  padding-bottom: 20px !important;
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
 }
