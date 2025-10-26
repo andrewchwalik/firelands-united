@@ -647,27 +647,34 @@ body {
 /* PRESS KIT PAGE */ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 .presskit-page .content-section {
-  padding: 5px 5px !important;   /* Reduce vertical padding */
-  margin-bottom: 5px !important;  /* Reduce space between sections */
+  padding-top: 20px !important;
+  padding-bottom: 10px !important;
+  margin-bottom: 0 !important;
 }
 
 .presskit-page .content-container {
-  max-width: 850px !important;     /* Narrower centered column */
-  padding: 0 40px !important;      /* Wider side margins */
+  max-width: 850px !important;
+  padding: 0 40px !important;
 }
 
-/* Optional: tighten heading + paragraph spacing */
-.presskit-page h1,
-.presskit-page h2,
-.presskit-page h3,
-.presskit-page h4 {
+/* Tighten all heading and paragraph spacing */
+.presskit-page .content-container h1,
+.presskit-page .content-container h2,
+.presskit-page .content-container h3,
+.presskit-page .content-container h4 {
   margin-top: 5px !important;
-  margin-bottom: 0px !important;
+  margin-bottom: 5px !important;
 }
 
-.presskit-page p {
+.presskit-page .content-container p {
   margin-top: 5px !important;
-  margin-bottom: 10px !important;
+  margin-bottom: 8px !important;
+  line-height: 1.4 !important;
+}
+
+/* Extra rule to eliminate global spacing override */
+.presskit-page .content-section + .content-section {
+  margin-top: 5px !important;
 }
 
 /* Hero section override for top spacing */
