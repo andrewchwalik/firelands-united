@@ -600,7 +600,7 @@ body {
 .presskit-page h3,
 .presskit-page h4 {
   margin-top: 5px !important;
-  margin-bottom: 10px !important;
+  margin-bottom: 0px !important;
 }
 
 .presskit-page p {
