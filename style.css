@@ -647,29 +647,5 @@ body {
 /* PRESS KIT PAGE */ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 body.presskit-page .content-section {
-  padding-top: 15px !important;
-  padding-bottom: 15px !important;
-  margin-bottom: 0 !important;
-}
-
-body.presskit-page .content-container p {
-  margin-top: 8px !important;
-  margin-bottom: 8px !important;
-  line-height: 1.4 !important;
-}
-
-body.presskit-page .content-container h1,
-body.presskit-page .content-container h2,
-body.presskit-page .content-container h3 {
-  margin-top: 10px !important;
-  margin-bottom: 10px !important;
-}
-
-body.presskit-page section + section {
-  margin-top: 0 !important;
-}
-
-body.presskit-page .sponsor-section {
-  padding-top: 5px !important;
-  padding-bottom: 5px !important;
+  padding: 20px 20px !important; /* or 10px if you want them really tight */
 }
