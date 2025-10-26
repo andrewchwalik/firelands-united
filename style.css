@@ -586,7 +586,7 @@ body {
 
 .presskit-page .content-section {
   padding: 25px 20px !important;   /* less vertical space */
-  margin-bottom: 15px !important;  /* tighter gap between sections */
+  margin-bottom: 5px !important;  /* tighter gap between sections */
 }
 
 .presskit-page .content-container {
