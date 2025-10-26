@@ -239,7 +239,7 @@ body {
 /* Content Section */
 .content-section {
     background-color: #fff; /* White background */
-    padding: 20px 20px; /* Padding around the content */
+    padding: 40px 20px; /* Padding around the content */
     text-align: center; /* Center align all content */
 }
 
