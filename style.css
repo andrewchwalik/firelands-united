@@ -244,7 +244,7 @@ body {
 }
 
 .content-container {
-    max-width: 1200px; /* Limit the width */
+    max-width: 800px; /* Limit the width */
     margin: 0 auto; /* Center the content container */
 }
 
