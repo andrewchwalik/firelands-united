@@ -586,7 +586,7 @@ body {
 
 .presskit-page .content-section {
   padding: 25px 20px !important;   /* Reduce vertical padding */
-  margin-bottom: 10px !important;  /* Reduce space between sections */
+  margin-bottom: 5px !important;  /* Reduce space between sections */
 }
 
 .presskit-page .content-container {
@@ -610,7 +610,7 @@ body {
 
 /* Hero section override for top spacing */
 .presskit-page .hero-section {
-  padding-top: 40px !important;   /* was 80px inline */
+  padding-top: 80px !important;   /* was 80px inline */
 }
 
 /* ORANGE HTML LINK COLORING */ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
