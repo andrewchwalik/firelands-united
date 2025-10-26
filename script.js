@@ -106,17 +106,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const hamburger = document.getElementById("hamburger-menu");
   const navLinks = document.getElementById("nav-links");
 
-  hamburger.addEventListener("click", (event) => {
-    event.stopPropagation(); // Prevents click from propagating to the document
-    navLinks.classList.toggle("show");
+hamburger.addEventListener("click", (event) => {
+  event.stopPropagation(); // Prevents click from propagating to the document
+  navLinks.classList.toggle("show");
+  hamburger.classList.toggle("active"); // ✅ Add this line
 
-    // Disable scrolling when menu is open
-    if (navLinks.classList.contains("show")) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-  });
+  // Disable scrolling when menu is open
+  if (navLinks.classList.contains("show")) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "";
+  }
+});
 
   // ✅ Close menu when clicking outside
   document.addEventListener("click", (event) => {
