@@ -585,7 +585,7 @@ body {
 /* PRESS KIT PAGE */ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 .presskit-page .content-section {
-  padding: 25px 20px !important;   /* Reduce vertical padding */
+  padding: 5px 20px !important;   /* Reduce vertical padding */
   margin-bottom: 5px !important;  /* Reduce space between sections */
 }
 
