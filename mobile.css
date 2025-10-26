@@ -176,3 +176,28 @@
     margin-top: 15px;
   }
 }
+
+/* =================================== */
+/* 🔧 FIX: Ensure Mobile Menu Is Visible */
+/* =================================== */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #f18a01; /* Match your navbar color */
+    position: fixed; /* Change from absolute → fixed */
+    top: 60px;       /* Below the navbar */
+    left: 0;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    gap: 15px;
+    padding: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 9999; /* Ensures it's on top of everything */
+  }
+
+  .nav-links.show {
+    display: flex !important;
+  }
+}
