@@ -584,12 +584,28 @@ body {
 
 /* PRESS KIT PAGE */ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+.presskit-page .content-section {
+  padding: 25px 20px !important;   /* less vertical space */
+  margin-bottom: 15px !important;  /* tighter gap between sections */
+}
+
+.presskit-page .content-container {
+  max-width: 850px;                /* keep text closer to center */
+  padding: 0 40px;                 /* extra side margins */
+}
+
+/* Optional: tighten headings and paragraph spacing */
 .presskit-page h1,
 .presskit-page h2,
 .presskit-page h3,
 .presskit-page h4 {
-  margin-top: 3px;     /* reduces space above */
-  margin-bottom: 3px;  /* reduces space below */
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+.presskit-page p {
+  margin-top: 5px !important;
+  margin-bottom: 15px !important;
 }
 
 /* ORANGE HTML LINK COLORING */ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
