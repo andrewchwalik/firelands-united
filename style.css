@@ -588,8 +588,8 @@ body {
 .presskit-page h2,
 .presskit-page h3,
 .presskit-page h4 {
-  margin-top: 10px;     /* reduces space above */
-  margin-bottom: 10px;  /* reduces space below */
+  margin-top: 3px;     /* reduces space above */
+  margin-bottom: 3px;  /* reduces space below */
 }
 
 /* ORANGE HTML LINK COLORING */ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
