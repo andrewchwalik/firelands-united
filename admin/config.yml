@@ -1,0 +1,26 @@
+backend:
+  name: github
+  repo: andrewchwalik/firelandsunited  # UPDATE if your repo name is different
+  branch: main
+  base_url: https://firelandsunited-cms-auth.YOUR_SUBDOMAIN.workers.dev  # UPDATE with your Cloudflare Worker URL
+
+media_folder: "img/blogs"
+public_folder: "/img/blogs"
+
+collections:
+  - name: "posts"
+    label: "Blog Posts"
+    label_singular: "Post"
+    folder: "_posts"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Category", name: "category", widget: "select", options: ["Club News", "Updates", "Player Spotlight"], default: "Club News" }
+      - { label: "Featured Image", name: "image", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
