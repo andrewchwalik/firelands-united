@@ -1,17 +1,26 @@
 [
   {
     "title": "Firelands United to Join NOSL Northwest",
-    "excerpt": "We're excited to be joining the Northern Ohio Soccer League Northwest to help grow the beautiful game in Northern Ohio! Click to read more!",
-    "link": "/blogs/firelands-united-to-join-nosl-northwest.html"
+    "excerpt": "We're excited to be joining the Northern Ohio Soccer League Northwest to help grow the beautiful game in Northern Ohio!",
+    "link": "/blogs/firelands-united-to-join-nosl-northwest/",
+    "image": "/img/blogs/firelands-united-to-join-nosl-northwest.jpg",
+    "category": "club news",
+    "date": "2024-12-17T12:00:00.000Z"
   },
   {
     "title": "Join Firelands United for Our Summer Season",
-    "excerpt": "Firelands United is recruiting passionate players to join our inaugural men’s season this summer in the Northern Ohio Soccer League, Northwest Region.",
-    "link": "/blogs/join-firelands-united-for-our-summer-season"
+    "excerpt": "Think you have what it takes to play minor league soccer? Submit your information to join the coolest soccer team in Northern Ohio.",
+    "link": "/blogs/join-firelands-united-for-our-summer-season/",
+    "image": "/img/blogs/join-firelands-united-for-our-summer-season.jpg",
+    "category": "club news",
+    "date": "2024-12-10T12:00:00.000Z"
   },
   {
     "title": "Player Spotlight: John Doe",
     "excerpt": "Meet John Doe, our star midfielder with an incredible season ahead.",
-    "link": "/blogs/player-spotlight-john-doe.html"
+    "link": "/blogs/player-spotlight-john-doe/",
+    "image": "/img/blogs/default.jpg",
+    "category": "player spotlight",
+    "date": "2024-12-05T12:00:00.000Z"
   }
 ]
