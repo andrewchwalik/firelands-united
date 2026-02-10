@@ -87,19 +87,23 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderBlogs(items) {
     blogList.innerHTML = "";
     if (items.length === 0) {
-      blogList.innerHTML = "<p>No blogs found.</p>";
+      blogList.innerHTML = '<p class="no-results">No posts found.</p>';
       return;
     }
     items.forEach((blog) => {
-      const card = document.createElement("div");
+      const card = document.createElement("a");
       card.classList.add("blog-card");
+      card.href = blog.link;
       const imgSrc = blog.image || "/img/blogs/default.jpg";
+      const category = blog.category || "Club News";
       card.innerHTML = `
-        <img src="${imgSrc}" alt="${blog.title}">
-        <div class="blog-card-content">
-          <h3>${blog.title}</h3>
-          <p>${blog.excerpt}</p>
-          <a href="${blog.link}">Read More</a>
+        <div class="blog-card-image">
+          <img src="${imgSrc}" alt="${blog.title}">
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-card-category">${category}</span>
+          <h3 class="blog-card-title">${blog.title}</h3>
+          <p class="blog-card-excerpt">${blog.excerpt}</p>
         </div>`;
       blogList.appendChild(card);
     });

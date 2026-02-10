@@ -106,7 +106,7 @@ body {
     display: block;
     width: auto; /* Retain the image's natural width */
     height: auto; /* Retain the image's natural height */
-    max-width: 100%; /* Ensure it doesn’t overflow the viewport width */
+    max-width: 100%; /* Ensure it doesn't overflow the viewport width */
 }
 
 /* Hero Content */
@@ -302,91 +302,175 @@ body {
     background-color: #d94400; /* Slightly darker orange on hover */
 }
 
-/* News Section */
+/* ============================================
+   NEWS / BLOG PAGE - Modern Grid Layout
+   ============================================ */
+
 .news-section {
-  padding: 50px 20px;
+  padding: 60px 20px 80px;
   background-color: #fff;
-  text-align: center;
 }
 
-.news-section h2 {
+.news-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.news-page-title {
+  font-family: 'Montserrat', sans-serif;
   font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 30px;
-}
-
-.blog-controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
+  font-weight: 700;
+  color: #1a1a1a;
   margin-bottom: 40px;
 }
 
-.blog-controls input {
-  padding: 10px 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 1rem;
-  width: 250px;
+/* Search & Filter Bar */
+.blog-controls {
+  margin-bottom: 50px;
 }
 
-.blog-controls select {
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 1rem;
-}
-
-.blog-list {
+.blog-controls-inner {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+  align-items: center;
+  background: #f5f5f5;
+  border-radius: 12px;
+  padding: 8px 8px 8px 24px;
+  gap: 0;
 }
 
+.blog-controls-inner input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  color: #333;
+  padding: 12px 0;
+  outline: none;
+}
+
+.blog-controls-inner input::placeholder {
+  color: #999;
+}
+
+.blog-controls-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.blog-controls-inner select {
+  border: none;
+  background: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  color: #333;
+  padding: 12px 16px;
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: auto;
+}
+
+.search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: none;
+  background: #1a1a1a;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #fff;
+  transition: background 0.2s ease;
+  flex-shrink: 0;
+}
+
+.search-btn:hover {
+  background: #333;
+}
+
+/* Blog Grid - 2 columns */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+/* Blog Card */
 .blog-card {
-  width: calc(25% - 20px); /* Adjust based on screen size */
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden;
-  background-color: #fff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s ease;
 }
 
 .blog-card:hover {
-  transform: scale(1.05);
+  transform: translateY(-4px);
 }
 
-.blog-card img {
+.blog-card-image {
   width: 100%;
-  height: 150px;
+  aspect-ratio: 16 / 10;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  background: #f0f0f0;
+}
+
+.blog-card-image img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
 }
 
-.blog-card-content {
-  padding: 15px;
-  text-align: left;
+.blog-card:hover .blog-card-image img {
+  transform: scale(1.03);
 }
 
-.blog-card-content h3 {
-  font-size: 1.25rem;
-  margin-bottom: 10px;
-  color: #333;
+.blog-card-body {
+  padding: 0 4px;
 }
 
-.blog-card-content p {
-  font-size: 0.875rem;
-  color: #666;
-  margin-bottom: 15px;
-}
-
-.blog-card-content a {
-  text-decoration: none;
+.blog-card-category {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   color: #f18a01;
-  font-weight: bold;
+  margin-bottom: 8px;
 }
+
+.blog-card-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+
+.blog-card-excerpt {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #999;
+  padding: 60px 0;
+}
+
+/* ============================================
+   END NEWS / BLOG PAGE
+   ============================================ */
 
 /* Footer Sponsor Section */
 .sponsor-section {
@@ -581,7 +665,7 @@ body {
   box-shadow: none;
 }
 
-/* ORANGE HTML LINK COLORING */ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+/* ORANGE HTML LINK COLORING */
 
 .orange-link {
   color: #f18a01; /* Firelands orange */
@@ -595,7 +679,7 @@ body {
   text-decoration: underline;
 }
 
-/* MATCH DAY GUIDE PAGE */ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+/* MATCH DAY GUIDE PAGE */
 .matchday-page .content-container {
   padding-top: 60px !important;
 }
@@ -610,7 +694,7 @@ body {
 
 /* Contact Info Section */
 .contact-info {
-    background-color: ##474E5A; /* Firelands United orange */
+    background-color: #474E5A; /* Firelands United dark */
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -644,8 +728,7 @@ body {
     color: #333;
 }
 
-/* PRESS KIT PAGE */ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
+/* PRESS KIT PAGE */
 
 /* Default tighter spacing for all sections on this page */
 body.presskit-page .content-section {
