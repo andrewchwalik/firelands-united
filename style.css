@@ -103,7 +103,9 @@ body {
 .home-hero-inner {
   position: relative;
   max-width: 100%;
+  max-height: 600px;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 .home-hero-image {
@@ -113,26 +115,75 @@ body {
 
 .home-hero-image img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  max-height: 600px;
   display: block;
   object-fit: cover;
+  object-position: center top;
+}
+
+/* Overlay container — holds tagline + match info in the orange area */
+.home-hero-overlay {
+  position: absolute;
+  bottom: 10%;
+  right: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+  max-width: 340px;
 }
 
 .home-hero-tagline {
-  position: absolute;
-  bottom: 12%;
-  right: 5%;
-  max-width: 320px;
-  text-align: right;
-}
-
-.home-hero-tagline p {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: #fff;
-  line-height: 1.5;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  line-height: 1.55;
+  text-align: right;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Match info — clean minimal card in the banner */
+.home-hero-match {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  padding: 16px 22px;
+  text-align: center;
+  min-width: 240px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.home-hero-match-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #f18a01;
+  margin-bottom: 8px;
+}
+
+.home-hero-match-teams {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 6px;
+}
+
+.home-hero-match-vs {
+  font-weight: 400;
+  color: #999;
+  margin: 0 6px;
+  font-size: 0.8rem;
+}
+
+.home-hero-match-detail {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  color: #777;
+  font-weight: 500;
 }
 
 /* Fade animation for hero content */
@@ -153,20 +204,6 @@ body {
 .latest-news {
   background-color: #fff;
   padding: 60px 20px 70px;
-}
-
-.latest-news-container {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.latest-news-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  color: #1a1a1a;
-  margin-bottom: 40px;
-  text-align: center;
 }
 
 .latest-news-grid {
@@ -244,80 +281,7 @@ body {
   text-align: center;
 }
 
-/* Upcoming Match Section */
-.match-info {
-    position: relative; /* Position to allow controlled overlap */
-    background-color: #fff; /* Solid white background */
-    padding: 20px; /* Internal spacing */
-    margin: -50px auto 0; /* Overlaps the hero section */
-    border-radius: 8px; /* Rounded corners */
-    max-width: 1200px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    z-index: 10; /* Ensure it stays above the hero section */
-}
-
-.match-info::before,
-.match-info::after {
-    content: none !important; /* Remove any pseudo-elements */
-}
-
-.match-info * {
-    box-shadow: none !important; /* Remove all child element shadows */
-    background: none !important; /* Remove any background overrides */
-    border: none !important; /* Remove any unwanted borders */
-    margin: 0; /* Remove margin that causes breaks */
-    padding: 0; /* Remove extra padding */
-}
-
-.match-card {
-  display: flex; /* Use Flexbox */
-  justify-content: space-between; /* Space elements evenly (left, center, right) */
-  align-items: center; /* Vertically center all items */
-  max-width: 1200px; /* Limit width */
-  margin: 0 auto; /* Center horizontally */
-  padding: 20px; /* Internal padding */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  background-color: #fff; /* White background */
-}
-
-.match-teams {
-  flex: 1; /* Allow it to take up 1 part of the space */
-  text-align: left; /* Align text to the left */
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #1b1b1b;
-}
-
-.match-teams .vs {
-  margin: 0 10px;
-  color: #666; /* Slightly lighter for 'vs' */
-}
-
-.match-timer {
-  flex: 1; /* Allow it to take up 1 part of the space */
-  display: flex;
-  justify-content: center; /* Center the timer */
-  gap: 10px; /* Space between timer segments */
-  align-items: center; /* Vertically center items */
-  font-size: 1rem;
-  font-weight: 700;
-  color: #f18a01; /* Timer text color */
-}
-
-.match-timer .time {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #000; /* Ensure numbers are black */
-}
-
-.match-details {
-  flex: 1; /* Allow it to take up 1 part of the space */
-  text-align: right; /* Align text to the right */
-  font-size: 1rem;
-  font-weight: 400;
-  color: #1b1b1b; /* Dark text color */
-}
+/* (Old match-info section removed — match info is now in the hero banner) */
 
 /* Content Section */
 .content-section {
@@ -847,4 +811,35 @@ body.presskit-page .content-section:nth-of-type(4) {
 body.presskit-page .content-section:nth-of-type(5) {
   padding-top: 40px !important;
   padding-bottom: 40px !important;
+}
+
+/* ============================================
+   RESPONSIVE - Tablet (769px - 1024px)
+   ============================================ */
+
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  .home-hero-overlay {
+    bottom: 8%;
+    right: 4%;
+    max-width: 280px;
+    gap: 14px;
+  }
+
+  .home-hero-tagline {
+    font-size: 0.8rem;
+  }
+
+  .home-hero-match {
+    padding: 12px 18px;
+    min-width: 210px;
+  }
+
+  .home-hero-match-teams {
+    font-size: 0.85rem;
+  }
+
+  .latest-news-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
 }
