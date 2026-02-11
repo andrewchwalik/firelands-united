@@ -6,11 +6,11 @@
   <title>Firelands United</title>
   <link rel="stylesheet" href="/style.css">
   <link rel="stylesheet" href="/mobile.css" media="screen and (max-width: 768px)">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="../img/firelands-united-favicon.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/img/firelands-united-favicon.png" type="image/png">
 </head>
 <body>
-  
+
   <!-- Navigation Bar -->
   <header class="navbar">
     <div class="logo">
@@ -35,30 +35,41 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <div class="hero">
-    <img src="/img/firelands-hero.jpg" alt="Hero Image" class="hero-image">
-    <div class="hero-content" id="hero-content">
-      <h1 class="hero-title" id="hero-title">Loading...</h1>
-      <p class="hero-subtitle" id="hero-subtitle">Please wait...</p>
-      <a href="#" class="hero-button" id="hero-button">Read More</a>
-    </div>
-  </div>
-  
-  <!-- Match Info Section -->
-  <section class="match-info">
-    <div class="match-card">
-      <div class="match-teams">
-        <span class="team firelands">Firelands United</span>
-        <span class="vs">vs.</span>
-        <span class="team opponent">TBD</span>
+  <!-- Hero Banner Section -->
+  <section class="home-hero">
+    <div class="home-hero-inner">
+      <div class="home-hero-image">
+        <picture>
+          <source media="(min-width: 769px)" srcset="/img/firelands-hero-banner-desktop.png">
+          <img src="/img/firelands-hero-banner.png" alt="Firelands United Player">
+        </picture>
       </div>
-      <div class="match-details">
-        <span class="time-location">See You Next Season</span>
+      <div class="home-hero-overlay">
+        <div class="home-hero-match">
+          <div class="home-hero-match-label">Next Match</div>
+          <div class="home-hero-match-teams">
+            <span>Firelands United</span>
+            <span class="home-hero-match-vs">vs</span>
+            <span>TBD</span>
+          </div>
+          <div class="home-hero-match-detail">See You Next Season</div>
+        </div>
       </div>
     </div>
   </section>
-  
+
+  <!-- Latest News Section -->
+  <section class="latest-news">
+    <div class="latest-news-container">
+      <div class="latest-news-grid" id="latest-news-grid">
+        <!-- Populated by JavaScript -->
+      </div>
+      <div class="latest-news-cta">
+        <a href="/news/" class="cta-button">View All News</a>
+      </div>
+    </div>
+  </section>
+
   <!-- About Section -->
   <section class="content-section">
     <div class="content-container">
@@ -70,18 +81,18 @@
     </div>
   </section>
 
-<!-- Sponsor Section (Now Outside the Footer) -->
-<section class="sponsor-section">
-  <div class="sponsor-container">
-    <a href="https://wash.ooo/" target="_blank" rel="noopener noreferrer">
-      <img src="/img/sponsors/wash-company-logo.png" alt="Wash Company" class="sponsor-logo">
-    </a>
-    <a href="https://www.bluebird.ooo/" target="_blank" rel="noopener noreferrer">
-      <img src="/img/sponsors/bluebird-logo.png" alt="Bluebird" class="sponsor-logo">
-    </a>
-  </div>
-</section>
-  
+  <!-- Sponsor Section -->
+  <section class="sponsor-section">
+    <div class="sponsor-container">
+      <a href="https://wash.ooo/" target="_blank" rel="noopener noreferrer">
+        <img src="/img/sponsors/wash-company-logo.png" alt="Wash Company" class="sponsor-logo">
+      </a>
+      <a href="https://www.bluebird.ooo/" target="_blank" rel="noopener noreferrer">
+        <img src="/img/sponsors/bluebird-logo.png" alt="Bluebird" class="sponsor-logo">
+      </a>
+    </div>
+  </section>
+
   <!-- Footer Section -->
   <footer class="site-footer">
     <div class="footer-links-container">
@@ -149,7 +160,7 @@
       <img src="/img/soccer-juggling.gif" alt="Soccer player juggling a ball">
     </div>
   </footer>
-  
+
   <script src="/script.js"></script>
 </body>
 </html>

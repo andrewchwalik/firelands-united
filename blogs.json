@@ -1,5 +1,13 @@
 [
   {
+    "title": "Firelands United Signs First Player in Club History",
+    "excerpt": "Meet Connor Hauger, the first player in history to sign for the club.",
+    "link": "/blogs/player-spotlight-john-doe/",
+    "image": "/img/blogs/the-historic-first-signing.jpg",
+    "category": "player spotlight",
+    "date": "2024-12-21T12:00:00.000Z"
+  },
+  {
     "title": "Firelands United to Join NOSL Northwest",
     "excerpt": "We're excited to be joining the Northern Ohio Soccer League Northwest to help grow the beautiful game in Northern Ohio!",
     "link": "/blogs/firelands-united-to-join-nosl-northwest/",
@@ -9,18 +17,10 @@
   },
   {
     "title": "Join Firelands United for Our Summer Season",
-    "excerpt": "Think you have what it takes to play minor league soccer? Submit your information to join the coolest soccer team in Northern Ohio.",
+    "excerpt": "Think you have what it takes to play minor league soccer? Submit your info to join the hottest team in Northern Ohio.",
     "link": "/blogs/join-firelands-united-for-our-summer-season/",
     "image": "/img/blogs/join-firelands-united-for-our-summer-season.jpg",
     "category": "club news",
     "date": "2024-12-10T12:00:00.000Z"
-  },
-  {
-    "title": "Player Spotlight: John Doe",
-    "excerpt": "Meet John Doe, our star midfielder with an incredible season ahead.",
-    "link": "/blogs/player-spotlight-john-doe/",
-    "image": "/img/blogs/default.jpg",
-    "category": "player spotlight",
-    "date": "2024-12-05T12:00:00.000Z"
   }
 ]
