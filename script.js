@@ -176,8 +176,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ----- Newsletter form (Buttondown) -----
+  // ----- Newsletter form (Google Sheets) -----
   const newsletterForm = document.getElementById("newsletter-form");
+  var GOOGLE_SHEET_URL =
+    "https://script.google.com/macros/s/AKfycbzXK4eHP3ZDeX8Kmakwx0wtuNwKpuSueW2wf8TmxSj3s4KlA0oiUfXjPzT99s7fvwQgjg/exec";
 
   if (newsletterForm) {
     newsletterForm.addEventListener("submit", (e) => {
@@ -185,31 +187,52 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const emailInput = document.getElementById("newsletter-email");
       const email = emailInput.value;
-      const formAction = newsletterForm.getAttribute("action");
+      const submitBtn = newsletterForm.querySelector(".newsletter-btn");
 
-      // Submit to Buttondown via hidden iframe so user stays on page
-      const iframe = document.getElementById("buttondown-iframe");
-      if (iframe) {
-        newsletterForm.target = "buttondown-iframe";
-        newsletterForm.submit();
-      }
+      // Disable the button while submitting
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending...";
 
-      // Show success message
-      const container = newsletterForm.parentElement;
-      newsletterForm.style.display = "none";
+      // Send to Google Sheets
+      fetch(GOOGLE_SHEET_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: email }),
+      })
+        .then(() => {
+          // Show success message
+          const container = newsletterForm.parentElement;
+          newsletterForm.style.display = "none";
 
-      // Remove the disclaimer text
-      const disclaimer = container.querySelector(".newsletter-disclaimer");
-      if (disclaimer) disclaimer.style.display = "none";
+          // Remove the disclaimer text
+          const disclaimer = container.querySelector(".newsletter-disclaimer");
+          if (disclaimer) disclaimer.style.display = "none";
 
-      // Insert success message
-      const successMsg = document.createElement("p");
-      successMsg.style.color = "#fff";
-      successMsg.style.fontSize = "1.1rem";
-      successMsg.style.fontWeight = "600";
-      successMsg.style.marginTop = "10px";
-      successMsg.textContent = "You're subscribed! Welcome to the club. \u26BD";
-      container.appendChild(successMsg);
+          // Insert success message
+          const successMsg = document.createElement("p");
+          successMsg.style.color = "#fff";
+          successMsg.style.fontSize = "1.1rem";
+          successMsg.style.fontWeight = "600";
+          successMsg.style.marginTop = "10px";
+          successMsg.textContent =
+            "You\u2019re subscribed! Welcome to the club. \u26BD";
+          container.appendChild(successMsg);
+        })
+        .catch(() => {
+          // Show error message
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Subscribe";
+          const errorMsg = document.createElement("p");
+          errorMsg.style.color = "#ff6b6b";
+          errorMsg.style.fontSize = "0.9rem";
+          errorMsg.style.marginTop = "10px";
+          errorMsg.textContent =
+            "Something went wrong. Please try again.";
+          newsletterForm.parentElement.appendChild(errorMsg);
+        });
     });
   }
 });
