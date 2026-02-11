@@ -72,28 +72,39 @@
     flex-direction: column;
   }
 
-  /* Hero Section */
-  .hero-content {
-    position: relative;
-    top: auto;
-    left: 0;
-    transform: none;
-    text-align: center;
-    padding: 15px;
-    max-width: 90%;
+  /* Home Hero Banner */
+  .home-hero-tagline {
+    position: absolute;
+    bottom: 8%;
+    right: 4%;
+    max-width: 180px;
   }
 
-  .hero-title {
-    font-size: 1.8rem;
+  .home-hero-tagline p {
+    font-size: 0.7rem;
+    line-height: 1.4;
   }
 
-  .hero-subtitle {
-    font-size: 1rem;
+  /* Latest News Section */
+  .latest-news {
+    padding: 40px 16px 50px;
   }
 
-  .hero-button {
-    font-size: 0.875rem;
-    padding: 8px 15px;
+  .latest-news-title {
+    font-size: 1.5rem;
+    margin-bottom: 24px;
+  }
+
+  .latest-news-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 30px;
+  }
+
+  /* Blog Grid (News Page) */
+  .blog-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
   }
 
   /* Match Info Section */

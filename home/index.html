@@ -6,11 +6,11 @@
   <title>Firelands United</title>
   <link rel="stylesheet" href="/style.css">
   <link rel="stylesheet" href="/mobile.css" media="screen and (max-width: 768px)">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="../img/firelands-united-favicon.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/img/firelands-united-favicon.png" type="image/png">
 </head>
 <body>
-  
+
   <!-- Navigation Bar -->
   <header class="navbar">
     <div class="logo">
@@ -35,16 +35,18 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <div class="hero">
-    <img src="/img/firelands-hero.jpg" alt="Hero Image" class="hero-image">
-    <div class="hero-content" id="hero-content">
-      <h1 class="hero-title" id="hero-title">Loading...</h1>
-      <p class="hero-subtitle" id="hero-subtitle">Please wait...</p>
-      <a href="#" class="hero-button" id="hero-button">Read More</a>
+  <!-- Hero Banner Section -->
+  <section class="home-hero">
+    <div class="home-hero-inner">
+      <div class="home-hero-image">
+        <img src="/img/firelands-hero-banner.png" alt="Firelands United Player">
+      </div>
+      <div class="home-hero-tagline">
+        <p>The hottest minor league soccer team in Northern Ohio.</p>
+      </div>
     </div>
-  </div>
-  
+  </section>
+
   <!-- Match Info Section -->
   <section class="match-info">
     <div class="match-card">
@@ -58,7 +60,20 @@
       </div>
     </div>
   </section>
-  
+
+  <!-- Latest News Section -->
+  <section class="latest-news">
+    <div class="latest-news-container">
+      <h2 class="latest-news-title">Latest News</h2>
+      <div class="latest-news-grid" id="latest-news-grid">
+        <!-- Populated by JavaScript -->
+      </div>
+      <div class="latest-news-cta">
+        <a href="/news/" class="cta-button">View All News</a>
+      </div>
+    </div>
+  </section>
+
   <!-- About Section -->
   <section class="content-section">
     <div class="content-container">
@@ -70,18 +85,18 @@
     </div>
   </section>
 
-<!-- Sponsor Section (Now Outside the Footer) -->
-<section class="sponsor-section">
-  <div class="sponsor-container">
-    <a href="https://wash.ooo/" target="_blank" rel="noopener noreferrer">
-      <img src="/img/sponsors/wash-company-logo.png" alt="Wash Company" class="sponsor-logo">
-    </a>
-    <a href="https://www.bluebird.ooo/" target="_blank" rel="noopener noreferrer">
-      <img src="/img/sponsors/bluebird-logo.png" alt="Bluebird" class="sponsor-logo">
-    </a>
-  </div>
-</section>
-  
+  <!-- Sponsor Section -->
+  <section class="sponsor-section">
+    <div class="sponsor-container">
+      <a href="https://wash.ooo/" target="_blank" rel="noopener noreferrer">
+        <img src="/img/sponsors/wash-company-logo.png" alt="Wash Company" class="sponsor-logo">
+      </a>
+      <a href="https://www.bluebird.ooo/" target="_blank" rel="noopener noreferrer">
+        <img src="/img/sponsors/bluebird-logo.png" alt="Bluebird" class="sponsor-logo">
+      </a>
+    </div>
+  </section>
+
   <!-- Footer Section -->
   <footer class="site-footer">
     <div class="footer-links-container">
@@ -149,7 +164,7 @@
       <img src="/img/soccer-juggling.gif" alt="Soccer player juggling a ball">
     </div>
   </footer>
-  
+
   <script src="/script.js"></script>
 </body>
 </html>

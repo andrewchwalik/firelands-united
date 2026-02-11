@@ -22,6 +22,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (relatedPostsGrid) {
         renderRelatedPosts(blogPosts);
       }
+
+      // Initialize latest news on the homepage
+      if (latestNewsGrid) {
+        renderLatestNews(blogPosts);
+      }
     })
     .catch((err) => console.error("Error loading blog data:", err));
 
@@ -173,6 +178,35 @@ document.addEventListener("DOMContentLoaded", () => {
           <p class="related-card-excerpt">${post.excerpt}</p>
         </div>`;
       relatedPostsGrid.appendChild(card);
+    });
+  }
+
+  // ----- Latest news (homepage) -----
+  const latestNewsGrid = document.getElementById("latest-news-grid");
+
+  function renderLatestNews(allPosts) {
+    if (!latestNewsGrid || allPosts.length === 0) return;
+
+    // Show up to 3 latest posts (already sorted newest first from blogs.json)
+    const postsToShow = allPosts.slice(0, 3);
+
+    latestNewsGrid.innerHTML = "";
+    postsToShow.forEach((post) => {
+      const card = document.createElement("a");
+      card.classList.add("latest-news-card");
+      card.href = post.link;
+      const imgSrc = post.image || "/img/blogs/default.jpg";
+      const category = post.category || "Club News";
+      card.innerHTML = `
+        <div class="latest-news-card-image">
+          <img src="${imgSrc}" alt="${post.title}">
+        </div>
+        <div class="latest-news-card-body">
+          <span class="latest-news-card-category">${category}</span>
+          <h3 class="latest-news-card-title">${post.title}</h3>
+          <p class="latest-news-card-excerpt">${post.excerpt}</p>
+        </div>`;
+      latestNewsGrid.appendChild(card);
     });
   }
 

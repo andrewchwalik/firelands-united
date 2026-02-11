@@ -90,64 +90,49 @@ body {
   display: none;
 }
 
-/* Hero Section */
-.hero {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 0;
-    margin: 0;
+/* ============================================
+   HOME HERO BANNER
+   ============================================ */
+
+.home-hero {
+  width: 100%;
+  overflow: hidden;
+  background-color: #fff;
 }
 
-/* Hero Image */
-.hero-image {
-    display: block;
-    width: auto; /* Retain the image's natural width */
-    height: auto; /* Retain the image's natural height */
-    max-width: 100%; /* Ensure it doesn't overflow the viewport width */
+.home-hero-inner {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
-/* Hero Content */
-.hero-content {
-    position: absolute; /* Keeps the content over the image */
-    top: 50%; /* Vertically center the content */
-    left: 80px; /* Adds more space from the left */
-    transform: translateY(-50%); /* Centers content vertically */
-    text-align: left; /* Align text to the left */
-    z-index: 1; /* Ensure it stays above the image */
-    color: #ffffff; /* White text for readability */
-    max-width: 50%; /* Restricts the content to half the screen width */
-    padding: 0; /* Removes extra spacing */
-    margin: 0;
+.home-hero-image {
+  width: 100%;
+  line-height: 0;
 }
 
-.hero-title {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 20px;
+.home-hero-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
-.hero-subtitle {
-  font-size: 1.25rem;
-  margin-bottom: 30px;
+.home-hero-tagline {
+  position: absolute;
+  bottom: 12%;
+  right: 5%;
+  max-width: 320px;
+  text-align: right;
 }
 
-.hero-button {
-  display: inline-block;
-  padding: 10px 30px;
-  background-color: #f18a01;
-  color: #ffffff;
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: 700;
-  text-transform: uppercase;
-  transition: background-color 0.3s ease;
-}
-
-.hero-button:hover {
-  background-color: darkorange;
+.home-hero-tagline p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.5;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Fade animation for hero content */
@@ -159,6 +144,104 @@ body {
 .fade-in {
   opacity: 1;
   transition: opacity 1s ease-in-out;
+}
+
+/* ============================================
+   LATEST NEWS SECTION (Homepage)
+   ============================================ */
+
+.latest-news {
+  background-color: #fff;
+  padding: 60px 20px 70px;
+}
+
+.latest-news-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.latest-news-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.latest-news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+/* Reuse blog card styles for latest news cards */
+.latest-news-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.latest-news-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.latest-news-card-image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.latest-news-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.latest-news-card:hover .latest-news-card-image img {
+  transform: scale(1.04);
+}
+
+.latest-news-card-body {
+  padding: 20px;
+}
+
+.latest-news-card-category {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #f18a01;
+  margin-bottom: 8px;
+}
+
+.latest-news-card-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+
+.latest-news-card-excerpt {
+  font-size: 0.85rem;
+  color: #777;
+  line-height: 1.5;
+}
+
+.latest-news-cta {
+  text-align: center;
 }
 
 /* Upcoming Match Section */
