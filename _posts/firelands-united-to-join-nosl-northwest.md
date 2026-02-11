@@ -17,4 +17,3 @@ The NOSL Northwest Region promises to be a highly competitive league, featuring 
 For Firelands United, this season represents more than just soccer matches—it's about uniting players, fans, and supporters to celebrate the beautiful game. As we prepare for the summer season, we invite the community to get involved, cheer us on, and help us make our debut year unforgettable.
 
 Stay tuned for updates, match schedules, and ways to support Firelands United on this exciting journey. Let's make this inaugural season one to remember!
-
