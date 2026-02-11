@@ -1,6 +1,6 @@
 ---
 title: Firelands United Signs First Player in Club History
-date: 2024-12-05T12:00:00.000Z
+date: 2024-12-21T07:00:00.000-05:00
 excerpt: Meet Connor Hauger, the first player in history to sign for the club.
 category: Player Spotlight
 image: /img/blogs/the-historic-first-signing.jpg
