@@ -285,14 +285,14 @@ body {
 
 /* Content Section */
 .content-section {
-    background-color: #fff; /* White background */
-    padding: 40px 20px; /* Padding around the content */
-    text-align: center; /* Center align all content */
+    background-color: #fff;
+    padding: 80px 20px;
+    text-align: center;
 }
 
 .content-container {
-    max-width: 800px; /* Limit the width */
-    margin: 0 auto; /* Center the content container */
+    max-width: 860px;
+    margin: 0 auto;
 }
 
 /* Headings inside content areas */
@@ -328,9 +328,9 @@ body {
 
 .content-container p {
     font-size: 1.25rem;
-    line-height: 1.6; /* Line height for readability */
-    margin-bottom: 30px; /* Space below the paragraph */
-    color: #555; /* Slightly lighter gray for paragraph text */
+    line-height: 1.75;
+    margin-bottom: 30px;
+    color: #555;
 }
 
 .cta-button {
