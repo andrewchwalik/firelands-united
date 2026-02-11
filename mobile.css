@@ -129,6 +129,26 @@
   color: #f18a01;
 }
 
+/* --- Diving Keeper Easter Egg --- */
+.menu-keeper {
+  display: block;
+  position: fixed;
+  top: 200px;
+  right: -220px;
+  width: 200px;
+  height: auto;
+  pointer-events: none;
+  z-index: 10000;
+  opacity: 0;
+  transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.15s,
+              opacity 0.3s ease 0.15s;
+}
+
+.nav-links.show .menu-keeper {
+  right: -30px;
+  opacity: 1;
+}
+
 /* --- Home Hero Banner --- */
 .home-hero-overlay {
   bottom: 6%;
