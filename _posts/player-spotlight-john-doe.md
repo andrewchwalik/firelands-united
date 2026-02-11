@@ -7,3 +7,4 @@ image: "/img/blogs/default.jpg"
 ---
 
 Meet John Doe, our star midfielder with an incredible season ahead.
+
