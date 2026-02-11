@@ -82,13 +82,22 @@
     <div class="newsletter-container">
       <h2 class="newsletter-title">Stay in the loop</h2>
       <p class="newsletter-subtitle">Get the latest news, match updates, and club announcements delivered to your inbox.</p>
-      <form class="newsletter-form" id="newsletter-form">
-        <input type="email" id="newsletter-email" placeholder="Your email" required>
+      <form
+        class="newsletter-form"
+        id="newsletter-form"
+        action="https://buttondown.com/api/emails/embed-subscribe/firelandsunited"
+        method="post"
+      >
+        <input type="hidden" value="1" name="embed">
+        <input type="email" name="email" id="newsletter-email" placeholder="Your email" required>
         <button type="submit" class="newsletter-btn">Subscribe</button>
       </form>
       <p class="newsletter-disclaimer">No spam. Unsubscribe anytime.</p>
     </div>
   </section>
+
+  <!-- Hidden iframe for Buttondown submission -->
+  <iframe name="buttondown-iframe" id="buttondown-iframe" style="display:none;"></iframe>
 
   <!-- Footer Section -->
   <footer class="site-footer">
