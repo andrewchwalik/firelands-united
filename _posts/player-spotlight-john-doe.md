@@ -11,11 +11,13 @@ Connor has officially signed on to represent Firelands United in our inaugural 2
 
 When you launch a club from scratch, every decision matters. The first training session. The first jersey design. The first player. That first signature isn’t just ink on paper — it’s a statement of intent. Connor embodies exactly what Firelands United is about: ambition, work rate, leadership, and belief in building something meaningful from the ground up.
 
+**Watch him sign the contract: <https://www.instagram.com/reel/DICfqFmPrRo/>**
+
 Connor currently plays his college soccer at Terra State Community College, where he serves as a team captain and holds the distinction of being the leading goal scorer in program history. That doesn’t happen by accident. It takes consistency, hunger, and showing up every single day with something to prove. As a captain, he’s demonstrated leadership both on and off the field — setting standards in training, leading in big moments, and raising the level of those around him. Those are the kinds of players you build a culture around.
 
 Inaugural seasons are special. They’re unpredictable. They’re raw. They’re fueled by belief. As we step into the Northern Ohio Soccer League ready to compete, Connor brings exactly the type of attacking presence and competitive edge we need. He’s coming off a strong first collegiate season and enters 2025 confident and motivated.
 
-In his own words: “I’m excited to bring my talents to Firelands United. I’m feeling strong coming off my first season at Terra. Let’s get this season going!”
+**In his own words: “I’m excited to bring my talents to Firelands United. I’m feeling strong coming off my first season at Terra. Let’s get this season going!”**
 
 That energy is exactly where we are as a club.
 
