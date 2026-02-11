@@ -97,12 +97,12 @@ body {
 .home-hero {
   width: 100%;
   overflow: hidden;
-  background-color: #fff;
+  background-color: #f18a01;
 }
 
 .home-hero-inner {
   position: relative;
-  max-width: 1400px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -117,11 +117,11 @@ body {
   display: block;
 }
 
-/* Overlay container — holds tagline + match info in the orange area */
+/* Overlay container — holds match info in the orange area */
 .home-hero-overlay {
   position: absolute;
-  bottom: 10%;
-  right: 5%;
+  bottom: 18%;
+  right: 6%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
