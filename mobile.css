@@ -73,14 +73,6 @@
   }
 
   /* Home Hero Banner */
-  .home-hero-inner {
-    max-height: 350px;
-  }
-
-  .home-hero-image img {
-    max-height: 350px;
-  }
-
   .home-hero-overlay {
     bottom: 6%;
     right: 3%;
