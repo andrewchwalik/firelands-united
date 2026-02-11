@@ -142,7 +142,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Filter out the current post and pick up to 3 others
     const otherPosts = allPosts.filter(
-      (p) => p.link !== currentPath && p.link !== currentPath.replace(/\/$/, "")
+      (p) =>
+        p.link !== currentPath &&
+        p.link !== currentPath.replace(/\/$/, "") &&
+        p.link + "/" !== currentPath
     );
 
     // Show up to 3 related posts (newest first, already sorted from blogs.json)
@@ -173,19 +176,40 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ----- Newsletter form -----
+  // ----- Newsletter form (Buttondown) -----
   const newsletterForm = document.getElementById("newsletter-form");
 
   if (newsletterForm) {
     newsletterForm.addEventListener("submit", (e) => {
       e.preventDefault();
+
       const emailInput = document.getElementById("newsletter-email");
       const email = emailInput.value;
+      const formAction = newsletterForm.getAttribute("action");
 
-      // Placeholder: replace with your newsletter service integration
-      // For now, show a success message
-      newsletterForm.innerHTML =
-        '<p style="color: #fff; font-size: 1.1rem; font-weight: 600;">Thanks for subscribing! ⚽</p>';
+      // Submit to Buttondown via hidden iframe so user stays on page
+      const iframe = document.getElementById("buttondown-iframe");
+      if (iframe) {
+        newsletterForm.target = "buttondown-iframe";
+        newsletterForm.submit();
+      }
+
+      // Show success message
+      const container = newsletterForm.parentElement;
+      newsletterForm.style.display = "none";
+
+      // Remove the disclaimer text
+      const disclaimer = container.querySelector(".newsletter-disclaimer");
+      if (disclaimer) disclaimer.style.display = "none";
+
+      // Insert success message
+      const successMsg = document.createElement("p");
+      successMsg.style.color = "#fff";
+      successMsg.style.fontSize = "1.1rem";
+      successMsg.style.fontWeight = "600";
+      successMsg.style.marginTop = "10px";
+      successMsg.textContent = "You're subscribed! Welcome to the club. \u26BD";
+      container.appendChild(successMsg);
     });
   }
 });
