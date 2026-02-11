@@ -6,6 +6,7 @@
   <title>{{title}} | Firelands United</title>
   <link rel="stylesheet" href="/blog.css">
   <link rel="stylesheet" href="/mobile.css" media="screen and (max-width: 768px)">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="/img/firelands-united-favicon.png" type="image/png">
 
   <!-- Open Graph Meta Tags -->
@@ -40,20 +41,50 @@
     </nav>
   </header>
 
+  <!-- Hero Image -->
+  <div class="blog-hero">
+    <img src="{{image}}" alt="{{title}}" class="blog-hero-image">
+  </div>
+
   <!-- Blog Post Content -->
-  <section class="blog-post">
-    <!-- Blog Post Image -->
-    <img src="{{image}}" alt="{{title}}" class="blog-post-image">
+  <article class="blog-article">
+    <div class="blog-article-container">
+      <!-- Meta: Category + Date -->
+      <div class="blog-article-meta">
+        <span class="blog-article-category">{{category}}</span>
+        <span class="blog-article-date">{{date}}</span>
+      </div>
 
-    <!-- Blog Meta Information -->
-    <div class="blog-meta">
-      <span class="blog-date">{{date}}</span>
-      <span class="blog-category">{{category}}</span>
+      <!-- Title -->
+      <h1 class="blog-article-title">{{title}}</h1>
+
+      <!-- Body -->
+      <div class="blog-article-body">
+        {{body}}
+      </div>
     </div>
+  </article>
 
-    <div class="content-container">
-      <h1>{{title}}</h1>
-      {{body}}
+  <!-- Related Posts Section -->
+  <section class="related-posts">
+    <div class="related-posts-container">
+      <h2 class="related-posts-title">More from Firelands United</h2>
+      <div class="related-posts-grid" id="related-posts-grid">
+        <!-- Populated by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="newsletter-section">
+    <div class="newsletter-container">
+      <h2 class="newsletter-title">Stay in the loop</h2>
+      <p class="newsletter-subtitle">Get the latest news, match updates, and club announcements delivered to your inbox.</p>
+      <form class="newsletter-form" id="newsletter-form">
+        <input type="email" id="newsletter-email" placeholder="Your email" required>
+        <button type="submit" class="newsletter-btn">Subscribe</button>
+      </form>
+      <p class="newsletter-disclaimer">No spam. Unsubscribe anytime.</p>
     </div>
   </section>
 

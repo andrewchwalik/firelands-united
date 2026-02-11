@@ -17,6 +17,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (blogList && searchInput && categoryFilter) {
         renderBlogs(blogPosts);
       }
+
+      // Initialize related posts if on a blog post page
+      if (relatedPostsGrid) {
+        renderRelatedPosts(blogPosts);
+      }
     })
     .catch((err) => console.error("Error loading blog data:", err));
 
@@ -124,5 +129,63 @@ document.addEventListener("DOMContentLoaded", () => {
   if (searchInput && categoryFilter) {
     searchInput.addEventListener("input", filterBlogs);
     categoryFilter.addEventListener("change", filterBlogs);
+  }
+
+  // ----- Related posts (blog post pages) -----
+  const relatedPostsGrid = document.getElementById("related-posts-grid");
+
+  function renderRelatedPosts(allPosts) {
+    if (!relatedPostsGrid || allPosts.length === 0) return;
+
+    // Get the current page path
+    const currentPath = window.location.pathname;
+
+    // Filter out the current post and pick up to 3 others
+    const otherPosts = allPosts.filter(
+      (p) => p.link !== currentPath && p.link !== currentPath.replace(/\/$/, "")
+    );
+
+    // Show up to 3 related posts (newest first, already sorted from blogs.json)
+    const postsToShow = otherPosts.slice(0, 3);
+
+    if (postsToShow.length === 0) {
+      relatedPostsGrid.closest(".related-posts").style.display = "none";
+      return;
+    }
+
+    relatedPostsGrid.innerHTML = "";
+    postsToShow.forEach((post) => {
+      const card = document.createElement("a");
+      card.classList.add("related-card");
+      card.href = post.link;
+      const imgSrc = post.image || "/img/blogs/default.jpg";
+      const category = post.category || "Club News";
+      card.innerHTML = `
+        <div class="related-card-image">
+          <img src="${imgSrc}" alt="${post.title}">
+        </div>
+        <div class="related-card-body">
+          <span class="related-card-category">${category}</span>
+          <h3 class="related-card-title">${post.title}</h3>
+          <p class="related-card-excerpt">${post.excerpt}</p>
+        </div>`;
+      relatedPostsGrid.appendChild(card);
+    });
+  }
+
+  // ----- Newsletter form -----
+  const newsletterForm = document.getElementById("newsletter-form");
+
+  if (newsletterForm) {
+    newsletterForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const emailInput = document.getElementById("newsletter-email");
+      const email = emailInput.value;
+
+      // Placeholder: replace with your newsletter service integration
+      // For now, show a success message
+      newsletterForm.innerHTML =
+        '<p style="color: #fff; font-size: 1.1rem; font-weight: 600;">Thanks for subscribing! ⚽</p>';
+    });
   }
 });
