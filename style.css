@@ -120,8 +120,8 @@ body {
 /* Overlay container — holds match info in the orange area */
 .home-hero-overlay {
   position: absolute;
-  bottom: 18%;
-  right: 6%;
+  bottom: 22%;
+  right: 28%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -819,8 +819,8 @@ body.presskit-page .content-section:nth-of-type(5) {
 
 @media screen and (max-width: 1024px) and (min-width: 769px) {
   .home-hero-overlay {
-    bottom: 8%;
-    right: 4%;
+    bottom: 16%;
+    right: 22%;
     max-width: 280px;
     gap: 14px;
   }
