@@ -1102,46 +1102,48 @@ body.presskit-page .content-section:nth-of-type(5) {
 
 .season-summary {
   background-color: #fff;
-  border-radius: 14px;
-  padding: 22px;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  padding: 18px;
   margin-bottom: 24px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: none;
 }
 
 .season-summary h2 {
-  font-family: 'Bermont', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: #474e5a;
-  font-size: 2.1rem;
-  margin-bottom: 14px;
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  letter-spacing: 0.2px;
 }
 
 .summary-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
 }
 
 .summary-item {
-  background-color: #f8f8f8;
-  border-left: 4px solid #f18a01;
-  border-radius: 8px;
-  padding: 10px 12px;
+  background-color: #fafafa;
+  border: 1px solid #ececec;
+  border-radius: 6px;
+  padding: 9px 10px;
 }
 
 .summary-item-label {
   display: block;
-  color: #666;
-  font-size: 0.78rem;
+  color: #777;
+  font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.4px;
 }
 
 .summary-item-value {
   display: block;
-  color: #1a1a1a;
-  font-weight: 700;
-  font-size: 1rem;
-  margin-top: 4px;
+  color: #2b2b2b;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-top: 3px;
 }
 
 .history-roster {
