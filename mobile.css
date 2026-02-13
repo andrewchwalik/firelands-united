@@ -245,3 +245,40 @@
   font-size: 0.8rem;
   margin-top: 15px;
 }
+
+/* --- Merch Section --- */
+.merch-section {
+  padding: 40px 16px 50px;
+}
+
+.merch-heading {
+  font-size: 1.6rem;
+  margin-bottom: 30px;
+}
+
+.merch-slider {
+  gap: 8px;
+}
+
+.merch-track {
+  gap: 0;
+}
+
+.merch-card {
+  flex: 0 0 100%;
+}
+
+.merch-arrow {
+  width: 36px;
+  height: 36px;
+  font-size: 1rem;
+}
+
+.merch-dots {
+  display: none;
+}
+
+.merch-dot {
+  width: 8px;
+  height: 8px;
+}

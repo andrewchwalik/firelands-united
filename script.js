@@ -210,6 +210,231 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // ----- Merch slider (homepage) -----
+  const SHOPIFY_BASE_URL = 'https://firelandsunited.myshopify.com';
+  const SHOPIFY_CDN = 'https://firelandsunited.myshopify.com/cdn/shop/files';
+
+  const merchProducts = [
+    {
+      name: 'Firelands United Inaugural 2025 Home Jersey',
+      price: '$40.00',
+      slug: 'firelands-united-2025-home-jersey',
+      image: `${SHOPIFY_CDN}/Photoroom_20260122_165116.png?v=1769176652`
+    },
+    {
+      name: 'Firelands United Inaugural 2025 Away Jersey',
+      price: '$40.00',
+      slug: 'firelands-united-2025-away-jersey',
+      image: `${SHOPIFY_CDN}/Photoroom_20260122_164816.png?v=1769176668`
+    },
+    {
+      name: 'Firelands United 2025 Keeper Jersey',
+      price: '$40.00',
+      slug: 'firelands-united-2025-keeper-jersey',
+      image: `${SHOPIFY_CDN}/Photoroom_20260122_164603.png?v=1769176923`
+    },
+    {
+      name: 'Firelands United Official Training Top',
+      price: '$20.00',
+      slug: 'firelands-united-official-training-top',
+      image: `${SHOPIFY_CDN}/Photoroom_20260120_155602.png?v=1769111034`
+    },
+    {
+      name: '"Up the Lands" Sweatshirt',
+      price: '$30.00',
+      slug: 'up-the-lands-sweatshirt',
+      image: `${SHOPIFY_CDN}/Photoroom_20260120_154737.png?v=1769111153`
+    },
+    {
+      name: '"Up the Lands" Zipper Hoodie',
+      price: '$30.00',
+      slug: 'up-the-lands-zipper-hoodie',
+      image: `${SHOPIFY_CDN}/2_6a919dc5-f053-4d26-a9d0-4911b128c568.png?v=1769115505`
+    },
+    {
+      name: 'Firelands United Badge Sweatshirt',
+      price: '$30.00',
+      slug: 'firelands-united-badge-sweatshirt',
+      image: `${SHOPIFY_CDN}/Photoroom_20260120_155044.png?v=1769111402`
+    },
+    {
+      name: 'Firelands United Badge Orange & White Sweatshirt',
+      price: '$30.00',
+      slug: 'firelands-united-badge-orange-white-sweatshirt',
+      image: `${SHOPIFY_CDN}/1_1fb98661-5832-438a-bdd6-20402c7faa7f.png?v=1769114427`
+    },
+    {
+      name: 'Long Sleeve Firelands United Pullover',
+      price: '$35.00',
+      slug: 'long-sleeve-firelands-united-pullover',
+      image: `${SHOPIFY_CDN}/Photoroom_20260122_152158.png?v=1769114809`
+    },
+    {
+      name: '"Up the Lands" Crewneck - Blemished Collection',
+      price: '$15.00',
+      slug: 'up-the-lands-crewneck-blemished-collection',
+      image: `${SHOPIFY_CDN}/Photoroom_20260122_152415.png?v=1769115136`
+    },
+    {
+      name: 'FUFC Hoodie - Blemished Collection',
+      price: '$15.00',
+      slug: 'fufc-hoodie-blemished-collection',
+      image: `${SHOPIFY_CDN}/Photoroom_20260122_152607.png?v=1769116449`
+    },
+    {
+      name: 'Silky "Up the Lands" Hoodie - Blemished Collection',
+      price: '$15.00',
+      slug: 'silky-up-the-lands-hoodie-blemished-collection',
+      image: `${SHOPIFY_CDN}/Photoroom_20260122_152513.png?v=1769115886`
+    },
+    {
+      name: 'Youth Firelands United T-Shirt',
+      price: '$13.00',
+      slug: 'youth-firelands-united-t-shirt',
+      image: `${SHOPIFY_CDN}/Photoroom_20260122_163016.png?v=1769177174`
+    }
+  ];
+
+  const merchTrack = document.getElementById('merch-track');
+  const merchDotsContainer = document.getElementById('merch-dots');
+
+  if (merchTrack && merchDotsContainer) {
+    let merchIndex = 0;
+    let cardsPerView = window.innerWidth <= 768 ? 1 : 3;
+
+    // Render product cards
+    function renderMerchCards() {
+      merchTrack.innerHTML = '';
+      merchProducts.forEach((product) => {
+        const card = document.createElement('a');
+        card.classList.add('merch-card');
+        card.href = `${SHOPIFY_BASE_URL}/products/${product.slug}`;
+        card.target = '_blank';
+        card.rel = 'noopener noreferrer';
+        card.innerHTML = `
+          <div class="merch-card-image">
+            <img src="${product.image}&width=600" alt="${product.name}">
+          </div>
+          <div class="merch-card-body">
+            <div class="merch-card-name">${product.name}</div>
+            <div class="merch-card-price">${product.price}</div>
+          </div>`;
+        merchTrack.appendChild(card);
+      });
+    }
+
+    // Total number of slide positions (page-step)
+    function getMaxIndex() {
+      return Math.ceil(merchProducts.length / cardsPerView) - 1;
+    }
+
+    // Render dot indicators
+    function renderMerchDots() {
+      merchDotsContainer.innerHTML = '';
+      const totalDots = getMaxIndex() + 1;
+      for (let i = 0; i < totalDots; i++) {
+        const dot = document.createElement('button');
+        dot.classList.add('merch-dot');
+        dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+        if (i === merchIndex) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+          merchIndex = i;
+          updateMerchSlider();
+        });
+        merchDotsContainer.appendChild(dot);
+      }
+    }
+
+    // Update slider position and controls
+    function updateMerchSlider() {
+      merchIndex = Math.max(0, Math.min(merchIndex, getMaxIndex()));
+
+      const gap = cardsPerView === 1 ? 0 : 30;
+      const wrapperWidth = merchTrack.parentElement.offsetWidth;
+      const cardWidth = (wrapperWidth - gap * (cardsPerView - 1)) / cardsPerView;
+
+      // Calculate offset: jump by cardsPerView, but clamp so last page shows full cards
+      const startCard = Math.min(merchIndex * cardsPerView, merchProducts.length - cardsPerView);
+      const offset = startCard * (cardWidth + gap);
+      merchTrack.style.transform = `translateX(-${offset}px)`;
+
+      // Update arrow states
+      const leftArrow = document.querySelector('.merch-arrow-left');
+      const rightArrow = document.querySelector('.merch-arrow-right');
+      if (leftArrow) leftArrow.disabled = merchIndex === 0;
+      if (rightArrow) rightArrow.disabled = merchIndex >= getMaxIndex();
+
+      // Update dots
+      const dots = merchDotsContainer.querySelectorAll('.merch-dot');
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === merchIndex);
+      });
+    }
+
+    // Arrow event listeners
+    const merchLeftArrow = document.querySelector('.merch-arrow-left');
+    const merchRightArrow = document.querySelector('.merch-arrow-right');
+
+    if (merchLeftArrow) {
+      merchLeftArrow.addEventListener('click', () => {
+        if (merchIndex > 0) {
+          merchIndex--;
+          updateMerchSlider();
+        }
+      });
+    }
+
+    if (merchRightArrow) {
+      merchRightArrow.addEventListener('click', () => {
+        if (merchIndex < getMaxIndex()) {
+          merchIndex++;
+          updateMerchSlider();
+        }
+      });
+    }
+
+    // Touch/swipe support for mobile
+    let merchTouchStartX = 0;
+    let merchTouchEndX = 0;
+
+    merchTrack.addEventListener('touchstart', (e) => {
+      merchTouchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    merchTrack.addEventListener('touchend', (e) => {
+      merchTouchEndX = e.changedTouches[0].screenX;
+      const diff = merchTouchStartX - merchTouchEndX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0 && merchIndex < getMaxIndex()) {
+          merchIndex++;
+          updateMerchSlider();
+        }
+        if (diff < 0 && merchIndex > 0) {
+          merchIndex--;
+          updateMerchSlider();
+        }
+      }
+    }, { passive: true });
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      const newCardsPerView = window.innerWidth <= 768 ? 1 : 3;
+      if (newCardsPerView !== cardsPerView) {
+        cardsPerView = newCardsPerView;
+        merchIndex = 0;
+        renderMerchDots();
+        updateMerchSlider();
+      } else {
+        updateMerchSlider();
+      }
+    });
+
+    // Initialize
+    renderMerchCards();
+    renderMerchDots();
+    updateMerchSlider();
+  }
+
   // ----- Newsletter form (Google Sheets) -----
   const newsletterForm = document.getElementById("newsletter-form");
   var GOOGLE_SHEET_URL =
