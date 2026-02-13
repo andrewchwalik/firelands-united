@@ -276,6 +276,11 @@
 
 .merch-dots {
   display: none;
+  margin: 0;
+}
+
+.merch-cta {
+  margin-top: 30px;
 }
 
 .merch-dot {
