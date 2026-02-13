@@ -91,8 +91,7 @@ body {
 }
 
 .nav-dropdown-toggle {
-  border: none;
-  background: transparent;
+  display: block;
   color: #ffffff;
   font-weight: 700;
   font-size: 1rem;
@@ -100,6 +99,7 @@ body {
   padding: 5px 0;
   cursor: pointer;
   font-family: inherit;
+  text-decoration: none;
 }
 
 .nav-dropdown-toggle:hover,

@@ -61,7 +61,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // ----- Hamburger menu -----
   const hamburger = document.getElementById("hamburger-menu");
   const navLinks = document.getElementById("nav-links");
-  const dropdownToggles = document.querySelectorAll(".nav-dropdown-toggle");
 
   if (hamburger && navLinks) {
     hamburger.addEventListener("click", (e) => {
@@ -87,38 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
         hamburger.classList.remove("active");
         document.body.style.overflow = "";
       }
-    });
-  }
-
-  if (dropdownToggles.length > 0) {
-    dropdownToggles.forEach((toggle) => {
-      toggle.addEventListener("click", (e) => {
-        e.stopPropagation();
-        const dropdown = toggle.closest(".nav-dropdown");
-        if (!dropdown) return;
-
-        const alreadyOpen = dropdown.classList.contains("open");
-        document.querySelectorAll(".nav-dropdown.open").forEach((openDropdown) => {
-          openDropdown.classList.remove("open");
-          const openToggle = openDropdown.querySelector(".nav-dropdown-toggle");
-          if (openToggle) openToggle.setAttribute("aria-expanded", "false");
-        });
-
-        if (!alreadyOpen) {
-          dropdown.classList.add("open");
-          toggle.setAttribute("aria-expanded", "true");
-        } else {
-          toggle.setAttribute("aria-expanded", "false");
-        }
-      });
-    });
-
-    document.addEventListener("click", () => {
-      document.querySelectorAll(".nav-dropdown.open").forEach((openDropdown) => {
-        openDropdown.classList.remove("open");
-        const openToggle = openDropdown.querySelector(".nav-dropdown-toggle");
-        if (openToggle) openToggle.setAttribute("aria-expanded", "false");
-      });
     });
   }
 
