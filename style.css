@@ -1102,9 +1102,9 @@ body.presskit-page .content-section:nth-of-type(5) {
 
 .season-summary {
   background-color: #fff;
-  border: 1px solid #e6e6e6;
-  border-radius: 10px;
-  padding: 18px;
+  border: 1px solid #ededed;
+  border-radius: 8px;
+  padding: 16px;
   margin-bottom: 24px;
   box-shadow: none;
 }
@@ -1119,15 +1119,16 @@ body.presskit-page .content-section:nth-of-type(5) {
 
 .summary-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 18px;
 }
 
 .summary-item {
-  background-color: #fafafa;
-  border: 1px solid #ececec;
-  border-radius: 6px;
-  padding: 9px 10px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #f0f0f0;
+  border-radius: 0;
+  padding: 8px 0;
 }
 
 .summary-item-label {
@@ -1144,6 +1145,45 @@ body.presskit-page .content-section:nth-of-type(5) {
   font-weight: 600;
   font-size: 0.95rem;
   margin-top: 3px;
+}
+
+.season-breakdown {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.breakdown-column {
+  background-color: #fff;
+  border: 1px solid #ededed;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.breakdown-column h3 {
+  color: #474e5a;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.breakdown-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.breakdown-column li {
+  font-size: 0.84rem;
+  color: #333;
+  padding: 4px 0;
+  border-bottom: 1px solid #f3f3f3;
+}
+
+.breakdown-column li:last-child {
+  border-bottom: none;
 }
 
 .history-roster {

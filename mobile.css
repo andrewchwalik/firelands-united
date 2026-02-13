@@ -346,6 +346,10 @@
   grid-template-columns: 1fr;
 }
 
+.season-breakdown {
+  grid-template-columns: 1fr;
+}
+
 .history-player {
   grid-template-columns: 1fr;
   gap: 10px;
