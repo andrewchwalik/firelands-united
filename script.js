@@ -61,6 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ----- Hamburger menu -----
   const hamburger = document.getElementById("hamburger-menu");
   const navLinks = document.getElementById("nav-links");
+  const dropdownToggles = document.querySelectorAll(".nav-dropdown-toggle");
 
   if (hamburger && navLinks) {
     hamburger.addEventListener("click", (e) => {
@@ -86,6 +87,59 @@ document.addEventListener("DOMContentLoaded", () => {
         hamburger.classList.remove("active");
         document.body.style.overflow = "";
       }
+    });
+  }
+
+  if (dropdownToggles.length > 0) {
+    dropdownToggles.forEach((toggle) => {
+      toggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const dropdown = toggle.closest(".nav-dropdown");
+        if (!dropdown) return;
+
+        const alreadyOpen = dropdown.classList.contains("open");
+        document.querySelectorAll(".nav-dropdown.open").forEach((openDropdown) => {
+          openDropdown.classList.remove("open");
+          const openToggle = openDropdown.querySelector(".nav-dropdown-toggle");
+          if (openToggle) openToggle.setAttribute("aria-expanded", "false");
+        });
+
+        if (!alreadyOpen) {
+          dropdown.classList.add("open");
+          toggle.setAttribute("aria-expanded", "true");
+        } else {
+          toggle.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
+
+    document.addEventListener("click", () => {
+      document.querySelectorAll(".nav-dropdown.open").forEach((openDropdown) => {
+        openDropdown.classList.remove("open");
+        const openToggle = openDropdown.querySelector(".nav-dropdown-toggle");
+        if (openToggle) openToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
+
+  // ----- Men's history year tabs -----
+  const yearTabs = document.querySelectorAll(".year-tab");
+  const yearPanels = document.querySelectorAll(".history-panel");
+
+  if (yearTabs.length > 0 && yearPanels.length > 0) {
+    yearTabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const targetYear = tab.getAttribute("data-year");
+        if (!targetYear) return;
+
+        yearTabs.forEach((t) => t.classList.remove("active"));
+        tab.classList.add("active");
+
+        yearPanels.forEach((panel) => {
+          const isMatch = panel.getAttribute("data-year") === targetYear;
+          panel.classList.toggle("active", isMatch);
+        });
+      });
     });
   }
 
