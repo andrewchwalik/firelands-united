@@ -1149,8 +1149,7 @@ body.presskit-page .content-section:nth-of-type(5) {
 
 .season-mini-results {
   margin-top: 10px;
-  padding-top: 8px;
-  border-top: 1px solid #f0f0f0;
+  padding-top: 6px;
 }
 
 .season-mini-results h3 {
@@ -1219,7 +1218,7 @@ body.presskit-page .content-section:nth-of-type(5) {
 }
 
 .history-roster {
-  background-color: #060f21;
+  background-color: #474e5a;
   border-radius: 14px;
   overflow: hidden;
 }
