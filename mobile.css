@@ -116,7 +116,7 @@
   text-decoration: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   transition: background-color 0.2s ease, color 0.2s ease;
-  text-align: center;
+  text-align: left;
 }
 
 .nav-links a:last-child {
@@ -132,7 +132,7 @@
 .nav-dropdown-toggle {
   display: block;
   width: 100%;
-  text-align: center;
+  text-align: left;
   padding: 16px 28px;
   color: #fff;
   font-size: 0.9rem;
@@ -145,6 +145,7 @@
 }
 
 .nav-dropdown-menu {
+  position: static;
   display: flex;
   flex-direction: column;
   background-color: #161616;
@@ -160,7 +161,7 @@
   font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
-  text-align: center;
+  text-align: left;
 }
 
 .nav-dropdown-item-disabled {
