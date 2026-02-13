@@ -350,6 +350,10 @@
   grid-template-columns: 1fr;
 }
 
+.season-mini-results ul {
+  grid-template-columns: 1fr;
+}
+
 .history-player {
   grid-template-columns: 1fr;
   gap: 10px;
