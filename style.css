@@ -1284,6 +1284,48 @@ body.presskit-page .content-section:nth-of-type(5) {
   grid-template-columns: 98px 1.6fr 1fr;
 }
 
+.history-panel[data-year="2025"] .history-roster,
+.history-panel[data-year="2026"] .history-roster {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  max-width: 980px;
+  margin: 0 auto 24px;
+  background: transparent;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.history-panel[data-year="2025"] .history-player,
+.history-panel[data-year="2026"] .history-player {
+  background-color: #474e5a;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  border-bottom: none;
+  padding: 14px 16px;
+  display: grid;
+  grid-template-columns: 66px 1fr;
+  gap: 12px;
+  align-items: center;
+  min-height: 92px;
+}
+
+.history-panel[data-year="2025"] .history-avatar,
+.history-panel[data-year="2026"] .history-avatar {
+  width: 56px;
+  height: 56px;
+  font-size: 0.85rem;
+}
+
+.history-panel[data-year="2025"] .history-name,
+.history-panel[data-year="2026"] .history-name {
+  font-size: 1.08rem;
+}
+
+.history-panel[data-year="2026"] .history-player > div:nth-child(n + 3) {
+  display: none;
+}
+
 .history-roster {
   background-color: #474e5a;
   border-radius: 14px;
