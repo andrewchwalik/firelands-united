@@ -1178,6 +1178,15 @@ body.presskit-page .content-section:nth-of-type(5) {
   text-overflow: ellipsis;
 }
 
+.season-mini-results li a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.season-mini-results li a:hover {
+  text-decoration: underline;
+}
+
 .season-breakdown {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
