@@ -1117,6 +1117,38 @@ body.presskit-page .content-section:nth-of-type(5) {
   letter-spacing: 0.2px;
 }
 
+.season-summary-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.season-summary-header h2 {
+  margin-bottom: 0;
+}
+
+.season-vlog-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f18a01;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.45px;
+  padding: 7px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.season-vlog-button:hover {
+  background-color: #d97800;
+}
+
 .summary-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
