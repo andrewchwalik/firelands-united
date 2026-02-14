@@ -1298,10 +1298,10 @@ body.presskit-page .content-section:nth-of-type(5) {
 }
 
 .record-section {
-  background-color: #fff;
-  border: 1px solid #ededed;
-  border-radius: 8px;
-  padding: 10px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
 }
 
 .records-leader-title {
@@ -1416,6 +1416,12 @@ body.presskit-page .content-section:nth-of-type(5) {
   background-color: #474e5a;
   border-radius: 14px;
   overflow: hidden;
+}
+
+.history-roster.records-roster {
+  background: transparent;
+  border-radius: 0;
+  overflow: visible;
 }
 
 .history-player {
