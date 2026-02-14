@@ -1227,16 +1227,11 @@ body.presskit-page .content-section:nth-of-type(5) {
 }
 
 .trophy-icon {
-  display: inline-flex;
-  width: 0.95rem;
-  height: 0.95rem;
-  border-radius: 999px;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.62rem;
-  margin-right: 5px;
-  vertical-align: -1px;
-  line-height: 1;
+  display: inline;
+  font-size: 0.74rem;
+  margin-right: 2px;
+  vertical-align: baseline;
+  line-height: inherit;
 }
 
 .trophy-icon::before {
