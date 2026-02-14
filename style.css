@@ -1092,6 +1092,10 @@ body.presskit-page .content-section:nth-of-type(5) {
   color: #fff;
 }
 
+.year-tab.records-tab {
+  order: -1;
+}
+
 .history-panel {
   display: none;
 }
@@ -1259,6 +1263,25 @@ body.presskit-page .content-section:nth-of-type(5) {
 
 .breakdown-column li:last-child {
   border-bottom: none;
+}
+
+.records-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.records-leader-title {
+  color: #474e5a;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.records-roster .history-player {
+  grid-template-columns: 98px 1.6fr 1fr;
 }
 
 .history-roster {
