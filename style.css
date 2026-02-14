@@ -1401,6 +1401,13 @@ body.presskit-page .content-section:nth-of-type(5) {
   color: rgba(255, 255, 255, 0.9);
 }
 
+.coaching-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0 0 12px;
+}
+
 .history-panel[data-year="2026"] .history-player > div:nth-child(n + 3) {
   display: none;
 }

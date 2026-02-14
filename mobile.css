@@ -374,6 +374,11 @@
   gap: 10px;
 }
 
+.coaching-row {
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
 .history-player {
   grid-template-columns: 1fr;
   gap: 10px;
