@@ -1167,6 +1167,10 @@ body.presskit-page .content-section:nth-of-type(5) {
   padding: 8px 0;
 }
 
+.history-panel[data-year="records"] .summary-grid .summary-item:last-child {
+  border-bottom: none;
+}
+
 .summary-item-label {
   display: block;
   color: #777;
