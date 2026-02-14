@@ -369,6 +369,11 @@
   grid-template-columns: 1fr;
 }
 
+.records-stack {
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
 .history-player {
   grid-template-columns: 1fr;
   gap: 10px;

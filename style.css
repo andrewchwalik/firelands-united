@@ -1291,24 +1291,31 @@ body.presskit-page .content-section:nth-of-type(5) {
 }
 
 .records-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
   margin-bottom: 24px;
+}
+
+.record-section {
+  background-color: #fff;
+  border: 1px solid #ededed;
+  border-radius: 8px;
+  padding: 10px;
 }
 
 .records-leader-title {
   color: #474e5a;
-  font-size: 0.9rem;
+  font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .records-roster {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
+  grid-template-columns: 1fr;
+  gap: 8px;
   background: transparent;
   border-radius: 0;
   overflow: visible;
