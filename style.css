@@ -1192,13 +1192,16 @@ body.presskit-page .content-section:nth-of-type(5) {
   margin-bottom: 6px;
 }
 
+.season-mini-results-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2px 14px;
+}
+
 .season-mini-results ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2px 14px;
 }
 
 .season-mini-results li {
