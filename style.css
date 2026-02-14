@@ -1305,8 +1305,46 @@ body.presskit-page .content-section:nth-of-type(5) {
   margin-bottom: 8px;
 }
 
+.records-roster {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  background: transparent;
+  border-radius: 0;
+  overflow: visible;
+}
+
 .records-roster .history-player {
-  grid-template-columns: 98px 1.6fr 1fr;
+  background-color: #474e5a;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  border-bottom: none;
+  padding: 10px 12px;
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  gap: 10px;
+  align-items: center;
+  min-height: 74px;
+}
+
+.records-roster .history-avatar {
+  width: 44px;
+  height: 44px;
+  font-size: 0.7rem;
+}
+
+.records-roster .history-name {
+  font-size: 0.92rem;
+}
+
+.records-roster .history-subtext {
+  font-size: 0.72rem;
+  margin-top: 2px;
+}
+
+.records-roster .history-meta-value {
+  font-size: 0.8rem;
+  margin-top: 2px;
 }
 
 .history-panel[data-year="2025"] .history-roster,
