@@ -1408,6 +1408,12 @@ body.presskit-page .content-section:nth-of-type(5) {
   transform-origin: center 28%;
 }
 
+/* Force tighter framing for specific 2025 headshots that still read too wide */
+.history-avatar.avatar-photo img.tight-crop {
+  transform: scale(1.32) translateY(2%);
+  transform-origin: center 24%;
+}
+
 .history-name {
   color: #fff;
   font-size: 1.5rem;
