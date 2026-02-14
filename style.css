@@ -1357,6 +1357,19 @@ body.presskit-page .content-section:nth-of-type(5) {
   font-weight: 700;
 }
 
+.history-avatar.avatar-photo {
+  overflow: hidden;
+  background: #d8d8d8;
+}
+
+.history-avatar.avatar-photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center 24%;
+}
+
 .history-name {
   color: #fff;
   font-size: 1.5rem;
