@@ -62,10 +62,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const ticker = document.querySelector(".news-ticker");
   if (ticker) {
     const tickerText = ticker.getAttribute("data-ticker-text") || "";
+    const tickerTextTwo = ticker.getAttribute("data-ticker-text-2") || tickerText;
     const tickerItems = ticker.querySelectorAll(".news-ticker-item");
-    tickerItems.forEach((item) => {
-      item.textContent = tickerText;
-    });
+    if (tickerItems[0]) tickerItems[0].textContent = tickerText;
+    if (tickerItems[1]) tickerItems[1].textContent = tickerTextTwo;
+
+    const tickerTrack = ticker.querySelector(".news-ticker-track");
+    if (tickerTrack && !tickerTrack.classList.contains("is-prepared")) {
+      const originals = Array.from(tickerTrack.querySelectorAll(".news-ticker-item"));
+      originals.forEach((item) => {
+        const clone = item.cloneNode(true);
+        clone.setAttribute("aria-hidden", "true");
+        tickerTrack.appendChild(clone);
+      });
+      tickerTrack.classList.add("is-prepared");
+    }
   }
 
   // ----- Hamburger menu -----
