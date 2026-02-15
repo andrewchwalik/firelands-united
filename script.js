@@ -58,24 +58,50 @@ document.addEventListener("DOMContentLoaded", () => {
     currentIndex = (currentIndex + 1) % blogPosts.length;
   }
 
-  // ----- Home ticker text sync -----
-  const ticker = document.querySelector(".news-ticker");
-  if (ticker) {
-    const tickerText = ticker.getAttribute("data-ticker-text") || "";
-    const tickerTextTwo = ticker.getAttribute("data-ticker-text-2") || tickerText;
-    const tickerItems = ticker.querySelectorAll(".news-ticker-item");
-    if (tickerItems[0]) tickerItems[0].textContent = tickerText;
-    if (tickerItems[1]) tickerItems[1].textContent = tickerTextTwo;
+  // ----- Global ticker (all pages, synced position) -----
+  const TICKER_DURATION_MS = 28000;
+  const DEFAULT_TICKER_ITEMS = [
+    "Firelands United launches women's first team for 2026 season",
+    "Firelands United launches women's first team for 2026 season"
+  ];
 
+  let ticker = document.querySelector(".news-ticker");
+  const navbar = document.querySelector(".navbar");
+
+  if (!ticker && navbar) {
+    ticker = document.createElement("section");
+    ticker.className = "news-ticker";
+    ticker.innerHTML = '<div class="news-ticker-track"></div>';
+    navbar.insertAdjacentElement("afterend", ticker);
+  }
+
+  if (ticker) {
     const tickerTrack = ticker.querySelector(".news-ticker-track");
-    if (tickerTrack && !tickerTrack.classList.contains("is-prepared")) {
+    if (tickerTrack) {
+      const itemA = ticker.getAttribute("data-ticker-text");
+      const itemB = ticker.getAttribute("data-ticker-text-2");
+      const messages = [itemA, itemB].filter(Boolean);
+      const activeMessages = messages.length > 0 ? messages : DEFAULT_TICKER_ITEMS;
+
+      tickerTrack.innerHTML = "";
+      activeMessages.forEach((msg, idx) => {
+        const item = document.createElement("span");
+        item.className = "news-ticker-item";
+        if (idx > 0) item.setAttribute("aria-hidden", "true");
+        item.textContent = msg;
+        tickerTrack.appendChild(item);
+      });
+
       const originals = Array.from(tickerTrack.querySelectorAll(".news-ticker-item"));
       originals.forEach((item) => {
         const clone = item.cloneNode(true);
         clone.setAttribute("aria-hidden", "true");
         tickerTrack.appendChild(clone);
       });
-      tickerTrack.classList.add("is-prepared");
+
+      // Keep the ticker at a global position across page navigations.
+      const offsetMs = Date.now() % TICKER_DURATION_MS;
+      tickerTrack.style.animationDelay = `-${offsetMs}ms`;
     }
   }
 
