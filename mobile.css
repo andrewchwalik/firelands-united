@@ -146,9 +146,13 @@
 
 .nav-dropdown-menu {
   position: static;
-  display: flex;
+  display: none;
   flex-direction: column;
   background-color: #161616;
+}
+
+.nav-dropdown.open .nav-dropdown-menu {
+  display: flex;
 }
 
 .nav-dropdown-menu a,
