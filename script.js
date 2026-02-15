@@ -58,6 +58,16 @@ document.addEventListener("DOMContentLoaded", () => {
     currentIndex = (currentIndex + 1) % blogPosts.length;
   }
 
+  // ----- Home ticker text sync -----
+  const ticker = document.querySelector(".news-ticker");
+  if (ticker) {
+    const tickerText = ticker.getAttribute("data-ticker-text") || "";
+    const tickerItems = ticker.querySelectorAll(".news-ticker-item");
+    tickerItems.forEach((item) => {
+      item.textContent = tickerText;
+    });
+  }
+
   // ----- Hamburger menu -----
   const hamburger = document.getElementById("hamburger-menu");
   const navLinks = document.getElementById("nav-links");

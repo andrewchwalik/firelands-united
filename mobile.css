@@ -200,6 +200,25 @@
   opacity: 1;
 }
 
+.news-ticker {
+  display: none;
+}
+
+.news-ticker::before {
+  width: 92px;
+}
+
+.news-ticker-item {
+  height: 34px;
+  padding: 0 24px 0 102px;
+  font-size: 0.72rem;
+}
+
+.news-ticker-item::before {
+  font-size: 0.58rem;
+  margin-right: 7px;
+}
+
 /* --- Home Hero Banner --- */
 .home-hero-overlay {
   bottom: 6%;

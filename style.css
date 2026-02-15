@@ -157,6 +157,60 @@ body {
   display: none;
 }
 
+/* Home News Ticker */
+.news-ticker {
+  position: relative;
+  background-color: #474e5a;
+  color: #fff;
+  height: 38px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.news-ticker::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 180px;
+  height: 100%;
+  background: linear-gradient(to right, #474e5a 75%, rgba(71, 78, 90, 0));
+  z-index: 2;
+  pointer-events: none;
+}
+
+.news-ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker-scroll 20s linear infinite;
+  will-change: transform;
+}
+
+.news-ticker-item {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 34px 0 190px;
+  height: 38px;
+  white-space: nowrap;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.news-ticker-item::before {
+  content: "Club News";
+  color: #f18a01;
+  text-transform: uppercase;
+  font-size: 0.66rem;
+  letter-spacing: 0.8px;
+  margin-right: 10px;
+}
+
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
 /* ============================================
    HOME HERO BANNER
    ============================================ */
