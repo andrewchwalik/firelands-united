@@ -199,7 +199,7 @@ body {
   gap: 64px;
   width: max-content;
   padding-left: 0;
-  animation: ticker-scroll 28s linear infinite;
+  animation: ticker-scroll 34s linear infinite;
   will-change: transform;
 }
 
