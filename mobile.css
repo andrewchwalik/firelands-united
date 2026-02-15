@@ -107,7 +107,7 @@
 }
 
 .nav-links a {
-  display: block;
+  display: inline-block;
   padding: 16px 28px;
   font-size: 0.9rem;
   font-weight: 600;
@@ -115,9 +115,10 @@
   text-transform: uppercase;
   color: #fff;
   text-decoration: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   transition: background-color 0.2s ease, color 0.2s ease;
   text-align: left;
+  width: max-content;
 }
 
 .nav-links a:last-child {
@@ -131,8 +132,7 @@
 }
 
 .nav-dropdown-toggle {
-  display: block;
-  width: 100%;
+  display: inline-block;
   text-align: left;
   padding: 16px 28px;
   color: #fff;
@@ -142,7 +142,8 @@
   text-transform: uppercase;
   font-family: inherit;
   text-decoration: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  width: max-content;
 }
 
 .nav-dropdown-menu {
@@ -158,15 +159,16 @@
 
 .nav-dropdown-menu a,
 .nav-dropdown-item-disabled {
-  display: block;
+  display: inline-block;
   padding: 12px 28px;
   color: #fff;
   text-decoration: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
   text-align: left;
+  width: max-content;
 }
 
 .nav-dropdown-item-disabled {
