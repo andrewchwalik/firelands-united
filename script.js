@@ -82,9 +82,16 @@ document.addEventListener("DOMContentLoaded", () => {
       const itemB = ticker.getAttribute("data-ticker-text-2");
       const messages = [itemA, itemB].filter(Boolean);
       const activeMessages = messages.length > 0 ? messages : DEFAULT_TICKER_ITEMS;
+      const baseItems = [];
+
+      // Keep the ticker train long enough on every page (including pages with only one headline set).
+      while (baseItems.length < 4) {
+        const nextItem = activeMessages[baseItems.length % activeMessages.length];
+        baseItems.push(nextItem);
+      }
 
       tickerTrack.innerHTML = "";
-      activeMessages.forEach((msg, idx) => {
+      baseItems.forEach((msg, idx) => {
         const item = document.createElement("span");
         item.className = "news-ticker-item";
         if (idx > 0) item.setAttribute("aria-hidden", "true");
