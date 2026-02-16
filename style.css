@@ -1472,7 +1472,8 @@ body.presskit-page .content-section:nth-of-type(5) {
   margin: 0;
 }
 
-.roster-panel .roster-card.coaching-card {
+.roster-panel .roster-card.coaching-card,
+.history-panel[data-year="2025"] .coaching-row .roster-card.coaching-card {
   --roster-image-col: 28%;
   background: #f18a01;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -1480,25 +1481,30 @@ body.presskit-page .content-section:nth-of-type(5) {
   min-height: 120px;
 }
 
-.roster-panel .roster-card.coaching-card::after {
+.roster-panel .roster-card.coaching-card::after,
+.history-panel[data-year="2025"] .coaching-row .roster-card.coaching-card::after {
   width: 30px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 300' preserveAspectRatio='none'%3E%3Cpath d='M0 0 Q30 150, 0 300Z' fill='%23f9a94d'/%3E%3C/svg%3E");
 }
 
-.roster-panel .roster-card.coaching-card .history-avatar {
+.roster-panel .roster-card.coaching-card .history-avatar,
+.history-panel[data-year="2025"] .coaching-row .roster-card.coaching-card .history-avatar {
   min-height: 120px;
 }
 
-.roster-panel .roster-card.coaching-card .roster-first-name {
+.roster-panel .roster-card.coaching-card .roster-first-name,
+.history-panel[data-year="2025"] .coaching-row .roster-card.coaching-card .roster-first-name {
   color: #474e5a;
   font-size: 0.8rem;
 }
 
-.roster-panel .roster-card.coaching-card .roster-last-name {
+.roster-panel .roster-card.coaching-card .roster-last-name,
+.history-panel[data-year="2025"] .coaching-row .roster-card.coaching-card .roster-last-name {
   font-size: 1.1rem;
 }
 
-.roster-panel .roster-card.coaching-card .roster-position {
+.roster-panel .roster-card.coaching-card .roster-position,
+.history-panel[data-year="2025"] .coaching-row .roster-card.coaching-card .roster-position {
   background-color: rgba(255, 255, 255, 0.3);
   color: #fff;
   font-size: 0.62rem;
@@ -1506,12 +1512,14 @@ body.presskit-page .content-section:nth-of-type(5) {
   padding: 2px 10px;
 }
 
-.roster-panel .roster-card.coaching-card h3 {
+.roster-panel .roster-card.coaching-card h3,
+.history-panel[data-year="2025"] .coaching-row .roster-card.coaching-card h3 {
   padding: 10px 14px 3px 34px;
   gap: 1px;
 }
 
-.roster-panel .roster-card.coaching-card p {
+.roster-panel .roster-card.coaching-card p,
+.history-panel[data-year="2025"] .coaching-row .roster-card.coaching-card p {
   padding: 8px 14px 8px 34px;
 }
 
@@ -1754,20 +1762,22 @@ body.presskit-page .content-section:nth-of-type(5) {
 }
 
 .records-roster .history-player {
-  --history-image-col: 34%;
+  --history-image-col: 37%;
   background-color: #474e5a;
   border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 10px;
-  border-bottom: none;
+  border-radius: 14px;
   padding: 0;
   display: grid;
   grid-template-columns: var(--history-image-col) 1fr;
-  grid-template-areas: "media content";
+  grid-template-areas:
+    "media content"
+    "media content";
   gap: 0;
   align-items: center;
-  min-height: 74px;
+  min-height: 132px;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 9px 16px rgba(20, 24, 32, 0.15);
 }
 
 .records-roster .history-player::after {
@@ -1776,7 +1786,7 @@ body.presskit-page .content-section:nth-of-type(5) {
   top: 0;
   bottom: 0;
   left: var(--history-image-col);
-  width: 44px;
+  width: 52px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 300' preserveAspectRatio='none'%3E%3Cpath d='M0 0 Q60 150, 0 300Z' fill='%23f18a01'/%3E%3C/svg%3E");
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -1787,11 +1797,12 @@ body.presskit-page .content-section:nth-of-type(5) {
 .records-roster .history-avatar {
   grid-area: media;
   width: 100%;
-  height: 100%;
-  font-size: 0.7rem;
+  min-height: 132px;
+  font-size: 1.2rem;
   border-radius: 0;
-  min-height: 100%;
+  margin: 0;
   z-index: 1;
+  align-self: stretch;
 }
 
 .records-roster .history-avatar.avatar-photo img {
@@ -1800,7 +1811,12 @@ body.presskit-page .content-section:nth-of-type(5) {
 
 .records-roster .history-player > div:nth-child(2) {
   grid-area: content;
-  padding: 10px 12px 10px 34px;
+  padding: 10px 14px 10px 42px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  min-height: 132px;
 }
 
 .records-roster .history-name {

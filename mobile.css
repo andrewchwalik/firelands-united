@@ -426,12 +426,14 @@
   font-size: 0.66rem;
 }
 
-.roster-panel .roster-card.coaching-card {
+.roster-panel .roster-card.coaching-card,
+.history-panel[data-year="2025"] .coaching-row .roster-card.coaching-card {
   --roster-image-col: 96px;
   min-height: 128px;
 }
 
-.roster-panel .roster-card.coaching-card .history-avatar {
+.roster-panel .roster-card.coaching-card .history-avatar,
+.history-panel[data-year="2025"] .coaching-row .roster-card.coaching-card .history-avatar {
   min-height: 128px;
 }
 
