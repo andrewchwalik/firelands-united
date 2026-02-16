@@ -1712,6 +1712,23 @@ body.presskit-page .content-section:nth-of-type(5) {
   margin-bottom: 24px;
 }
 
+.records-section-title {
+  grid-column: 1 / -1;
+  color: #474e5a;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.55px;
+  margin: 4px 0 2px;
+  padding-top: 6px;
+  border-top: 1px solid #ececec;
+}
+
+.records-stack > .records-section-title:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
 .record-section {
   background: transparent;
   border: none;
