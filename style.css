@@ -1831,20 +1831,22 @@ body.presskit-page .content-section:nth-of-type(5) {
 
 .history-panel[data-year="2025"] .history-player,
 .history-panel[data-year="2026"] .history-player {
-  --history-image-col: 34%;
+  --history-image-col: 37%;
   background-color: #474e5a;
   border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 10px;
-  border-bottom: none;
+  border-radius: 14px;
   padding: 0;
   display: grid;
   grid-template-columns: var(--history-image-col) 1fr;
-  grid-template-areas: "media content";
+  grid-template-areas:
+    "media content"
+    "media content";
   gap: 0;
   align-items: center;
-  min-height: 92px;
+  min-height: 132px;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 9px 16px rgba(20, 24, 32, 0.15);
 }
 
 .history-panel[data-year="2025"] .history-player:not(.coaching-card)::after,
@@ -1854,7 +1856,7 @@ body.presskit-page .content-section:nth-of-type(5) {
   top: 0;
   bottom: 0;
   left: var(--history-image-col);
-  width: 44px;
+  width: 52px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 300' preserveAspectRatio='none'%3E%3Cpath d='M0 0 Q60 150, 0 300Z' fill='%23f18a01'/%3E%3C/svg%3E");
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -1866,11 +1868,14 @@ body.presskit-page .content-section:nth-of-type(5) {
 .history-panel[data-year="2026"] .history-avatar {
   grid-area: media;
   width: 100%;
-  height: 100%;
-  font-size: 0.85rem;
+  min-height: 132px;
+  font-size: 1.2rem;
   border-radius: 0;
-  min-height: 100%;
+  margin: 0;
   z-index: 1;
+  align-self: stretch;
+  background: #d7d9de;
+  color: #474e5a;
 }
 
 .history-panel[data-year="2025"] .history-avatar.avatar-photo img,
@@ -1880,13 +1885,64 @@ body.presskit-page .content-section:nth-of-type(5) {
 
 .history-panel[data-year="2025"] .history-name,
 .history-panel[data-year="2026"] .history-name {
-  font-size: 1.08rem;
+  margin: 0;
+  align-self: end;
+  padding: 14px 14px 4px 42px;
+  line-height: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-transform: uppercase;
 }
 
 .history-panel[data-year="2025"] .history-player:not(.coaching-card) > div:nth-child(2),
 .history-panel[data-year="2026"] .history-player:not(.coaching-card) > div:nth-child(2) {
   grid-area: content;
-  padding: 12px 14px 12px 34px;
+  padding: 0;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  min-height: 132px;
+}
+
+.history-panel[data-year="2025"] .history-first-name,
+.history-panel[data-year="2026"] .history-first-name {
+  color: #f18a01;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+}
+
+.history-panel[data-year="2025"] .history-last-name,
+.history-panel[data-year="2026"] .history-last-name {
+  color: #fff;
+  font-size: 1.38rem;
+  font-weight: 800;
+  letter-spacing: 0.35px;
+}
+
+.history-panel[data-year="2025"] .history-subtext,
+.history-panel[data-year="2026"] .history-subtext {
+  margin: 0;
+  padding: 6px 14px 14px 42px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.history-panel[data-year="2025"] .history-pill,
+.history-panel[data-year="2026"] .history-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 22px;
+  padding: 3px 11px;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  font-size: 0.66rem;
+  color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(255, 255, 255, 0.14);
 }
 
 .history-panel[data-year="2025"] .history-player.coaching-card {

@@ -495,3 +495,32 @@
 .records-roster .history-player > div:nth-child(2) {
   padding: 10px 12px;
 }
+
+.history-panel[data-year="2025"] .history-name,
+.history-panel[data-year="2026"] .history-name {
+  padding: 0;
+  gap: 2px;
+}
+
+.history-panel[data-year="2025"] .history-first-name,
+.history-panel[data-year="2026"] .history-first-name {
+  font-size: 0.74rem;
+}
+
+.history-panel[data-year="2025"] .history-last-name,
+.history-panel[data-year="2026"] .history-last-name {
+  font-size: 1.2rem;
+}
+
+.history-panel[data-year="2025"] .history-subtext,
+.history-panel[data-year="2026"] .history-subtext {
+  padding: 8px 0 0;
+  gap: 6px;
+}
+
+.history-panel[data-year="2025"] .history-pill,
+.history-panel[data-year="2026"] .history-pill {
+  min-height: 21px;
+  padding: 3px 9px;
+  font-size: 0.64rem;
+}

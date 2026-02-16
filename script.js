@@ -94,6 +94,44 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!player || !player.roster) return;
       subtextEl.textContent = `${player.roster.number || "#TBD"} | ${player.roster.position || "N/A"}`;
     });
+
+    formatHistoryRosterCards();
+  }
+
+  function formatHistoryRosterCards() {
+    const historyCards = document.querySelectorAll(
+      '.history-panel[data-year="2025"] .history-roster .history-player:not(.coaching-card), .history-panel[data-year="2026"] .history-roster .history-player:not(.coaching-card)'
+    );
+
+    historyCards.forEach((card) => {
+      const nameEl = card.querySelector(".history-name");
+      const subtextEl = card.querySelector(".history-subtext");
+      if (!nameEl || !subtextEl) return;
+
+      const fullName = nameEl.textContent.trim();
+      const nameParts = fullName.split(/\s+/).filter(Boolean);
+      if (nameParts.length > 0) {
+        const firstName = nameParts[0];
+        const lastName = nameParts.slice(1).join(" ") || nameParts[0];
+        nameEl.innerHTML = `<span class="history-first-name">${firstName}</span><span class="history-last-name">${lastName}</span>`;
+      }
+
+      const existingNumberPill = subtextEl.querySelector(".history-number-pill");
+      const existingPositionPill = subtextEl.querySelector(".history-position-pill");
+      let numberPart = "#TBD";
+      let positionPart = "N/A";
+
+      if (existingNumberPill && existingPositionPill) {
+        numberPart = existingNumberPill.textContent.trim() || numberPart;
+        positionPart = existingPositionPill.textContent.trim() || positionPart;
+      } else {
+        const [numberPartRaw, positionPartRaw] = subtextEl.textContent.split("|");
+        numberPart = (numberPartRaw || numberPart).trim();
+        positionPart = (positionPartRaw || positionPart).trim();
+      }
+
+      subtextEl.innerHTML = `<span class="history-pill history-number-pill">${numberPart}</span><span class="history-pill history-position-pill">${positionPart}</span>`;
+    });
   }
 
   function loadAndSyncSharedPlayerCards() {
