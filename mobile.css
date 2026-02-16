@@ -396,21 +396,21 @@
 }
 
 .roster-card {
-  --roster-image-col: 116px;
+  --roster-image-col: 120px;
   grid-template-columns: var(--roster-image-col) 1fr;
-  min-height: 146px;
+  min-height: 156px;
 }
 
 .roster-card .history-avatar {
-  min-height: 146px;
+  min-height: 156px;
 }
 
 .roster-first-name {
-  font-size: 0.86rem;
+  font-size: 0.9rem;
 }
 
 .roster-last-name {
-  font-size: 1.2rem;
+  font-size: 1.35rem;
 }
 
 .roster-meta {
