@@ -1323,36 +1323,72 @@ body.presskit-page .content-section:nth-of-type(5) {
 }
 
 .roster-card {
+  --roster-image-col: 38%;
   background-color: #474e5a;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 12px;
   padding: 0;
   text-align: left;
   display: grid;
-  grid-template-columns: 92px 1fr;
+  grid-template-columns: var(--roster-image-col) 1fr;
   align-items: stretch;
+  position: relative;
   overflow: hidden;
-  box-shadow: 0 8px 16px rgba(28, 32, 39, 0.14);
+  min-height: 176px;
+  box-shadow: 0 10px 18px rgba(20, 24, 32, 0.16);
+}
+
+.roster-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--roster-image-col) - 12px);
+  width: 24px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 300' preserveAspectRatio='none'%3E%3Cpath d='M8 0C18 34 18 66 8 100C-1 134-1 166 8 200C18 234 18 266 8 300L24 300L24 0Z' fill='%23f18a01'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 2;
 }
 
 .roster-card .history-avatar {
   width: 100%;
   height: 100%;
-  min-height: 104px;
+  min-height: 176px;
   margin: 0;
   border-radius: 0;
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: none;
   font-size: 1rem;
+  z-index: 1;
+  position: relative;
+  justify-self: stretch;
 }
 
 .roster-card h3 {
-  color: #fff;
-  font-size: 1rem;
   margin: 0;
   grid-column: 2;
-  align-self: end;
-  padding: 14px 12px 0;
-  line-height: 1.15;
+  align-self: center;
+  padding: 14px 18px 4px;
+  line-height: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-transform: uppercase;
+}
+
+.roster-first-name {
+  color: #f18a01;
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.roster-last-name {
+  color: #fff;
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
 }
 
 .roster-card p {
@@ -1360,35 +1396,43 @@ body.presskit-page .content-section:nth-of-type(5) {
   font-size: 0.78rem;
   grid-column: 2;
   align-self: start;
-  padding: 6px 12px 14px;
+  padding: 8px 18px 16px;
 }
 
 .roster-meta {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 6px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .roster-number,
-.roster-position {
+.roster-position,
+.roster-appearances {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 22px;
-  padding: 3px 8px;
+  min-height: 34px;
+  padding: 5px 16px;
   border-radius: 999px;
-  font-weight: 700;
-  letter-spacing: 0.2px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  font-size: 0.88rem;
 }
 
 .roster-number {
-  color: rgba(255, 255, 255, 0.9);
-  background-color: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(255, 255, 255, 0.14);
 }
 
 .roster-position {
-  color: rgba(255, 255, 255, 0.9);
-  background-color: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(255, 255, 255, 0.14);
+}
+
+.roster-appearances {
+  color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(255, 255, 255, 0.14);
 }
 
 .roster-panel .coaching-row {
@@ -1397,28 +1441,36 @@ body.presskit-page .content-section:nth-of-type(5) {
 }
 
 .roster-panel .roster-card.coaching-card {
+  --roster-image-col: 32%;
   background: #474e5a;
   border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: 0 4px 10px rgba(28, 32, 39, 0.12);
-  grid-template-columns: 80px 1fr;
+  box-shadow: 0 5px 12px rgba(28, 32, 39, 0.12);
+  min-height: 140px;
 }
 
 .roster-panel .roster-card.coaching-card .history-avatar {
-  min-height: 86px;
+  min-height: 140px;
 }
 
 .roster-panel .roster-card.coaching-card .roster-position {
-  background-color: rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .roster-panel .roster-card.coaching-card h3 {
-  font-size: 0.92rem;
-  padding: 12px 10px 0;
+  padding: 12px 14px 2px;
 }
 
 .roster-panel .roster-card.coaching-card p {
-  padding: 5px 10px 12px;
+  padding: 6px 14px 12px;
+}
+
+.roster-panel .roster-card.coaching-card .roster-first-name {
+  font-size: 1.05rem;
+}
+
+.roster-panel .roster-card.coaching-card .roster-last-name {
+  font-size: 1.48rem;
 }
 
 .season-summary {
