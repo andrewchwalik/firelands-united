@@ -1992,21 +1992,17 @@ body.presskit-page .content-section:nth-of-type(5) {
 }
 
 .captain-armband {
-  width: 10px;
-  height: 8px;
-  border-radius: 6px;
-  background: linear-gradient(
-    135deg,
-    #f18a01 0%,
-    #f18a01 45%,
-    rgba(255, 255, 255, 0.95) 45%,
-    rgba(255, 255, 255, 0.95) 60%,
-    #f18a01 60%,
-    #f18a01 100%
-  );
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  box-shadow: 0 0 0 1px rgba(71, 78, 90, 0.28);
-  flex: 0 0 auto;
+  display: inline;
+  margin-left: 4px;
+  color: #f18a01;
+  font-size: 0.52em;
+  font-weight: 800;
+  line-height: inherit;
+  vertical-align: baseline;
+}
+
+.captain-armband::before {
+  content: "C";
 }
 
 .history-panel[data-year="2025"] .history-subtext,
