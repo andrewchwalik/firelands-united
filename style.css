@@ -89,12 +89,15 @@ body {
 }
 
 .nav-links a.nav-merch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   margin-left: auto;
   background-color: #474e5a;
   color: #f18a01;
-  padding: 9px 18px;
+  padding: 8px 18px;
   border-radius: 999px;
-  line-height: 1;
+  line-height: 1.1;
 }
 
 .nav-links a.nav-merch:hover,
