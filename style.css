@@ -1310,6 +1310,26 @@ body.presskit-page .content-section:nth-of-type(5) {
   background-color: rgba(255, 255, 255, 0.12);
 }
 
+.roster-panel .coaching-row {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+}
+
+.roster-panel .roster-card.coaching-card {
+  background: #f18a01;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  box-shadow: 0 10px 20px rgba(181, 99, 0, 0.25);
+}
+
+.roster-panel .roster-card.coaching-card::before {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.roster-panel .roster-card.coaching-card .roster-position {
+  background-color: rgba(255, 255, 255, 0.28);
+  color: #fff;
+}
+
 .season-summary {
   background-color: #fff;
   border: 1px solid #ededed;
