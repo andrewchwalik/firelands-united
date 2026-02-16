@@ -146,6 +146,14 @@
   width: max-content;
 }
 
+.nav-dropdown-toggle.active,
+.nav-dropdown-toggle:hover,
+.nav-dropdown-toggle:focus-visible {
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  outline: none;
+}
+
 .nav-dropdown-menu {
   position: static;
   display: none;
@@ -157,14 +165,14 @@
   display: flex;
 }
 
-.nav-dropdown.open .nav-dropdown-toggle:not(.active) {
-  color: #fff;
+.nav-dropdown.open .nav-dropdown-toggle {
+  color: #f18a01;
 }
 
 .nav-dropdown-menu a,
 .nav-dropdown-item-disabled {
   display: inline-block;
-  padding: 10px 44px;
+  padding: 10px 40px;
   color: #fff;
   text-decoration: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
@@ -173,6 +181,7 @@
   text-transform: uppercase;
   text-align: left;
   width: max-content;
+  margin: 0;
 }
 
 .nav-dropdown-item-disabled {
@@ -256,6 +265,10 @@
 /* Hide match info on mobile */
 .home-hero-match {
   display: none;
+}
+
+.home-about-section .content-container h2 {
+  line-height: 1.1;
 }
 
 /* --- Latest News Section --- */
