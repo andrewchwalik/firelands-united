@@ -613,10 +613,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const merchTrack = document.getElementById('merch-track');
   const merchDotsContainer = document.getElementById('merch-dots');
+  const merchTrackWrapper = merchTrack
+    ? merchTrack.closest('.merch-track-wrapper')
+    : null;
 
-  if (merchTrack && merchDotsContainer) {
+  if (merchTrack && merchDotsContainer && merchTrackWrapper) {
     let merchIndex = 0;
     let cardsPerView = window.innerWidth <= 768 ? 1 : 3;
+    const merchGap = 24;
 
     // Render product cards
     function renderMerchCards() {
@@ -644,6 +648,16 @@ document.addEventListener("DOMContentLoaded", () => {
       return Math.ceil(merchProducts.length / cardsPerView) - 1;
     }
 
+    function setMerchCardWidths() {
+      const wrapperWidth = merchTrackWrapper.clientWidth;
+      const cardWidth =
+        (wrapperWidth - merchGap * (cardsPerView - 1)) / cardsPerView;
+      const cards = merchTrack.querySelectorAll('.merch-card');
+      cards.forEach((card) => {
+        card.style.flex = `0 0 ${cardWidth}px`;
+      });
+    }
+
     // Render dot indicators
     function renderMerchDots() {
       merchDotsContainer.innerHTML = '';
@@ -654,36 +668,36 @@ document.addEventListener("DOMContentLoaded", () => {
         dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
         if (i === merchIndex) dot.classList.add('active');
         dot.addEventListener('click', () => {
-          merchIndex = i;
-          updateMerchSlider();
+          scrollMerchToIndex(i);
         });
         merchDotsContainer.appendChild(dot);
       }
     }
 
-    // Update slider position and controls
+    // Update slider controls and dot state based on native scroll position
     function updateMerchSlider() {
-      merchIndex = Math.max(0, Math.min(merchIndex, getMaxIndex()));
-
-      const gap = cardsPerView === 1 ? 0 : 30;
-      const wrapperWidth = merchTrack.parentElement.offsetWidth;
-      const cardWidth = (wrapperWidth - gap * (cardsPerView - 1)) / cardsPerView;
-
-      // Calculate offset: jump by cardsPerView, but clamp so last page shows full cards
-      const startCard = Math.min(merchIndex * cardsPerView, merchProducts.length - cardsPerView);
-      const offset = startCard * (cardWidth + gap);
-      merchTrack.style.transform = `translateX(-${offset}px)`;
+      const maxIndex = getMaxIndex();
+      merchIndex = Math.round(merchTrackWrapper.scrollLeft / merchTrackWrapper.clientWidth);
+      merchIndex = Math.max(0, Math.min(merchIndex, maxIndex));
 
       // Update arrow states
       const leftArrow = document.querySelector('.merch-arrow-left');
       const rightArrow = document.querySelector('.merch-arrow-right');
       if (leftArrow) leftArrow.disabled = merchIndex === 0;
-      if (rightArrow) rightArrow.disabled = merchIndex >= getMaxIndex();
+      if (rightArrow) rightArrow.disabled = merchIndex >= maxIndex;
 
       // Update dots
       const dots = merchDotsContainer.querySelectorAll('.merch-dot');
       dots.forEach((dot, i) => {
         dot.classList.toggle('active', i === merchIndex);
+      });
+    }
+
+    function scrollMerchToIndex(index) {
+      const clampedIndex = Math.max(0, Math.min(index, getMaxIndex()));
+      merchTrackWrapper.scrollTo({
+        left: clampedIndex * merchTrackWrapper.clientWidth,
+        behavior: 'smooth'
       });
     }
 
@@ -693,60 +707,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (merchLeftArrow) {
       merchLeftArrow.addEventListener('click', () => {
-        if (merchIndex > 0) {
-          merchIndex--;
-          updateMerchSlider();
-        }
+        scrollMerchToIndex(merchIndex - 1);
       });
     }
 
     if (merchRightArrow) {
       merchRightArrow.addEventListener('click', () => {
-        if (merchIndex < getMaxIndex()) {
-          merchIndex++;
-          updateMerchSlider();
-        }
+        scrollMerchToIndex(merchIndex + 1);
       });
     }
 
-    // Touch/swipe support for mobile
-    let merchTouchStartX = 0;
-    let merchTouchEndX = 0;
-
-    merchTrack.addEventListener('touchstart', (e) => {
-      merchTouchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-
-    merchTrack.addEventListener('touchend', (e) => {
-      merchTouchEndX = e.changedTouches[0].screenX;
-      const diff = merchTouchStartX - merchTouchEndX;
-      if (Math.abs(diff) > 50) {
-        if (diff > 0 && merchIndex < getMaxIndex()) {
-          merchIndex++;
-          updateMerchSlider();
-        }
-        if (diff < 0 && merchIndex > 0) {
-          merchIndex--;
-          updateMerchSlider();
-        }
-      }
-    }, { passive: true });
+    merchTrackWrapper.addEventListener('scroll', updateMerchSlider, { passive: true });
 
     // Handle window resize
     window.addEventListener('resize', () => {
       const newCardsPerView = window.innerWidth <= 768 ? 1 : 3;
       if (newCardsPerView !== cardsPerView) {
         cardsPerView = newCardsPerView;
-        merchIndex = 0;
-        renderMerchDots();
-        updateMerchSlider();
-      } else {
-        updateMerchSlider();
       }
+      setMerchCardWidths();
+      renderMerchDots();
+      scrollMerchToIndex(0);
+      updateMerchSlider();
     });
 
     // Initialize
     renderMerchCards();
+    setMerchCardWidths();
     renderMerchDots();
     updateMerchSlider();
   }

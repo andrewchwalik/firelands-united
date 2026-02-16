@@ -113,40 +113,49 @@
   },
   {
     "name": "Alex Davidson",
-    "image": "/img/2025-headshots/alex-davidson.webp"
+    "image": "/img/2025-headshots/alex-davidson.webp",
+    "roster": { "number": "#18", "position": "CAM", "appearances": 7 }
   },
   {
     "name": "Kevin Alejandro",
-    "image": "/img/2025-headshots/kevin-alejandro.webp"
+    "image": "/img/2025-headshots/kevin-alejandro.webp",
+    "roster": { "number": "#23", "position": "LW/LWB", "appearances": 5 }
   },
   {
     "name": "Luis Alvarado",
-    "image": "/img/2025-headshots/luis-alvarado.webp"
+    "image": "/img/2025-headshots/luis-alvarado.webp",
+    "roster": { "number": "#3", "position": "RW", "appearances": 10 }
   },
   {
     "name": "Kelly Itito",
-    "image": "/img/2025-headshots/kelly-itito.webp"
+    "image": "/img/2025-headshots/kelly-itito.webp",
+    "roster": { "number": "#10", "position": "CDM", "appearances": 8 }
   },
   {
     "name": "Connor Hauger",
-    "image": "/img/2025-headshots/connor-hauger.webp"
+    "image": "/img/2025-headshots/connor-hauger.webp",
+    "roster": { "number": "#12", "position": "CB", "appearances": 10 }
   },
   {
     "name": "Kylen Coopshaw",
     "aliases": ["Kylan Coopshaw"],
-    "image": "/img/2025-headshots/kylan-coopshaw.webp"
+    "image": "/img/2025-headshots/kylan-coopshaw.webp",
+    "roster": { "number": "#7", "position": "LB/RB", "appearances": 5 }
   },
   {
     "name": "Bryan Gerber",
-    "image": "/img/2025-headshots/bryan-gerber.webp"
+    "image": "/img/2025-headshots/bryan-gerber.webp",
+    "roster": { "number": "#14", "position": "CB", "appearances": 4 }
   },
   {
     "name": "Phil Kirimi",
-    "image": "/img/2025-headshots/phil-kirimi.webp"
+    "image": "/img/2025-headshots/phil-kirimi.webp",
+    "roster": { "number": "#0", "position": "CB", "appearances": 6 }
   },
   {
     "name": "Zane Gabrielson",
-    "image": "/img/2025-headshots/zane-gabrielson.webp"
+    "image": "/img/2025-headshots/zane-gabrielson.webp",
+    "roster": { "number": "#19", "position": "RB", "appearances": 5 }
   },
   {
     "name": "Andrew Chwalik",

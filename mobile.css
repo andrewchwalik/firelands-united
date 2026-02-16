@@ -349,7 +349,7 @@
 }
 
 .merch-track {
-  gap: 0;
+  gap: 14px;
 }
 
 .merch-card {
@@ -357,9 +357,7 @@
 }
 
 .merch-arrow {
-  width: 36px;
-  height: 36px;
-  font-size: 1rem;
+  display: none;
 }
 
 .merch-dots {

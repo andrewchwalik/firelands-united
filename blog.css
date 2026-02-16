@@ -83,15 +83,15 @@ body {
 .nav-links a.nav-merch {
   margin-left: auto;
   background-color: #474e5a;
-  color: #fff;
-  padding: 8px 14px;
-  border-radius: 8px;
+  color: #f18a01;
+  padding: 9px 18px;
+  border-radius: 999px;
   line-height: 1;
 }
 
 .nav-links a.nav-merch:hover,
 .nav-links a.nav-merch.active {
-  color: #fff;
+  color: #f18a01;
   background-color: #3b414b;
 }
 

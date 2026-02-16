@@ -89,15 +89,15 @@ body {
 .nav-links a.nav-merch {
   margin-left: auto;
   background-color: #474e5a;
-  color: #fff;
-  padding: 8px 14px;
-  border-radius: 8px;
+  color: #f18a01;
+  padding: 9px 18px;
+  border-radius: 999px;
   line-height: 1;
 }
 
 .nav-links a.nav-merch:hover,
 .nav-links a.nav-merch.active {
-  color: #fff;
+  color: #f18a01;
   background-color: #3b414b;
 }
 
@@ -357,10 +357,12 @@ body {
 .latest-news-container {
   max-width: 1100px;
   margin: 0 auto;
+  overflow: visible;
 }
 
 .latest-news-scroll {
   position: relative;
+  overflow: visible;
 }
 
 .latest-news-grid {
@@ -371,7 +373,7 @@ body {
   scroll-behavior: smooth;
   scrollbar-width: thin;
   scrollbar-color: rgba(71, 78, 90, 0.45) transparent;
-  padding: 4px 36px 12px 0;
+  padding: 4px 0 12px 0;
 }
 
 .latest-news-grid::-webkit-scrollbar {
@@ -389,7 +391,7 @@ body {
 
 .latest-news-more-hint {
   position: absolute;
-  right: 6px;
+  right: -26px;
   top: 50%;
   transform: translateY(-52%);
   color: #8d929c;
@@ -596,18 +598,36 @@ body {
 
 .merch-track-wrapper {
   flex: 1;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
   border-radius: 12px;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(71, 78, 90, 0.45) transparent;
+}
+
+.merch-track-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.merch-track-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(71, 78, 90, 0.35);
+  border-radius: 999px;
+}
+
+.merch-track-wrapper::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 .merch-track {
   display: flex;
-  gap: 30px;
-  transition: transform 0.4s ease;
+  gap: 24px;
+  width: max-content;
+  padding: 4px 0 12px;
 }
 
 .merch-card {
-  flex: 0 0 calc((100% - 60px) / 3);
+  flex: 0 0 320px;
   background: #fff;
   border-radius: 12px;
   overflow: hidden;
@@ -616,6 +636,7 @@ body {
   text-decoration: none;
   color: inherit;
   display: block;
+  scroll-snap-align: start;
 }
 
 .merch-card:hover {
@@ -670,34 +691,34 @@ body {
 
 /* Arrow Buttons */
 .merch-arrow {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 2px solid #474E5A;
-  background: #fff;
-  color: #474E5A;
-  font-size: 1.2rem;
+  width: auto;
+  height: auto;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: #8d929c;
+  font-size: 2rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  line-height: 1;
+  padding: 0 4px;
+  transition: color 0.2s ease, opacity 0.2s ease;
 }
 
 .merch-arrow:hover {
-  background: #474E5A;
-  color: #fff;
+  color: #656b76;
 }
 
 .merch-arrow:disabled {
-  opacity: 0.3;
+  opacity: 0.35;
   cursor: not-allowed;
 }
 
 .merch-arrow:disabled:hover {
-  background: #fff;
-  color: #474E5A;
+  color: #8d929c;
 }
 
 /* Dot Indicators */
