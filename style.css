@@ -344,15 +344,56 @@ body {
   margin: 0 auto;
 }
 
+.latest-news-scroll {
+  position: relative;
+}
+
 .latest-news-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  margin-bottom: 40px;
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(71, 78, 90, 0.45) transparent;
+  padding: 4px 36px 12px 0;
+}
+
+.latest-news-grid::-webkit-scrollbar {
+  height: 8px;
+}
+
+.latest-news-grid::-webkit-scrollbar-thumb {
+  background: rgba(71, 78, 90, 0.35);
+  border-radius: 999px;
+}
+
+.latest-news-grid::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.latest-news-more-hint {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-52%);
+  color: #8d929c;
+  font-size: 2rem;
+  line-height: 1;
+  pointer-events: none;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+.latest-news-scroll.at-end .latest-news-more-hint,
+.latest-news-scroll.no-overflow .latest-news-more-hint {
+  opacity: 0;
 }
 
 /* Reuse blog card styles for latest news cards */
 .latest-news-card {
+  flex: 0 0 calc((100% - 48px) / 3);
+  min-width: 280px;
   display: block;
   text-decoration: none;
   color: inherit;
@@ -413,10 +454,6 @@ body {
   font-size: 0.85rem;
   color: #777;
   line-height: 1.5;
-}
-
-.latest-news-cta {
-  text-align: center;
 }
 
 /* (Old match-info section removed — match info is now in the hero banner) */

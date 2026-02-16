@@ -245,9 +245,18 @@
 }
 
 .latest-news-grid {
-  grid-template-columns: 1fr;
-  gap: 24px;
-  margin-bottom: 30px;
+  gap: 14px;
+  padding: 2px 22px 10px 0;
+}
+
+.latest-news-card {
+  flex: 0 0 82vw;
+  min-width: 82vw;
+}
+
+.latest-news-more-hint {
+  right: 4px;
+  font-size: 1.6rem;
 }
 
 /* --- Blog Grid (News Page) --- */

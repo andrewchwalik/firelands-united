@@ -298,12 +298,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ----- Latest news (homepage) -----
   const latestNewsGrid = document.getElementById("latest-news-grid");
+  const latestNewsScroll = latestNewsGrid
+    ? latestNewsGrid.closest(".latest-news-scroll")
+    : null;
 
   function renderLatestNews(allPosts) {
     if (!latestNewsGrid || allPosts.length === 0) return;
 
-    // Show up to 3 latest posts (already sorted newest first from blogs.json)
-    const postsToShow = allPosts.slice(0, 3);
+    // Show a wider set for horizontal scrolling on the homepage.
+    const postsToShow = allPosts.slice(0, 12);
 
     latestNewsGrid.innerHTML = "";
     postsToShow.forEach((post) => {
@@ -323,6 +326,24 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>`;
       latestNewsGrid.appendChild(card);
     });
+
+    updateLatestNewsHint();
+  }
+
+  function updateLatestNewsHint() {
+    if (!latestNewsGrid || !latestNewsScroll) return;
+
+    const maxScrollLeft = latestNewsGrid.scrollWidth - latestNewsGrid.clientWidth;
+    const noOverflow = maxScrollLeft <= 4;
+    const atEnd = latestNewsGrid.scrollLeft >= maxScrollLeft - 4;
+
+    latestNewsScroll.classList.toggle("no-overflow", noOverflow);
+    latestNewsScroll.classList.toggle("at-end", atEnd);
+  }
+
+  if (latestNewsGrid && latestNewsScroll) {
+    latestNewsGrid.addEventListener("scroll", updateLatestNewsHint, { passive: true });
+    window.addEventListener("resize", updateLatestNewsHint);
   }
 
   // ----- Merch slider (homepage) -----
