@@ -1,0 +1,163 @@
+[
+  {
+    "name": "Luke Avers",
+    "aliases": ["Lukas Avers"],
+    "image": "/img/2025-headshots/luke-avers.webp",
+    "roster": { "number": "#1", "position": "GK", "appearances": 3 }
+  },
+  {
+    "name": "Collin Biehler",
+    "image": "/img/2025-headshots/collin-biehler.webp",
+    "roster": { "number": "#17", "position": "GK", "appearances": 8 }
+  },
+  {
+    "name": "Kaiden Hawes",
+    "roster": { "number": "#3", "position": "CB", "appearances": 0 }
+  },
+  {
+    "name": "Yoni Moralez",
+    "image": "/img/2025-headshots/yoni-moralez.webp",
+    "roster": { "number": "#4", "position": "CB", "appearances": 7 }
+  },
+  {
+    "name": "Grant Miller",
+    "image": "/img/2025-headshots/grant-miller.webp",
+    "roster": { "number": "#5", "position": "CB", "appearances": 9 }
+  },
+  {
+    "name": "Christian Heidl",
+    "aliases": ["Chris Heidl"],
+    "image": "/img/2025-headshots/chris-heidl.webp",
+    "roster": { "number": "#6", "position": "CM", "appearances": 9 }
+  },
+  {
+    "name": "Blake Kubasak",
+    "image": "/img/2025-headshots/blake-kubasak.webp",
+    "roster": { "number": "#8", "position": "LWB/LB", "appearances": 9 }
+  },
+  {
+    "name": "Jon Slay",
+    "image": "/img/2025-headshots/jon-slay.webp",
+    "roster": { "number": "#9", "position": "ST/LW", "appearances": 10 }
+  },
+  {
+    "name": "Brock Harman",
+    "image": "/img/2025-headshots/brock-harman.webp",
+    "roster": { "number": "#10", "position": "ST/CAM", "appearances": 5 }
+  },
+  {
+    "name": "Jonah Main",
+    "image": "/img/2025-headshots/jonah-main.webp",
+    "roster": { "number": "#11", "position": "CM", "appearances": 11 }
+  },
+  {
+    "name": "Reggie Johnson",
+    "image": "/img/2025-headshots/reggie-johnson.webp",
+    "roster": { "number": "#12", "position": "ST/RW", "appearances": 11 }
+  },
+  {
+    "name": "Jordan Dankert",
+    "roster": { "number": "#13", "position": "GK", "appearances": 0 }
+  },
+  {
+    "name": "Maximus Parsell",
+    "roster": { "number": "#14", "position": "CM/CAM", "appearances": 0 }
+  },
+  {
+    "name": "Jack Ramey",
+    "roster": { "number": "#15", "position": "CM", "appearances": 0 }
+  },
+  {
+    "name": "Noah Clapsaddle",
+    "image": "/img/2025-headshots/noah-clapsaddle.webp",
+    "roster": { "number": "#16", "position": "LB/RB", "appearances": 9 }
+  },
+  {
+    "name": "Ayden Adams",
+    "roster": { "number": "#18", "position": "LW/LWB", "appearances": 0 }
+  },
+  {
+    "name": "Cohen Hawes",
+    "roster": { "number": "#19", "position": "LB/RB", "appearances": 0 }
+  },
+  {
+    "name": "Kenny Alejandro",
+    "image": "/img/2025-headshots/kenny-alejandro.webp",
+    "roster": { "number": "#21", "position": "LW/LWB", "appearances": 7 }
+  },
+  {
+    "name": "Coen Steinmetz",
+    "image": "/img/2025-headshots/coen-steinmetz.webp",
+    "roster": { "number": "#22", "position": "LB/RB", "appearances": 11 }
+  },
+  {
+    "name": "Simon Joseph",
+    "image": "/img/2025-headshots/simon-joseph.webp",
+    "roster": { "number": "#77", "position": "ST", "appearances": 7 }
+  },
+  {
+    "name": "Erik Rangel Negrete",
+    "roster": { "number": "#TBD", "position": "CM/CAM", "appearances": 0 }
+  },
+  {
+    "name": "Jackson Gray",
+    "roster": { "number": "#TBD", "position": "CB", "appearances": 0 }
+  },
+  {
+    "name": "Joseph Judge",
+    "roster": { "number": "#TBD", "position": "CB", "appearances": 0 }
+  },
+  {
+    "name": "Ryan Graber",
+    "roster": { "number": "#TBD", "position": "LB/RB", "appearances": 0 }
+  },
+  {
+    "name": "Alex Davidson",
+    "image": "/img/2025-headshots/alex-davidson.webp"
+  },
+  {
+    "name": "Kevin Alejandro",
+    "image": "/img/2025-headshots/kevin-alejandro.webp"
+  },
+  {
+    "name": "Luis Alvarado",
+    "image": "/img/2025-headshots/luis-alvarado.webp"
+  },
+  {
+    "name": "Kelly Itito",
+    "image": "/img/2025-headshots/kelly-itito.webp"
+  },
+  {
+    "name": "Connor Hauger",
+    "image": "/img/2025-headshots/connor-hauger.webp"
+  },
+  {
+    "name": "Kylen Coopshaw",
+    "aliases": ["Kylan Coopshaw"],
+    "image": "/img/2025-headshots/kylan-coopshaw.webp"
+  },
+  {
+    "name": "Bryan Gerber",
+    "image": "/img/2025-headshots/bryan-gerber.webp"
+  },
+  {
+    "name": "Phil Kirimi",
+    "image": "/img/2025-headshots/phil-kirimi.webp"
+  },
+  {
+    "name": "Zane Gabrielson",
+    "image": "/img/2025-headshots/zane-gabrielson.webp"
+  },
+  {
+    "name": "Andrew Chwalik",
+    "image": "/img/2025-headshots/andrew-chwalik.webp"
+  },
+  {
+    "name": "George Villiers",
+    "image": "/img/2025-headshots/george-villiers.webp"
+  },
+  {
+    "name": "Zoe Turner",
+    "image": "/img/2025-headshots/zoe-turner.webp"
+  }
+]

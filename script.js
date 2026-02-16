@@ -1,4 +1,118 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // ----- Shared player card source of truth -----
+  // Source now lives in /players.json for easy non-code updates.
+
+  function normalizeName(value) {
+    return (value || "")
+      .toLowerCase()
+      .replace(/[^a-z0-9 ]+/g, "")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function deriveInitials(name) {
+    const parts = (name || "").trim().split(/\s+/).filter(Boolean);
+    if (parts.length === 0) return "N/A";
+    if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+    return `${parts[0][0]}${parts[parts.length - 1][0]}`.toUpperCase();
+  }
+
+  function buildPlayerMap(players) {
+    const byName = new Map();
+    players.forEach((player) => {
+      byName.set(normalizeName(player.name), player);
+      (player.aliases || []).forEach((alias) => {
+        byName.set(normalizeName(alias), player);
+      });
+    });
+    return byName;
+  }
+
+  function setCardAvatar(avatarEl, player, altName) {
+    if (!avatarEl || !player) return;
+    if (player.image) {
+      avatarEl.classList.add("avatar-photo");
+      avatarEl.innerHTML = `<img src="${player.image}" alt="${altName} headshot" loading="lazy">`;
+      return;
+    }
+    avatarEl.classList.remove("avatar-photo");
+    avatarEl.textContent = player.initials || deriveInitials(altName);
+  }
+
+  function syncSharedPlayerCards(playerByName) {
+    if (!playerByName || playerByName.size === 0) return;
+
+    // Roster cards (main roster style)
+    const rosterCards = document.querySelectorAll(
+      '.roster-panel[data-roster="first-team"] .roster-card:not(.coaching-card)'
+    );
+    rosterCards.forEach((card) => {
+      const first = card.querySelector(".roster-first-name");
+      const last = card.querySelector(".roster-last-name");
+      if (!first || !last) return;
+      const fullName = `${first.textContent?.trim() || ""} ${last.textContent?.trim() || ""}`.trim();
+      const player = playerByName.get(normalizeName(fullName));
+      if (!player) return;
+
+      const canonicalParts = player.name.split(" ");
+      first.textContent = canonicalParts[0] || player.name;
+      last.textContent = canonicalParts.slice(1).join(" ") || canonicalParts[0];
+
+      setCardAvatar(card.querySelector(".history-avatar"), player, player.name);
+
+      if (player.roster) {
+        const numberEl = card.querySelector(".roster-number");
+        const positionEl = card.querySelector(".roster-position");
+        const appsEl = card.querySelector(".roster-appearances");
+        if (numberEl) numberEl.textContent = player.roster.number || "#TBD";
+        if (positionEl) positionEl.textContent = player.roster.position || "N/A";
+        if (appsEl) appsEl.textContent = `${player.roster.appearances ?? 0} Apps`;
+      }
+    });
+
+    // History/records cards (sync name + avatar for the same player everywhere)
+    const historyNameEls = document.querySelectorAll(".history-player .history-name");
+    historyNameEls.forEach((nameEl) => {
+      const nameText = nameEl.textContent?.trim() || "";
+      const player = playerByName.get(normalizeName(nameText));
+      if (!player) return;
+      nameEl.textContent = player.name;
+      const card = nameEl.closest(".history-player");
+      const avatarEl = card?.querySelector(".history-avatar");
+      setCardAvatar(avatarEl, player, player.name);
+    });
+
+    // History roster player details (same content source as roster page).
+    const historyRosterPlayers = document.querySelectorAll(
+      '.history-panel[data-year="2025"] .history-roster:not(.records-roster) .history-player:not(.coaching-card), .history-panel[data-year="2026"] .history-roster:not(.records-roster) .history-player:not(.coaching-card)'
+    );
+    historyRosterPlayers.forEach((card) => {
+      const nameEl = card.querySelector(".history-name");
+      const subtextEl = card.querySelector(".history-subtext");
+      if (!nameEl || !subtextEl) return;
+      const player = playerByName.get(normalizeName(nameEl.textContent || ""));
+      if (!player || !player.roster) return;
+      subtextEl.textContent = `${player.roster.number || "#TBD"} | ${player.roster.position || "N/A"}`;
+    });
+  }
+
+  function loadAndSyncSharedPlayerCards() {
+    fetch("/players.json")
+      .then((r) => {
+        if (!r.ok) throw new Error(`Failed to load players.json (${r.status})`);
+        return r.json();
+      })
+      .then((players) => {
+        if (!Array.isArray(players)) return;
+        syncSharedPlayerCards(buildPlayerMap(players));
+      })
+      .catch((err) => {
+        console.error("Error loading player card data:", err);
+      });
+  }
+
+  loadAndSyncSharedPlayerCards();
+
   function formatBlogDate(value) {
     if (!value) return "";
     const parsed = new Date(value);
