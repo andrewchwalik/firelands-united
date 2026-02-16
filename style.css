@@ -1207,6 +1207,24 @@ body.presskit-page .content-section:nth-of-type(5) {
   display: block;
 }
 
+.roster-group {
+  margin-bottom: 26px;
+}
+
+.roster-group:last-child {
+  margin-bottom: 0;
+}
+
+.roster-group-title {
+  color: #f18a01;
+  font-size: 1.15rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(71, 78, 90, 0.2);
+}
+
 .roster-info-box {
   background-color: #fff;
   border: 1px solid #e6e6e6;
@@ -1229,10 +1247,22 @@ body.presskit-page .content-section:nth-of-type(5) {
 
 .roster-card {
   background-color: #474e5a;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 10px;
+  background-image: linear-gradient(165deg, rgba(241, 138, 1, 0.16) 0%, rgba(71, 78, 90, 0) 46%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
   padding: 14px 12px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(28, 32, 39, 0.18);
+}
+
+.roster-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background-color: rgba(241, 138, 1, 0.85);
 }
 
 .roster-card .history-avatar {
@@ -1248,9 +1278,36 @@ body.presskit-page .content-section:nth-of-type(5) {
 }
 
 .roster-card p {
-  color: rgba(255, 255, 255, 0.78);
-  margin: 4px 0 0;
-  font-size: 0.82rem;
+  margin: 6px 0 0;
+  font-size: 0.78rem;
+}
+
+.roster-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.roster-number,
+.roster-position {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 22px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.roster-number {
+  color: #f18a01;
+  background-color: rgba(255, 255, 255, 0.93);
+}
+
+.roster-position {
+  color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.12);
 }
 
 .season-summary {
