@@ -1754,22 +1754,53 @@ body.presskit-page .content-section:nth-of-type(5) {
 }
 
 .records-roster .history-player {
+  --history-image-col: 34%;
   background-color: #474e5a;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 10px;
   border-bottom: none;
-  padding: 10px 12px;
+  padding: 0;
   display: grid;
-  grid-template-columns: 50px 1fr;
-  gap: 10px;
+  grid-template-columns: var(--history-image-col) 1fr;
+  grid-template-areas: "media content";
+  gap: 0;
   align-items: center;
   min-height: 74px;
+  position: relative;
+  overflow: hidden;
+}
+
+.records-roster .history-player::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--history-image-col);
+  width: 44px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 300' preserveAspectRatio='none'%3E%3Cpath d='M0 0 Q60 150, 0 300Z' fill='%23f18a01'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 2;
 }
 
 .records-roster .history-avatar {
-  width: 44px;
-  height: 44px;
+  grid-area: media;
+  width: 100%;
+  height: 100%;
   font-size: 0.7rem;
+  border-radius: 0;
+  min-height: 100%;
+  z-index: 1;
+}
+
+.records-roster .history-avatar.avatar-photo img {
+  object-position: center 30%;
+}
+
+.records-roster .history-player > div:nth-child(2) {
+  grid-area: content;
+  padding: 10px 12px 10px 34px;
 }
 
 .records-roster .history-name {
@@ -1800,23 +1831,51 @@ body.presskit-page .content-section:nth-of-type(5) {
 
 .history-panel[data-year="2025"] .history-player,
 .history-panel[data-year="2026"] .history-player {
+  --history-image-col: 34%;
   background-color: #474e5a;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 10px;
   border-bottom: none;
-  padding: 14px 16px;
+  padding: 0;
   display: grid;
-  grid-template-columns: 66px 1fr;
-  gap: 12px;
+  grid-template-columns: var(--history-image-col) 1fr;
+  grid-template-areas: "media content";
+  gap: 0;
   align-items: center;
   min-height: 92px;
+  position: relative;
+  overflow: hidden;
+}
+
+.history-panel[data-year="2025"] .history-player:not(.coaching-card)::after,
+.history-panel[data-year="2026"] .history-player:not(.coaching-card)::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--history-image-col);
+  width: 44px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 300' preserveAspectRatio='none'%3E%3Cpath d='M0 0 Q60 150, 0 300Z' fill='%23f18a01'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 2;
 }
 
 .history-panel[data-year="2025"] .history-avatar,
 .history-panel[data-year="2026"] .history-avatar {
-  width: 56px;
-  height: 56px;
+  grid-area: media;
+  width: 100%;
+  height: 100%;
   font-size: 0.85rem;
+  border-radius: 0;
+  min-height: 100%;
+  z-index: 1;
+}
+
+.history-panel[data-year="2025"] .history-avatar.avatar-photo img,
+.history-panel[data-year="2026"] .history-avatar.avatar-photo img {
+  object-position: center 30%;
 }
 
 .history-panel[data-year="2025"] .history-name,
@@ -1824,9 +1883,25 @@ body.presskit-page .content-section:nth-of-type(5) {
   font-size: 1.08rem;
 }
 
+.history-panel[data-year="2025"] .history-player:not(.coaching-card) > div:nth-child(2),
+.history-panel[data-year="2026"] .history-player:not(.coaching-card) > div:nth-child(2) {
+  grid-area: content;
+  padding: 12px 14px 12px 34px;
+}
+
 .history-panel[data-year="2025"] .history-player.coaching-card {
   background-color: #f18a01;
   border-color: rgba(255, 255, 255, 0.35);
+  --history-image-col: 32%;
+}
+
+.history-panel[data-year="2025"] .history-player.coaching-card .history-avatar {
+  min-height: 100%;
+}
+
+.history-panel[data-year="2025"] .history-player.coaching-card > div:nth-child(2) {
+  grid-area: content;
+  padding: 12px 14px 12px 24px;
 }
 
 .history-panel[data-year="2025"] .history-player.coaching-card .history-subtext {
