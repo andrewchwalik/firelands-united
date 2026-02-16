@@ -182,6 +182,13 @@
   color: #f18a01;
 }
 
+.nav-links a.nav-merch {
+  margin-left: 0;
+  background: none;
+  border-radius: 0;
+  line-height: inherit;
+}
+
 /* --- Diving Keeper Easter Egg --- */
 .menu-keeper {
   display: block;
