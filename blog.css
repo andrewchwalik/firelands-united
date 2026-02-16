@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Bermont';
+  src: url('/fonts/BermontFree.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* General Reset */
 * {
   margin: 0;
@@ -62,6 +69,8 @@ body {
   align-items: center;
   margin-left: 140px;
   margin-top: 8px;
+  flex: 1;
+  min-width: 0;
 }
 
 .nav-links a {

@@ -69,6 +69,8 @@ body {
   align-items: center; /* Vertically align links with the logo */
   margin-left: 140px; /* Create space to the right of the logo */
   margin-top: 8px; /* Move links down by 3 pixels */
+  flex: 1;
+  min-width: 0;
 }
 
 .nav-links a {
