@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const appsEl = card.querySelector(".roster-appearances");
         if (numberEl) numberEl.textContent = player.roster.number || "#TBD";
         if (positionEl) positionEl.textContent = player.roster.position || "N/A";
-        if (appsEl) appsEl.textContent = `${player.roster.appearances ?? 0} Apps`;
+        if (appsEl) appsEl.textContent = `${player.roster.appearances ?? 0} All-Time Apps.`;
       }
     });
 
@@ -80,19 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const card = nameEl.closest(".history-player");
       const avatarEl = card?.querySelector(".history-avatar");
       setCardAvatar(avatarEl, player, player.name);
-    });
-
-    // History roster player details (same content source as roster page).
-    const historyRosterPlayers = document.querySelectorAll(
-      '.history-panel[data-year="2025"] .history-roster:not(.records-roster) .history-player:not(.coaching-card), .history-panel[data-year="2026"] .history-roster:not(.records-roster) .history-player:not(.coaching-card)'
-    );
-    historyRosterPlayers.forEach((card) => {
-      const nameEl = card.querySelector(".history-name");
-      const subtextEl = card.querySelector(".history-subtext");
-      if (!nameEl || !subtextEl) return;
-      const player = playerByName.get(normalizeName(nameEl.textContent || ""));
-      if (!player || !player.roster) return;
-      subtextEl.textContent = `${player.roster.number || "#TBD"} | ${player.roster.position || "N/A"}`;
     });
 
     formatHistoryRosterCards(playerByName);
@@ -118,17 +105,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const normalizedName = normalizeName(fullName);
       const mappedPlayer = playerByName?.get(normalizedName);
+      const historyPanel = card.closest(".history-panel");
+      const year = historyPanel?.getAttribute("data-year");
       const existingNumberPill = subtextEl.querySelector(".history-number-pill");
       const existingPositionPill = subtextEl.querySelector(".history-position-pill");
       const existingAppsPill = subtextEl.querySelector(".history-apps-pill");
       let numberPart = "#TBD";
       let positionPart = "N/A";
-      let appsPart = `${mappedPlayer?.roster?.appearances ?? 0} Apps`;
+      let appsValue;
+      if (year === "2026") {
+        appsValue = 0;
+      } else if (year === "2025") {
+        appsValue = mappedPlayer?.seasons?.["2025"]?.appearances
+          ?? mappedPlayer?.roster?.appearances
+          ?? 0;
+      } else {
+        appsValue = mappedPlayer?.roster?.appearances ?? 0;
+      }
+      let appsPart = `${appsValue} Apps`;
 
       if (existingNumberPill && existingPositionPill) {
         numberPart = existingNumberPill.textContent.trim() || numberPart;
         positionPart = existingPositionPill.textContent.trim() || positionPart;
-        if (existingAppsPill) appsPart = existingAppsPill.textContent.trim() || appsPart;
+        if (existingAppsPill && year !== "2025" && year !== "2026") {
+          appsPart = existingAppsPill.textContent.trim() || appsPart;
+        }
       } else {
         const [numberPartRaw, positionPartRaw] = subtextEl.textContent.split("|");
         numberPart = (numberPartRaw || numberPart).trim();
