@@ -121,7 +121,7 @@
   width: max-content;
 }
 
-.nav-links a:last-child {
+.nav-links > a:last-child {
   border-bottom: none;
 }
 
@@ -157,10 +157,14 @@
   display: flex;
 }
 
+.nav-dropdown.open .nav-dropdown-toggle:not(.active) {
+  color: #fff;
+}
+
 .nav-dropdown-menu a,
 .nav-dropdown-item-disabled {
   display: inline-block;
-  padding: 12px 28px;
+  padding: 10px 44px;
   color: #fff;
   text-decoration: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
@@ -184,9 +188,17 @@
 
 .nav-links a.nav-merch {
   margin-left: 0;
+  display: inline-block;
+  padding: 16px 28px;
   background: none;
+  color: #fff;
   border-radius: 0;
   line-height: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  width: max-content;
 }
 
 /* --- Diving Keeper Easter Egg --- */
