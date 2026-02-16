@@ -215,43 +215,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ----- Roster player links (future player bio/stat pages) -----
-  const rosterPlayerCards = document.querySelectorAll(
-    '.roster-panel[data-roster="first-team"] .roster-card:not(.coaching-card)'
-  );
-
-  if (rosterPlayerCards.length > 0) {
-    rosterPlayerCards.forEach((card) => {
-      const firstName = card.querySelector(".roster-first-name")?.textContent?.trim();
-      const lastName = card.querySelector(".roster-last-name")?.textContent?.trim();
-      if (!firstName || !lastName) return;
-
-      const fullName = `${firstName} ${lastName}`;
-      const slug = fullName
-        .toLowerCase()
-        .replace(/['".]/g, "")
-        .replace(/[^a-z0-9]+/g, "-")
-        .replace(/^-+|-+$/g, "");
-      const playerHref = `/players/${slug}/`;
-
-      card.dataset.playerLink = playerHref;
-      card.setAttribute("role", "link");
-      card.setAttribute("tabindex", "0");
-      card.setAttribute("aria-label", `View ${fullName} stats and bio`);
-
-      card.addEventListener("click", () => {
-        window.location.href = playerHref;
-      });
-
-      card.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          window.location.href = playerHref;
-        }
-      });
-    });
-  }
-
   // ----- Blog list/search (news page) -----
   const blogList = document.getElementById("blog-list");
   const searchInput = document.getElementById("search-input");
