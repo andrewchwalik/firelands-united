@@ -478,6 +478,39 @@ body {
     text-align: center;
 }
 
+.home-about-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.home-about-section::after {
+  content: "Up the Lands!";
+  position: absolute;
+  right: 4%;
+  top: 50%;
+  transform: translateY(-50%) rotate(16deg);
+  font-family: "Bermont", "Montserrat", sans-serif;
+  font-size: clamp(2.4rem, 6vw, 6rem);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(241, 138, 1, 0.22);
+  text-shadow:
+    1px 0 0 rgba(241, 138, 1, 0.2),
+    -1px 0 0 rgba(241, 138, 1, 0.18),
+    0 1px 0 rgba(241, 138, 1, 0.12),
+    0 -1px 0 rgba(241, 138, 1, 0.1);
+  filter: saturate(1.1);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.home-about-section .content-container {
+  position: relative;
+  z-index: 1;
+}
+
 .content-container {
     max-width: 860px;
     margin: 0 auto;
