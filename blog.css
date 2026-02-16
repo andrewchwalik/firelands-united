@@ -431,7 +431,7 @@ body {
 
 .related-card-meta {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: 10px;
   margin-bottom: 8px;
 }
@@ -443,13 +443,15 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.8px;
   color: #f18a01;
+  line-height: 1;
 }
 
 .related-card-date {
   display: inline-block;
   font-size: 0.72rem;
-  font-weight: 600;
-  color: #9b9b9b;
+  font-weight: 400;
+  color: #b8bcc4;
+  line-height: 1;
 }
 
 .related-card-title {

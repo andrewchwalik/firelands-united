@@ -433,7 +433,7 @@ body {
 
 .latest-news-card-meta {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: 10px;
   margin-bottom: 8px;
 }
@@ -445,13 +445,15 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.8px;
   color: #f18a01;
+  line-height: 1;
 }
 
 .latest-news-card-date {
   display: inline-block;
   font-size: 0.72rem;
-  font-weight: 600;
-  color: #9b9b9b;
+  font-weight: 400;
+  color: #b8bcc4;
+  line-height: 1;
 }
 
 .latest-news-card-title {
@@ -483,24 +485,37 @@ body {
   overflow: hidden;
 }
 
+.home-about-section::before {
+  content: "";
+  position: absolute;
+  top: 16%;
+  right: -2%;
+  width: min(760px, 74vw);
+  height: 72%;
+  background:
+    linear-gradient(10deg, transparent 0 10%, rgba(241, 138, 1, 0.34) 10% 16%, transparent 16% 30%),
+    linear-gradient(-8deg, transparent 0 38%, rgba(241, 138, 1, 0.28) 38% 44%, transparent 44% 60%),
+    linear-gradient(14deg, transparent 0 62%, rgba(241, 138, 1, 0.31) 62% 68%, transparent 68% 100%);
+  transform: rotate(8deg);
+  filter: blur(0.4px);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+}
+
 .home-about-section::after {
   content: "Up the Lands!";
   position: absolute;
-  right: 4%;
-  top: 50%;
+  right: 2%;
+  top: 48%;
   transform: translateY(-50%) rotate(16deg);
-  font-family: "Bermont", "Montserrat", sans-serif;
-  font-size: clamp(2.4rem, 6vw, 6rem);
+  font-family: "Brush Script MT", "Segoe Script", "Apple Chancery", cursive;
+  font-size: clamp(2.8rem, 6.8vw, 6.4rem);
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 0.6px;
   text-transform: uppercase;
-  color: rgba(241, 138, 1, 0.22);
-  text-shadow:
-    1px 0 0 rgba(241, 138, 1, 0.2),
-    -1px 0 0 rgba(241, 138, 1, 0.18),
-    0 1px 0 rgba(241, 138, 1, 0.12),
-    0 -1px 0 rgba(241, 138, 1, 0.1);
-  filter: saturate(1.1);
+  color: rgba(236, 206, 174, 0.82);
+  text-shadow: 0 1px 0 rgba(236, 206, 174, 0.42);
   white-space: nowrap;
   pointer-events: none;
   z-index: 0;
@@ -868,7 +883,7 @@ body {
 
 .blog-card-meta {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: 10px;
   margin-bottom: 8px;
 }
@@ -880,13 +895,15 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #f18a01;
+  line-height: 1;
 }
 
 .blog-card-date {
   display: inline-block;
   font-size: 0.75rem;
-  font-weight: 600;
-  color: #9b9b9b;
+  font-weight: 400;
+  color: #b8bcc4;
+  line-height: 1;
 }
 
 .blog-card-title {
