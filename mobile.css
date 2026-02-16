@@ -259,21 +259,6 @@
   font-size: 1.6rem;
 }
 
-.home-about-section::before {
-  top: 28%;
-  right: -20%;
-  width: 92vw;
-  height: 56%;
-  opacity: 0.34;
-}
-
-.home-about-section::after {
-  right: -10px;
-  top: 54%;
-  font-size: 2.35rem;
-  opacity: 0.72;
-}
-
 /* --- Blog Grid (News Page) --- */
 .blog-grid {
   grid-template-columns: 1fr;
