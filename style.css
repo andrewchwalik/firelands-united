@@ -1368,7 +1368,7 @@ body.presskit-page .content-section:nth-of-type(5) {
   top: 0;
   bottom: 0;
   left: var(--roster-image-col);
-  width: 60px;
+  width: 42px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 300' preserveAspectRatio='none'%3E%3Cpath d='M0 0 Q60 150, 0 300Z' fill='%23f18a01'/%3E%3C/svg%3E");
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -1786,7 +1786,7 @@ body.presskit-page .content-section:nth-of-type(5) {
   top: 0;
   bottom: 0;
   left: var(--history-image-col);
-  width: 52px;
+  width: 38px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 300' preserveAspectRatio='none'%3E%3Cpath d='M0 0 Q60 150, 0 300Z' fill='%23f18a01'/%3E%3C/svg%3E");
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -1872,7 +1872,7 @@ body.presskit-page .content-section:nth-of-type(5) {
   top: 0;
   bottom: 0;
   left: var(--history-image-col);
-  width: 52px;
+  width: 38px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 300' preserveAspectRatio='none'%3E%3Cpath d='M0 0 Q60 150, 0 300Z' fill='%23f18a01'/%3E%3C/svg%3E");
   background-size: 100% 100%;
   background-repeat: no-repeat;
