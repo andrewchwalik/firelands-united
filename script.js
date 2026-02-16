@@ -106,6 +106,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const subtextEl = card.querySelector(".history-subtext");
       if (!nameEl || !subtextEl) return;
 
+      const historyPanel = card.closest(".history-panel");
+      const year = historyPanel?.getAttribute("data-year");
       const fullName = nameEl.textContent.trim();
       const nameParts = fullName.split(/\s+/).filter(Boolean);
       if (nameParts.length > 0) {
@@ -117,8 +119,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const normalizedName = normalizeName(fullName);
       const mappedPlayer = playerByName?.get(normalizedName);
-      const historyPanel = card.closest(".history-panel");
-      const year = historyPanel?.getAttribute("data-year");
       const existingNumberPill = subtextEl.querySelector(".history-number-pill");
       const existingPositionPill = subtextEl.querySelector(".history-position-pill");
       const existingAppsPill = subtextEl.querySelector(".history-apps-pill");

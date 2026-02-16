@@ -1463,9 +1463,7 @@ body.presskit-page .content-section:nth-of-type(5) {
   font-size: 1.8rem;
   font-weight: 800;
   letter-spacing: 0.4px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+  display: inline;
 }
 
 .roster-card p {
@@ -1986,14 +1984,12 @@ body.presskit-page .content-section:nth-of-type(5) {
   font-size: 1.25rem;
   font-weight: 800;
   letter-spacing: 0.28px;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
+  display: inline;
 }
 
 .captain-armband {
   display: inline;
-  margin-left: 4px;
+  margin-left: 2px;
   color: #f18a01;
   font-size: 0.52em;
   font-weight: 800;
