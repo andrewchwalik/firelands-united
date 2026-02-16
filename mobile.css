@@ -442,6 +442,20 @@
   min-height: 128px;
 }
 
+.roster-panel .roster-card.coaching-card .roster-meta,
+.history-panel[data-year="2025"] .coaching-row .roster-card.coaching-card .roster-meta {
+  display: block;
+}
+
+.roster-panel .roster-card.coaching-card .roster-position,
+.history-panel[data-year="2025"] .coaching-row .roster-card.coaching-card .roster-position {
+  display: inline-block;
+  max-width: 92px;
+  white-space: normal;
+  line-height: 1.2;
+  text-align: center;
+}
+
 .season-breakdown {
   grid-template-columns: 1fr;
 }
@@ -470,37 +484,28 @@
   gap: 10px;
 }
 
-.history-player {
-  grid-template-columns: 1fr;
-  gap: 10px;
-  text-align: left;
-}
-
 .history-panel[data-year="2025"] .history-player,
-.history-panel[data-year="2026"] .history-player,
-.records-roster .history-player {
-  grid-template-columns: 1fr;
-  grid-template-areas:
-    "media"
-    "content";
+.history-panel[data-year="2026"] .history-player {
+  --history-image-col: 120px;
+  grid-template-columns: var(--history-image-col) 1fr;
+  grid-template-areas: "media content";
+  min-height: 156px;
 }
 
 .history-panel[data-year="2025"] .history-player::after,
-.history-panel[data-year="2026"] .history-player::after,
-.records-roster .history-player::after {
-  display: none;
+.history-panel[data-year="2026"] .history-player::after {
+  display: block;
+  width: 32px;
 }
 
 .history-panel[data-year="2025"] .history-avatar,
-.history-panel[data-year="2026"] .history-avatar,
-.records-roster .history-avatar {
-  min-height: 120px;
+.history-panel[data-year="2026"] .history-avatar {
+  min-height: 156px;
 }
 
 .history-panel[data-year="2025"] .history-player > div:nth-child(2),
-.history-panel[data-year="2026"] .history-player > div:nth-child(2),
-.records-roster .history-player > div:nth-child(2) {
-  padding: 10px 12px;
+.history-panel[data-year="2026"] .history-player > div:nth-child(2) {
+  padding: 10px 12px 10px 30px;
 }
 
 .history-panel[data-year="2025"] .history-name,
@@ -521,7 +526,7 @@
 
 .history-panel[data-year="2025"] .history-subtext,
 .history-panel[data-year="2026"] .history-subtext {
-  padding: 8px 0 0;
+  padding: 6px 0 0;
   gap: 6px;
 }
 
