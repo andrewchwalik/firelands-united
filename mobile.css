@@ -484,6 +484,10 @@
   gap: 10px;
 }
 
+.roster-panel .coaching-row {
+  grid-template-columns: 1fr;
+}
+
 .history-panel[data-year="2025"] .history-player,
 .history-panel[data-year="2026"] .history-player {
   --history-image-col: 120px;
