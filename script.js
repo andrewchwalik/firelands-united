@@ -183,6 +183,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // ----- Roster page tabs -----
+  const rosterTabs = document.querySelectorAll(".roster-tab");
+  const rosterPanels = document.querySelectorAll(".roster-panel");
+
+  if (rosterTabs.length > 0 && rosterPanels.length > 0) {
+    rosterTabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const targetRoster = tab.getAttribute("data-roster");
+        if (!targetRoster) return;
+
+        rosterTabs.forEach((t) => t.classList.remove("active"));
+        tab.classList.add("active");
+
+        rosterPanels.forEach((panel) => {
+          const isMatch = panel.getAttribute("data-roster") === targetRoster;
+          panel.classList.toggle("active", isMatch);
+        });
+      });
+    });
+  }
+
   // ----- Blog list/search (news page) -----
   const blogList = document.getElementById("blog-list");
   const searchInput = document.getElementById("search-input");

@@ -377,6 +377,15 @@
   grid-template-columns: 1fr;
 }
 
+.roster-tabs {
+  flex-direction: column;
+  gap: 8px;
+}
+
+.roster-grid {
+  grid-template-columns: 1fr;
+}
+
 .season-breakdown {
   grid-template-columns: 1fr;
 }
