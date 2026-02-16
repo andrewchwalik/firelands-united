@@ -505,6 +505,7 @@ body {
 .home-about-section {
   position: relative;
   overflow: hidden;
+  padding-top: 54px;
 }
 
 .home-about-section .content-container {
