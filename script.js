@@ -95,10 +95,10 @@ document.addEventListener("DOMContentLoaded", () => {
       subtextEl.textContent = `${player.roster.number || "#TBD"} | ${player.roster.position || "N/A"}`;
     });
 
-    formatHistoryRosterCards();
+    formatHistoryRosterCards(playerByName);
   }
 
-  function formatHistoryRosterCards() {
+  function formatHistoryRosterCards(playerByName) {
     const historyCards = document.querySelectorAll(
       '.history-panel[data-year="2025"] .history-roster .history-player:not(.coaching-card), .history-panel[data-year="2026"] .history-roster .history-player:not(.coaching-card)'
     );
@@ -116,21 +116,26 @@ document.addEventListener("DOMContentLoaded", () => {
         nameEl.innerHTML = `<span class="history-first-name">${firstName}</span><span class="history-last-name">${lastName}</span>`;
       }
 
+      const normalizedName = normalizeName(fullName);
+      const mappedPlayer = playerByName?.get(normalizedName);
       const existingNumberPill = subtextEl.querySelector(".history-number-pill");
       const existingPositionPill = subtextEl.querySelector(".history-position-pill");
+      const existingAppsPill = subtextEl.querySelector(".history-apps-pill");
       let numberPart = "#TBD";
       let positionPart = "N/A";
+      let appsPart = `${mappedPlayer?.roster?.appearances ?? 0} Apps`;
 
       if (existingNumberPill && existingPositionPill) {
         numberPart = existingNumberPill.textContent.trim() || numberPart;
         positionPart = existingPositionPill.textContent.trim() || positionPart;
+        if (existingAppsPill) appsPart = existingAppsPill.textContent.trim() || appsPart;
       } else {
         const [numberPartRaw, positionPartRaw] = subtextEl.textContent.split("|");
         numberPart = (numberPartRaw || numberPart).trim();
         positionPart = (positionPartRaw || positionPart).trim();
       }
 
-      subtextEl.innerHTML = `<span class="history-pill history-number-pill">${numberPart}</span><span class="history-pill history-position-pill">${positionPart}</span>`;
+      subtextEl.innerHTML = `<span class="history-pill history-number-pill">${numberPart}</span><span class="history-pill history-position-pill">${positionPart}</span><span class="history-pill history-apps-pill">${appsPart}</span>`;
     });
   }
 

@@ -499,7 +499,7 @@
 .history-panel[data-year="2025"] .history-name,
 .history-panel[data-year="2026"] .history-name {
   padding: 0;
-  gap: 2px;
+  gap: 1px;
 }
 
 .history-panel[data-year="2025"] .history-first-name,
@@ -523,4 +523,11 @@
   min-height: 21px;
   padding: 3px 9px;
   font-size: 0.64rem;
+}
+
+.history-panel[data-year="2025"] .history-player:not(.coaching-card) > div:nth-child(2),
+.history-panel[data-year="2026"] .history-player:not(.coaching-card) > div:nth-child(2) {
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
 }

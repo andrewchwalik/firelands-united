@@ -1886,28 +1886,31 @@ body.presskit-page .content-section:nth-of-type(5) {
 .history-panel[data-year="2025"] .history-name,
 .history-panel[data-year="2026"] .history-name {
   margin: 0;
-  align-self: end;
-  padding: 14px 14px 4px 42px;
+  align-self: auto;
+  padding: 0;
   line-height: 1;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 1px;
   text-transform: uppercase;
 }
 
 .history-panel[data-year="2025"] .history-player:not(.coaching-card) > div:nth-child(2),
 .history-panel[data-year="2026"] .history-player:not(.coaching-card) > div:nth-child(2) {
   grid-area: content;
-  padding: 0;
-  display: grid;
-  grid-template-rows: 1fr auto;
+  padding: 10px 14px 10px 42px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 9px;
   min-height: 132px;
 }
 
 .history-panel[data-year="2025"] .history-first-name,
 .history-panel[data-year="2026"] .history-first-name {
   color: #f18a01;
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   font-weight: 700;
   letter-spacing: 0.6px;
 }
@@ -1915,19 +1918,19 @@ body.presskit-page .content-section:nth-of-type(5) {
 .history-panel[data-year="2025"] .history-last-name,
 .history-panel[data-year="2026"] .history-last-name {
   color: #fff;
-  font-size: 1.38rem;
+  font-size: 1.25rem;
   font-weight: 800;
-  letter-spacing: 0.35px;
+  letter-spacing: 0.28px;
 }
 
 .history-panel[data-year="2025"] .history-subtext,
 .history-panel[data-year="2026"] .history-subtext {
   margin: 0;
-  padding: 6px 14px 14px 42px;
+  padding: 0;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 7px;
+  gap: 6px;
 }
 
 .history-panel[data-year="2025"] .history-pill,
@@ -1935,12 +1938,12 @@ body.presskit-page .content-section:nth-of-type(5) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 22px;
-  padding: 3px 11px;
+  min-height: 20px;
+  padding: 2px 10px;
   border-radius: 999px;
   font-weight: 600;
-  letter-spacing: 0.3px;
-  font-size: 0.66rem;
+  letter-spacing: 0.26px;
+  font-size: 0.62rem;
   color: rgba(255, 255, 255, 0.95);
   background-color: rgba(255, 255, 255, 0.14);
 }
