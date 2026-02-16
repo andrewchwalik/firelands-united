@@ -1,4 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
+  function formatBlogDate(value) {
+    if (!value) return "";
+    const parsed = new Date(value);
+    if (Number.isNaN(parsed.getTime())) return "";
+    return parsed.toLocaleDateString("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric"
+    });
+  }
+
   // ----- Load blog data from blogs.json -----
   let blogPosts = [];
 
@@ -221,12 +232,16 @@ document.addEventListener("DOMContentLoaded", () => {
       card.href = blog.link;
       const imgSrc = blog.image || "/img/blogs/default.jpg";
       const category = blog.category || "Club News";
+      const publishDate = formatBlogDate(blog.date);
       card.innerHTML = `
         <div class="blog-card-image">
           <img src="${imgSrc}" alt="${blog.title}">
         </div>
         <div class="blog-card-body">
-          <span class="blog-card-category">${category}</span>
+          <div class="blog-card-meta">
+            <span class="blog-card-category">${category}</span>
+            <span class="blog-card-date">${publishDate}</span>
+          </div>
           <h3 class="blog-card-title">${blog.title}</h3>
           <p class="blog-card-excerpt">${blog.excerpt}</p>
         </div>`;
@@ -283,12 +298,16 @@ document.addEventListener("DOMContentLoaded", () => {
       card.href = post.link;
       const imgSrc = post.image || "/img/blogs/default.jpg";
       const category = post.category || "Club News";
+      const publishDate = formatBlogDate(post.date);
       card.innerHTML = `
         <div class="related-card-image">
           <img src="${imgSrc}" alt="${post.title}">
         </div>
         <div class="related-card-body">
-          <span class="related-card-category">${category}</span>
+          <div class="related-card-meta">
+            <span class="related-card-category">${category}</span>
+            <span class="related-card-date">${publishDate}</span>
+          </div>
           <h3 class="related-card-title">${post.title}</h3>
           <p class="related-card-excerpt">${post.excerpt}</p>
         </div>`;
@@ -315,12 +334,16 @@ document.addEventListener("DOMContentLoaded", () => {
       card.href = post.link;
       const imgSrc = post.image || "/img/blogs/default.jpg";
       const category = post.category || "Club News";
+      const publishDate = formatBlogDate(post.date);
       card.innerHTML = `
         <div class="latest-news-card-image">
           <img src="${imgSrc}" alt="${post.title}">
         </div>
         <div class="latest-news-card-body">
-          <span class="latest-news-card-category">${category}</span>
+          <div class="latest-news-card-meta">
+            <span class="latest-news-card-category">${category}</span>
+            <span class="latest-news-card-date">${publishDate}</span>
+          </div>
           <h3 class="latest-news-card-title">${post.title}</h3>
           <p class="latest-news-card-excerpt">${post.excerpt}</p>
         </div>`;

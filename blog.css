@@ -429,6 +429,13 @@ body {
   padding: 20px;
 }
 
+.related-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
 .related-card-category {
   display: inline-block;
   font-size: 0.7rem;
@@ -436,7 +443,13 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.8px;
   color: #f18a01;
-  margin-bottom: 8px;
+}
+
+.related-card-date {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #9b9b9b;
 }
 
 .related-card-title {
