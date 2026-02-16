@@ -1547,11 +1547,15 @@ body.presskit-page .content-section:nth-of-type(5) {
 
 .roster-panel .roster-card.coaching-card .roster-position,
 .history-panel[data-year="2025"] .coaching-row .roster-card.coaching-card .roster-position {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background-color: rgba(255, 255, 255, 0.3);
   color: #fff;
   font-size: 0.62rem;
   min-height: 22px;
   padding: 2px 10px;
+  text-align: center;
 }
 
 .roster-panel .roster-card.coaching-card h3,

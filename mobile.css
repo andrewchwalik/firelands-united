@@ -449,7 +449,9 @@
 
 .roster-panel .roster-card.coaching-card .roster-position,
 .history-panel[data-year="2025"] .coaching-row .roster-card.coaching-card .roster-position {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   max-width: 92px;
   white-space: normal;
   line-height: 1.2;
