@@ -1463,6 +1463,9 @@ body.presskit-page .content-section:nth-of-type(5) {
   font-size: 1.8rem;
   font-weight: 800;
   letter-spacing: 0.4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .roster-card p {
@@ -1983,6 +1986,27 @@ body.presskit-page .content-section:nth-of-type(5) {
   font-size: 1.25rem;
   font-weight: 800;
   letter-spacing: 0.28px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.captain-armband {
+  width: 10px;
+  height: 8px;
+  border-radius: 6px;
+  background: linear-gradient(
+    135deg,
+    #f18a01 0%,
+    #f18a01 45%,
+    rgba(255, 255, 255, 0.95) 45%,
+    rgba(255, 255, 255, 0.95) 60%,
+    #f18a01 60%,
+    #f18a01 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 0 1px rgba(71, 78, 90, 0.28);
+  flex: 0 0 auto;
 }
 
 .history-panel[data-year="2025"] .history-subtext,

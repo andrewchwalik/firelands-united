@@ -17,6 +17,15 @@ document.addEventListener("DOMContentLoaded", () => {
     return `${parts[0][0]}${parts[parts.length - 1][0]}`.toUpperCase();
   }
 
+  function isCaptainInContext(playerName, year) {
+    const normalized = normalizeName(playerName);
+    if (normalized !== normalizeName("Grant Miller")) return false;
+    // Requested contexts: main roster page and 2025 history tab.
+    if (year === "2025") return true;
+    if (!year) return true;
+    return false;
+  }
+
   function buildPlayerMap(players) {
     const byName = new Map();
     players.forEach((player) => {
@@ -56,7 +65,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const canonicalParts = player.name.split(" ");
       first.textContent = canonicalParts[0] || player.name;
-      last.textContent = canonicalParts.slice(1).join(" ") || canonicalParts[0];
+      const lastName = canonicalParts.slice(1).join(" ") || canonicalParts[0];
+      const showCaptain = isCaptainInContext(player.name);
+      last.innerHTML = `${lastName}${showCaptain ? '<span class="captain-armband" aria-label="Captain" title="Captain"></span>' : ''}`;
 
       setCardAvatar(card.querySelector(".history-avatar"), player, player.name);
 
@@ -100,7 +111,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (nameParts.length > 0) {
         const firstName = nameParts[0];
         const lastName = nameParts.slice(1).join(" ") || nameParts[0];
-        nameEl.innerHTML = `<span class="history-first-name">${firstName}</span><span class="history-last-name">${lastName}</span>`;
+        const showCaptain = isCaptainInContext(fullName, year);
+        nameEl.innerHTML = `<span class="history-first-name">${firstName}</span><span class="history-last-name">${lastName}${showCaptain ? '<span class="captain-armband" aria-label="Captain" title="Captain"></span>' : ''}</span>`;
       }
 
       const normalizedName = normalizeName(fullName);
