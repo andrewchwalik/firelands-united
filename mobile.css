@@ -386,6 +386,18 @@
   grid-template-columns: 1fr;
 }
 
+.roster-card {
+  grid-template-columns: 82px 1fr;
+}
+
+.roster-card .history-avatar {
+  min-height: 94px;
+}
+
+.roster-panel .roster-card.coaching-card {
+  grid-template-columns: 72px 1fr;
+}
+
 .season-breakdown {
   grid-template-columns: 1fr;
 }
