@@ -396,21 +396,21 @@
 }
 
 .roster-card {
-  --roster-image-col: 128px;
+  --roster-image-col: 116px;
   grid-template-columns: var(--roster-image-col) 1fr;
-  min-height: 160px;
+  min-height: 146px;
 }
 
 .roster-card .history-avatar {
-  min-height: 160px;
+  min-height: 146px;
 }
 
 .roster-first-name {
-  font-size: 0.96rem;
+  font-size: 0.86rem;
 }
 
 .roster-last-name {
-  font-size: 1.35rem;
+  font-size: 1.2rem;
 }
 
 .roster-meta {
@@ -421,18 +421,18 @@
 .roster-number,
 .roster-position,
 .roster-appearances {
-  min-height: 28px;
-  padding: 4px 10px;
-  font-size: 0.76rem;
+  min-height: 22px;
+  padding: 3px 8px;
+  font-size: 0.66rem;
 }
 
 .roster-panel .roster-card.coaching-card {
-  --roster-image-col: 108px;
-  min-height: 142px;
+  --roster-image-col: 96px;
+  min-height: 128px;
 }
 
 .roster-panel .roster-card.coaching-card .history-avatar {
-  min-height: 142px;
+  min-height: 128px;
 }
 
 .season-breakdown {

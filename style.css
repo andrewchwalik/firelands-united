@@ -1338,7 +1338,7 @@ body.presskit-page .content-section:nth-of-type(5) {
   align-items: center;
   position: relative;
   overflow: hidden;
-  min-height: 230px;
+  min-height: 168px;
   box-shadow: 0 10px 18px rgba(20, 24, 32, 0.16);
 }
 
@@ -1347,9 +1347,9 @@ body.presskit-page .content-section:nth-of-type(5) {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: calc(var(--roster-image-col) - 16px);
-  width: 32px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 300' preserveAspectRatio='none'%3E%3Cpath d='M11 0C24 33 24 67 11 100C0 133 0 167 11 200C24 233 24 267 11 300L21 300C8 267 8 233 21 200C32 167 32 133 21 100C8 67 8 33 21 0Z' fill='%23f18a01'/%3E%3C/svg%3E");
+  left: calc(var(--roster-image-col) - 9px);
+  width: 18px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 300' preserveAspectRatio='none'%3E%3Cpath d='M7 0C13 92 13 208 7 300L11 300C5 208 5 92 11 0Z' fill='%23f18a01'/%3E%3C/svg%3E");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   pointer-events: none;
@@ -1363,7 +1363,7 @@ body.presskit-page .content-section:nth-of-type(5) {
   margin: 0;
   border-radius: 0;
   border-right: none;
-  font-size: 2rem;
+  font-size: 1.7rem;
   font-weight: 700;
   color: #474e5a;
   background: #d7d9de;
@@ -1373,14 +1373,14 @@ body.presskit-page .content-section:nth-of-type(5) {
 }
 
 .roster-card .history-avatar.avatar-photo img {
-  object-position: center 35%;
+  object-position: center 30%;
 }
 
 .roster-card h3 {
   grid-area: name;
   margin: 0;
   align-self: end;
-  padding: 20px 22px 8px;
+  padding: 14px 16px 4px;
   line-height: 1;
   display: flex;
   flex-direction: column;
@@ -1390,14 +1390,14 @@ body.presskit-page .content-section:nth-of-type(5) {
 
 .roster-first-name {
   color: #f18a01;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   font-weight: 700;
-  letter-spacing: 1.1px;
+  letter-spacing: 0.8px;
 }
 
 .roster-last-name {
   color: #fff;
-  font-size: 2.4rem;
+  font-size: 1.95rem;
   font-weight: 800;
   letter-spacing: 0.4px;
 }
@@ -1407,14 +1407,14 @@ body.presskit-page .content-section:nth-of-type(5) {
   margin: 0;
   font-size: 0.78rem;
   align-self: start;
-  padding: 10px 22px 20px;
+  padding: 6px 16px 12px;
 }
 
 .roster-meta {
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
-  gap: 12px;
+  gap: 8px;
 }
 
 .roster-number,
@@ -1423,12 +1423,12 @@ body.presskit-page .content-section:nth-of-type(5) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 34px;
-  padding: 5px 16px;
+  min-height: 24px;
+  padding: 3px 12px;
   border-radius: 999px;
   font-weight: 500;
-  letter-spacing: 0.3px;
-  font-size: 0.88rem;
+  letter-spacing: 0.2px;
+  font-size: 0.68rem;
 }
 
 .roster-number {
@@ -1456,11 +1456,11 @@ body.presskit-page .content-section:nth-of-type(5) {
   background: #474e5a;
   border: 1px solid rgba(255, 255, 255, 0.14);
   box-shadow: 0 5px 12px rgba(28, 32, 39, 0.12);
-  min-height: 170px;
+  min-height: 148px;
 }
 
 .roster-panel .roster-card.coaching-card .history-avatar {
-  min-height: 170px;
+  min-height: 148px;
 }
 
 .roster-panel .roster-card.coaching-card .roster-position {
@@ -1469,19 +1469,19 @@ body.presskit-page .content-section:nth-of-type(5) {
 }
 
 .roster-panel .roster-card.coaching-card h3 {
-  padding: 16px 16px 6px;
+  padding: 12px 14px 4px;
 }
 
 .roster-panel .roster-card.coaching-card p {
-  padding: 6px 16px 16px;
+  padding: 4px 14px 10px;
 }
 
 .roster-panel .roster-card.coaching-card .roster-first-name {
-  font-size: 1.05rem;
+  font-size: 0.9rem;
 }
 
 .roster-panel .roster-card.coaching-card .roster-last-name {
-  font-size: 1.48rem;
+  font-size: 1.3rem;
 }
 
 .season-summary {
