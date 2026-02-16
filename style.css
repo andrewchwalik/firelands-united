@@ -1347,9 +1347,9 @@ body.presskit-page .content-section:nth-of-type(5) {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: calc(var(--roster-image-col) - 9px);
-  width: 18px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 300' preserveAspectRatio='none'%3E%3Cpath d='M7 0C13 92 13 208 7 300L11 300C5 208 5 92 11 0Z' fill='%23f18a01'/%3E%3C/svg%3E");
+  left: var(--roster-image-col);
+  width: 60px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 300' preserveAspectRatio='none'%3E%3Cpath d='M0 0 Q60 150, 0 300Z' fill='%23f18a01'/%3E%3C/svg%3E");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   pointer-events: none;
@@ -1380,24 +1380,24 @@ body.presskit-page .content-section:nth-of-type(5) {
   grid-area: name;
   margin: 0;
   align-self: end;
-  padding: 20px 22px 6px;
+  padding: 20px 20px 6px 50px;
   line-height: 1;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 4px;
   text-transform: uppercase;
 }
 
 .roster-first-name {
   color: #f18a01;
-  font-size: 1.15rem;
+  font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.8px;
 }
 
 .roster-last-name {
   color: #fff;
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   font-weight: 800;
   letter-spacing: 0.4px;
 }
@@ -1407,14 +1407,14 @@ body.presskit-page .content-section:nth-of-type(5) {
   margin: 0;
   font-size: 0.78rem;
   align-self: start;
-  padding: 8px 22px 18px;
+  padding: 8px 20px 18px 50px;
 }
 
 .roster-meta {
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
-  gap: 10px;
+  gap: 8px;
 }
 
 .roster-number,
@@ -1423,12 +1423,12 @@ body.presskit-page .content-section:nth-of-type(5) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 26px;
-  padding: 4px 14px;
+  min-height: 24px;
+  padding: 3px 12px;
   border-radius: 999px;
   font-weight: 600;
   letter-spacing: 0.3px;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
 }
 
 .roster-number {
@@ -1452,36 +1452,46 @@ body.presskit-page .content-section:nth-of-type(5) {
 }
 
 .roster-panel .roster-card.coaching-card {
-  --roster-image-col: 34%;
-  background: #474e5a;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  --roster-image-col: 28%;
+  background: #f18a01;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 5px 12px rgba(28, 32, 39, 0.12);
-  min-height: 148px;
+  min-height: 120px;
+}
+
+.roster-panel .roster-card.coaching-card::after {
+  width: 30px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 300' preserveAspectRatio='none'%3E%3Cpath d='M0 0 Q30 150, 0 300Z' fill='%23f9a94d'/%3E%3C/svg%3E");
 }
 
 .roster-panel .roster-card.coaching-card .history-avatar {
-  min-height: 148px;
-}
-
-.roster-panel .roster-card.coaching-card .roster-position {
-  background-color: rgba(255, 255, 255, 0.14);
-  color: rgba(255, 255, 255, 0.92);
-}
-
-.roster-panel .roster-card.coaching-card h3 {
-  padding: 12px 14px 4px;
-}
-
-.roster-panel .roster-card.coaching-card p {
-  padding: 4px 14px 10px;
+  min-height: 120px;
 }
 
 .roster-panel .roster-card.coaching-card .roster-first-name {
-  font-size: 0.9rem;
+  color: #474e5a;
+  font-size: 0.8rem;
 }
 
 .roster-panel .roster-card.coaching-card .roster-last-name {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
+}
+
+.roster-panel .roster-card.coaching-card .roster-position {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-size: 0.62rem;
+  min-height: 22px;
+  padding: 2px 10px;
+}
+
+.roster-panel .roster-card.coaching-card h3 {
+  padding: 10px 14px 3px 34px;
+  gap: 1px;
+}
+
+.roster-panel .roster-card.coaching-card p {
+  padding: 8px 14px 8px 34px;
 }
 
 .season-summary {
