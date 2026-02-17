@@ -1,0 +1,9 @@
+name = "firelandsunited-contact"
+main = "contact-relay.js"
+compatibility_date = "2026-02-17"
+
+[vars]
+# Optional: override or add allowed origins in code if needed.
+
+# Set this secret via CLI, not in this file:
+# wrangler secret put DISCORD_WEBHOOK_URL

@@ -1198,6 +1198,12 @@ body {
     font-weight: 600;
 }
 
+.contact-error-message {
+    background: rgba(190, 37, 37, 0.12);
+    border-color: rgba(190, 37, 37, 0.3);
+    color: #8f1b1b;
+}
+
 .contact-form {
     display: grid;
     gap: 12px;

@@ -53,21 +53,18 @@
           <h1>Contact Us</h1>
           <p>Have questions, partnership ideas, or player inquiries? Send us a message and a team member will respond.</p>
           <p class="contact-success-message" id="contact-success-message" hidden>Thanks for reaching out. Your message has been sent.</p>
+          <p class="contact-success-message contact-error-message" id="contact-error-message" hidden>Could not send your message. Please try again in a moment.</p>
 
-          <form class="contact-form" action="https://formsubmit.co/hello@firelandsunited.com" method="POST">
-              <input type="hidden" name="_subject" value="Firelands United Contact Form Submission">
-              <input type="hidden" name="_template" value="table">
-              <input type="hidden" name="_captcha" value="false">
-              <input type="text" name="_honey" style="display:none">
-              <input type="hidden" name="_next" value="https://firelandsunited.com/contact/?submitted=1">
+          <form class="contact-form" id="contact-form">
+              <input type="text" name="_honey" id="contact-honey" style="display:none">
 
               <div class="input-group">
-                  <input type="text" name="name" placeholder="Your Name" required>
-                  <input type="email" name="email" placeholder="Your Email" required>
+                  <input type="text" name="name" id="contact-name" placeholder="Your Name" required>
+                  <input type="email" name="email" id="contact-email" placeholder="Your Email" required>
               </div>
-              <input type="text" name="subject" placeholder="Subject" required>
-              <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
-              <button type="submit" class="submit-button">Send Message</button>
+              <input type="text" name="subject" id="contact-subject" placeholder="Subject" required>
+              <textarea name="message" id="contact-message" rows="6" placeholder="Your Message" required></textarea>
+              <button type="submit" class="submit-button" id="contact-submit">Send Message</button>
           </form>
         </div>
     </section>
@@ -154,11 +151,60 @@
 <script src="/script.js"></script>
 <script>
   (function () {
-    var params = new URLSearchParams(window.location.search);
-    if (params.get("submitted") === "1") {
-      var successMessage = document.getElementById("contact-success-message");
-      if (successMessage) successMessage.hidden = false;
-    }
+    var contactForm = document.getElementById("contact-form");
+    if (!contactForm) return;
+
+    // Relay endpoint should be a secure server-side function/worker.
+    var relayUrl = "https://firelandsunited-contact.chwalik.workers.dev";
+    var successMessage = document.getElementById("contact-success-message");
+    var errorMessage = document.getElementById("contact-error-message");
+    var submitButton = document.getElementById("contact-submit");
+
+    contactForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      if (errorMessage) errorMessage.hidden = true;
+      if (successMessage) successMessage.hidden = true;
+
+      var honey = document.getElementById("contact-honey");
+      if (honey && honey.value) return;
+
+      var name = (document.getElementById("contact-name")?.value || "").trim();
+      var email = (document.getElementById("contact-email")?.value || "").trim();
+      var subject = (document.getElementById("contact-subject")?.value || "").trim();
+      var message = (document.getElementById("contact-message")?.value || "").trim();
+      var timestamp = new Date().toLocaleString("en-US", { hour12: true });
+      var cleanMessage = message.replace(/\n+/g, " ").trim();
+
+      var payload = { name: name, email: email, timestamp: timestamp, subject: subject, message: cleanMessage };
+
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
+      }
+
+      fetch(relayUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      })
+        .then(function (response) {
+          if (!response.ok) throw new Error("Discord webhook request failed.");
+          contactForm.reset();
+          if (successMessage) successMessage.hidden = false;
+        })
+        .catch(function () {
+          if (errorMessage) errorMessage.hidden = false;
+        })
+        .finally(function () {
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.textContent = "Send Message";
+          }
+        });
+    });
   })();
 </script>
 </body>
