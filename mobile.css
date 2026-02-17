@@ -346,6 +346,19 @@
   gap: 10px;
 }
 
+.newsletter-form {
+  flex-direction: column;
+  border-radius: 8px;
+}
+
+.newsletter-form input {
+  border-radius: 8px 8px 0 0;
+}
+
+.newsletter-btn {
+  border-radius: 0 0 8px 8px;
+}
+
 .blog-grid {
   grid-template-columns: 1fr;
   gap: 30px;
