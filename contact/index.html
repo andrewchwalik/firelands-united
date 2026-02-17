@@ -40,7 +40,7 @@
         </div>
       </div>
       <a href="https://forms.gle/6bRJ7Fdy3uzhya3M9" target="_blank" rel="noopener noreferrer">Women&apos;s Team</a>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdBZAZfo5UWmcwMQhVTsUhZ09dlA2PhFTb2_ZpgkRgbjUvSaA/viewform?usp=header" target="_blank" rel="noopener noreferrer">Contact</a>
+      <a href="/contact/">Contact</a>
       <a href="https://forms.gle/6bRJ7Fdy3uzhya3M9" target="_blank" rel="noopener noreferrer">Join the Club</a>
       <a href="https://ykxwgu-j1.myshopify.com" class="nav-merch" target="_blank" rel="noopener noreferrer">Merch</a>
       <img src="/img/hamburger-menu-image.png" alt="Super Collin" class="menu-keeper">
@@ -49,16 +49,27 @@
 
     <!-- Contact Form Section -->
     <section class="contact-section">
-        <h1>Contact Us</h1>
-        <p>Have questions or a brilliant idea? Just drop us a message!</p>
+        <div class="contact-section-inner">
+          <h1>Contact Us</h1>
+          <p>Have questions, partnership ideas, or player inquiries? Send us a message and a team member will respond.</p>
+          <p class="contact-success-message" id="contact-success-message" hidden>Thanks for reaching out. Your message has been sent.</p>
 
-        <form class="contact-form">
-            <div class="input-group">
-                <input type="email" placeholder="Enter a valid email address" required>
-                <input type="text" placeholder="Enter your Name" required>
-            </div>
-            <button type="submit" class="submit-button">Submit</button>
-        </form>
+          <form class="contact-form" action="https://formsubmit.co/hello@firelandsunited.com" method="POST">
+              <input type="hidden" name="_subject" value="Firelands United Contact Form Submission">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="text" name="_honey" style="display:none">
+              <input type="hidden" name="_next" value="https://firelandsunited.com/contact/?submitted=1">
+
+              <div class="input-group">
+                  <input type="text" name="name" placeholder="Your Name" required>
+                  <input type="email" name="email" placeholder="Your Email" required>
+              </div>
+              <input type="text" name="subject" placeholder="Subject" required>
+              <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+              <button type="submit" class="submit-button">Send Message</button>
+          </form>
+        </div>
     </section>
 
     <!-- Contact Info Section -->
@@ -153,5 +164,14 @@
     </div>
   </footer>
 <script src="/script.js"></script>
+<script>
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    if (params.get("submitted") === "1") {
+      var successMessage = document.getElementById("contact-success-message");
+      if (successMessage) successMessage.hidden = false;
+    }
+  })();
+</script>
 </body>
 </html>
