@@ -40,7 +40,7 @@ export default {
         });
       }
 
-      const discordContent = `"${name}" | "${email}" | "${timestamp}"\n"${subject}" | "${message}"`;
+      const discordContent = `${timestamp} | ${name} | ${email}\n\n**${subject}** | ${message}`;
 
       const discordResponse = await fetch(env.DISCORD_WEBHOOK_URL, {
         method: "POST",
