@@ -73,6 +73,30 @@ async function fetchInstagramPosts(env, limit) {
   return posts;
 }
 
+async function fetchInstagramProfile(env) {
+  const token = env.INSTAGRAM_ACCESS_TOKEN;
+  const userId = env.INSTAGRAM_USER_ID;
+
+  if (!token || !userId) {
+    return { username: "firelandsunited", profile_picture_url: "" };
+  }
+
+  const url = new URL(`https://graph.facebook.com/v23.0/${userId}`);
+  url.searchParams.set("fields", "username,profile_picture_url");
+  url.searchParams.set("access_token", token);
+
+  const response = await fetch(url.toString());
+  if (!response.ok) {
+    return { username: "firelandsunited", profile_picture_url: "" };
+  }
+
+  const data = await response.json();
+  return {
+    username: data.username || "firelandsunited",
+    profile_picture_url: data.profile_picture_url || ""
+  };
+}
+
 export default {
   async fetch(request, env, ctx) {
     const allowedOrigins = new Set([
@@ -113,10 +137,14 @@ export default {
     }
 
     try {
-      const posts = await fetchInstagramPosts(env, limit);
+      const [posts, profile] = await Promise.all([
+        fetchInstagramPosts(env, limit),
+        fetchInstagramProfile(env)
+      ]);
       const response = jsonResponse(
         {
           posts,
+          profile,
           updated_at: new Date().toISOString()
         },
         200,

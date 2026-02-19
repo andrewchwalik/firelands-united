@@ -761,11 +761,14 @@ document.addEventListener("DOMContentLoaded", () => {
       .replace(/'/g, "&#39;");
   }
 
-  function renderInstagramCards(container, posts) {
+  function renderInstagramCards(container, posts, profile) {
     if (!Array.isArray(posts) || posts.length === 0) {
       container.innerHTML = '<p class="instagram-feed-empty">No recent posts yet.</p>';
       return;
     }
+
+    const profileImage = profile?.profile_picture_url || "/img/firelands-badge.png";
+    const username = profile?.username || "firelandsunited";
 
     container.innerHTML = posts.map((post) => {
       const imageUrl = post.image_url || "";
@@ -782,8 +785,8 @@ document.addEventListener("DOMContentLoaded", () => {
       return `
         <a class="instagram-card" href="${permalink}" target="_blank" rel="noopener noreferrer">
           <div class="instagram-card-top">
-            <span class="instagram-card-dot" aria-hidden="true"></span>
-            <span class="instagram-card-handle">firelandsunited</span>
+            <span class="instagram-card-dot" aria-hidden="true"><img src="${profileImage}" alt="${username} profile photo" loading="lazy"></span>
+            <span class="instagram-card-handle">${username}</span>
           </div>
           <div class="instagram-card-media">
             <img src="${imageUrl}" alt="${caption}" loading="lazy">
@@ -817,7 +820,7 @@ document.addEventListener("DOMContentLoaded", () => {
           return response.json();
         })
         .then((data) => {
-          renderInstagramCards(container, data.posts || []);
+          renderInstagramCards(container, data.posts || [], data.profile || {});
         })
         .catch(() => {
           container.innerHTML = '<p class="instagram-feed-empty">Could not load Instagram posts right now.</p>';

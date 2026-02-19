@@ -1326,6 +1326,17 @@ body {
     border-radius: 50%;
     background: #eceff4;
     border: 1px solid #d7dce6;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.instagram-card-dot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .instagram-card-handle {
