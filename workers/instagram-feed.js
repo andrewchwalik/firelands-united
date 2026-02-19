@@ -1,6 +1,7 @@
 const DEFAULT_LIMIT = 6;
 const MAX_LIMIT = 12;
 const CACHE_SECONDS = 300;
+const ONE_DAY_MS = 24 * 60 * 60 * 1000;
 
 function jsonResponse(body, status, corsHeaders) {
   return new Response(JSON.stringify(body), {
@@ -33,6 +34,59 @@ function normalizePost(item) {
     image_url: resolveImage(item),
     timestamp: item.timestamp || ""
   };
+}
+
+function toUtcDateKey(value) {
+  return value.toISOString().slice(0, 10);
+}
+
+function shouldSendTwoDayReminder(now, expiresAt) {
+  const reminderDate = new Date(expiresAt.getTime() - (2 * ONE_DAY_MS));
+  return toUtcDateKey(now) === toUtcDateKey(reminderDate);
+}
+
+async function sendDiscordReminder(env, content) {
+  const webhook = env.DISCORD_WEBHOOK_URL;
+  if (!webhook) return;
+
+  await fetch(webhook, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ content })
+  });
+}
+
+async function runTokenExpiryReminder(env) {
+  const expiresRaw = env.INSTAGRAM_TOKEN_EXPIRES_AT;
+  if (!expiresRaw) return;
+
+  const expiresAt = new Date(expiresRaw);
+  if (Number.isNaN(expiresAt.getTime())) return;
+
+  const now = new Date();
+  if (!shouldSendTwoDayReminder(now, expiresAt)) return;
+
+  const message = [
+    "It's time to update the access token for the Instagram feed element on the Firelands United website. Here are the steps to do that.",
+    "",
+    "1) Go to the following link and generate a new *long-lived* access token: https://developers.facebook.com/tools/explorer/?method=GET&path=me%2Faccounts&version=v25.0",
+    "",
+    "2) Paste this in terminal, replacing \"LONG_LIVED_USER_TOKEN\" with the new long-lived token before pasting: curl 'https://graph.facebook.com/v25.0/me/accounts?access_token=LONG_LIVED_USER_TOKEN'",
+    "",
+    "3) From the terminal output, copy the access_token under the Firelands United page object.",
+    "",
+    "4) Paste this in terminal and run: cd /Users/andrewchwaliksmacbook/Documents/GitHub/firelands-united/workers",
+    "npx wrangler secret put INSTAGRAM_ACCESS_TOKEN --config wrangler-instagram.toml",
+    "npx wrangler secret put INSTAGRAM_TOKEN_EXPIRES_AT --config wrangler-instagram.toml",
+    "npx wrangler deploy --config wrangler-instagram.toml",
+    "curl \"https://firelandsunited-instagram-feed.chwalik.workers.dev?limit=1\"",
+    "",
+    "5) When prompted for INSTAGRAM_ACCESS_TOKEN, paste the new page access token copied from step 3.",
+    "",
+    "6) When prompted for INSTAGRAM_TOKEN_EXPIRES_AT, paste the new expiry in this format: 2026-04-20T00:00:00Z"
+  ].join("\n");
+
+  await sendDiscordReminder(env, message);
 }
 
 async function fetchInstagramPosts(env, limit) {
@@ -81,20 +135,24 @@ async function fetchInstagramProfile(env) {
     return { username: "firelandsunited", profile_picture_url: "" };
   }
 
-  const url = new URL(`https://graph.facebook.com/v23.0/${userId}`);
-  url.searchParams.set("fields", "username,profile_picture_url");
-  url.searchParams.set("access_token", token);
+  try {
+    const url = new URL(`https://graph.facebook.com/v23.0/${userId}`);
+    url.searchParams.set("fields", "username,profile_picture_url");
+    url.searchParams.set("access_token", token);
 
-  const response = await fetch(url.toString());
-  if (!response.ok) {
+    const response = await fetch(url.toString());
+    if (!response.ok) {
+      return { username: "firelandsunited", profile_picture_url: "" };
+    }
+
+    const data = await response.json();
+    return {
+      username: data.username || "firelandsunited",
+      profile_picture_url: data.profile_picture_url || ""
+    };
+  } catch (error) {
     return { username: "firelandsunited", profile_picture_url: "" };
   }
-
-  const data = await response.json();
-  return {
-    username: data.username || "firelandsunited",
-    profile_picture_url: data.profile_picture_url || ""
-  };
 }
 
 export default {
@@ -162,5 +220,9 @@ export default {
         corsHeaders
       );
     }
+  },
+
+  async scheduled(event, env, ctx) {
+    ctx.waitUntil(runTokenExpiryReminder(env));
   }
 };
