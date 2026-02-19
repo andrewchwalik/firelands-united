@@ -190,7 +190,7 @@ body {
   content: '';
   position: absolute;
   top: 0;
-  left: 0;
+  left: 140px;
   right: 0;
   height: 100%;
   background-color: #474e5a;
@@ -217,7 +217,7 @@ body {
   display: flex;
   gap: 64px;
   width: max-content;
-  padding-left: 0;
+  padding-left: 140px;
   animation: ticker-scroll 34s linear infinite;
   will-change: transform;
 }
