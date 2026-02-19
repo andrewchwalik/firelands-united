@@ -781,10 +781,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
       return `
         <a class="instagram-card" href="${permalink}" target="_blank" rel="noopener noreferrer">
+          <div class="instagram-card-top">
+            <span class="instagram-card-dot" aria-hidden="true"></span>
+            <span class="instagram-card-handle">firelandsunited</span>
+          </div>
           <div class="instagram-card-media">
             <img src="${imageUrl}" alt="${caption}" loading="lazy">
           </div>
           <div class="instagram-card-body">
+            <div class="instagram-card-actions" aria-hidden="true">♡ ○ ⤴</div>
             <p class="instagram-card-caption">${caption}</p>
             <span class="instagram-card-date">${timestamp}</span>
           </div>
