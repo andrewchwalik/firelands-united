@@ -179,6 +179,8 @@ body {
 
 /* Home News Ticker */
 .news-ticker {
+  --ticker-cutout: 140px;
+  --ticker-left-bg: #f5f5f5;
   position: relative;
   background: transparent;
   color: #fff;
@@ -190,7 +192,7 @@ body {
   content: '';
   position: absolute;
   top: 0;
-  left: 140px;
+  left: var(--ticker-cutout);
   right: 0;
   height: 100%;
   background-color: #474e5a;
@@ -203,11 +205,11 @@ body {
   content: '';
   position: absolute;
   top: 0;
-  left: 140px;
-  width: 40px;
+  left: 0;
+  width: calc(var(--ticker-cutout) + 20px);
   height: 100%;
-  background: linear-gradient(to right, #474e5a 65%, rgba(71, 78, 90, 0));
-  z-index: 2;
+  background: var(--ticker-left-bg);
+  z-index: 4;
   pointer-events: none;
 }
 
@@ -217,7 +219,7 @@ body {
   display: flex;
   gap: 64px;
   width: max-content;
-  padding-left: 140px;
+  padding-left: var(--ticker-cutout);
   animation: ticker-scroll 34s linear infinite;
   will-change: transform;
 }

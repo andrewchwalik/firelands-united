@@ -257,6 +257,22 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (ticker) {
+    const resolveBackgroundColor = (el) => {
+      let node = el;
+      while (node && node !== document.documentElement) {
+        const bg = window.getComputedStyle(node).backgroundColor;
+        if (bg && bg !== "transparent" && bg !== "rgba(0, 0, 0, 0)") {
+          return bg;
+        }
+        node = node.parentElement;
+      }
+      return window.getComputedStyle(document.body).backgroundColor || "#f5f5f5";
+    };
+
+    const nextSection = ticker.nextElementSibling;
+    const leftBg = resolveBackgroundColor(nextSection || document.body);
+    ticker.style.setProperty("--ticker-left-bg", leftBg);
+
     const tickerTrack = ticker.querySelector(".news-ticker-track");
     if (tickerTrack) {
       const itemA = ticker.getAttribute("data-ticker-text");
