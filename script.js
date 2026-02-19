@@ -751,6 +751,77 @@ document.addEventListener("DOMContentLoaded", () => {
     updateMerchSlider();
   }
 
+  // ----- Reusable Instagram feed renderer -----
+  function escapeHtml(value) {
+    return String(value || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  function renderInstagramCards(container, posts) {
+    if (!Array.isArray(posts) || posts.length === 0) {
+      container.innerHTML = '<p class="instagram-feed-empty">No recent posts yet.</p>';
+      return;
+    }
+
+    container.innerHTML = posts.map((post) => {
+      const imageUrl = post.image_url || "";
+      const caption = escapeHtml(post.caption || "View this post on Instagram");
+      const permalink = post.permalink || "https://www.instagram.com/firelandsunited/";
+      const timestamp = post.timestamp
+        ? new Date(post.timestamp).toLocaleDateString("en-US", {
+            month: "short",
+            day: "numeric",
+            year: "numeric"
+          })
+        : "";
+
+      return `
+        <a class="instagram-card" href="${permalink}" target="_blank" rel="noopener noreferrer">
+          <div class="instagram-card-media">
+            <img src="${imageUrl}" alt="${caption}" loading="lazy">
+          </div>
+          <div class="instagram-card-body">
+            <p class="instagram-card-caption">${caption}</p>
+            <span class="instagram-card-date">${timestamp}</span>
+          </div>
+        </a>`;
+    }).join("");
+  }
+
+  function initInstagramFeeds() {
+    const feedContainers = document.querySelectorAll("[data-instagram-feed]");
+    if (!feedContainers.length) return;
+
+    feedContainers.forEach((container) => {
+      const endpoint = container.getAttribute("data-instagram-feed-endpoint");
+      const limit = Number(container.getAttribute("data-instagram-feed-limit") || 6);
+      if (!endpoint) {
+        container.innerHTML = '<p class="instagram-feed-empty">Instagram feed endpoint is not set.</p>';
+        return;
+      }
+
+      container.innerHTML = '<p class="instagram-feed-loading">Loading recent posts...</p>';
+
+      fetch(`${endpoint}?limit=${encodeURIComponent(limit)}`)
+        .then((response) => {
+          if (!response.ok) throw new Error("Instagram feed request failed");
+          return response.json();
+        })
+        .then((data) => {
+          renderInstagramCards(container, data.posts || []);
+        })
+        .catch(() => {
+          container.innerHTML = '<p class="instagram-feed-empty">Could not load Instagram posts right now.</p>';
+        });
+    });
+  }
+
+  initInstagramFeeds();
+
   // ----- Newsletter form (Google Sheets) -----
   const newsletterForm = document.getElementById("newsletter-form");
   var GOOGLE_SHEET_URL =

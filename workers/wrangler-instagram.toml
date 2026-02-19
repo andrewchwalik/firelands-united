@@ -1,0 +1,7 @@
+name = "firelandsunited-instagram-feed"
+main = "instagram-feed.js"
+compatibility_date = "2026-02-19"
+
+# Secrets (set via CLI):
+# npx wrangler secret put INSTAGRAM_ACCESS_TOKEN --config wrangler-instagram.toml
+# npx wrangler secret put INSTAGRAM_USER_ID --config wrangler-instagram.toml

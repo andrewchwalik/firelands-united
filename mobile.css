@@ -346,6 +346,23 @@
   gap: 10px;
 }
 
+.instagram-feed-section {
+  padding: 0 14px 24px;
+}
+
+.instagram-feed-inner {
+  padding: 18px;
+}
+
+.instagram-feed-inner h2 {
+  font-size: 1.9rem;
+}
+
+.instagram-feed-grid {
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
 .newsletter-form {
   flex-direction: column;
   border-radius: 8px;

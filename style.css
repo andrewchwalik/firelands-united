@@ -1256,6 +1256,95 @@ body {
     background: #3b414b;
 }
 
+.instagram-feed-section {
+    background: #f5f5f5;
+    padding: 0 20px 40px;
+}
+
+.instagram-feed-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid #e9e9e9;
+    border-radius: 14px;
+    padding: 24px;
+}
+
+.instagram-feed-inner h2 {
+    font-family: 'Bermont', sans-serif;
+    color: #474e5a;
+    font-size: 2.1rem;
+    margin: 0 0 6px;
+}
+
+.instagram-feed-inner p {
+    color: #666;
+    margin: 0 0 18px;
+}
+
+.instagram-feed-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.instagram-card {
+    display: block;
+    background: #f7f8fa;
+    border: 1px solid #e1e3e8;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.instagram-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.instagram-card-media {
+    aspect-ratio: 1 / 1;
+    background: #dfe3ea;
+}
+
+.instagram-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.instagram-card-body {
+    padding: 12px;
+}
+
+.instagram-card-caption {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #2f3540;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.instagram-card-date {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 0.8rem;
+    color: #8a909b;
+}
+
+.instagram-feed-loading,
+.instagram-feed-empty {
+    margin: 0;
+    color: #6a6f79;
+    font-size: 0.95rem;
+}
+
 /* Newsletter Section (shared with blog pages) */
 .newsletter-section {
     background-color: #474E5A;
