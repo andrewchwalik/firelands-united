@@ -360,11 +360,11 @@
 
 .instagram-feed-grid {
   gap: 14px;
-  padding-bottom: 10px;
+  padding-bottom: 24px;
 }
 
 .instagram-card {
-  flex-basis: 246px;
+  flex-basis: 220px;
 }
 
 .newsletter-form {
