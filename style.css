@@ -184,14 +184,13 @@ body {
   color: #fff;
   height: 38px;
   overflow: hidden;
-  clip-path: inset(0 0 0 140px);
 }
 
 .news-ticker::after {
   content: '';
   position: absolute;
   top: 0;
-  left: 140px;
+  left: 0;
   right: 0;
   height: 100%;
   background-color: #474e5a;
