@@ -1,4 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Ensure nav merch links have an inner label for layered jersey styling.
+  document.querySelectorAll("a.nav-merch").forEach((link) => {
+    if (link.querySelector(".nav-merch-label")) return;
+    const labelText = (link.textContent || "Merch").trim() || "Merch";
+    link.textContent = "";
+    const label = document.createElement("span");
+    label.className = "nav-merch-label";
+    label.textContent = labelText;
+    link.appendChild(label);
+  });
+
   // ----- Shared player card source of truth -----
   // Source now lives in /players.json for easy non-code updates.
 

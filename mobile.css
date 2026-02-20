@@ -210,6 +210,19 @@
   width: max-content;
 }
 
+.nav-links a.nav-merch::before,
+.nav-links a.nav-merch::after {
+  content: none;
+}
+
+.nav-links a.nav-merch .nav-merch-label {
+  all: unset;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+}
+
 /* --- Diving Keeper Easter Egg --- */
 .menu-keeper {
   display: block;
