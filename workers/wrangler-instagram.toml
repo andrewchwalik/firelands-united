@@ -2,6 +2,11 @@ name = "firelandsunited-instagram-feed"
 main = "instagram-feed.js"
 compatibility_date = "2026-02-19"
 
+[triggers]
+crons = ["0 15 * * *"]
+
 # Secrets (set via CLI):
 # npx wrangler secret put INSTAGRAM_ACCESS_TOKEN --config wrangler-instagram.toml
 # npx wrangler secret put INSTAGRAM_USER_ID --config wrangler-instagram.toml
+# npx wrangler secret put INSTAGRAM_TOKEN_EXPIRES_AT --config wrangler-instagram.toml
+# npx wrangler secret put DISCORD_WEBHOOK_URL --config wrangler-instagram.toml
