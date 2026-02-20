@@ -93,17 +93,65 @@ body {
   align-items: center;
   justify-content: center;
   margin-left: auto;
-  background-color: #474e5a;
+  position: relative;
+  isolation: isolate;
+  background: linear-gradient(180deg, #ffffff 0%, #f3f3f3 100%);
   color: #f18a01;
-  padding: 8px 18px;
+  padding: 10px 28px;
   border-radius: 999px;
   line-height: 1.1;
+  font-size: 1.02rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.75);
+  transition: transform 0.24s ease, box-shadow 0.24s ease, background 0.24s ease;
+  overflow: visible;
 }
 
 .nav-links a.nav-merch:hover,
 .nav-links a.nav-merch.active {
   color: #f18a01;
-  background-color: #3b414b;
+  background: linear-gradient(180deg, #ffffff 0%, #ededed 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.nav-links a.nav-merch::before,
+.nav-links a.nav-merch::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 72px;
+  height: 72px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  pointer-events: none;
+  z-index: -1;
+  transition: transform 0.24s ease;
+}
+
+.nav-links a.nav-merch::before {
+  left: -58px;
+  transform: translateY(-45%) rotate(-9deg);
+  background-image: url('/img/nav-merch-jersey-left.png');
+}
+
+.nav-links a.nav-merch::after {
+  right: -58px;
+  transform: translateY(-45%) rotate(9deg);
+  background-image: url('/img/nav-merch-jersey-right.png');
+}
+
+.nav-links a.nav-merch:hover::before,
+.nav-links a.nav-merch.active::before {
+  transform: translateY(-52%) rotate(-9deg);
+}
+
+.nav-links a.nav-merch:hover::after,
+.nav-links a.nav-merch.active::after {
+  transform: translateY(-52%) rotate(9deg);
 }
 
 .nav-dropdown {
