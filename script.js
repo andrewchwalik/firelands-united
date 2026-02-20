@@ -346,9 +346,19 @@ document.addEventListener("DOMContentLoaded", () => {
     navDropdownToggles.forEach((toggle) => {
       toggle.addEventListener("click", (e) => {
         if (window.innerWidth > 768) return;
-        e.preventDefault();
         const parentDropdown = toggle.closest(".nav-dropdown");
         if (!parentDropdown) return;
+
+        const href = toggle.getAttribute("href");
+        const alreadyOpen = parentDropdown.classList.contains("open");
+        if (alreadyOpen && href) {
+          return;
+        }
+
+        e.preventDefault();
+        navDropdowns.forEach((dropdown) => {
+          if (dropdown !== parentDropdown) dropdown.classList.remove("open");
+        });
         parentDropdown.classList.toggle("open");
       });
     });

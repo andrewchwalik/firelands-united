@@ -380,6 +380,23 @@
   flex-basis: 220px;
 }
 
+.about-story-section {
+  padding: 34px 14px 18px;
+}
+
+.about-story-card {
+  padding: 16px;
+}
+
+.about-values-section {
+  padding: 0 14px 38px;
+}
+
+.about-values-grid {
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
 .newsletter-form {
   flex-direction: column;
   border-radius: 8px;
