@@ -1,4 +1,46 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // ----- Shared sponsors include -----
+  // Single source of truth: /partials/sponsors.html
+  async function loadSharedSponsors() {
+    const footers = document.querySelectorAll("footer.site-footer");
+    if (footers.length === 0) return;
+    try {
+      const response = await fetch("/partials/sponsors.html", { cache: "no-store" });
+      if (!response.ok) throw new Error(`Failed to load shared sponsors (${response.status})`);
+      const markup = await response.text();
+      footers.forEach((footer) => {
+        const previous = footer.previousElementSibling;
+        if (previous && previous.classList.contains("sponsor-section")) {
+          previous.remove();
+        }
+        footer.insertAdjacentHTML("beforebegin", markup);
+      });
+    } catch (error) {
+      console.error("Error loading shared sponsors:", error);
+    }
+  }
+
+  // ----- Shared footer include -----
+  // Single source of truth: /partials/footer.html
+  // Any footer update should be made there.
+  async function loadSharedFooter() {
+    const footers = document.querySelectorAll("footer.site-footer");
+    if (footers.length === 0) return;
+    try {
+      const response = await fetch("/partials/footer.html", { cache: "no-store" });
+      if (!response.ok) throw new Error(`Failed to load shared footer (${response.status})`);
+      const markup = await response.text();
+      footers.forEach((footer) => {
+        footer.innerHTML = markup;
+      });
+    } catch (error) {
+      console.error("Error loading shared footer:", error);
+    }
+  }
+
+  loadSharedSponsors();
+  loadSharedFooter();
+
   // Ensure nav merch links have an inner label for layered jersey styling.
   document.querySelectorAll("a.nav-merch").forEach((link) => {
     if (link.querySelector(".nav-merch-label")) return;
