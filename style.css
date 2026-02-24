@@ -99,6 +99,11 @@ body {
   border-bottom: none; /* Remove the underline */
 }
 
+/* Keep active page state visually consistent with default nav weight/look. */
+.nav-links a.active {
+  color: #ffffff;
+}
+
 .nav-links a.nav-merch {
   margin-left: auto;
   position: relative;
@@ -204,6 +209,11 @@ body {
 .nav-dropdown.open .nav-dropdown-toggle {
   color: #474e5a;
   outline: none;
+}
+
+.nav-dropdown-toggle.active,
+.nav-dropdown.open .nav-dropdown-toggle {
+  color: #ffffff;
 }
 
 .nav-dropdown-menu {
