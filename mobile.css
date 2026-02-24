@@ -388,6 +388,41 @@
   padding: 16px;
 }
 
+.sponsorships-page-section {
+  padding: 34px 14px 38px;
+}
+
+.sponsorships-intro-card,
+.sponsorships-compare-card,
+.sponsorships-notes-card {
+  padding: 16px;
+}
+
+.sponsorship-packages-grid {
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.sponsorship-package-card {
+  padding: 16px;
+}
+
+.sponsorship-package-card h2 {
+  font-size: 1.2rem;
+}
+
+.sponsorship-package-price {
+  font-size: 1.14rem;
+}
+
+.sponsorships-compare-card {
+  overflow-x: auto;
+}
+
+.sponsorships-compare-grid {
+  min-width: 620px;
+}
+
 .about-values-section {
   padding: 0 14px 38px;
 }
