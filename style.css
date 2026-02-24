@@ -1647,6 +1647,24 @@ body {
   margin-bottom: 6px;
 }
 
+.privacy-policy-section {
+  background: #f5f5f5;
+  padding-bottom: 64px;
+}
+
+.privacy-policy-card h2,
+.privacy-policy-card h3,
+.privacy-policy-card h4 {
+  color: #474e5a;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+.privacy-policy-card ul {
+  margin: 8px 0 12px 20px;
+  color: #4f5663;
+}
+
 /* Newsletter Section (shared with blog pages) */
 .newsletter-section {
     background-color: #474E5A;
