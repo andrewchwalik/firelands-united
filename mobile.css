@@ -110,7 +110,8 @@
   display: inline-block;
   padding: 16px 28px;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   color: #fff;
@@ -137,10 +138,10 @@
   padding: 16px 28px;
   color: #fff;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  font-family: inherit;
   text-decoration: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   width: max-content;
@@ -177,7 +178,8 @@
   text-decoration: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   font-size: 0.8rem;
-  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
   text-transform: uppercase;
   text-align: left;
   width: max-content;

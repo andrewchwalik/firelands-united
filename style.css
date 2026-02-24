@@ -76,6 +76,7 @@ body {
 .nav-links a {
   text-decoration: none;
   color: #ffffff; /* Default link text color */
+  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 1rem;
   text-transform: uppercase;
@@ -178,12 +179,12 @@ body {
 .nav-dropdown-toggle {
   display: block;
   color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 1rem;
   text-transform: uppercase;
   padding: 5px 0;
   cursor: pointer;
-  font-family: inherit;
   text-decoration: none;
 }
 
@@ -217,6 +218,7 @@ body {
 .nav-dropdown-menu a,
 .nav-dropdown-item-disabled {
   color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
   padding: 10px 14px;
   text-transform: none;
   font-size: 0.9rem;
