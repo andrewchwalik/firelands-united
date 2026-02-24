@@ -73,6 +73,16 @@ body {
   min-width: 0;
 }
 
+/* Keep nav typography identical on every page context. */
+.nav-links > a,
+.nav-dropdown-toggle {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
 .nav-links a {
   text-decoration: none;
   color: #ffffff; /* Default link text color */
