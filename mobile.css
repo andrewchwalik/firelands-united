@@ -458,33 +458,70 @@
 
 /* --- Sponsor Section --- */
 .sponsor-section {
-  padding: 20px 10px;
+  padding: 22px 14px 18px;
 }
 
 .sponsor-container {
-  flex-wrap: wrap;
-  gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.sponsor-container a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 88px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .sponsor-logo {
-  height: 100px;
-  max-width: 180px;
+  height: 62px;
+  max-width: 90%;
 }
 
 /* --- Footer --- */
+.site-footer {
+  padding: 24px 16px 18px;
+}
+
 .footer-links-container {
   flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 14px;
+  max-width: 420px;
+}
+
+.footer-logo {
+  width: 100%;
+  margin-left: 0;
+  margin-top: 0;
+  gap: 8px;
   align-items: center;
+  flex-direction: column;
+}
+
+.footer-logo img {
+  height: 78px;
+}
+
+.footer-bottom {
   text-align: center;
-  gap: 20px;
 }
 
 .footer-column {
-  margin: 10px 0;
+  width: 100%;
+  margin: 6px 0;
 }
 
 .footer-column h3 {
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .footer-column ul {
@@ -492,15 +529,15 @@
 }
 
 .footer-column ul li {
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .footer-column ul li a {
-  font-size: 0.9rem;
+  font-size: 0.92rem;
 }
 
 .footer-social {
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 .footer-social a img {
@@ -508,14 +545,23 @@
   margin-right: 8px;
 }
 
+.footer-gif {
+  position: static;
+  right: auto;
+  bottom: auto;
+  margin: 10px auto 0;
+  display: flex;
+  justify-content: center;
+}
+
 .footer-gif img {
-  max-width: 120px;
-  margin-top: 10px;
+  max-width: 96px;
+  margin-top: 0;
 }
 
 .footer-bottom p {
   font-size: 0.8rem;
-  margin-top: 15px;
+  margin-top: 6px;
 }
 
 /* --- Merch Section --- */
