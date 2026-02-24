@@ -1952,6 +1952,10 @@ body.presskit-page .content-section:nth-of-type(5) {
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 5px 12px rgba(28, 32, 39, 0.12);
   min-height: 120px;
+  grid-template-areas:
+    "media name"
+    "media meta";
+  grid-template-rows: auto auto;
   align-content: center;
   row-gap: 3px;
 }
@@ -2017,7 +2021,7 @@ body.presskit-page .content-section:nth-of-type(5) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(71, 78, 90, 0.2);
+  background-color: rgba(255, 255, 255, 0.3);
   color: #fff;
   font-size: 0.62rem;
   min-height: 22px;

@@ -590,6 +590,10 @@
 .history-panel[data-year="2025"] .coaching-row .roster-card.coaching-card {
   --roster-image-col: 96px;
   min-height: 128px;
+  grid-template-areas:
+    "media name"
+    "media meta";
+  grid-template-rows: auto auto;
 }
 
 .roster-panel .roster-card.coaching-card .history-avatar,
@@ -621,7 +625,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(71, 78, 90, 0.2);
+  background-color: rgba(255, 255, 255, 0.3);
   color: #fff;
   font-size: 0.62rem;
   min-height: 22px;
