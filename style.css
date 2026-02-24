@@ -1652,6 +1652,11 @@ body {
   padding-bottom: 64px;
 }
 
+.privacy-policy-section .news-page-title,
+.privacy-policy-card {
+  text-align: left;
+}
+
 .privacy-policy-card h2,
 .privacy-policy-card h3,
 .privacy-policy-card h4 {
