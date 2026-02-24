@@ -561,15 +561,21 @@
   font-size: 1.35rem;
 }
 
+.roster-card h3 {
+  padding: 14px 14px 1px 44px;
+  gap: 1px;
+}
+
 .roster-meta {
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 4px;
+  padding: 0 14px 12px 44px;
 }
 
 .roster-hometown {
   font-size: 0.62rem;
-  padding: 0 14px 6px 44px;
-  margin-top: -3px;
+  padding: 0 14px 3px 44px;
+  margin-top: -5px;
 }
 
 .roster-number,
