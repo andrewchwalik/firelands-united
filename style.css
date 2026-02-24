@@ -1894,8 +1894,8 @@ body.presskit-page .content-section:nth-of-type(5) {
 
 .roster-hometown {
   grid-area: hometown;
-  margin: 0;
-  padding: 0 20px 8px 50px;
+  margin: -4px 0 0;
+  padding: 0 20px 7px 50px;
   font-size: 0.68rem;
   line-height: 1.15;
   font-weight: 400;

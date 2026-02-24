@@ -568,7 +568,8 @@
 
 .roster-hometown {
   font-size: 0.62rem;
-  padding: 0 14px 7px 44px;
+  padding: 0 14px 6px 44px;
+  margin-top: -3px;
 }
 
 .roster-number,

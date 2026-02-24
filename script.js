@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         appsValue = mappedPlayer?.roster?.appearances ?? 0;
       }
-      let appsPart = `${appsValue} Apps`;
+      let appsPart = `${appsValue} Apps.`;
 
       if (existingNumberPill && existingPositionPill) {
         numberPart = existingNumberPill.textContent.trim() || numberPart;
