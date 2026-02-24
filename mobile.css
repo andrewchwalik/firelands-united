@@ -395,8 +395,11 @@
 }
 
 .sponsorships-intro-card,
-.sponsorships-compare-card,
 .sponsorships-notes-card {
+  padding: 16px;
+}
+
+.sponsorships-possibilities-card {
   padding: 16px;
 }
 
@@ -410,19 +413,11 @@
 }
 
 .sponsorship-package-card h2 {
-  font-size: 1.2rem;
+  font-size: 1.45rem;
 }
 
 .sponsorship-package-price {
   font-size: 1.14rem;
-}
-
-.sponsorships-compare-card {
-  overflow-x: auto;
-}
-
-.sponsorships-compare-grid {
-  min-width: 620px;
 }
 
 .about-values-section {

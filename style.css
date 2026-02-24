@@ -1488,7 +1488,6 @@ body {
 }
 
 .sponsorships-intro-card,
-.sponsorships-compare-card,
 .sponsorships-notes-card {
   background: #fff;
   border: 1px solid #e7e9ee;
@@ -1500,9 +1499,31 @@ body {
   margin-bottom: 18px;
 }
 
+.sponsorships-possibilities-card {
+  background: linear-gradient(135deg, #474e5a 0%, #3d434e 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 20px 22px;
+  margin-bottom: 18px;
+}
+
+.sponsorships-possibilities-card h2 {
+  margin: 0 0 10px;
+  color: #f18a01;
+}
+
+.sponsorships-possibilities-card p {
+  margin: 0 0 11px;
+  color: #e9edf3;
+}
+
+.sponsorships-possibilities-card p:last-child {
+  margin-bottom: 0;
+}
+
 .sponsorship-packages-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
   margin-bottom: 18px;
 }
@@ -1530,7 +1551,10 @@ body {
 
 .sponsorship-package-card h2 {
   margin: 0 0 8px;
-  font-size: 1.36rem;
+  font-size: 2rem;
+  line-height: 0.96;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
   color: #474e5a;
 }
 
@@ -1552,49 +1576,9 @@ body {
   color: #4f5663;
 }
 
-.sponsorships-compare-card {
-  margin-bottom: 18px;
-}
-
-.sponsorships-compare-card h2,
 .sponsorships-notes-card h2 {
   margin-bottom: 12px;
   color: #474e5a;
-}
-
-.sponsorships-compare-grid {
-  display: grid;
-  grid-template-columns: 1.25fr repeat(3, minmax(0, 1fr));
-  border: 1px solid #e7e9ee;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.sponsorships-compare-grid > div {
-  padding: 11px 12px;
-  border-right: 1px solid #e7e9ee;
-  border-bottom: 1px solid #e7e9ee;
-  font-size: 0.92rem;
-  color: #4f5663;
-}
-
-.sponsorships-compare-grid > div:nth-child(4n) {
-  border-right: none;
-}
-
-.sponsorships-compare-grid > div:nth-last-child(-n + 4) {
-  border-bottom: none;
-}
-
-.sponsorships-compare-head {
-  background: #474e5a;
-  color: #fff !important;
-  font-weight: 700;
-}
-
-.sponsorships-compare-row-title {
-  font-weight: 700;
-  color: #474e5a !important;
 }
 
 .sponsorships-notes-card p {
