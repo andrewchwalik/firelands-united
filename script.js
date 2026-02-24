@@ -59,6 +59,25 @@ document.addEventListener("DOMContentLoaded", () => {
     avatarEl.textContent = player.initials || deriveInitials(altName);
   }
 
+  function upsertCardHometown(container, className, hometown, beforeEl) {
+    if (!container) return;
+    let hometownEl = container.querySelector(`.${className}`);
+    if (!hometown) {
+      if (hometownEl) hometownEl.remove();
+      return;
+    }
+    if (!hometownEl) {
+      hometownEl = document.createElement("p");
+      hometownEl.className = className;
+      if (beforeEl && beforeEl.parentElement === container) {
+        container.insertBefore(hometownEl, beforeEl);
+      } else {
+        container.appendChild(hometownEl);
+      }
+    }
+    hometownEl.textContent = hometown;
+  }
+
   function syncSharedPlayerCards(playerByName) {
     if (!playerByName || playerByName.size === 0) return;
 
@@ -90,6 +109,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (positionEl) positionEl.textContent = player.roster.position || "N/A";
         if (appsEl) appsEl.textContent = `${player.roster.appearances ?? 0} All-Time Apps.`;
       }
+
+      const rosterMeta = card.querySelector(".roster-meta");
+      upsertCardHometown(card, "roster-hometown", player.hometown, rosterMeta);
     });
 
     // History/records cards (sync name + avatar for the same player everywhere)
@@ -102,6 +124,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const card = nameEl.closest(".history-player");
       const avatarEl = card?.querySelector(".history-avatar");
       setCardAvatar(avatarEl, player, player.name);
+
+      const detailCol = nameEl.parentElement;
+      const historySubtext = detailCol?.querySelector(".history-subtext");
+      upsertCardHometown(detailCol, "history-hometown", player.hometown, historySubtext || null);
     });
 
     formatHistoryRosterCards(playerByName);

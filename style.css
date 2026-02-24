@@ -1792,8 +1792,9 @@ body.presskit-page .content-section:nth-of-type(5) {
   grid-template-columns: var(--roster-image-col) 1fr;
   grid-template-areas:
     "media name"
+    "media hometown"
     "media meta";
-  grid-template-rows: auto auto;
+  grid-template-rows: auto auto auto;
   align-items: center;
   position: relative;
   overflow: hidden;
@@ -1883,12 +1884,24 @@ body.presskit-page .content-section:nth-of-type(5) {
   display: inline;
 }
 
-.roster-card p {
+.roster-card .roster-meta {
   grid-area: meta;
   margin: 0;
   font-size: 0.78rem;
   align-self: start;
-  padding: 8px 20px 18px 50px;
+  padding: 0 20px 18px 50px;
+}
+
+.roster-hometown {
+  grid-area: hometown;
+  margin: 0;
+  padding: 0 20px 8px 50px;
+  font-size: 0.68rem;
+  line-height: 1.15;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.68);
+  letter-spacing: 0.22px;
+  text-transform: none;
 }
 
 .roster-meta {
@@ -2426,6 +2439,16 @@ body.presskit-page .content-section:nth-of-type(5) {
   align-items: center;
   flex-wrap: wrap;
   gap: 6px;
+}
+
+.history-hometown {
+  margin: -3px 0 0;
+  font-size: 0.6rem;
+  line-height: 1.2;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.68);
+  letter-spacing: 0.2px;
+  text-transform: none;
 }
 
 .history-panel[data-year="2025"] .history-pill,

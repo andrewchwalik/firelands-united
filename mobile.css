@@ -566,6 +566,11 @@
   gap: 6px;
 }
 
+.roster-hometown {
+  font-size: 0.62rem;
+  padding: 0 14px 7px 44px;
+}
+
 .roster-number,
 .roster-position,
 .roster-appearances {
@@ -677,6 +682,12 @@
 .history-panel[data-year="2026"] .history-subtext {
   padding: 6px 0 0;
   gap: 6px;
+}
+
+.history-panel[data-year="2025"] .history-hometown,
+.history-panel[data-year="2026"] .history-hometown {
+  font-size: 0.56rem;
+  margin-top: -2px;
 }
 
 .history-panel[data-year="2025"] .history-pill,

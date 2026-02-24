@@ -7,108 +7,131 @@
   },
   {
     "name": "Collin Biehler",
+    "hometown": "Oak Harbor, OH",
     "image": "/img/2025-headshots/collin-biehler.webp",
     "roster": { "number": "#17", "position": "GK", "appearances": 8 }
   },
   {
     "name": "Kaiden Hawes",
+    "hometown": "Oregon, OH",
     "roster": { "number": "#3", "position": "CB", "appearances": 0 }
   },
   {
     "name": "Yoni Moralez",
+    "hometown": "Willard, OH",
     "image": "/img/2025-headshots/yoni-moralez.webp",
     "roster": { "number": "#4", "position": "CB", "appearances": 7 }
   },
   {
     "name": "Grant Miller",
+    "hometown": "Tiffin, OH",
     "image": "/img/2025-headshots/grant-miller.webp",
     "roster": { "number": "#5", "position": "CB", "appearances": 9 }
   },
   {
     "name": "Christian Heidl",
+    "hometown": "Huron, OH",
     "aliases": ["Chris Heidl"],
     "image": "/img/2025-headshots/chris-heidl.webp",
     "roster": { "number": "#6", "position": "CM", "appearances": 9 }
   },
   {
     "name": "Blake Kubasak",
+    "hometown": "Lorain, OH",
     "image": "/img/2025-headshots/blake-kubasak.webp",
     "roster": { "number": "#8", "position": "LWB/LB", "appearances": 9 }
   },
   {
     "name": "Jon Slay",
+    "hometown": "Sandusky, OH",
     "image": "/img/2025-headshots/jon-slay.webp",
     "roster": { "number": "#9", "position": "ST/LW", "appearances": 10 }
   },
   {
     "name": "Brock Harman",
+    "hometown": "Avon, OH",
     "image": "/img/2025-headshots/brock-harman.webp",
     "roster": { "number": "#10", "position": "ST/CAM", "appearances": 5 }
   },
   {
     "name": "Jonah Main",
+    "hometown": "Berlin Heights, OH",
     "image": "/img/2025-headshots/jonah-main.webp",
     "roster": { "number": "#11", "position": "CM", "appearances": 11 }
   },
   {
     "name": "Reggie Johnson",
+    "hometown": "Lorain, OH",
     "image": "/img/2025-headshots/reggie-johnson.webp",
     "roster": { "number": "#12", "position": "ST/RW", "appearances": 11 }
   },
   {
     "name": "Jordan Dankert",
+    "hometown": "Rossford, OH",
     "roster": { "number": "#13", "position": "GK", "appearances": 0 }
   },
   {
     "name": "Maximus Parsell",
+    "hometown": "Sycamore, OH",
     "roster": { "number": "#14", "position": "CM/CAM", "appearances": 0 }
   },
   {
     "name": "Jack Ramey",
+    "hometown": "Richmond, VA",
     "roster": { "number": "#15", "position": "CM", "appearances": 0 }
   },
   {
     "name": "Noah Clapsaddle",
+    "hometown": "Oak Harbor, OH",
     "image": "/img/2025-headshots/noah-clapsaddle.webp",
     "roster": { "number": "#16", "position": "LB/RB", "appearances": 9 }
   },
   {
     "name": "Ayden Adams",
+    "hometown": "Tiffin, OH",
     "roster": { "number": "#18", "position": "LW/LWB", "appearances": 0 }
   },
   {
     "name": "Cohen Hawes",
+    "hometown": "Oregon, OH",
     "roster": { "number": "#19", "position": "LB/RB", "appearances": 0 }
   },
   {
     "name": "Kenny Alejandro",
+    "hometown": "Willard, OH",
     "image": "/img/2025-headshots/kenny-alejandro.webp",
     "roster": { "number": "#21", "position": "LW/LWB", "appearances": 7 }
   },
   {
     "name": "Coen Steinmetz",
+    "hometown": "Tiffin, OH",
     "image": "/img/2025-headshots/coen-steinmetz.webp",
     "roster": { "number": "#22", "position": "LB/RB", "appearances": 11 }
   },
   {
     "name": "Simon Joseph",
+    "hometown": "Perrysburg, OH",
     "image": "/img/2025-headshots/simon-joseph.webp",
     "roster": { "number": "#77", "position": "ST", "appearances": 7 }
   },
   {
     "name": "Erik Rangel Negrete",
+    "hometown": "Norwalk, OH",
     "roster": { "number": "#TBD", "position": "CM/CAM", "appearances": 0 }
   },
   {
     "name": "Jackson Gray",
+    "hometown": "Vermilion, OH",
     "roster": { "number": "#TBD", "position": "CB", "appearances": 0 }
   },
   {
     "name": "Joseph Judge",
+    "hometown": "Oak Harbor, OH",
     "roster": { "number": "#TBD", "position": "CB", "appearances": 0 }
   },
   {
     "name": "Ryan Graber",
+    "hometown": "Amherst, OH",
     "roster": { "number": "#TBD", "position": "LB/RB", "appearances": 0 }
   },
   {
