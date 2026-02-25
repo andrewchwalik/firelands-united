@@ -80,6 +80,10 @@
               </div>
               <input type="text" name="subject" id="contact-subject" placeholder="Subject" required>
               <textarea name="message" id="contact-message" rows="6" placeholder="Your Message" required></textarea>
+              <label class="contact-optin" for="contact-newsletter-optin">
+                <input type="checkbox" id="contact-newsletter-optin" name="newsletter_opt_in">
+                <span>Check this box if you wanted to be added to our email list to get the hottest soccer newsletter</span>
+              </label>
               <button type="submit" class="submit-button" id="contact-submit">Send Message</button>
           </form>
         </div>
@@ -201,10 +205,18 @@
       var email = (document.getElementById("contact-email")?.value || "").trim();
       var subject = (document.getElementById("contact-subject")?.value || "").trim();
       var message = (document.getElementById("contact-message")?.value || "").trim();
+      var newsletterOptIn = !!document.getElementById("contact-newsletter-optin")?.checked;
       var timestamp = new Date().toLocaleString("en-US", { hour12: true });
       var cleanMessage = message.replace(/\n+/g, " ").trim();
 
-      var payload = { name: name, email: email, timestamp: timestamp, subject: subject, message: cleanMessage };
+      var payload = {
+        name: name,
+        email: email,
+        timestamp: timestamp,
+        subject: subject,
+        message: cleanMessage,
+        newsletterOptIn: newsletterOptIn
+      };
 
       if (submitButton) {
         submitButton.disabled = true;

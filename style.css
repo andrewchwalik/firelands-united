@@ -1329,6 +1329,23 @@ body {
     box-shadow: 0 0 0 2px rgba(241, 138, 1, 0.15);
 }
 
+.contact-optin {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: #555b67;
+    font-size: 0.9rem;
+    line-height: 1.45;
+}
+
+.contact-optin input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
+    accent-color: #f18a01;
+    flex: 0 0 auto;
+}
+
 .submit-button {
     justify-self: start;
     border: none;

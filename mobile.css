@@ -370,6 +370,11 @@
   gap: 10px;
 }
 
+.contact-optin {
+  font-size: 0.86rem;
+  gap: 8px;
+}
+
 .instagram-feed-section {
   padding: 0 14px 24px;
 }
