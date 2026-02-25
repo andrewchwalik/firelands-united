@@ -1095,7 +1095,7 @@ body {
   align-items: flex-start; /* Align columns to the top */
   max-width: 1200px; /* Center container width */
   margin: 0 auto; /* Center the footer content */
-  gap: 60px; /* Add more space between columns */
+  gap: 34px; /* Keep columns readable with five groups */
 }
 
 /* Logo Column */
@@ -1104,8 +1104,10 @@ body {
   display: flex; /* Align items horizontally */
   align-items: center; /* Vertically center items */
   gap: 15px; /* Space between the logo and text */
-  margin-left: -40px; /* Move the logo and text further to the left */
-  margin-top: 10px; /* Move the logo and text slightly down */
+  margin-left: 0;
+  margin-top: 0;
+  flex: 0 0 250px;
+  min-width: 250px;
 }
 
 .footer-logo img {
@@ -1135,14 +1137,20 @@ body {
 }
 
 .footer-bottom {
-  margin-top: 10px;
-  font-size: 0.75rem; /* Smaller copyright text */
+  margin-top: 0;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  min-width: 135px;
+}
+
+.footer-bottom p {
+  margin: 0 0 4px;
 }
 
 .footer-bottom a {
   color: #ffffff;
   text-decoration: none;
-  margin: 0 5px;
+  margin: 0;
   transition: color 0.3s ease;
 }
 
@@ -1511,6 +1519,10 @@ body {
   padding: 60px 20px 24px;
 }
 
+body.join-info-page .about-story-section {
+  background: #fff;
+}
+
 .about-story-card {
   background: #fff;
   border: 1px solid #e7e9ee;
@@ -1529,6 +1541,10 @@ body {
 .sponsorships-page-section {
   background: #f5f5f5;
   padding: 60px 20px 64px;
+}
+
+body.sponsorships-info-page .sponsorships-page-section {
+  background: #fff;
 }
 
 .sponsorships-intro-card,
