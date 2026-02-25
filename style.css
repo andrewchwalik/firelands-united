@@ -1103,11 +1103,11 @@ body {
 .footer-logo {
   display: flex; /* Align items horizontally */
   align-items: center; /* Vertically center items */
-  gap: 15px; /* Space between the logo and text */
+  gap: 18px; /* Space between the logo and text */
   margin-left: 0;
   margin-top: 0;
-  flex: 0 0 250px;
-  min-width: 250px;
+  flex: 0 0 320px;
+  min-width: 320px;
 }
 
 .footer-logo img {
@@ -1140,7 +1140,7 @@ body {
   margin-top: 0;
   font-size: 0.8rem;
   line-height: 1.45;
-  min-width: 135px;
+  min-width: 190px;
 }
 
 .footer-bottom p {
@@ -1199,25 +1199,43 @@ body {
 }
 
 /* Social Media Icons */
-.footer-social {
-  margin-top: 10px;
+.footer-social-column {
+  min-width: 148px;
+  flex: 0 0 148px;
 }
 
-.footer-social a {
-  display: inline-block;
-  margin-right: 10px; /* Space between icons */
-  transition: transform 0.3s ease; /* Hover effect */
+.footer-social-column h3 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #fff;
 }
 
-.footer-social a img {
-  height: 24px; /* Icon size */
-  margin-right: 0; /* Adjust icon spacing */
-  display: inline-block;
-  transition: transform 0.3s ease; /* Smooth hover effect */
+.footer-social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.footer-social a img:hover {
-  transform: scale(1.1); /* Slight zoom effect on hover */
+.footer-social-links a {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.18);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.footer-social-links a:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.footer-social-links img {
+  width: 16px;
+  height: 16px;
+  filter: brightness(0) invert(1);
 }
 
 /* GIF */
