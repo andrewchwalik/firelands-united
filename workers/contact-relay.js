@@ -32,6 +32,7 @@ export default {
       const timestamp = String(body?.timestamp || "").trim();
       const subject = String(body?.subject || "").trim();
       const message = String(body?.message || "").trim();
+      const newsletterOptIn = Boolean(body?.newsletterOptIn);
 
       if (!name || !email || !subject || !message) {
         return new Response(JSON.stringify({ error: "Missing required fields" }), {
@@ -40,7 +41,7 @@ export default {
         });
       }
 
-      const discordContent = `${timestamp} | ${name} | ${email}\n\n**${subject}** | ${message}`;
+      const discordContent = `${timestamp} | ${name} | ${email}\nNewsletter Opt-In: ${newsletterOptIn ? "Yes" : "No"}\n\n**${subject}** | ${message}`;
 
       const discordResponse = await fetch(env.DISCORD_WEBHOOK_URL, {
         method: "POST",
