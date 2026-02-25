@@ -1090,12 +1090,12 @@ body {
 
 /* Footer Layout */
 .footer-links-container {
-  display: flex;
-  justify-content: space-between; /* Spread out the columns evenly */
+  display: grid;
+  grid-template-columns: 320px repeat(4, minmax(140px, 1fr)) 148px;
   align-items: flex-start; /* Align columns to the top */
-  max-width: 1200px; /* Center container width */
+  max-width: 1320px; /* Gives the left column more room and balances spacing */
   margin: 0 auto; /* Center the footer content */
-  gap: 34px; /* Keep columns readable with five groups */
+  gap: 34px; /* Keep spacing consistent between all columns */
 }
 
 /* Logo Column */
