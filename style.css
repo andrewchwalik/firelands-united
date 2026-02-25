@@ -1181,6 +1181,11 @@ body {
   transition: color 0.3s ease;
 }
 
+.footer-column ul li span {
+  color: #ffffff;
+  font-size: 0.875rem;
+}
+
 .footer-column ul li a:hover {
   color: #fff;
 }
