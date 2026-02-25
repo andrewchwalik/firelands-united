@@ -952,16 +952,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function postNewsletterSignup(payload) {
-    // Fast path: queue non-blocking request and immediately return.
-    if (navigator.sendBeacon) {
-      const ok = navigator.sendBeacon(
-        GOOGLE_SHEET_URL,
-        new Blob([JSON.stringify(payload)], { type: "application/json" })
-      );
-      if (ok) return Promise.resolve();
-    }
-
-    // Fallback for browsers that do not support or reject sendBeacon.
+    // Keep this as a regular request so we only show success after the request completes.
     return fetch(GOOGLE_SHEET_URL, {
       method: "POST",
       mode: "no-cors",
@@ -969,7 +960,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(payload),
-      keepalive: true,
+      keepalive: false,
     }).then(() => undefined);
   }
 
