@@ -499,6 +499,75 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // ----- Internship application forms -----
+  const internshipForms = document.querySelectorAll(".internship-application-form");
+  const contactRelayUrl = "https://firelandsunited-contact.chwalik.workers.dev";
+
+  if (internshipForms.length > 0) {
+    internshipForms.forEach((form) => {
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const role = (form.getAttribute("data-internship-role") || "").trim();
+        const name = (form.querySelector('input[name="name"]')?.value || "").trim();
+        const email = (form.querySelector('input[name="email"]')?.value || "").trim();
+        const phone = (form.querySelector('input[name="phone"]')?.value || "").trim();
+        const school = (form.querySelector('input[name="school"]')?.value || "").trim();
+        const availability = (form.querySelector('input[name="availability"]')?.value || "").trim();
+        const interest = (form.querySelector('textarea[name="interest"]')?.value || "").replace(/\n+/g, " ").trim();
+        const timestamp = new Date().toLocaleString("en-US", { hour12: true });
+
+        const successMessage = form.parentElement?.querySelectorAll(".internship-application-status")[0];
+        const errorMessage = form.parentElement?.querySelectorAll(".internship-application-status")[1];
+        const submitButton = form.querySelector(".submit-button");
+
+        if (successMessage) successMessage.hidden = true;
+        if (errorMessage) errorMessage.hidden = true;
+
+        if (!role || !name || !email || !interest) return;
+
+        const payload = {
+          formType: "internship-application",
+          role,
+          name,
+          email,
+          phone,
+          school,
+          availability,
+          interest,
+          timestamp
+        };
+
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.textContent = "Sending...";
+        }
+
+        fetch(contactRelayUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(payload)
+        })
+          .then((response) => {
+            if (!response.ok) throw new Error("Internship application request failed.");
+            form.reset();
+            if (successMessage) successMessage.hidden = false;
+          })
+          .catch(() => {
+            if (errorMessage) errorMessage.hidden = false;
+          })
+          .finally(() => {
+            if (submitButton) {
+              submitButton.disabled = false;
+              submitButton.textContent = "Submit Application";
+            }
+          });
+      });
+    });
+  }
+
   // ----- Blog list/search (news page) -----
   const blogList = document.getElementById("blog-list");
   const searchInput = document.getElementById("search-input");

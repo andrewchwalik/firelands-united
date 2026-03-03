@@ -412,8 +412,18 @@
   font-size: 1.15rem;
 }
 
+.internship-intro {
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+}
+
 .internship-list {
   margin-top: 14px;
+}
+
+.internship-application {
+  margin-top: 22px;
+  padding-top: 18px;
 }
 
 .sponsorships-page-section {

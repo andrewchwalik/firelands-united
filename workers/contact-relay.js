@@ -27,21 +27,66 @@ export default {
 
     try {
       const body = await request.json();
+      const formType = String(body?.formType || "contact").trim();
       const name = String(body?.name || "").trim();
       const email = String(body?.email || "").trim();
       const timestamp = String(body?.timestamp || "").trim();
-      const subject = String(body?.subject || "").trim();
-      const message = String(body?.message || "").trim();
-      const newsletterOptIn = Boolean(body?.newsletterOptIn);
+      let discordContent = "";
 
-      if (!name || !email || !subject || !message) {
-        return new Response(JSON.stringify({ error: "Missing required fields" }), {
-          status: 400,
+      if (formType === "internship-application") {
+        const role = String(body?.role || "").trim();
+        const phone = String(body?.phone || "").trim();
+        const school = String(body?.school || "").trim();
+        const availability = String(body?.availability || "").trim();
+        const interest = String(body?.interest || "").trim();
+
+        if (!name || !email || !role || !interest) {
+          return new Response(JSON.stringify({ error: "Missing required fields" }), {
+            status: 400,
+            headers: { ...corsHeaders, "Content-Type": "application/json" }
+          });
+        }
+
+        discordContent =
+          `${timestamp} | ${name} | ${email}\n` +
+          `**Internship Application: ${role}**\n` +
+          `Phone: ${phone || "N/A"}\n` +
+          `School / Organization / Current Role: ${school || "N/A"}\n` +
+          `Availability: ${availability || "N/A"}\n\n` +
+          `${interest}`;
+
+        const internshipWebhook = env.INTERNSHIP_DISCORD_WEBHOOK_URL || env.DISCORD_WEBHOOK_URL;
+        const discordResponse = await fetch(internshipWebhook, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ content: discordContent })
+        });
+
+        if (!discordResponse.ok) {
+          return new Response(JSON.stringify({ error: "Discord relay failed" }), {
+            status: 502,
+            headers: { ...corsHeaders, "Content-Type": "application/json" }
+          });
+        }
+
+        return new Response(JSON.stringify({ ok: true }), {
+          status: 200,
           headers: { ...corsHeaders, "Content-Type": "application/json" }
         });
-      }
+      } else {
+        const subject = String(body?.subject || "").trim();
+        const message = String(body?.message || "").trim();
+        const newsletterOptIn = Boolean(body?.newsletterOptIn);
 
-      const discordContent = `${timestamp} | ${name} | ${email}\nNewsletter Opt-In: ${newsletterOptIn ? "Yes" : "No"}\n\n**${subject}** | ${message}`;
+        if (!name || !email || !subject || !message) {
+          return new Response(JSON.stringify({ error: "Missing required fields" }), {
+            status: 400,
+            headers: { ...corsHeaders, "Content-Type": "application/json" }
+          });
+        }
+
+        discordContent = `${timestamp} | ${name} | ${email}\nNewsletter Opt-In: ${newsletterOptIn ? "Yes" : "No"}\n\n**${subject}** | ${message}`;
+      }
 
       const discordResponse = await fetch(env.DISCORD_WEBHOOK_URL, {
         method: "POST",
