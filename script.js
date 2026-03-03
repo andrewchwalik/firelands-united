@@ -474,6 +474,31 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // ----- Internship page tabs -----
+  const internshipTabs = document.querySelectorAll(".internship-tab");
+  const internshipPanels = document.querySelectorAll(".internship-panel");
+
+  if (internshipTabs.length > 0 && internshipPanels.length > 0) {
+    internshipTabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const targetInternship = tab.getAttribute("data-internship-target");
+        if (!targetInternship) return;
+
+        internshipTabs.forEach((t) => {
+          const isActive = t === tab;
+          t.classList.toggle("active", isActive);
+          t.setAttribute("aria-pressed", isActive ? "true" : "false");
+        });
+
+        internshipPanels.forEach((panel) => {
+          const isMatch = panel.getAttribute("data-internship-panel") === targetInternship;
+          panel.classList.toggle("active", isMatch);
+          panel.hidden = !isMatch;
+        });
+      });
+    });
+  }
+
   // ----- Blog list/search (news page) -----
   const blogList = document.getElementById("blog-list");
   const searchInput = document.getElementById("search-input");
