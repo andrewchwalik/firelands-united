@@ -515,6 +515,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const school = (form.querySelector('input[name="school"]')?.value || "").trim();
         const availability = (form.querySelector('input[name="availability"]')?.value || "").trim();
         const interest = (form.querySelector('textarea[name="interest"]')?.value || "").replace(/\n+/g, " ").trim();
+        const resumeInput = form.querySelector('input[name="resume"]');
+        const resumeFile = resumeInput?.files?.[0];
         const timestamp = new Date().toLocaleString("en-US", { hour12: true });
 
         const successMessage = form.parentElement?.querySelectorAll(".internship-application-status")[0];
@@ -524,19 +526,34 @@ document.addEventListener("DOMContentLoaded", () => {
         if (successMessage) successMessage.hidden = true;
         if (errorMessage) errorMessage.hidden = true;
 
-        if (!role || !name || !email || !interest) return;
+        if (!role || !name || !email || !interest || !resumeFile) return;
 
-        const payload = {
-          formType: "internship-application",
-          role,
-          name,
-          email,
-          phone,
-          school,
-          availability,
-          interest,
-          timestamp
-        };
+        const isPdf =
+          resumeFile.type === "application/pdf" ||
+          (resumeFile.name || "").toLowerCase().endsWith(".pdf");
+        const maxResumeSize = 8 * 1024 * 1024;
+
+        if (!isPdf || resumeFile.size > maxResumeSize) {
+          if (errorMessage) {
+            errorMessage.textContent = !isPdf
+              ? "Please upload your resume as a PDF."
+              : "Resume file is too large. Please keep it under 8MB.";
+            errorMessage.hidden = false;
+          }
+          return;
+        }
+
+        const payload = new FormData();
+        payload.append("formType", "internship-application");
+        payload.append("role", role);
+        payload.append("name", name);
+        payload.append("email", email);
+        payload.append("phone", phone);
+        payload.append("school", school);
+        payload.append("availability", availability);
+        payload.append("interest", interest);
+        payload.append("timestamp", timestamp);
+        payload.append("resume", resumeFile);
 
         if (submitButton) {
           submitButton.disabled = true;
@@ -545,10 +562,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         fetch(contactRelayUrl, {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(payload)
+          body: payload
         })
           .then((response) => {
             if (!response.ok) throw new Error("Internship application request failed.");
@@ -556,7 +570,10 @@ document.addEventListener("DOMContentLoaded", () => {
             if (successMessage) successMessage.hidden = false;
           })
           .catch(() => {
-            if (errorMessage) errorMessage.hidden = false;
+            if (errorMessage) {
+              errorMessage.textContent = "Could not send your application. Please try again in a moment.";
+              errorMessage.hidden = false;
+            }
           })
           .finally(() => {
             if (submitButton) {
