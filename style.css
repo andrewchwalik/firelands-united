@@ -1556,43 +1556,26 @@ body.join-info-page .about-story-section {
   margin-bottom: 0;
 }
 
+.internship-content {
+  text-align: left;
+}
+
+.internship-header h1 {
+  margin-bottom: 8px;
+}
+
 .internship-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin: 18px 0 18px;
-}
-
-.internship-tab {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #d8dce4;
-  background: #fff;
-  color: #474e5a;
-  border-radius: 999px;
-  padding: 12px 18px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 700;
-  line-height: 1;
-  cursor: pointer;
-  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-}
-
-.internship-tab:hover {
-  border-color: #f18a01;
-  color: #f18a01;
-}
-
-.internship-tab.active {
-  background: #f18a01;
-  border-color: #f18a01;
-  color: #fff;
+  margin-bottom: 30px;
 }
 
 .internship-panel-group {
   position: relative;
+}
+
+.internship-panel {
+  max-width: 880px;
+  color: #474e5a;
+  text-align: left;
 }
 
 .internship-panel h2 {
