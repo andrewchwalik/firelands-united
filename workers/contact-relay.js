@@ -32,7 +32,6 @@ async function parseRequestBody(request) {
       role: String(formData.get("role") || "").trim(),
       phone: String(formData.get("phone") || "").trim(),
       school: String(formData.get("school") || "").trim(),
-      availability: String(formData.get("availability") || "").trim(),
       interest: String(formData.get("interest") || "").trim(),
       resume: formData.get("resume")
     };
@@ -50,7 +49,6 @@ async function parseRequestBody(request) {
     role: String(body?.role || "").trim(),
     phone: String(body?.phone || "").trim(),
     school: String(body?.school || "").trim(),
-    availability: String(body?.availability || "").trim(),
     interest: String(body?.interest || "").trim(),
     resume: body?.resume || null
   };
@@ -103,7 +101,6 @@ export default {
         const role = body.role;
         const phone = body.phone;
         const school = body.school;
-        const availability = body.availability;
         const interest = body.interest;
         const resume = body.resume;
 
@@ -126,8 +123,7 @@ export default {
           `${timestamp} | ${name} | ${email}\n` +
           `**Internship Application: ${role}**\n` +
           `Phone: ${phone || "N/A"}\n` +
-          `School / Organization / Current Role: ${school || "N/A"}\n` +
-          `Availability: ${availability || "N/A"}\n\n` +
+          `School / Organization / Current Role: ${school || "N/A"}\n\n` +
           `${interest}`;
 
         const internshipWebhook = env.INTERNSHIP_DISCORD_WEBHOOK_URL || env.DISCORD_WEBHOOK_URL;

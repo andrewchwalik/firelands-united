@@ -1310,9 +1310,9 @@ body {
 }
 
 .contact-success-message {
-    background: rgba(46, 160, 67, 0.12);
-    border: 1px solid rgba(46, 160, 67, 0.3);
-    color: #1f6f35;
+    background: rgba(241, 138, 1, 0.12);
+    border: 1px solid rgba(241, 138, 1, 0.32);
+    color: #b66500;
     border-radius: 8px;
     padding: 10px 12px;
     margin-bottom: 16px;
@@ -1320,9 +1320,9 @@ body {
 }
 
 .contact-error-message {
-    background: rgba(190, 37, 37, 0.12);
-    border-color: rgba(190, 37, 37, 0.3);
-    color: #8f1b1b;
+    background: rgba(71, 78, 90, 0.08);
+    border-color: rgba(241, 138, 1, 0.32);
+    color: #474e5a;
 }
 
 .contact-form {
@@ -1379,19 +1379,21 @@ body {
 
 .submit-button {
     justify-self: start;
-    border: none;
+    border: 2px solid #f18a01;
     border-radius: 999px;
-    background: #474e5a;
-    color: #fff;
-    padding: 10px 18px;
+    background: #fff;
+    color: #f18a01;
+    padding: 9px 20px;
     font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
     font-weight: 700;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .submit-button:hover {
-    background: #3b414b;
+    background: #f18a01;
+    color: #fff;
 }
 
 .instagram-feed-section {
@@ -1606,6 +1608,7 @@ body.join-info-page .about-story-section {
 .internship-application {
   margin-top: 28px;
   padding-top: 22px;
+  padding-bottom: 22px;
   border-top: 1px solid #dfe3ea;
 }
 
@@ -1644,6 +1647,25 @@ body.join-info-page .about-story-section {
   font-size: 0.92rem;
   border-radius: 10px;
   padding: 12px 14px;
+}
+
+.internship-file-field input[type="file"]::file-selector-button {
+  border: 2px solid #f18a01;
+  background: #fff;
+  color: #f18a01;
+  border-radius: 999px;
+  padding: 8px 14px;
+  margin-right: 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.internship-file-field input[type="file"]::file-selector-button:hover {
+  background: #f18a01;
+  color: #fff;
 }
 
 .internship-file-field p {

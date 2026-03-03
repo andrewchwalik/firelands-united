@@ -513,7 +513,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const email = (form.querySelector('input[name="email"]')?.value || "").trim();
         const phone = (form.querySelector('input[name="phone"]')?.value || "").trim();
         const school = (form.querySelector('input[name="school"]')?.value || "").trim();
-        const availability = (form.querySelector('input[name="availability"]')?.value || "").trim();
         const interest = (form.querySelector('textarea[name="interest"]')?.value || "").replace(/\n+/g, " ").trim();
         const resumeInput = form.querySelector('input[name="resume"]');
         const resumeFile = resumeInput?.files?.[0];
@@ -550,7 +549,6 @@ document.addEventListener("DOMContentLoaded", () => {
         payload.append("email", email);
         payload.append("phone", phone);
         payload.append("school", school);
-        payload.append("availability", availability);
         payload.append("interest", interest);
         payload.append("timestamp", timestamp);
         payload.append("resume", resumeFile);
