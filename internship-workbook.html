@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firelands United Internship Workbook</title>
+  <style>
+    :root {
+      --orange: #f18a01;
+      --charcoal: #474e5a;
+      --light-gray: #eef1f5;
+      --mid-gray: #c9d0d9;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 32px;
+      font-family: "Montserrat", Arial, sans-serif;
+      color: #222;
+      background: #fff;
+      line-height: 1.45;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto 28px;
+      border: 1px solid var(--mid-gray);
+      border-radius: 12px;
+      padding: 24px 26px;
+      background: #fff;
+      page-break-after: always;
+    }
+
+    .page:last-child { page-break-after: auto; }
+
+    h1, h2, h3 {
+      margin: 0 0 10px;
+      color: var(--charcoal);
+      line-height: 1.25;
+    }
+
+    h1 {
+      font-size: 1.9rem;
+      border-bottom: 3px solid var(--orange);
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      margin-top: 18px;
+      padding-left: 10px;
+      border-left: 4px solid var(--orange);
+    }
+
+    h3 {
+      font-size: 1rem;
+      margin-top: 16px;
+      color: #3f4652;
+    }
+
+    p { margin: 8px 0; }
+    ul { margin: 8px 0 10px 20px; padding: 0; }
+    li { margin-bottom: 6px; }
+
+    .small { font-size: 0.9rem; color: #555; }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 18px;
+      margin-bottom: 10px;
+    }
+
+    .line,
+    .line-long,
+    .line-xl {
+      border-bottom: 1px solid #666;
+      display: inline-block;
+      height: 1.15em;
+      vertical-align: bottom;
+    }
+
+    .line { width: 170px; }
+    .line-long { width: 330px; }
+    .line-xl { width: 100%; margin-top: 4px; }
+
+    .field {
+      margin: 6px 0;
+      break-inside: avoid;
+    }
+
+    .box {
+      border: 1px solid var(--mid-gray);
+      background: #fafbfc;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin: 10px 0;
+    }
+
+    .checklist li {
+      list-style: none;
+      margin-left: 0;
+      padding-left: 0;
+    }
+
+    .checkbox {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border: 1.5px solid #444;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+
+    .rating-scale {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+      margin: 10px 0;
+    }
+
+    .rating-scale div {
+      border: 1px solid var(--mid-gray);
+      border-radius: 8px;
+      padding: 8px;
+      font-size: 0.86rem;
+      background: #fff;
+      text-align: center;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0 12px;
+    }
+
+    .table th,
+    .table td {
+      border: 1px solid var(--mid-gray);
+      padding: 8px 10px;
+      vertical-align: top;
+      font-size: 0.92rem;
+    }
+
+    .table th {
+      background: var(--light-gray);
+      color: #333;
+      text-align: left;
+    }
+
+    .space-sm { height: 20px; }
+    .space-md { height: 36px; }
+    .space-lg { height: 56px; }
+
+    @media print {
+      body {
+        padding: 0;
+      }
+
+      .page {
+        margin: 0;
+        border: none;
+        border-radius: 0;
+        padding: 0.45in 0.55in;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="page">
+    <h1>Firelands United Internship Workbook</h1>
+    <p class="small">Internal use workbook for Event Operations, Marketing, and Coaching internship tracks.</p>
+
+    <h2>Program Basics</h2>
+    <div class="grid-2">
+      <div class="field">Intern Name: <span class="line-long"></span></div>
+      <div class="field">Internship Track: <span class="line-long"></span></div>
+      <div class="field">Supervisor Name: <span class="line-long"></span></div>
+      <div class="field">Start Date: <span class="line"></span></div>
+      <div class="field">End Date: <span class="line"></span></div>
+      <div class="field">Weekly Target Hours: <span class="line"></span></div>
+      <div class="field">Midpoint Review Date: <span class="line"></span></div>
+      <div class="field">Final Review Date: <span class="line"></span></div>
+    </div>
+
+    <h2>Rating Scale (Midpoint + Final)</h2>
+    <div class="rating-scale">
+      <div><strong>1</strong><br>Needs Significant Improvement</div>
+      <div><strong>2</strong><br>Developing</div>
+      <div><strong>3</strong><br>Meets Expectations</div>
+      <div><strong>4</strong><br>Exceeds Expectations</div>
+      <div><strong>5</strong><br>Outstanding</div>
+    </div>
+
+    <h2>Suggested 12-Week Progression</h2>
+    <table class="table">
+      <thead>
+        <tr><th>Week</th><th>Focus</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Orientation, expectations, systems access, learning goals.</td></tr>
+        <tr><td>2</td><td>Shadowing + workflow training.</td></tr>
+        <tr><td>3</td><td>Independent low-risk tasks.</td></tr>
+        <tr><td>4</td><td>Own one recurring workflow.</td></tr>
+        <tr><td>5</td><td>Quality and consistency improvements.</td></tr>
+        <tr><td>6</td><td>Midpoint prep + self-review.</td></tr>
+        <tr><td>7</td><td>Midpoint review + improvement plan.</td></tr>
+        <tr><td>8</td><td>Own higher-impact assignment.</td></tr>
+        <tr><td>9</td><td>Cross-functional exposure/networking.</td></tr>
+        <tr><td>10</td><td>Draft final project/recommendations.</td></tr>
+        <tr><td>11</td><td>Finalize deliverables.</td></tr>
+        <tr><td>12</td><td>Final review and completion.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="page">
+    <h1>Weekly Check-In Template</h1>
+    <div class="grid-2">
+      <div class="field">Week #: <span class="line"></span></div>
+      <div class="field">Date: <span class="line"></span></div>
+      <div class="field">Supervisor: <span class="line-long"></span></div>
+      <div class="field">Intern: <span class="line-long"></span></div>
+    </div>
+
+    <h2>1) Priorities Completed This Week</h2>
+    <div class="field">Priority 1: <span class="line-xl"></span></div>
+    <div class="field">Priority 2: <span class="line-xl"></span></div>
+    <div class="field">Priority 3: <span class="line-xl"></span></div>
+
+    <h2>2) Key Wins</h2>
+    <div class="field">Win 1: <span class="line-xl"></span></div>
+    <div class="field">Win 2: <span class="line-xl"></span></div>
+    <div class="field">Win 3: <span class="line-xl"></span></div>
+
+    <h2>3) Challenges / Blockers</h2>
+    <div class="field">Challenge 1: <span class="line-xl"></span></div>
+    <div class="field">Challenge 2: <span class="line-xl"></span></div>
+    <div class="field">Support Needed: <span class="line-xl"></span></div>
+
+    <h2>4) Skills Developed This Week</h2>
+    <div class="field">Skill 1: <span class="line-xl"></span></div>
+    <div class="field">Skill 2: <span class="line-xl"></span></div>
+    <div class="field">Skill 3: <span class="line-xl"></span></div>
+  </section>
+
+  <section class="page">
+    <h1>Weekly Check-In Template (Continued)</h1>
+
+    <h2>5) Deliverables Progress</h2>
+    <table class="table">
+      <thead>
+        <tr><th>Deliverable</th><th>Status</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="space-sm"></td><td>Not Started / In Progress / Completed</td><td></td></tr>
+        <tr><td class="space-sm"></td><td>Not Started / In Progress / Completed</td><td></td></tr>
+        <tr><td class="space-sm"></td><td>Not Started / In Progress / Completed</td><td></td></tr>
+      </tbody>
+    </table>
+
+    <h2>6) Supervisor Feedback</h2>
+    <div class="field">What went well: <span class="line-xl"></span></div>
+    <div class="space-sm"></div>
+    <div class="field">What to improve: <span class="line-xl"></span></div>
+    <div class="space-sm"></div>
+    <div class="field">Specific coaching notes: <span class="line-xl"></span></div>
+
+    <h2>7) Intern Reflection</h2>
+    <div class="field">What I learned: <span class="line-xl"></span></div>
+    <div class="space-sm"></div>
+    <div class="field">What I need help with: <span class="line-xl"></span></div>
+    <div class="space-sm"></div>
+    <div class="field">What I will do next week: <span class="line-xl"></span></div>
+
+    <h2>8) Next Week Plan</h2>
+    <div class="field">Goal 1: <span class="line-xl"></span></div>
+    <div class="field">Goal 2: <span class="line-xl"></span></div>
+    <div class="field">Goal 3: <span class="line-xl"></span></div>
+  </section>
+
+  <section class="page">
+    <h1>Midpoint Evaluation Rubric</h1>
+    <div class="grid-2">
+      <div class="field">Intern: <span class="line-long"></span></div>
+      <div class="field">Track: <span class="line"></span></div>
+      <div class="field">Reviewer: <span class="line-long"></span></div>
+      <div class="field">Date: <span class="line"></span></div>
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr><th>Category</th><th>Score (1-5)</th><th>Evidence / Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Professionalism and Reliability</td><td></td><td></td></tr>
+        <tr><td>Communication</td><td></td><td></td></tr>
+        <tr><td>Initiative and Ownership</td><td></td><td></td></tr>
+        <tr><td>Quality of Work</td><td></td><td></td></tr>
+        <tr><td>Time Management and Organization</td><td></td><td></td></tr>
+        <tr><td>Team Collaboration</td><td></td><td></td></tr>
+        <tr><td>Coachability and Learning Agility</td><td></td><td></td></tr>
+        <tr><td>Role-Specific Execution</td><td></td><td></td></tr>
+        <tr><td>Documentation and Deliverables Progress</td><td></td><td></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Midpoint Summary</h2>
+    <div class="field">Strengths: <span class="line-xl"></span></div>
+    <div class="space-sm"></div>
+    <div class="field">Improvement Areas: <span class="line-xl"></span></div>
+    <div class="space-sm"></div>
+    <div class="field">Overall Midpoint Rating (1-5): <span class="line"></span></div>
+    <div class="field">On Track for Completion: <span class="line"></span></div>
+
+    <h2>Midpoint Action Plan (Next 4-6 Weeks)</h2>
+    <div class="field">Goal 1: <span class="line-xl"></span></div>
+    <div class="field">Goal 2: <span class="line-xl"></span></div>
+    <div class="field">Goal 3: <span class="line-xl"></span></div>
+    <div class="field">Supervisor Support Commitments: <span class="line-xl"></span></div>
+    <div class="field">Checkpoint Date: <span class="line"></span></div>
+  </section>
+
+  <section class="page">
+    <h1>Final Evaluation + Completion</h1>
+    <div class="grid-2">
+      <div class="field">Intern: <span class="line-long"></span></div>
+      <div class="field">Track: <span class="line"></span></div>
+      <div class="field">Reviewer: <span class="line-long"></span></div>
+      <div class="field">Date: <span class="line"></span></div>
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr><th>Category</th><th>Score (1-5)</th><th>Evidence / Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Professionalism and Reliability</td><td></td><td></td></tr>
+        <tr><td>Communication and Collaboration</td><td></td><td></td></tr>
+        <tr><td>Ownership and Problem Solving</td><td></td><td></td></tr>
+        <tr><td>Quality and Consistency of Output</td><td></td><td></td></tr>
+        <tr><td>Role-Specific Mastery</td><td></td><td></td></tr>
+        <tr><td>Completion of Required Deliverables</td><td></td><td></td></tr>
+        <tr><td>Growth Since Midpoint</td><td></td><td></td></tr>
+        <tr><td>Overall Contribution to Club Operations</td><td></td><td></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Final Summary</h2>
+    <div class="field">Final Overall Rating (1-5): <span class="line"></span></div>
+    <div class="field">Would Rehire / Recommend: <span class="line"></span></div>
+    <div class="field">Reference Status: <span class="line"></span></div>
+    <div class="field">Supervisor Comments: <span class="line-xl"></span></div>
+    <div class="space-md"></div>
+    <div class="field">Intern Reflection Comments: <span class="line-xl"></span></div>
+
+    <h2>Completion Criteria Checklist</h2>
+    <ul class="checklist">
+      <li><span class="checkbox"></span> Attendance and professionalism expectations met</li>
+      <li><span class="checkbox"></span> Weekly check-ins completed and documented</li>
+      <li><span class="checkbox"></span> Midpoint review completed</li>
+      <li><span class="checkbox"></span> Final review completed</li>
+      <li><span class="checkbox"></span> Required role deliverables submitted</li>
+      <li><span class="checkbox"></span> Final reflection submitted</li>
+      <li><span class="checkbox"></span> Handoff notes/resources completed</li>
+    </ul>
+
+    <h2>Track Deliverables (Mark Complete/Incomplete)</h2>
+    <table class="table">
+      <thead>
+        <tr><th>Track</th><th>Deliverable</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Event Operations</td><td>Weekly operations log</td><td></td></tr>
+        <tr><td>Event Operations</td><td>SOP/checklist improvement</td><td></td></tr>
+        <tr><td>Event Operations</td><td>Final event improvement recommendation</td><td></td></tr>
+        <tr><td>Marketing</td><td>Weekly content plan contributions</td><td></td></tr>
+        <tr><td>Marketing</td><td>Campaign recap with insights</td><td></td></tr>
+        <tr><td>Marketing</td><td>Portfolio packet</td><td></td></tr>
+        <tr><td>Coaching</td><td>Weekly training observation log</td><td></td></tr>
+        <tr><td>Coaching</td><td>Session support progression notes</td><td></td></tr>
+        <tr><td>Coaching</td><td>Final coaching reflection/recommendations</td><td></td></tr>
+      </tbody>
+    </table>
+
+    <div class="field">Internship Completed Successfully: <span class="line"></span></div>
+    <div class="field">If No, Reason: <span class="line-xl"></span></div>
+    <div class="field">Supervisor Signature: <span class="line-long"></span> Date: <span class="line"></span></div>
+  </section>
+</body>
+</html>
