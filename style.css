@@ -1595,6 +1595,20 @@ body.join-info-page .about-story-section {
   font-weight: 800;
 }
 
+.internship-role-summary {
+  margin: 0 0 18px;
+  max-width: 900px;
+  color: #4f5561;
+  line-height: 1.6;
+}
+
+.internship-role-heading {
+  margin: 18px 0 10px;
+  color: #474e5a;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
 .internship-list {
   margin: 18px 0 0;
   padding-left: 20px;
@@ -1603,6 +1617,24 @@ body.join-info-page .about-story-section {
 
 .internship-list li {
   margin-bottom: 10px;
+}
+
+.internship-track {
+  display: grid;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.internship-track p {
+  margin: 0;
+  color: #4f5561;
+  line-height: 1.6;
+}
+
+.internship-role-meta {
+  margin: 10px 0 0;
+  color: #4f5561;
+  line-height: 1.55;
 }
 
 .internship-application {
