@@ -2145,6 +2145,7 @@ body.sponsorships-info-page .sponsorships-page-section {
     font-size: 0.8rem;
     color: #8a8f97;
     margin: 8px 0 0;
+    display: none;
 }
 
 .contact-info {
