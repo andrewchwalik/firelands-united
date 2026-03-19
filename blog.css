@@ -526,7 +526,11 @@ body {
   color: #c0c4ca;
   line-height: 1.28;
   margin: 0;
-  max-width: 520px;
+  max-width: 620px;
+}
+
+.newsletter-break {
+  display: inline;
 }
 
 .newsletter-form {

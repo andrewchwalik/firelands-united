@@ -500,6 +500,10 @@
   display: block;
 }
 
+.newsletter-break {
+  display: none;
+}
+
 .newsletter-signup {
   align-items: center;
 }

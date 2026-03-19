@@ -2093,7 +2093,11 @@ body.sponsorships-info-page .sponsorships-page-section {
     color: #c0c4ca;
     line-height: 1.28;
     margin: 0;
-    max-width: 410px;
+    max-width: 620px;
+}
+
+.newsletter-break {
+    display: inline;
 }
 
 .newsletter-form {
