@@ -529,8 +529,8 @@ body {
   max-width: 620px;
 }
 
-.newsletter-break {
-  display: inline;
+.newsletter-line {
+  display: block;
 }
 
 .newsletter-form {

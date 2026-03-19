@@ -500,8 +500,8 @@
   display: block;
 }
 
-.newsletter-break {
-  display: none;
+.newsletter-line {
+  display: inline;
 }
 
 .newsletter-signup {
