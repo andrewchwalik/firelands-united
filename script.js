@@ -20,6 +20,27 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  async function loadSharedNewsletter() {
+    const footers = document.querySelectorAll("footer.site-footer");
+    if (footers.length === 0) return;
+    try {
+      const response = await fetch("/partials/newsletter.html", { cache: "no-store" });
+      if (!response.ok) throw new Error(`Failed to load shared newsletter (${response.status})`);
+      const markup = await response.text();
+      document.querySelectorAll(".newsletter-section").forEach((section) => section.remove());
+      footers.forEach((footer) => {
+        const sponsorSection = footer.previousElementSibling;
+        if (sponsorSection && sponsorSection.classList.contains("sponsor-section")) {
+          sponsorSection.insertAdjacentHTML("afterend", markup);
+        } else {
+          footer.insertAdjacentHTML("beforebegin", markup);
+        }
+      });
+    } catch (error) {
+      console.error("Error loading shared newsletter:", error);
+    }
+  }
+
   // ----- Shared footer include -----
   // Single source of truth: /partials/footer.html
   // Any footer update should be made there.
@@ -38,8 +59,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  loadSharedSponsors();
-  loadSharedFooter();
+  (async function initSharedPageSections() {
+    await loadSharedSponsors();
+    await loadSharedNewsletter();
+    await loadSharedFooter();
+  })();
 
   // Ensure nav merch links have an inner label for layered jersey styling.
   document.querySelectorAll("a.nav-merch").forEach((link) => {

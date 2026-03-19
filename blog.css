@@ -502,7 +502,7 @@ body {
 
 .newsletter-section {
   background-color: #474E5A;
-  padding: 70px 20px;
+  padding: 36px 20px;
   text-align: center;
 }
 
@@ -513,24 +513,24 @@ body {
 
 .newsletter-title {
   font-family: 'Montserrat', sans-serif;
-  font-size: 2rem;
+  font-size: 1.7rem;
   font-weight: 700;
   color: #fff;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .newsletter-subtitle {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: #c0c4ca;
   line-height: 1.6;
-  margin-bottom: 30px;
+  margin-bottom: 18px;
 }
 
 .newsletter-form {
   display: flex;
   gap: 0;
   max-width: 480px;
-  margin: 0 auto 16px;
+  margin: 0 auto 12px;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
@@ -538,7 +538,7 @@ body {
 
 .newsletter-form input {
   flex: 1;
-  padding: 16px 20px;
+  padding: 13px 18px;
   border: none;
   font-family: 'Montserrat', sans-serif;
   font-size: 0.95rem;
@@ -552,7 +552,7 @@ body {
 }
 
 .newsletter-btn {
-  padding: 16px 28px;
+  padding: 13px 24px;
   border: none;
   background-color: #f18a01;
   color: #fff;
@@ -571,7 +571,7 @@ body {
 .newsletter-disclaimer {
   font-size: 0.8rem;
   color: #8a8f97;
-  margin-top: 8px;
+  margin-top: 6px;
 }
 
 /* ============================================

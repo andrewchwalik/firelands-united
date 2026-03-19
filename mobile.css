@@ -376,7 +376,7 @@
 }
 
 .contact-social-section {
-  padding: 28px 14px 18px;
+  padding: 28px 14px 40px;
 }
 
 .contact-social-inner h2 {
@@ -501,6 +501,10 @@
 
 .newsletter-btn {
   border-radius: 0 0 8px 8px;
+}
+
+.newsletter-section {
+  padding: 24px 14px;
 }
 
 .blog-grid {
