@@ -2083,13 +2083,17 @@ body.sponsorships-info-page .sponsorships-page-section {
 
 .newsletter-copy {
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .newsletter-subtitle {
     font-size: 0.95rem;
     color: #c0c4ca;
-    line-height: 1.6;
-    margin: 0 0 6px;
+    line-height: 1.28;
+    margin: 0;
+    max-width: 520px;
 }
 
 .newsletter-form {
