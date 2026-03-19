@@ -70,6 +70,32 @@
     </nav>
   </header>
 
+  <!-- Contact Form Section -->
+  <section class="contact-section">
+    <div class="contact-section-inner">
+      <h1>Contact Us</h1>
+      <p>Have questions, partnership ideas, or player inquiries? Send us a message and a team member will respond.</p>
+      <p class="contact-success-message" id="contact-success-message" hidden>Thanks for reaching out. Your message has been sent.</p>
+      <p class="contact-success-message contact-error-message" id="contact-error-message" hidden>Could not send your message. Please try again in a moment.</p>
+
+      <form class="contact-form" id="contact-form">
+          <input type="text" name="_honey" id="contact-honey" style="display:none">
+
+          <div class="input-group">
+              <input type="text" name="name" id="contact-name" placeholder="Your Name" required>
+              <input type="email" name="email" id="contact-email" placeholder="Your Email" required>
+          </div>
+          <input type="text" name="subject" id="contact-subject" placeholder="Subject" required>
+          <textarea name="message" id="contact-message" rows="6" placeholder="Your Message" required></textarea>
+          <label class="contact-optin" for="contact-newsletter-optin">
+            <input type="checkbox" id="contact-newsletter-optin" name="newsletter_opt_in" checked>
+            <span>Check this box if you wanted to be added to our email list to get the hottest soccer newsletter</span>
+          </label>
+          <button type="submit" class="submit-button" id="contact-submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
   <section class="contact-social-section">
     <div class="contact-social-inner">
       <h2>Find Us On Social</h2>
@@ -115,32 +141,6 @@
           </div>
         </article>
       </div>
-    </div>
-  </section>
-
-  <!-- Contact Form Section -->
-  <section class="contact-section">
-    <div class="contact-section-inner">
-      <h1>Contact Us</h1>
-      <p>Have questions, partnership ideas, or player inquiries? Send us a message and a team member will respond.</p>
-      <p class="contact-success-message" id="contact-success-message" hidden>Thanks for reaching out. Your message has been sent.</p>
-      <p class="contact-success-message contact-error-message" id="contact-error-message" hidden>Could not send your message. Please try again in a moment.</p>
-
-      <form class="contact-form" id="contact-form">
-          <input type="text" name="_honey" id="contact-honey" style="display:none">
-
-          <div class="input-group">
-              <input type="text" name="name" id="contact-name" placeholder="Your Name" required>
-              <input type="email" name="email" id="contact-email" placeholder="Your Email" required>
-          </div>
-          <input type="text" name="subject" id="contact-subject" placeholder="Subject" required>
-          <textarea name="message" id="contact-message" rows="6" placeholder="Your Message" required></textarea>
-          <label class="contact-optin" for="contact-newsletter-optin">
-            <input type="checkbox" id="contact-newsletter-optin" name="newsletter_opt_in" checked>
-            <span>Check this box if you wanted to be added to our email list to get the hottest soccer newsletter</span>
-          </label>
-          <button type="submit" class="submit-button" id="contact-submit">Send Message</button>
-      </form>
     </div>
   </section>
 
