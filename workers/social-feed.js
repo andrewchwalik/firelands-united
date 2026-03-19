@@ -24,13 +24,28 @@ async function fetchLatestYoutubeVideo() {
   }
 
   const html = await pageResponse.text();
-  const channelIdMatch = html.match(/"channelId":"(UC[^"]+)"/);
-  if (!channelIdMatch) {
+  const channelIdPatterns = [
+    /"channelId":"(UC[^"]+)"/,
+    /"externalId":"(UC[^"]+)"/,
+    /"browseId":"(UC[^"]+)"/,
+    /channel_id=(UC[\w-]+)/
+  ];
+
+  let channelId = "";
+  for (const pattern of channelIdPatterns) {
+    const match = html.match(pattern);
+    if (match?.[1]) {
+      channelId = match[1];
+      break;
+    }
+  }
+
+  if (!channelId) {
     throw new Error("Could not determine YouTube channel id.");
   }
 
   const rssResponse = await fetch(
-    `https://www.youtube.com/feeds/videos.xml?channel_id=${channelIdMatch[1]}`
+    `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`
   );
   if (!rssResponse.ok) {
     throw new Error(`YouTube RSS request failed (${rssResponse.status})`);
@@ -64,7 +79,7 @@ async function fetchLatestYoutubeVideo() {
 
 async function fetchLatestBlueskyPost() {
   const response = await fetch(
-    "https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?actor=andrewchwalik.bsky.social&limit=1"
+    "https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?actor=andrewchwalik.bsky.social&limit=10"
   );
 
   if (!response.ok) {
@@ -72,13 +87,13 @@ async function fetchLatestBlueskyPost() {
   }
 
   const data = await response.json();
-  const item = data?.feed?.[0];
+  const item = (data?.feed || []).find((entry) => !entry?.reply);
   const post = item?.post;
   const author = post?.author;
   const record = post?.record;
 
   if (!post?.uri || !record) {
-    throw new Error("No Bluesky posts found.");
+    throw new Error("No non-reply Bluesky posts found.");
   }
 
   const postId = post.uri.split("/").pop();
