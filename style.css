@@ -2076,9 +2076,10 @@ body.sponsorships-info-page .sponsorships-page-section {
     max-width: 1040px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(340px, 460px);
+    grid-template-columns: minmax(0, 540px) minmax(340px, 460px);
     gap: 24px;
     align-items: center;
+    justify-content: center;
 }
 
 .newsletter-copy {
@@ -2086,6 +2087,7 @@ body.sponsorships-info-page .sponsorships-page-section {
     display: flex;
     align-items: center;
     justify-content: center;
+    min-width: 0;
 }
 
 .newsletter-subtitle {
@@ -2093,7 +2095,7 @@ body.sponsorships-info-page .sponsorships-page-section {
     color: #c0c4ca;
     line-height: 1.28;
     margin: 0;
-    max-width: 620px;
+    max-width: 540px;
 }
 
 .newsletter-line {
