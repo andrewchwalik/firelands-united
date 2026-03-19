@@ -490,9 +490,20 @@
   gap: 12px;
 }
 
+.newsletter-container {
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.newsletter-copy {
+  text-align: center;
+}
+
 .newsletter-form {
   flex-direction: column;
   border-radius: 8px;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .newsletter-form input {
