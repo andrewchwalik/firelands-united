@@ -499,6 +499,10 @@
   text-align: center;
 }
 
+.newsletter-signup {
+  align-items: center;
+}
+
 .newsletter-form {
   flex-direction: column;
   border-radius: 8px;

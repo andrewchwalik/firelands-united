@@ -2082,7 +2082,7 @@ body.sponsorships-info-page .sponsorships-page-section {
 }
 
 .newsletter-copy {
-    text-align: left;
+    text-align: center;
 }
 
 .newsletter-subtitle {
@@ -2101,6 +2101,12 @@ body.sponsorships-info-page .sponsorships-page-section {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.newsletter-signup {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 .newsletter-form input {
@@ -2138,7 +2144,7 @@ body.sponsorships-info-page .sponsorships-page-section {
 .newsletter-disclaimer {
     font-size: 0.8rem;
     color: #8a8f97;
-    margin: 0;
+    margin: 8px 0 0;
 }
 
 .contact-info {
