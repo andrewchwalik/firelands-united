@@ -502,6 +502,7 @@
 
 .newsletter-line {
   display: inline;
+  white-space: normal;
 }
 
 .newsletter-signup {

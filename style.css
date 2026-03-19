@@ -2098,6 +2098,7 @@ body.sponsorships-info-page .sponsorships-page-section {
 
 .newsletter-line {
     display: block;
+    white-space: nowrap;
 }
 
 .newsletter-form {
