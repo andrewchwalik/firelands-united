@@ -79,7 +79,7 @@ async function fetchLatestYoutubeVideo() {
 
 async function fetchLatestBlueskyPost() {
   const response = await fetch(
-    "https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?actor=andrewchwalik.bsky.social&limit=10"
+    "https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?actor=andrewchwalik.bsky.social&filter=posts_no_replies&limit=10"
   );
 
   if (!response.ok) {
@@ -87,7 +87,10 @@ async function fetchLatestBlueskyPost() {
   }
 
   const data = await response.json();
-  const item = (data?.feed || []).find((entry) => !entry?.reply);
+  const item = (data?.feed || []).find((entry) => {
+    const record = entry?.post?.record;
+    return !!record?.text;
+  });
   const post = item?.post;
   const author = post?.author;
   const record = post?.record;
@@ -132,29 +135,54 @@ export default {
       return jsonResponse({ error: "Method not allowed" }, 405, corsHeaders);
     }
 
+    const reqUrl = new URL(request.url);
+    const forceRefresh = reqUrl.searchParams.get("refresh") === "1";
     const cache = caches.default;
-    const cacheKey = new Request("https://firelandsunited-cache/social-feed");
-    const cached = await cache.match(cacheKey);
-    if (cached) {
-      const headers = new Headers(cached.headers);
-      headers.set("Access-Control-Allow-Origin", allowOrigin);
-      headers.set("Access-Control-Allow-Methods", "GET, OPTIONS");
-      headers.set("Access-Control-Allow-Headers", "Content-Type");
-      return new Response(cached.body, { status: cached.status, headers });
+    const cacheKey = new Request(`https://firelandsunited-cache/social-feed${reqUrl.search}`);
+    if (!forceRefresh) {
+      const cached = await cache.match(cacheKey);
+      if (cached) {
+        const headers = new Headers(cached.headers);
+        headers.set("Access-Control-Allow-Origin", allowOrigin);
+        headers.set("Access-Control-Allow-Methods", "GET, OPTIONS");
+        headers.set("Access-Control-Allow-Headers", "Content-Type");
+        return new Response(cached.body, { status: cached.status, headers });
+      }
     }
 
     try {
-      const [youtube, bluesky] = await Promise.all([
+      const [youtubeResult, blueskyResult] = await Promise.allSettled([
         fetchLatestYoutubeVideo(),
         fetchLatestBlueskyPost()
       ]);
 
-      const response = jsonResponse(
-        {
-          youtube,
-          bluesky,
-          updated_at: new Date().toISOString()
+      const payload = {
+        youtube: youtubeResult.status === "fulfilled" ? youtubeResult.value : null,
+        bluesky: blueskyResult.status === "fulfilled" ? blueskyResult.value : null,
+        errors: {
+          youtube: youtubeResult.status === "rejected"
+            ? String(youtubeResult.reason?.message || youtubeResult.reason || "Unknown error")
+            : null,
+          bluesky: blueskyResult.status === "rejected"
+            ? String(blueskyResult.reason?.message || blueskyResult.reason || "Unknown error")
+            : null
         },
+        updated_at: new Date().toISOString()
+      };
+
+      if (!payload.youtube && !payload.bluesky) {
+        return jsonResponse(
+          {
+            error: "Could not load social feed",
+            detail: payload.errors
+          },
+          502,
+          corsHeaders
+        );
+      }
+
+      const response = jsonResponse(
+        payload,
         200,
         corsHeaders
       );
