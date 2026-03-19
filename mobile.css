@@ -375,6 +375,27 @@
   gap: 8px;
 }
 
+.contact-social-section {
+  padding: 28px 14px 18px;
+}
+
+.contact-social-inner h2 {
+  font-size: 2rem;
+}
+
+.contact-social-inner > p {
+  margin-bottom: 16px;
+}
+
+.contact-social-grid {
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.contact-social-card {
+  padding: 14px;
+}
+
 .instagram-feed-section {
   padding: 0 14px 24px;
 }

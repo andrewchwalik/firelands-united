@@ -1,0 +1,3 @@
+name = "firelandsunited-social-feed"
+main = "social-feed.js"
+compatibility_date = "2026-03-19"

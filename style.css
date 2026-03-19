@@ -1396,6 +1396,195 @@ body {
     color: #fff;
 }
 
+.contact-social-section {
+    background: #fff;
+    padding: 36px 20px 24px;
+}
+
+.contact-social-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+}
+
+.contact-social-inner h2 {
+    font-family: 'Bermont', sans-serif;
+    color: #474e5a;
+    font-size: 2.4rem;
+    margin: 0 0 8px;
+}
+
+.contact-social-inner > p {
+    color: #666;
+    margin: 0 0 20px;
+    max-width: 760px;
+}
+
+.contact-social-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    align-items: start;
+}
+
+.contact-social-card {
+    background: #fff;
+    border: 1px solid #e4e7ed;
+    border-radius: 18px;
+    padding: 16px;
+    box-shadow: 0 10px 26px rgba(25, 31, 41, 0.06);
+}
+
+.contact-social-card-copy {
+    margin-bottom: 14px;
+}
+
+.contact-social-label {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #f18a01;
+    margin-bottom: 8px;
+}
+
+.contact-social-card-copy p {
+    margin: 0;
+    color: #5f6570;
+    font-size: 0.95rem;
+    line-height: 1.45;
+}
+
+.contact-social-preview .instagram-card {
+    flex: 0 0 auto;
+    width: 100%;
+}
+
+.contact-social-preview .instagram-card-media {
+    aspect-ratio: 1 / 1;
+}
+
+.contact-social-link-card {
+    display: block;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background: #fff;
+    border: 1px solid #dde2ea;
+    border-radius: 16px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-social-link-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.14);
+}
+
+.contact-social-link-media {
+    aspect-ratio: 16 / 9;
+    background: #dfe3ea;
+    overflow: hidden;
+}
+
+.contact-social-link-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.contact-social-link-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 14px 0;
+}
+
+.contact-social-link-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #eceff4;
+    border: 1px solid #d7dce6;
+    flex: 0 0 auto;
+}
+
+.contact-social-link-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.contact-social-link-profile {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.contact-social-link-profile strong,
+.contact-social-link-profile span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.contact-social-link-profile strong {
+    color: #3d4450;
+    font-size: 0.92rem;
+}
+
+.contact-social-link-profile span {
+    color: #88909c;
+    font-size: 0.8rem;
+}
+
+.contact-social-link-body {
+    padding: 14px;
+}
+
+.contact-social-link-kicker {
+    display: inline-block;
+    margin-bottom: 8px;
+    color: #f18a01;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.contact-social-link-body h3,
+.contact-social-link-body p {
+    margin: 0;
+    color: #323844;
+    line-height: 1.42;
+}
+
+.contact-social-link-body h3 {
+    font-size: 1rem;
+}
+
+.contact-social-link-body p {
+    font-size: 0.92rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.contact-social-link-date {
+    display: inline-block;
+    margin-top: 10px;
+    color: #8a909b;
+    font-size: 0.8rem;
+}
+
+.contact-social-link-card--bluesky .contact-social-link-body {
+    padding-top: 10px;
+}
+
 .instagram-feed-section {
     background: #fff;
     padding: 0 20px 42px;

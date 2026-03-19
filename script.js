@@ -998,6 +998,131 @@ document.addEventListener("DOMContentLoaded", () => {
     }).join("");
   }
 
+  function renderContactSocialInstagram(container, data) {
+    renderInstagramCards(container, data.posts || [], data.profile || {});
+  }
+
+  function renderContactSocialYoutube(container, video) {
+    if (!video || !video.url) {
+      container.innerHTML = '<p class="instagram-feed-empty">Could not load the latest YouTube video right now.</p>';
+      return;
+    }
+
+    const title = escapeHtml(video.title || "Watch on YouTube");
+    const thumb = video.thumbnail || "/img/social-share.jpg";
+    const published = video.published_at
+      ? new Date(video.published_at).toLocaleDateString("en-US", {
+          month: "short",
+          day: "numeric",
+          year: "numeric"
+        })
+      : "";
+
+    container.innerHTML = `
+      <a class="contact-social-link-card" href="${video.url}" target="_blank" rel="noopener noreferrer">
+        <div class="contact-social-link-media">
+          <img src="${thumb}" alt="${title}" loading="lazy">
+        </div>
+        <div class="contact-social-link-body">
+          <span class="contact-social-link-kicker">Latest Video</span>
+          <h3>${title}</h3>
+          ${published ? `<span class="contact-social-link-date">${published}</span>` : ""}
+        </div>
+      </a>`;
+  }
+
+  function renderContactSocialBluesky(container, post) {
+    if (!post || !post.url) {
+      container.innerHTML = '<p class="instagram-feed-empty">Could not load the latest Bluesky post right now.</p>';
+      return;
+    }
+
+    const text = escapeHtml(post.text || "View the latest post on Bluesky.");
+    const published = post.posted_at
+      ? new Date(post.posted_at).toLocaleDateString("en-US", {
+          month: "short",
+          day: "numeric",
+          year: "numeric"
+        })
+      : "";
+    const displayName = escapeHtml(post.display_name || "Andrew Chwalik");
+    const handle = escapeHtml(post.handle || "andrewchwalik.bsky.social");
+    const avatar = post.avatar || "/img/firelands-badge.png";
+
+    container.innerHTML = `
+      <a class="contact-social-link-card contact-social-link-card--bluesky" href="${post.url}" target="_blank" rel="noopener noreferrer">
+        <div class="contact-social-link-top">
+          <span class="contact-social-link-avatar"><img src="${avatar}" alt="${displayName} avatar" loading="lazy"></span>
+          <span class="contact-social-link-profile">
+            <strong>${displayName}</strong>
+            <span>@${handle}</span>
+          </span>
+        </div>
+        <div class="contact-social-link-body">
+          <span class="contact-social-link-kicker">Latest Post</span>
+          <p>${text}</p>
+          ${published ? `<span class="contact-social-link-date">${published}</span>` : ""}
+        </div>
+      </a>`;
+  }
+
+  function initContactSocialFeeds() {
+    const instagramContainer = document.querySelector('[data-contact-social-card="instagram"]');
+    const youtubeContainer = document.querySelector('[data-contact-social-card="youtube"]');
+    const blueskyContainer = document.querySelector('[data-contact-social-card="bluesky"]');
+
+    if (!instagramContainer && !youtubeContainer && !blueskyContainer) return;
+
+    if (instagramContainer) {
+      const endpoint = instagramContainer.getAttribute("data-instagram-feed-endpoint");
+      if (!endpoint) {
+        instagramContainer.innerHTML = '<p class="instagram-feed-empty">Instagram feed endpoint is not set.</p>';
+      } else {
+        fetch(`${endpoint}?limit=1`)
+          .then((response) => {
+            if (!response.ok) throw new Error("Instagram feed request failed");
+            return response.json();
+          })
+          .then((data) => renderContactSocialInstagram(instagramContainer, data))
+          .catch(() => {
+            instagramContainer.innerHTML = '<p class="instagram-feed-empty">Could not load Instagram posts right now.</p>';
+          });
+      }
+    }
+
+    const socialEndpoint =
+      youtubeContainer?.getAttribute("data-social-feed-endpoint")
+      || blueskyContainer?.getAttribute("data-social-feed-endpoint");
+
+    if (!socialEndpoint) {
+      if (youtubeContainer) {
+        youtubeContainer.innerHTML = '<p class="instagram-feed-empty">Social feed endpoint is not set.</p>';
+      }
+      if (blueskyContainer) {
+        blueskyContainer.innerHTML = '<p class="instagram-feed-empty">Social feed endpoint is not set.</p>';
+      }
+      return;
+    }
+
+    fetch(socialEndpoint)
+      .then((response) => {
+        if (!response.ok) throw new Error("Social feed request failed");
+        return response.json();
+      })
+      .then((data) => {
+        if (youtubeContainer) renderContactSocialYoutube(youtubeContainer, data.youtube || {});
+        if (blueskyContainer) renderContactSocialBluesky(blueskyContainer, data.bluesky || {});
+      })
+      .catch(() => {
+        if (youtubeContainer) {
+          youtubeContainer.innerHTML = '<p class="instagram-feed-empty">Could not load the latest YouTube video right now.</p>';
+        }
+        if (blueskyContainer) {
+          blueskyContainer.innerHTML = '<p class="instagram-feed-empty">Could not load the latest Bluesky post right now.</p>';
+        }
+      });
+  }
+
   function initInstagramFeeds() {
     const feedContainers = document.querySelectorAll("[data-instagram-feed]");
     if (!feedContainers.length) return;
@@ -1027,6 +1152,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   initInstagramFeeds();
+  initContactSocialFeeds();
 
   // ----- Newsletter form (Google Sheets) -----
   const newsletterForm = document.getElementById("newsletter-form");

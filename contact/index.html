@@ -70,41 +70,77 @@
     </nav>
   </header>
 
-    <!-- Contact Form Section -->
-    <section class="contact-section">
-        <div class="contact-section-inner">
-          <h1>Contact Us</h1>
-          <p>Have questions, partnership ideas, or player inquiries? Send us a message and a team member will respond.</p>
-          <p class="contact-success-message" id="contact-success-message" hidden>Thanks for reaching out. Your message has been sent.</p>
-          <p class="contact-success-message contact-error-message" id="contact-error-message" hidden>Could not send your message. Please try again in a moment.</p>
+  <section class="contact-social-section">
+    <div class="contact-social-inner">
+      <h2>Find Us On Social</h2>
+      <p>Keep up with the club across every channel. Follow the latest on Instagram, YouTube, and Bluesky without leaving the page.</p>
 
-          <form class="contact-form" id="contact-form">
-              <input type="text" name="_honey" id="contact-honey" style="display:none">
+      <div class="contact-social-grid">
+        <article class="contact-social-card">
+          <div class="contact-social-card-copy">
+            <span class="contact-social-label">Instagram</span>
+            <p>Find all the latest club action on our Instagram.</p>
+          </div>
+          <div
+            class="contact-social-preview"
+            data-contact-social-card="instagram"
+            data-instagram-feed-endpoint="https://firelandsunited-instagram-feed.chwalik.workers.dev">
+            <p class="instagram-feed-loading">Loading latest Instagram post...</p>
+          </div>
+        </article>
 
-              <div class="input-group">
-                  <input type="text" name="name" id="contact-name" placeholder="Your Name" required>
-                  <input type="email" name="email" id="contact-email" placeholder="Your Email" required>
-              </div>
-              <input type="text" name="subject" id="contact-subject" placeholder="Subject" required>
-              <textarea name="message" id="contact-message" rows="6" placeholder="Your Message" required></textarea>
-              <label class="contact-optin" for="contact-newsletter-optin">
-                <input type="checkbox" id="contact-newsletter-optin" name="newsletter_opt_in" checked>
-                <span>Check this box if you wanted to be added to our email list to get the hottest soccer newsletter</span>
-              </label>
-              <button type="submit" class="submit-button" id="contact-submit">Send Message</button>
-          </form>
-        </div>
-    </section>
+        <article class="contact-social-card">
+          <div class="contact-social-card-copy">
+            <span class="contact-social-label">YouTube</span>
+            <p>Watch the most recent match highlights on our YouTube channel.</p>
+          </div>
+          <div
+            class="contact-social-preview"
+            data-contact-social-card="youtube"
+            data-social-feed-endpoint="https://firelandsunited-social-feed.chwalik.workers.dev">
+            <p class="instagram-feed-loading">Loading latest YouTube video...</p>
+          </div>
+        </article>
 
-  <section class="instagram-feed-section">
-    <div class="instagram-feed-inner">
-      <h2>Latest on Instagram</h2>
-      <p>Recent posts from Firelands United.</p>
-      <div
-        class="instagram-feed-grid"
-        data-instagram-feed
-        data-instagram-feed-endpoint="https://firelandsunited-instagram-feed.chwalik.workers.dev"
-        data-instagram-feed-limit="10"></div>
+        <article class="contact-social-card">
+          <div class="contact-social-card-copy">
+            <span class="contact-social-label">Bluesky</span>
+            <p>See what it's like building a soccer club from scratch on Andrew's Bluesky account.</p>
+          </div>
+          <div
+            class="contact-social-preview"
+            data-contact-social-card="bluesky"
+            data-social-feed-endpoint="https://firelandsunited-social-feed.chwalik.workers.dev">
+            <p class="instagram-feed-loading">Loading latest Bluesky post...</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section class="contact-section">
+    <div class="contact-section-inner">
+      <h1>Contact Us</h1>
+      <p>Have questions, partnership ideas, or player inquiries? Send us a message and a team member will respond.</p>
+      <p class="contact-success-message" id="contact-success-message" hidden>Thanks for reaching out. Your message has been sent.</p>
+      <p class="contact-success-message contact-error-message" id="contact-error-message" hidden>Could not send your message. Please try again in a moment.</p>
+
+      <form class="contact-form" id="contact-form">
+          <input type="text" name="_honey" id="contact-honey" style="display:none">
+
+          <div class="input-group">
+              <input type="text" name="name" id="contact-name" placeholder="Your Name" required>
+              <input type="email" name="email" id="contact-email" placeholder="Your Email" required>
+          </div>
+          <input type="text" name="subject" id="contact-subject" placeholder="Subject" required>
+          <textarea name="message" id="contact-message" rows="6" placeholder="Your Message" required></textarea>
+          <label class="contact-optin" for="contact-newsletter-optin">
+            <input type="checkbox" id="contact-newsletter-optin" name="newsletter_opt_in" checked>
+            <span>Check this box if you wanted to be added to our email list to get the hottest soccer newsletter</span>
+          </label>
+          <button type="submit" class="submit-button" id="contact-submit">Send Message</button>
+      </form>
     </div>
   </section>
 
