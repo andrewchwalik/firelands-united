@@ -591,6 +591,44 @@ body {
    FOOTER SECTION
    ============================================ */
 
+.sponsor-section {
+  width: 100%;
+  background-color: #474E5A;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.sponsor-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('/img/revolutionary-war-burning.jpg') center/cover no-repeat;
+  opacity: 0.1;
+  z-index: 1;
+}
+
+.sponsor-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  max-width: 1200px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+}
+
+.sponsor-logo {
+  height: 80px;
+  width: auto;
+  max-width: 200px;
+  object-fit: contain;
+}
+
 .site-footer {
   position: relative;
   background-color: #f18a01;
@@ -605,20 +643,22 @@ body {
 }
 
 .footer-links-container {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 320px repeat(4, minmax(140px, 1fr)) 148px;
   align-items: flex-start;
-  max-width: 1200px;
+  max-width: 1320px;
   margin: 0 auto;
-  gap: 60px;
+  gap: 34px;
 }
 
 .footer-logo {
   display: flex;
   align-items: center;
-  gap: 15px;
-  margin-left: -40px;
-  margin-top: 10px;
+  gap: 18px;
+  margin-left: 0;
+  margin-top: 0;
+  flex: 0 0 320px;
+  min-width: 320px;
 }
 
 .footer-logo img {
@@ -627,14 +667,20 @@ body {
 }
 
 .footer-bottom {
-  margin-top: 10px;
-  font-size: 0.75rem;
+  margin-top: 0;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  min-width: 190px;
+}
+
+.footer-bottom p {
+  margin: 0 0 4px;
 }
 
 .footer-bottom a {
   color: #ffffff;
   text-decoration: none;
-  margin: 0 5px;
+  margin: 0;
   transition: color 0.3s ease;
 }
 
@@ -644,8 +690,7 @@ body {
 }
 
 .footer-column {
-  flex: 1;
-  min-width: 200px;
+  min-width: 140px;
   text-align: left;
 }
 
@@ -672,29 +717,52 @@ body {
   transition: color 0.3s ease;
 }
 
+.footer-column ul li span {
+  color: #ffffff;
+  font-size: 0.875rem;
+}
+
 .footer-column ul li a:hover {
   color: #fff;
 }
 
-.footer-social {
-  margin-top: 10px;
+.footer-social-column {
+  min-width: 148px;
+  flex: 0 0 148px;
 }
 
-.footer-social a {
-  display: inline-block;
-  margin-right: 10px;
-  transition: transform 0.3s ease;
+.footer-social-column h3 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #fff;
 }
 
-.footer-social a img {
-  height: 24px;
-  margin-right: 0;
-  display: inline-block;
-  transition: transform 0.3s ease;
+.footer-social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.footer-social a img:hover {
-  transform: scale(1.1);
+.footer-social-links a {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.18);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.footer-social-links a:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.footer-social-links img {
+  width: 16px;
+  height: 16px;
+  filter: brightness(0) invert(1);
 }
 
 .footer-gif {
@@ -740,6 +808,30 @@ body {
     gap: 24px;
   }
 
+  .sponsor-section {
+    padding: 22px 14px 18px;
+  }
+
+  .sponsor-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .sponsor-container a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sponsor-logo {
+    max-width: 100%;
+    height: 52px;
+  }
+
   .newsletter-form {
     flex-direction: column;
     border-radius: 8px;
@@ -754,11 +846,17 @@ body {
   }
 
   .footer-links-container {
+    display: flex;
     flex-direction: column;
     gap: 30px;
   }
 
   .footer-logo {
     margin-left: 0;
+    min-width: 0;
+  }
+
+  .footer-social-column {
+    min-width: 0;
   }
 }
