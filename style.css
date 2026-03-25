@@ -2098,11 +2098,6 @@ body.sponsorships-info-page .sponsorships-page-section {
     max-width: 600px;
 }
 
-.newsletter-line {
-    display: block;
-    white-space: nowrap;
-}
-
 .newsletter-form {
     display: flex;
     gap: 0;

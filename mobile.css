@@ -500,11 +500,6 @@
   display: block;
 }
 
-.newsletter-line {
-  display: inline;
-  white-space: normal;
-}
-
 .newsletter-signup {
   align-items: center;
 }
