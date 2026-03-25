@@ -506,10 +506,10 @@ body {
 }
 
 .newsletter-container {
-  max-width: 1040px;
+  max-width: 1100px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(0, 540px) minmax(340px, 460px);
+  grid-template-columns: minmax(0, 600px) minmax(320px, 440px);
   gap: 24px;
   align-items: center;
   justify-content: center;
@@ -528,7 +528,7 @@ body {
   color: #c0c4ca;
   line-height: 1.28;
   margin: 0;
-  max-width: 540px;
+  max-width: 600px;
 }
 
 .newsletter-line {
@@ -540,7 +540,7 @@ body {
   display: flex;
   gap: 0;
   width: 100%;
-  max-width: 460px;
+  max-width: 440px;
   margin: 0 0 0 auto;
   border-radius: 8px;
   overflow: hidden;
