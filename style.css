@@ -1820,6 +1820,9 @@ body.join-info-page .about-story-section {
 
 .club-fees-option p {
   line-height: 1.18;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 10px;
   max-width: 24ch;
 }
