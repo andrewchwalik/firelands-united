@@ -1747,17 +1747,19 @@ body.join-info-page .about-story-section {
 
 .club-fees-container {
   display: grid;
-  gap: 18px;
+  gap: 10px;
   padding-bottom: 26px;
 }
 
 .club-fees-intro {
   margin-top: 0;
+  margin-bottom: 22px;
   text-align: center;
 }
 
 .club-fees-page .news-page-title {
   margin-bottom: 0;
+  line-height: 0.95;
 }
 
 .club-fees-intro p {
