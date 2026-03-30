@@ -1818,10 +1818,15 @@ body.join-info-page .about-story-section {
   margin: 14px 0 0 18px;
   padding: 0;
   color: #4f5663;
+  text-align: left;
 }
 
 .club-fees-note-list li {
   margin-bottom: 8px;
+}
+
+.club-fees-steps {
+  margin-left: 22px;
 }
 
 .club-fees-confirmation {
