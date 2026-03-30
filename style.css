@@ -1752,13 +1752,14 @@ body.join-info-page .about-story-section {
 }
 
 .club-fees-intro {
-  margin-top: 4px;
+  margin-top: -8px;
   text-align: center;
 }
 
 .club-fees-intro p {
   margin: 0 auto;
   max-width: 860px;
+  line-height: 1.28;
 }
 
 .club-fees-tier-grid {
