@@ -425,6 +425,11 @@
   padding: 16px;
 }
 
+.club-fees-tier-grid,
+.club-fees-option-grid {
+  grid-template-columns: 1fr;
+}
+
 .internship-tabs {
   margin: 0 0 22px;
 }

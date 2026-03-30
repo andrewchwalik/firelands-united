@@ -1745,6 +1745,89 @@ body.join-info-page .about-story-section {
   margin-bottom: 0;
 }
 
+.club-fees-container {
+  display: grid;
+  gap: 22px;
+}
+
+.club-fees-intro {
+  margin-top: 4px;
+}
+
+.club-fees-highlight {
+  color: #f18a01;
+  font-weight: 700;
+}
+
+.club-fees-tier-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.club-fees-tier {
+  background: #fff;
+  border: 1px solid #dfe3ea;
+  border-radius: 18px;
+  padding: 22px 20px;
+  box-shadow: 0 12px 28px rgba(26, 33, 43, 0.06);
+}
+
+.club-fees-tier-label,
+.club-fees-option-kicker {
+  display: inline-block;
+  color: #f18a01;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.club-fees-tier h2,
+.club-fees-option h2,
+.club-fees-confirmation h2 {
+  margin: 10px 0 8px;
+  font-family: 'Bermont', sans-serif;
+  color: #474e5a;
+}
+
+.club-fees-tier h2 {
+  font-size: 2.1rem;
+}
+
+.club-fees-tier p {
+  margin: 0;
+}
+
+.club-fees-option-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.club-fees-option {
+  height: 100%;
+}
+
+.club-fees-option--preferred {
+  border: 1px solid rgba(241, 138, 1, 0.35);
+  box-shadow: 0 14px 30px rgba(241, 138, 1, 0.1);
+}
+
+.club-fees-note-list {
+  margin: 14px 0 0 18px;
+  padding: 0;
+  color: #4f5663;
+}
+
+.club-fees-note-list li {
+  margin-bottom: 8px;
+}
+
+.club-fees-confirmation {
+  margin-bottom: 8px;
+}
+
 .internship-content {
   text-align: left;
 }
