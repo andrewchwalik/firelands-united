@@ -1748,6 +1748,7 @@ body.join-info-page .about-story-section {
 .club-fees-container {
   display: grid;
   gap: 22px;
+  padding-bottom: 26px;
 }
 
 .club-fees-intro {
