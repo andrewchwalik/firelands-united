@@ -1752,6 +1752,15 @@ body.join-info-page .about-story-section {
 
 .club-fees-intro {
   margin-top: 4px;
+  text-align: left;
+}
+
+.club-fees-intro p {
+  margin: 0 0 12px;
+}
+
+.club-fees-intro p:last-child {
+  margin-bottom: 0;
 }
 
 .club-fees-highlight {
@@ -1797,6 +1806,9 @@ body.join-info-page .about-story-section {
 
 .club-fees-tier p {
   margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.22;
+  max-width: 16ch;
 }
 
 .club-fees-option-grid {
@@ -2161,11 +2173,11 @@ body.sponsorships-info-page .sponsorships-page-section {
 }
 
 .newsletter-container {
-    max-width: 1100px;
+    max-width: 1240px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: minmax(0, 600px) minmax(320px, 440px);
-    gap: 24px;
+    grid-template-columns: minmax(0, 1fr) minmax(380px, 520px);
+    gap: 52px;
     align-items: center;
     justify-content: center;
 }
@@ -2183,14 +2195,14 @@ body.sponsorships-info-page .sponsorships-page-section {
     color: #c0c4ca;
     line-height: 1.28;
     margin: 0;
-    max-width: 600px;
+    max-width: 560px;
 }
 
 .newsletter-form {
     display: flex;
     gap: 0;
     width: 100%;
-    max-width: 440px;
+    max-width: 520px;
     margin: 0 0 0 auto;
     border-radius: 8px;
     overflow: hidden;
