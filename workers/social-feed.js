@@ -1,5 +1,5 @@
 const CACHE_SECONDS = 300;
-const YOUTUBE_CHANNEL_ID = "UCC2Iyx0c5rfNrRbr1Vd4f8g";
+const YOUTUBE_CHANNEL_ID = "UCgp9-baYOYgKONAlfDOaVBQ";
 
 function jsonResponse(body, status, corsHeaders) {
   return new Response(JSON.stringify(body), {
