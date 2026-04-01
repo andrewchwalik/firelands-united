@@ -1,6 +1,7 @@
 const DEFAULT_LIMIT = 1;
 const MAX_LIMIT = 3;
 const CACHE_SECONDS = 300;
+const CACHE_VERSION = "v2";
 const INSTAGRAM_PROFILE_URL = "https://www.instagram.com/firelandsunited/";
 const INSTAGRAM_USERNAME = "firelandsunited";
 
@@ -150,8 +151,8 @@ export default {
 
     const forceRefresh = reqUrl.searchParams.get("refresh") === "1";
     const cache = caches.default;
-    const cacheKey = new Request(`https://firelandsunited-cache/instagram?limit=${limit}`);
-    const staleKey = new Request(`https://firelandsunited-cache/instagram-latest?limit=${limit}`);
+    const cacheKey = new Request(`https://firelandsunited-cache/${CACHE_VERSION}/instagram?limit=${limit}`);
+    const staleKey = new Request(`https://firelandsunited-cache/${CACHE_VERSION}/instagram-latest?limit=${limit}`);
 
     if (!forceRefresh) {
       const cached = await cache.match(cacheKey);
