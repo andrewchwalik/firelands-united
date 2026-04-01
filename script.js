@@ -1120,6 +1120,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (instagramContainer) {
+      if (instagramContainer.getAttribute("data-instagram-embed") === "elfsight") {
+        // Elfsight handles rendering for the Instagram card.
+      } else {
       const endpoint = instagramContainer.getAttribute("data-instagram-feed-endpoint");
       if (!endpoint) {
         instagramContainer.innerHTML = '<p class="instagram-feed-empty">Instagram feed endpoint is not set.</p>';
@@ -1146,6 +1149,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
           });
       }
+    }
     }
 
     const socialEndpoint =

@@ -1463,6 +1463,14 @@ body {
     aspect-ratio: 1 / 1;
 }
 
+.contact-social-embed {
+    min-height: 420px;
+}
+
+.contact-social-embed .elfsight-app-a0888a34-6109-47e5-b752-49217d94ebc9 {
+    min-height: 420px;
+}
+
 .contact-social-link-card {
     display: block;
     overflow: hidden;
