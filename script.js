@@ -1097,19 +1097,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!instagramContainer && !youtubeContainer && !blueskyContainer) return;
 
+    const socialCacheKeys = {
+      instagram: "firelands-contact-social-instagram",
+      social: "firelands-contact-social-combined"
+    };
+
+    function readCachedJson(key) {
+      try {
+        const raw = window.localStorage.getItem(key);
+        return raw ? JSON.parse(raw) : null;
+      } catch (error) {
+        return null;
+      }
+    }
+
+    function writeCachedJson(key, value) {
+      try {
+        window.localStorage.setItem(key, JSON.stringify(value));
+      } catch (error) {
+        // Ignore storage failures.
+      }
+    }
+
     if (instagramContainer) {
       const endpoint = instagramContainer.getAttribute("data-instagram-feed-endpoint");
       if (!endpoint) {
         instagramContainer.innerHTML = '<p class="instagram-feed-empty">Instagram feed endpoint is not set.</p>';
       } else {
+        const cachedInstagram = readCachedJson(socialCacheKeys.instagram);
+        if (cachedInstagram?.posts?.length) {
+          renderContactSocialInstagram(instagramContainer, cachedInstagram);
+        }
         fetch(`${endpoint}?limit=1`)
           .then((response) => {
             if (!response.ok) throw new Error("Instagram feed request failed");
             return response.json();
           })
-          .then((data) => renderContactSocialInstagram(instagramContainer, data))
+          .then((data) => {
+            writeCachedJson(socialCacheKeys.instagram, data);
+            renderContactSocialInstagram(instagramContainer, data);
+          })
           .catch(() => {
-            instagramContainer.innerHTML = '<p class="instagram-feed-empty">Could not load Instagram posts right now.</p>';
+            const cached = readCachedJson(socialCacheKeys.instagram);
+            if (cached?.posts?.length) {
+              renderContactSocialInstagram(instagramContainer, cached);
+            } else {
+              instagramContainer.innerHTML = '<p class="instagram-feed-empty">Could not load Instagram posts right now.</p>';
+            }
           });
       }
     }
@@ -1128,21 +1162,41 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    const cachedSocial = readCachedJson(socialCacheKeys.social);
+    if (cachedSocial) {
+      if (youtubeContainer && cachedSocial.youtube) {
+        renderContactSocialYoutube(youtubeContainer, cachedSocial.youtube);
+      }
+      if (blueskyContainer && cachedSocial.bluesky) {
+        renderContactSocialBluesky(blueskyContainer, cachedSocial.bluesky);
+      }
+    }
+
     fetch(socialEndpoint)
       .then((response) => {
         if (!response.ok) throw new Error("Social feed request failed");
         return response.json();
       })
       .then((data) => {
+        writeCachedJson(socialCacheKeys.social, data);
         if (youtubeContainer) renderContactSocialYoutube(youtubeContainer, data.youtube || {});
         if (blueskyContainer) renderContactSocialBluesky(blueskyContainer, data.bluesky || {});
       })
       .catch(() => {
+        const cached = readCachedJson(socialCacheKeys.social);
         if (youtubeContainer) {
-          youtubeContainer.innerHTML = '<p class="instagram-feed-empty">Could not load the latest YouTube video right now.</p>';
+          if (cached?.youtube) {
+            renderContactSocialYoutube(youtubeContainer, cached.youtube);
+          } else {
+            youtubeContainer.innerHTML = '<p class="instagram-feed-empty">Could not load the latest YouTube video right now.</p>';
+          }
         }
         if (blueskyContainer) {
-          blueskyContainer.innerHTML = '<p class="instagram-feed-empty">Could not load the latest Bluesky post right now.</p>';
+          if (cached?.bluesky) {
+            renderContactSocialBluesky(blueskyContainer, cached.bluesky);
+          } else {
+            blueskyContainer.innerHTML = '<p class="instagram-feed-empty">Could not load the latest Bluesky post right now.</p>';
+          }
         }
       });
   }

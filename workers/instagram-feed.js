@@ -185,6 +185,7 @@ export default {
 
     const cache = caches.default;
     const cacheKey = new Request(`https://firelandsunited-cache/instagram?limit=${limit}`);
+    const staleKey = new Request(`https://firelandsunited-cache/instagram-latest?limit=${limit}`);
     const cached = await cache.match(cacheKey);
     if (cached) {
       const headers = new Headers(cached.headers);
@@ -208,9 +209,21 @@ export default {
         200,
         corsHeaders
       );
-      ctx.waitUntil(cache.put(cacheKey, response.clone()));
+      ctx.waitUntil(Promise.all([
+        cache.put(cacheKey, response.clone()),
+        cache.put(staleKey, response.clone())
+      ]));
       return response;
     } catch (error) {
+      const stale = await cache.match(staleKey);
+      if (stale) {
+        const headers = new Headers(stale.headers);
+        headers.set("Access-Control-Allow-Origin", allowOrigin);
+        headers.set("Access-Control-Allow-Methods", "GET, OPTIONS");
+        headers.set("Access-Control-Allow-Headers", "Content-Type");
+        headers.set("X-Firelands-Stale", "1");
+        return new Response(stale.body, { status: 200, headers });
+      }
       return jsonResponse(
         {
           error: "Could not load Instagram posts",
