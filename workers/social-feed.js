@@ -1,4 +1,5 @@
 const CACHE_SECONDS = 300;
+const YOUTUBE_CHANNEL_ID = "UCC2Iyx0c5rfNrRbr1Vd4f8g";
 
 function jsonResponse(body, status, corsHeaders) {
   return new Response(JSON.stringify(body), {
@@ -12,40 +13,8 @@ function jsonResponse(body, status, corsHeaders) {
 }
 
 async function fetchLatestYoutubeVideo() {
-  const channelUrl = "https://www.youtube.com/@FirelandsUnited/videos";
-  const pageResponse = await fetch(channelUrl, {
-    headers: {
-      "User-Agent": "Mozilla/5.0"
-    }
-  });
-
-  if (!pageResponse.ok) {
-    throw new Error(`YouTube page request failed (${pageResponse.status})`);
-  }
-
-  const html = await pageResponse.text();
-  const channelIdPatterns = [
-    /"channelId":"(UC[^"]+)"/,
-    /"externalId":"(UC[^"]+)"/,
-    /"browseId":"(UC[^"]+)"/,
-    /channel_id=(UC[\w-]+)/
-  ];
-
-  let channelId = "";
-  for (const pattern of channelIdPatterns) {
-    const match = html.match(pattern);
-    if (match?.[1]) {
-      channelId = match[1];
-      break;
-    }
-  }
-
-  if (!channelId) {
-    throw new Error("Could not determine YouTube channel id.");
-  }
-
   const rssResponse = await fetch(
-    `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`
+    `https://www.youtube.com/feeds/videos.xml?channel_id=${YOUTUBE_CHANNEL_ID}`
   );
   if (!rssResponse.ok) {
     throw new Error(`YouTube RSS request failed (${rssResponse.status})`);
