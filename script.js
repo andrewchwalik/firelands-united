@@ -1026,6 +1026,50 @@ document.addEventListener("DOMContentLoaded", () => {
     renderInstagramCards(container, data.posts || [], data.profile || {});
   }
 
+  function normalizeBeholdInstagramData(data) {
+    const posts = Array.isArray(data?.posts) ? data.posts : [];
+    const latest = posts[0];
+    if (!latest) {
+      return {
+        posts: [],
+        profile: {
+          username: data?.username || "firelandsunited",
+          profile_picture_url: data?.profilePictureUrl || "/img/firelands-badge.png"
+        }
+      };
+    }
+
+    const fallbackSizedImage =
+      latest?.sizes?.large?.mediaUrl
+      || latest?.sizes?.medium?.mediaUrl
+      || latest?.sizes?.full?.mediaUrl
+      || latest?.sizes?.small?.mediaUrl
+      || "";
+
+    const imageUrl =
+      latest.thumbnailUrl
+      || (latest.mediaType === "VIDEO" || latest.isReel ? fallbackSizedImage : "")
+      || latest.mediaUrl
+      || fallbackSizedImage;
+
+    return {
+      posts: [
+        {
+          id: latest.id,
+          caption: latest.prunedCaption || latest.caption || "View this post on Instagram",
+          permalink: latest.permalink || "https://www.instagram.com/firelandsunited/",
+          media_type: latest.mediaType || (latest.isReel ? "VIDEO" : "IMAGE"),
+          image_url: imageUrl,
+          timestamp: latest.timestamp || ""
+        }
+      ],
+      profile: {
+        username: data?.username || "firelandsunited",
+        profile_picture_url: data?.profilePictureUrl || "/img/firelands-badge.png"
+      }
+    };
+  }
+
   function renderContactSocialYoutube(container, video) {
     if (!video || !video.url) {
       container.innerHTML = '<p class="instagram-feed-empty">Could not load the latest YouTube video right now.</p>';
@@ -1120,10 +1164,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (instagramContainer) {
-      if (instagramContainer.getAttribute("data-instagram-embed") === "elfsight") {
-        // Elfsight handles rendering for the Instagram card.
-      } else {
       const endpoint = instagramContainer.getAttribute("data-instagram-feed-endpoint");
+      const source = instagramContainer.getAttribute("data-instagram-feed-source");
       if (!endpoint) {
         instagramContainer.innerHTML = '<p class="instagram-feed-empty">Instagram feed endpoint is not set.</p>';
       } else {
@@ -1137,8 +1179,9 @@ document.addEventListener("DOMContentLoaded", () => {
             return response.json();
           })
           .then((data) => {
-            writeCachedJson(socialCacheKeys.instagram, data);
-            renderContactSocialInstagram(instagramContainer, data);
+            const normalized = source === "behold" ? normalizeBeholdInstagramData(data) : data;
+            writeCachedJson(socialCacheKeys.instagram, normalized);
+            renderContactSocialInstagram(instagramContainer, normalized);
           })
           .catch(() => {
             const cached = readCachedJson(socialCacheKeys.instagram);
@@ -1148,7 +1191,6 @@ document.addEventListener("DOMContentLoaded", () => {
               instagramContainer.innerHTML = '<p class="instagram-feed-empty">Could not load Instagram posts right now.</p>';
             }
           });
-      }
     }
     }
 
