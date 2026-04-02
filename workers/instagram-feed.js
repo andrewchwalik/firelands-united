@@ -1,7 +1,7 @@
 const DEFAULT_LIMIT = 1;
 const MAX_LIMIT = 3;
 const CACHE_SECONDS = 300;
-const CACHE_VERSION = "v3";
+const CACHE_VERSION = "v4";
 const RSS_APP_FEED_URL = "https://rss.app/feeds/v1.1/SVTiUxDnFwnPa8hk.json";
 
 function jsonResponse(body, status, corsHeaders) {
@@ -33,7 +33,14 @@ function extractImageFromHtml(value) {
   return match?.[1] ? decodeHtml(match[1]) : "";
 }
 
-function normalizeFeedItem(item) {
+function buildProxyUrl(requestUrl, sourceUrl) {
+  const proxyUrl = new URL(requestUrl);
+  proxyUrl.search = "";
+  proxyUrl.searchParams.set("proxy", sourceUrl);
+  return proxyUrl.toString();
+}
+
+function normalizeFeedItem(item, requestUrl) {
   const imageUrl =
     item?.attachments?.[0]?.url
     || item?.image
@@ -45,12 +52,37 @@ function normalizeFeedItem(item) {
     caption: stripHtml(item?.content_text || item?.description || item?.title || "View this post on Instagram"),
     permalink: item?.external_url || item?.url || "https://www.instagram.com/firelandsunited/",
     media_type: "IMAGE",
-    image_url: imageUrl,
+    image_url: imageUrl ? buildProxyUrl(requestUrl, imageUrl) : "",
     timestamp: item?.date_published || item?.date_modified || ""
   };
 }
 
-async function fetchInstagramFeed(limit) {
+async function proxyImage(sourceUrl, corsHeaders) {
+  const response = await fetch(sourceUrl, {
+    headers: {
+      "User-Agent": "Mozilla/5.0",
+      "Referer": "https://www.instagram.com/",
+      "Accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8"
+    }
+  });
+
+  if (!response.ok) {
+    return new Response("Could not load image", {
+      status: response.status,
+      headers: corsHeaders
+    });
+  }
+
+  const headers = new Headers(corsHeaders);
+  headers.set("Content-Type", response.headers.get("Content-Type") || "image/jpeg");
+  headers.set("Cache-Control", `public, max-age=${CACHE_SECONDS}`);
+  return new Response(response.body, {
+    status: 200,
+    headers
+  });
+}
+
+async function fetchInstagramFeed(limit, requestUrl) {
   const response = await fetch(RSS_APP_FEED_URL, {
     headers: {
       "Accept": "application/feed+json, application/json;q=0.9, */*;q=0.8"
@@ -65,20 +97,22 @@ async function fetchInstagramFeed(limit) {
   const items = Array.isArray(data?.items) ? data.items : [];
   const posts = items
     .slice(0, Math.max(1, Math.min(MAX_LIMIT, limit)))
-    .map(normalizeFeedItem)
+    .map((item) => normalizeFeedItem(item, requestUrl))
     .filter((post) => post.image_url && post.permalink);
 
   if (!posts.length) {
     throw new Error("No Instagram posts were returned by RSS.app.");
   }
 
-  return {
-    posts,
-    profile: {
-      username: "firelandsunited",
-      profile_picture_url: data?.favicon || "/img/firelands-badge.png"
-    }
-  };
+    return {
+      posts,
+      profile: {
+        username: "firelandsunited",
+        profile_picture_url: data?.favicon
+          ? buildProxyUrl(requestUrl, data.favicon)
+          : "/img/firelands-badge.png"
+      }
+    };
 }
 
 export default {
@@ -104,6 +138,11 @@ export default {
     }
 
     const reqUrl = new URL(request.url);
+    const proxyTarget = reqUrl.searchParams.get("proxy");
+    if (proxyTarget) {
+      return proxyImage(proxyTarget, corsHeaders);
+    }
+
     const requestedLimit = Number(reqUrl.searchParams.get("limit") || DEFAULT_LIMIT);
     const limit = Number.isFinite(requestedLimit)
       ? Math.max(1, Math.min(MAX_LIMIT, requestedLimit))
@@ -126,7 +165,7 @@ export default {
     }
 
     try {
-      const data = await fetchInstagramFeed(limit);
+      const data = await fetchInstagramFeed(limit, request.url);
       const response = jsonResponse(
         {
           posts: data.posts,
