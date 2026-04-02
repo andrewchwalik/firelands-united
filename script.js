@@ -1070,6 +1070,45 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 
+  function normalizeRssAppInstagramData(data) {
+    const items = Array.isArray(data?.items) ? data.items : [];
+    const latest = items[0];
+    if (!latest) {
+      return {
+        posts: [],
+        profile: {
+          username: data?.title?.includes("@")
+            ? data.title.split("@").pop().trim().split(/\s+/)[0]
+            : "firelandsunited",
+          profile_picture_url: "/img/firelands-badge.png"
+        }
+      };
+    }
+
+    const fallbackImage =
+      latest?.enclosure?.link
+      || latest?.thumbnail
+      || latest?.image
+      || "";
+
+    return {
+      posts: [
+        {
+          id: latest.id || latest.guid || latest.link || "instagram-latest",
+          caption: latest.description || latest.title || "View this post on Instagram",
+          permalink: latest.url || latest.link || "https://www.instagram.com/firelandsunited/",
+          media_type: "IMAGE",
+          image_url: fallbackImage,
+          timestamp: latest.date_published || latest.published || latest.pubDate || ""
+        }
+      ],
+      profile: {
+        username: "firelandsunited",
+        profile_picture_url: "/img/firelands-badge.png"
+      }
+    };
+  }
+
   function renderContactSocialYoutube(container, video) {
     if (!video || !video.url) {
       container.innerHTML = '<p class="instagram-feed-empty">Could not load the latest YouTube video right now.</p>';
@@ -1163,6 +1202,11 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
+    function appendQueryParam(url, key, value) {
+      const separator = url.includes("?") ? "&" : "?";
+      return `${url}${separator}${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
+    }
+
     if (instagramContainer) {
       const endpoint = instagramContainer.getAttribute("data-instagram-feed-endpoint");
       const source = instagramContainer.getAttribute("data-instagram-feed-source");
@@ -1173,13 +1217,17 @@ document.addEventListener("DOMContentLoaded", () => {
         if (cachedInstagram?.posts?.length) {
           renderContactSocialInstagram(instagramContainer, cachedInstagram);
         }
-        fetch(`${endpoint}?limit=1`)
+        fetch(appendQueryParam(endpoint, "limit", 1))
           .then((response) => {
             if (!response.ok) throw new Error("Instagram feed request failed");
             return response.json();
           })
           .then((data) => {
-            const normalized = source === "behold" ? normalizeBeholdInstagramData(data) : data;
+            const normalized = source === "behold"
+              ? normalizeBeholdInstagramData(data)
+              : source === "rssapp"
+                ? normalizeRssAppInstagramData(data)
+                : data;
             writeCachedJson(socialCacheKeys.instagram, normalized);
             renderContactSocialInstagram(instagramContainer, normalized);
           })
