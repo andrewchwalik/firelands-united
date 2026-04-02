@@ -1,9 +1,8 @@
 const DEFAULT_LIMIT = 1;
 const MAX_LIMIT = 3;
 const CACHE_SECONDS = 300;
-const CACHE_VERSION = "v2";
-const INSTAGRAM_PROFILE_URL = "https://www.instagram.com/firelandsunited/";
-const INSTAGRAM_USERNAME = "firelandsunited";
+const CACHE_VERSION = "v3";
+const RSS_APP_FEED_URL = "https://rss.app/feeds/v1.1/SVTiUxDnFwnPa8hk.json";
 
 function jsonResponse(body, status, corsHeaders) {
   return new Response(JSON.stringify(body), {
@@ -25,98 +24,59 @@ function decodeHtml(value) {
     .replace(/&gt;/g, ">");
 }
 
-function stripInstagramDescription(value) {
-  return decodeHtml(value || "")
-    .replace(/\s+on Instagram:.*$/i, "")
-    .replace(/^Instagram:\s*/i, "")
-    .trim();
+function stripHtml(value) {
+  return decodeHtml((value || "").replace(/<[^>]+>/g, " ")).replace(/\s+/g, " ").trim();
 }
 
-function getMetaContent(html, property) {
-  const patterns = [
-    new RegExp(`<meta[^>]+property=["']${property}["'][^>]+content=["']([^"']+)["']`, "i"),
-    new RegExp(`<meta[^>]+content=["']([^"']+)["'][^>]+property=["']${property}["']`, "i"),
-    new RegExp(`<meta[^>]+name=["']${property}["'][^>]+content=["']([^"']+)["']`, "i"),
-    new RegExp(`<meta[^>]+content=["']([^"']+)["'][^>]+name=["']${property}["']`, "i")
-  ];
-
-  for (const pattern of patterns) {
-    const match = html.match(pattern);
-    if (match?.[1]) return decodeHtml(match[1]);
-  }
-  return "";
+function extractImageFromHtml(value) {
+  const match = (value || "").match(/<img[^>]+src="([^"]+)"/i);
+  return match?.[1] ? decodeHtml(match[1]) : "";
 }
 
-function getLatestPostPath(html) {
-  const matches = [
-    ...html.matchAll(/href="\/(p|reel)\/([^"\/?#]+)\/?"/g),
-    ...html.matchAll(/"permalink":"https:\\\/\\\/www\.instagram\.com\\\/(p|reel)\\\/([^"\\]+)\\\//g)
-  ];
+function normalizeFeedItem(item) {
+  const imageUrl =
+    item?.attachments?.[0]?.url
+    || item?.image
+    || extractImageFromHtml(item?.content_html)
+    || "";
 
-  for (const match of matches) {
-    const type = match[1];
-    const shortcode = match[2];
-    if (type && shortcode) {
-      return `/${type}/${shortcode}/`;
-    }
-  }
-
-  return "";
+  return {
+    id: item?.id || item?.url || "instagram-latest",
+    caption: stripHtml(item?.content_text || item?.description || item?.title || "View this post on Instagram"),
+    permalink: item?.external_url || item?.url || "https://www.instagram.com/firelandsunited/",
+    media_type: "IMAGE",
+    image_url: imageUrl,
+    timestamp: item?.date_published || item?.date_modified || ""
+  };
 }
 
-async function fetchHtml(url) {
-  const response = await fetch(url, {
+async function fetchInstagramFeed(limit) {
+  const response = await fetch(RSS_APP_FEED_URL, {
     headers: {
-      "User-Agent": "Mozilla/5.0",
-      "Accept-Language": "en-US,en;q=0.9"
+      "Accept": "application/feed+json, application/json;q=0.9, */*;q=0.8"
     }
   });
 
   if (!response.ok) {
-    throw new Error(`Instagram page request failed (${response.status})`);
+    throw new Error(`RSS.app request failed (${response.status})`);
   }
 
-  return response.text();
-}
+  const data = await response.json();
+  const items = Array.isArray(data?.items) ? data.items : [];
+  const posts = items
+    .slice(0, Math.max(1, Math.min(MAX_LIMIT, limit)))
+    .map(normalizeFeedItem)
+    .filter((post) => post.image_url && post.permalink);
 
-async function fetchInstagramFeed(limit) {
-  const profileHtml = await fetchHtml(INSTAGRAM_PROFILE_URL);
-  const latestPath = getLatestPostPath(profileHtml);
-
-  if (!latestPath) {
-    throw new Error("Could not determine latest Instagram post.");
-  }
-
-  const postUrl = new URL(latestPath, INSTAGRAM_PROFILE_URL).toString();
-  const postHtml = await fetchHtml(postUrl);
-
-  const profilePicture = getMetaContent(profileHtml, "og:image");
-  const username = getMetaContent(profileHtml, "og:title")
-    .replace(/\s*\(@.*$/, "")
-    .trim() || INSTAGRAM_USERNAME;
-
-  const imageUrl = getMetaContent(postHtml, "og:image");
-  const caption = stripInstagramDescription(getMetaContent(postHtml, "og:description"));
-  const timestamp = getMetaContent(postHtml, "article:published_time");
-
-  if (!imageUrl) {
-    throw new Error("Could not determine latest Instagram image.");
+  if (!posts.length) {
+    throw new Error("No Instagram posts were returned by RSS.app.");
   }
 
   return {
-    posts: [
-      {
-        id: latestPath.replace(/\//g, ""),
-        caption,
-        permalink: postUrl,
-        media_type: "IMAGE",
-        image_url: imageUrl,
-        timestamp
-      }
-    ].slice(0, Math.max(1, Math.min(MAX_LIMIT, limit))),
+    posts,
     profile: {
-      username: INSTAGRAM_USERNAME,
-      profile_picture_url: profilePicture
+      username: "firelandsunited",
+      profile_picture_url: data?.favicon || "/img/firelands-badge.png"
     }
   };
 }

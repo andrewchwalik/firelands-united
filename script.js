@@ -283,6 +283,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  function formatSocialDate(value) {
+    if (!value) return "";
+    const parsed = new Date(value);
+    if (Number.isNaN(parsed.getTime())) return value;
+    return parsed.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric"
+    });
+  }
+
   // ----- Load blog data from blogs.json -----
   let blogPosts = [];
 
@@ -996,13 +1007,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const imageUrl = post.image_url || "";
       const caption = escapeHtml(post.caption || "View this post on Instagram");
       const permalink = post.permalink || "https://www.instagram.com/firelandsunited/";
-      const timestamp = post.timestamp
-        ? new Date(post.timestamp).toLocaleDateString("en-US", {
-            month: "short",
-            day: "numeric",
-            year: "numeric"
-          })
-        : "";
+      const timestamp = formatSocialDate(post.timestamp);
 
       return `
         <a class="instagram-card" href="${permalink}" target="_blank" rel="noopener noreferrer">
@@ -1117,13 +1122,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const title = escapeHtml(video.title || "Watch on YouTube");
     const thumb = video.thumbnail || "/img/social-share.jpg";
-    const published = video.published_at
-      ? new Date(video.published_at).toLocaleDateString("en-US", {
-          month: "short",
-          day: "numeric",
-          year: "numeric"
-        })
-      : "";
+    const published = formatSocialDate(video.published_at);
 
     container.innerHTML = `
       <a class="contact-social-link-card" href="${video.url}" target="_blank" rel="noopener noreferrer">
@@ -1145,13 +1144,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const text = escapeHtml(post.text || "View the latest post on Bluesky.");
-    const published = post.posted_at
-      ? new Date(post.posted_at).toLocaleDateString("en-US", {
-          month: "short",
-          day: "numeric",
-          year: "numeric"
-        })
-      : "";
+    const published = formatSocialDate(post.posted_at);
     const displayName = escapeHtml(post.display_name || "Andrew Chwalik");
     const handle = escapeHtml(post.handle || "andrewchwalik.bsky.social");
     const avatar = post.avatar || "/img/firelands-badge.png";
@@ -1181,7 +1174,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!instagramContainer && !youtubeContainer && !blueskyContainer) return;
 
     const socialCacheKeys = {
-      instagram: "firelands-contact-social-instagram",
+      instagram: "firelands-contact-social-instagram-v2",
       social: "firelands-contact-social-combined"
     };
 
@@ -1209,7 +1202,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (instagramContainer) {
       const endpoint = instagramContainer.getAttribute("data-instagram-feed-endpoint");
-      const source = instagramContainer.getAttribute("data-instagram-feed-source");
       if (!endpoint) {
         instagramContainer.innerHTML = '<p class="instagram-feed-empty">Instagram feed endpoint is not set.</p>';
       } else {
@@ -1223,11 +1215,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return response.json();
           })
           .then((data) => {
-            const normalized = source === "behold"
-              ? normalizeBeholdInstagramData(data)
-              : source === "rssapp"
-                ? normalizeRssAppInstagramData(data)
-                : data;
+            const normalized = data;
             writeCachedJson(socialCacheKeys.instagram, normalized);
             renderContactSocialInstagram(instagramContainer, normalized);
           })

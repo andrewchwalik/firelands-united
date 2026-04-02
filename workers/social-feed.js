@@ -1,5 +1,6 @@
 const CACHE_SECONDS = 300;
-const YOUTUBE_CHANNEL_ID = "UCkpVEChd0SiCe9m709N-lCA";
+const YOUTUBE_CHANNEL_HANDLE_URL = "https://www.youtube.com/@FirelandsUnited/videos";
+const CACHE_VERSION = "v2";
 
 function jsonResponse(body, status, corsHeaders) {
   return new Response(JSON.stringify(body), {
@@ -12,30 +13,39 @@ function jsonResponse(body, status, corsHeaders) {
   });
 }
 
+function decodeHtml(value) {
+  return (value || "")
+    .replace(/\\u0026/g, "&")
+    .replace(/\\u003d/g, "=")
+    .replace(/\\u002F/g, "/")
+    .replace(/&amp;/g, "&")
+    .replace(/&#39;/g, "'")
+    .replace(/&quot;/g, "\"");
+}
+
 async function fetchLatestYoutubeVideo() {
-  const rssResponse = await fetch(
-    `https://www.youtube.com/feeds/videos.xml?channel_id=${YOUTUBE_CHANNEL_ID}`
-  );
-  if (!rssResponse.ok) {
-    throw new Error(`YouTube RSS request failed (${rssResponse.status})`);
+  const response = await fetch(YOUTUBE_CHANNEL_HANDLE_URL, {
+    headers: {
+      "User-Agent": "Mozilla/5.0",
+      "Accept-Language": "en-US,en;q=0.9"
+    }
+  });
+  if (!response.ok) {
+    throw new Error(`YouTube page request failed (${response.status})`);
   }
 
-  const xml = await rssResponse.text();
-  const entryMatch = xml.match(/<entry>([\s\S]*?)<\/entry>/);
-  if (!entryMatch) {
-    throw new Error("No YouTube videos found.");
+  const html = await response.text();
+  const videoIdMatch = html.match(/"videoId":"([^"]+)"/);
+  if (!videoIdMatch?.[1]) {
+    throw new Error("Could not determine latest YouTube video ID.");
   }
 
-  const entry = entryMatch[1];
-  const getTag = (pattern) => {
-    const match = entry.match(pattern);
-    return match ? match[1].trim() : "";
-  };
-
-  const videoId = getTag(/<yt:videoId>([^<]+)<\/yt:videoId>/);
-  const title = getTag(/<title>([^<]+)<\/title>/);
-  const publishedAt = getTag(/<published>([^<]+)<\/published>/);
-  const url = getTag(/<link[^>]+href="([^"]+)"/) || (videoId ? `https://www.youtube.com/watch?v=${videoId}` : "");
+  const videoId = videoIdMatch[1];
+  const titleMatch = html.match(new RegExp(`"videoId":"${videoId}".*?"title":\\{"runs":\\[\\{"text":"([^"]+)"\\}`, "s"));
+  const publishedMatch = html.match(new RegExp(`"videoId":"${videoId}".*?"publishedTimeText":\\{"simpleText":"([^"]+)"\\}`, "s"));
+  const title = decodeHtml(titleMatch?.[1] || "Watch on YouTube");
+  const publishedAt = decodeHtml(publishedMatch?.[1] || "");
+  const url = `https://www.youtube.com/watch?v=${videoId}`;
 
   return {
     id: videoId,
@@ -107,8 +117,8 @@ export default {
     const reqUrl = new URL(request.url);
     const forceRefresh = reqUrl.searchParams.get("refresh") === "1";
     const cache = caches.default;
-    const cacheKey = new Request(`https://firelandsunited-cache/social-feed${reqUrl.search}`);
-    const staleKey = new Request("https://firelandsunited-cache/social-feed-latest");
+    const cacheKey = new Request(`https://firelandsunited-cache/${CACHE_VERSION}/social-feed${reqUrl.search}`);
+    const staleKey = new Request(`https://firelandsunited-cache/${CACHE_VERSION}/social-feed-latest`);
     if (!forceRefresh) {
       const cached = await cache.match(cacheKey);
       if (cached) {
