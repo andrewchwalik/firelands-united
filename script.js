@@ -297,7 +297,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ----- Load blog data from blogs.json -----
   let blogPosts = [];
 
-  fetch("/blogs.json")
+  fetch(`/blogs.json?v=${Date.now()}`, { cache: "no-store" })
     .then((r) => r.json())
     .then((data) => {
       blogPosts = data;
