@@ -804,7 +804,7 @@
 .history-panel[data-year="2025"] .coaching-row .roster-card.coaching-card p,
 .history-panel[data-year="2026"] .coaching-row .roster-card.coaching-card p {
   padding: 0 14px 3px 44px;
-  margin-top: 2px;
+  margin-top: 5px;
 }
 
 .roster-panel .roster-card.coaching-card .roster-meta,
@@ -815,7 +815,7 @@
   flex-wrap: nowrap;
   gap: 4px;
   margin: 0;
-  padding: 3px 14px 12px 44px;
+  padding: 1px 14px 12px 44px;
 }
 
 .roster-panel .roster-card.coaching-card .roster-position,
