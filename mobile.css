@@ -827,9 +827,11 @@
   white-space: nowrap;
   line-height: 1.2;
   text-align: center;
-  font-size: 0.66rem;
-  min-height: 22px;
-  padding: 3px 8px;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-size: 0.64rem;
+  min-height: 21px;
+  padding: 3px 9px;
   flex-shrink: 0;
 }
 
@@ -839,11 +841,11 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(255, 255, 255, 0.14);
-  color: rgba(255, 255, 255, 0.95);
-  font-size: 0.66rem;
-  min-height: 22px;
-  padding: 3px 8px;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-size: 0.64rem;
+  min-height: 21px;
+  padding: 3px 9px;
   border-radius: 999px;
   line-height: 1.2;
   white-space: nowrap;
