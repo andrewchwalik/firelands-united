@@ -2366,6 +2366,12 @@ body.presskit-page .content-section:nth-of-type(5) {
   margin-bottom: 24px;
 }
 
+.history-header .roster-intro {
+  max-width: 980px;
+  margin: 0 0 24px;
+  line-height: 1.55;
+}
+
 .year-tabs {
   display: flex;
   gap: 14px;
