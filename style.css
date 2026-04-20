@@ -2716,7 +2716,7 @@ body.presskit-page .content-section:nth-of-type(5) {
 .history-panel[data-year="2025"] .coaching-row .roster-card.coaching-card p,
 .history-panel[data-year="2026"] .coaching-row .roster-card.coaching-card p {
   align-self: start;
-  margin: 1px 0 0;
+  margin: 4px 0 0;
   padding: 0 14px 2px 42px;
   font-size: 0.6rem;
 }
@@ -2730,7 +2730,7 @@ body.presskit-page .content-section:nth-of-type(5) {
   flex-wrap: nowrap;
   gap: 6px;
   margin: 0;
-  padding: 6px 14px 10px 42px;
+  padding: 8px 14px 10px 42px;
 }
 
 .roster-panel .roster-card.coaching-card .roster-coach-matches,
