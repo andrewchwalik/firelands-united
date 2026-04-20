@@ -777,22 +777,26 @@
 }
 
 .roster-panel .roster-card.coaching-card,
-.history-panel[data-year="2025"] .coaching-row .roster-card.coaching-card {
+.history-panel[data-year="2025"] .coaching-row .roster-card.coaching-card,
+.history-panel[data-year="2026"] .coaching-row .roster-card.coaching-card {
   --roster-image-col: 96px;
   min-height: 128px;
   grid-template-areas:
     "media name"
-    "media meta";
-  grid-template-rows: auto auto;
+    "media meta"
+    "media hometown";
+  grid-template-rows: auto auto auto;
 }
 
 .roster-panel .roster-card.coaching-card .history-avatar,
-.history-panel[data-year="2025"] .coaching-row .roster-card.coaching-card .history-avatar {
+.history-panel[data-year="2025"] .coaching-row .roster-card.coaching-card .history-avatar,
+.history-panel[data-year="2026"] .coaching-row .roster-card.coaching-card .history-avatar {
   min-height: 128px;
 }
 
 .roster-panel .roster-card.coaching-card .roster-meta,
-.history-panel[data-year="2025"] .coaching-row .roster-card.coaching-card .roster-meta {
+.history-panel[data-year="2025"] .coaching-row .roster-card.coaching-card .roster-meta,
+.history-panel[data-year="2026"] .coaching-row .roster-card.coaching-card .roster-meta {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -800,7 +804,8 @@
 }
 
 .roster-panel .roster-card.coaching-card .roster-position,
-.history-panel[data-year="2025"] .coaching-row .roster-card.coaching-card .roster-position {
+.history-panel[data-year="2025"] .coaching-row .roster-card.coaching-card .roster-position,
+.history-panel[data-year="2026"] .coaching-row .roster-card.coaching-card .roster-position {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -811,7 +816,8 @@
 }
 
 .roster-panel .roster-card.coaching-card .roster-coach-matches,
-.history-panel[data-year="2025"] .coaching-row .roster-card.coaching-card .roster-coach-matches {
+.history-panel[data-year="2025"] .coaching-row .roster-card.coaching-card .roster-coach-matches,
+.history-panel[data-year="2026"] .coaching-row .roster-card.coaching-card .roster-coach-matches {
   display: inline-flex;
   align-items: center;
   justify-content: center;
