@@ -2639,7 +2639,7 @@ body.presskit-page .content-section:nth-of-type(5) {
 
 .roster-panel .coaching-row,
 .history-panel[data-year="2026"] .coaching-row {
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   margin: 0;
 }
 
@@ -2647,9 +2647,9 @@ body.presskit-page .content-section:nth-of-type(5) {
 .history-panel[data-year="2025"] .coaching-row .roster-card.coaching-card,
 .history-panel[data-year="2026"] .coaching-row .roster-card.coaching-card {
   --roster-image-col: 38%;
-  background: #f18a01;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 5px 12px rgba(28, 32, 39, 0.12);
+  background: #474e5a;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 18px rgba(20, 24, 32, 0.16);
   min-height: 200px;
   grid-template-areas:
     "media name"
@@ -2663,7 +2663,7 @@ body.presskit-page .content-section:nth-of-type(5) {
 .history-panel[data-year="2025"] .coaching-row .roster-card.coaching-card::after,
 .history-panel[data-year="2026"] .coaching-row .roster-card.coaching-card::after {
   width: 42px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 300' preserveAspectRatio='none'%3E%3Cpath d='M0 0 Q60 150, 0 300Z' fill='%23f9a94d'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 300' preserveAspectRatio='none'%3E%3Cpath d='M0 0 Q60 150, 0 300Z' fill='%23f18a01'/%3E%3C/svg%3E");
 }
 
 .roster-panel .roster-card.coaching-card .history-avatar,
@@ -2675,14 +2675,14 @@ body.presskit-page .content-section:nth-of-type(5) {
 .roster-panel .roster-card.coaching-card .roster-first-name,
 .history-panel[data-year="2025"] .coaching-row .roster-card.coaching-card .roster-first-name,
 .history-panel[data-year="2026"] .coaching-row .roster-card.coaching-card .roster-first-name {
-  color: #474e5a;
-  font-size: 0.8rem;
+  color: #f18a01;
+  font-size: 0.95rem;
 }
 
 .roster-panel .roster-card.coaching-card .roster-last-name,
 .history-panel[data-year="2025"] .coaching-row .roster-card.coaching-card .roster-last-name,
 .history-panel[data-year="2026"] .coaching-row .roster-card.coaching-card .roster-last-name {
-  font-size: 1.1rem;
+  font-size: 1.8rem;
 }
 
 .roster-panel .roster-card.coaching-card .roster-position,
@@ -2691,11 +2691,11 @@ body.presskit-page .content-section:nth-of-type(5) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(255, 255, 255, 0.3);
-  color: #fff;
-  font-size: 0.56rem;
-  min-height: 20px;
-  padding: 2px 8px;
+  background-color: rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 0.68rem;
+  min-height: 24px;
+  padding: 3px 12px;
   text-align: center;
   white-space: nowrap;
   line-height: 1.2;
@@ -2735,11 +2735,11 @@ body.presskit-page .content-section:nth-of-type(5) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(255, 255, 255, 0.3);
-  color: #fff;
-  font-size: 0.56rem;
-  min-height: 20px;
-  padding: 2px 8px;
+  background-color: rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 0.68rem;
+  min-height: 24px;
+  padding: 3px 12px;
   border-radius: 999px;
   line-height: 1.2;
   white-space: nowrap;
@@ -3233,8 +3233,8 @@ body.presskit-page .content-section:nth-of-type(5) {
 
 .coaching-row {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
   margin: 0 0 12px;
 }
 
