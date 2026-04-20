@@ -780,18 +780,18 @@
 .history-panel[data-year="2025"] .coaching-row .roster-card.coaching-card,
 .history-panel[data-year="2026"] .coaching-row .roster-card.coaching-card {
   --roster-image-col: 96px;
-  min-height: 128px;
+  min-height: 144px;
   grid-template-areas:
     "media name"
-    "media meta"
-    "media hometown";
+    "media hometown"
+    "media meta";
   grid-template-rows: auto auto auto;
 }
 
 .roster-panel .roster-card.coaching-card .history-avatar,
 .history-panel[data-year="2025"] .coaching-row .roster-card.coaching-card .history-avatar,
 .history-panel[data-year="2026"] .coaching-row .roster-card.coaching-card .history-avatar {
-  min-height: 128px;
+  min-height: 144px;
 }
 
 .roster-panel .roster-card.coaching-card .roster-meta,
@@ -799,8 +799,9 @@
 .history-panel[data-year="2026"] .coaching-row .roster-card.coaching-card .roster-meta {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 5px;
+  padding: 0 12px 12px 30px;
 }
 
 .roster-panel .roster-card.coaching-card .roster-position,
@@ -813,6 +814,10 @@
   white-space: nowrap;
   line-height: 1.2;
   text-align: center;
+  font-size: 0.55rem;
+  min-height: 20px;
+  padding: 2px 7px;
+  flex-shrink: 0;
 }
 
 .roster-panel .roster-card.coaching-card .roster-coach-matches,
@@ -823,12 +828,13 @@
   justify-content: center;
   background-color: rgba(255, 255, 255, 0.3);
   color: #fff;
-  font-size: 0.62rem;
-  min-height: 22px;
-  padding: 2px 10px;
+  font-size: 0.55rem;
+  min-height: 20px;
+  padding: 2px 7px;
   border-radius: 999px;
   line-height: 1.2;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .season-breakdown {
