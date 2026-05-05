@@ -382,17 +382,11 @@
   margin-top: 14px;
 }
 
-.home-next-match-time,
-.home-next-match-stream,
-.home-next-match-mode {
+.home-next-match-action {
   min-width: 138px;
   min-height: 42px;
   font-size: 0.74rem;
   padding: 7px 11px;
-}
-
-.home-next-match-time {
-  font-size: 1rem;
 }
 
 .news-page-title {

@@ -163,11 +163,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const leftName = teams[0]?.querySelector("h3");
     const rightLogo = teams[1]?.querySelector(".home-next-match-logo");
     const rightName = teams[1]?.querySelector("h3");
-    const mode = section.querySelector(".home-next-match-mode");
     const type = section.querySelector(".home-next-match-type");
     const detail = section.querySelector(".home-next-match-detail");
     const location = section.querySelector(".home-next-match-location");
-    const time = section.querySelector(".home-next-match-time");
+    const directions = section.querySelector(".home-next-match-directions");
     const countdown = section.querySelector(".home-next-match-countdown");
 
     if (leftLogo) {
@@ -180,7 +179,6 @@ document.addEventListener("DOMContentLoaded", () => {
       rightLogo.alt = `${match.rightTeam.name} badge`;
     }
     if (rightName) rightName.textContent = match.rightTeam.name;
-    if (mode) mode.textContent = match.modeText;
     if (type) type.textContent = `${match.teamLabel} · ${match.typeText}`;
     if (detail) detail.textContent = `${match.dateText} · ${match.timeText}`;
     if (location) {
@@ -189,7 +187,10 @@ document.addEventListener("DOMContentLoaded", () => {
           ? "Venue details to be confirmed"
           : `${match.venueName} · ${match.locationText}`;
     }
-    if (time) time.textContent = match.timeText;
+    if (directions) {
+      const destination = match.locationText === "Venue TBA" ? match.venueName : match.locationText;
+      directions.href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(destination)}`;
+    }
     if (countdown) {
       countdown.dataset.matchDatetime = match.kickoff.toISOString();
       countdown.textContent = "0D : 00H : 00M : 00S";

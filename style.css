@@ -801,35 +801,18 @@ body {
   margin-top: 18px;
 }
 
-.home-next-match-time,
-.home-next-match-stream,
-.home-next-match-mode {
+.home-next-match-action {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   color: #fff;
+  background: rgba(241, 138, 1, 0.2);
   text-transform: uppercase;
   border-radius: 10px;
   min-width: 154px;
   min-height: 46px;
   padding: 8px 14px;
   box-sizing: border-box;
-}
-
-.home-next-match-time {
-  background: #f18a01;
-  font-family: 'Bermont', sans-serif;
-  font-size: 1.2rem;
-  letter-spacing: 0.8px;
-}
-
-.home-next-match-mode {
-  font-size: 0.88rem;
-  font-weight: 700;
-  letter-spacing: 0.8px;
-}
-
-.home-next-match-stream {
   background: rgba(241, 138, 1, 0.2);
   font-size: 0.88rem;
   font-weight: 700;
