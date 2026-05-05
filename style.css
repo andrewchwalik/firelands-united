@@ -2923,18 +2923,15 @@ body.presskit-page .content-section:nth-of-type(5) {
 .schedule-team-logo-wrap {
   width: 78px;
   height: 78px;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fff;
-  box-shadow: inset 0 0 0 1px rgba(71, 78, 90, 0.1);
   margin-bottom: 9px;
 }
 
 .schedule-team-logo {
-  width: 62px;
-  height: 62px;
+  width: 78px;
+  height: 78px;
   object-fit: contain;
 }
 
