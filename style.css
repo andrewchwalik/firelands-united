@@ -691,6 +691,16 @@ body {
   flex-direction: row-reverse;
 }
 
+.home-next-match-logo-shell {
+  width: 154px;
+  height: 154px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  flex: 0 0 auto;
+}
+
 .home-next-match-logo {
   width: 126px;
   height: 126px;
@@ -780,6 +790,15 @@ body {
   letter-spacing: 0.2px;
 }
 
+.home-next-match-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
 .home-next-match-time {
   display: inline-flex;
   align-items: center;
@@ -791,7 +810,6 @@ body {
   letter-spacing: 0.8px;
   text-transform: uppercase;
   padding: 8px 14px;
-  margin-top: 18px;
   border-radius: 10px;
 }
 
@@ -808,6 +826,11 @@ body {
   .home-next-match-logo {
     width: 108px;
     height: 108px;
+  }
+
+  .home-next-match-logo-shell {
+    width: 132px;
+    height: 132px;
   }
 
   .home-next-match-team {

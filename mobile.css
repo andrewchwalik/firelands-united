@@ -330,6 +330,11 @@
   gap: 10px;
 }
 
+.home-next-match-logo-shell {
+  width: 114px;
+  height: 114px;
+}
+
 .home-next-match-logo {
   width: 92px;
   height: 92px;
@@ -372,9 +377,18 @@
   line-height: 1.4;
 }
 
+.home-next-match-meta {
+  gap: 8px;
+  margin-top: 14px;
+}
+
 .home-next-match-time {
   font-size: 1rem;
-  margin-top: 12px;
+}
+
+.home-next-match-mode {
+  font-size: 0.74rem;
+  padding: 7px 11px;
 }
 
 .news-page-title {
