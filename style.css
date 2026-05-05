@@ -605,7 +605,9 @@ body {
 
 .home-next-match-section {
   padding: 0 0 58px;
-  background-color: #474e5a;
+  background:
+    linear-gradient(rgba(71, 78, 90, 0.86), rgba(71, 78, 90, 0.86)),
+    url('/img/upcoming-match-background.jpg') center/cover no-repeat;
 }
 
 .home-next-match-shell {
@@ -618,7 +620,7 @@ body {
   overflow: hidden;
   border-radius: 0;
   min-height: 350px;
-  background: #474e5a;
+  background: transparent;
 }
 
 .home-next-match-content {
