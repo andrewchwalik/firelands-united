@@ -2880,14 +2880,12 @@ body.presskit-page .content-section:nth-of-type(5) {
 
 .schedule-card {
   position: relative;
-  overflow: visible;
-  background:
-    radial-gradient(circle at top left, rgba(255, 255, 255, 0.4), transparent 38%),
-    linear-gradient(135deg, rgba(249, 169, 77, 0.2) 0%, rgba(255, 255, 255, 0.92) 48%, rgba(241, 138, 1, 0.16) 100%);
-  border: 1px solid rgba(241, 138, 1, 0.3);
-  border-radius: 34px;
-  padding: 20px 26px 28px;
-  box-shadow: 0 14px 24px rgba(20, 24, 32, 0.09);
+  overflow: hidden;
+  background: #fff;
+  border: 2px solid rgba(71, 78, 90, 0.16);
+  border-radius: 28px;
+  padding: 18px 22px 20px;
+  box-shadow: 0 8px 18px rgba(20, 24, 32, 0.06);
 }
 
 .schedule-card.home-match {
@@ -2895,36 +2893,23 @@ body.presskit-page .content-section:nth-of-type(5) {
 }
 
 .schedule-card.away-match {
-  border-color: rgba(71, 78, 90, 0.2);
-}
-
-.schedule-card::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -1px;
-  width: 108px;
-  height: 26px;
-  transform: translateX(-50%);
-  background:
-    linear-gradient(135deg, rgba(249, 169, 77, 0.2) 0%, rgba(255, 255, 255, 0.94) 48%, rgba(241, 138, 1, 0.14) 100%);
-  border: 1px solid rgba(241, 138, 1, 0.22);
-  border-top: none;
-  border-radius: 0 0 32px 32px;
+  border-color: rgba(71, 78, 90, 0.18);
 }
 
 .schedule-match-label {
-  margin: 0 0 14px;
+  margin: 0 0 12px;
   text-align: center;
-  color: #5e6675;
-  font-size: 0.96rem;
-  font-weight: 500;
+  color: #6c7380;
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
 }
 
 .schedule-matchup {
   display: grid;
   grid-template-columns: minmax(160px, 1fr) minmax(210px, 0.95fr) minmax(160px, 1fr);
-  gap: 14px;
+  gap: 10px;
   align-items: center;
 }
 
@@ -2936,29 +2921,29 @@ body.presskit-page .content-section:nth-of-type(5) {
 }
 
 .schedule-team-logo-wrap {
-  width: 86px;
-  height: 86px;
+  width: 78px;
+  height: 78px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.7);
-  box-shadow: inset 0 0 0 1px rgba(241, 138, 1, 0.12);
-  margin-bottom: 10px;
+  background: #fff;
+  box-shadow: inset 0 0 0 1px rgba(71, 78, 90, 0.1);
+  margin-bottom: 9px;
 }
 
 .schedule-team-logo {
-  width: 68px;
-  height: 68px;
+  width: 62px;
+  height: 62px;
   object-fit: contain;
 }
 
 .schedule-team-name {
   margin: 0;
-  color: #181d27;
-  font-size: 1.25rem;
-  font-weight: 500;
-  line-height: 1.15;
+  color: #2e3440;
+  font-size: 1.08rem;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .schedule-match-center {
@@ -2967,9 +2952,9 @@ body.presskit-page .content-section:nth-of-type(5) {
 
 .schedule-date {
   margin: 0;
-  color: #707887;
-  font-size: 1rem;
-  font-weight: 500;
+  color: #7a8290;
+  font-size: 0.92rem;
+  font-weight: 600;
 }
 
 .schedule-match-pill {
@@ -2977,11 +2962,11 @@ body.presskit-page .content-section:nth-of-type(5) {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  margin-top: 16px;
-  padding: 8px 14px;
+  margin-top: 14px;
+  padding: 8px 12px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 8px 18px rgba(20, 24, 32, 0.08);
+  background: #f7f8fa;
+  box-shadow: inset 0 0 0 1px rgba(71, 78, 90, 0.08);
 }
 
 .schedule-card-topline {
@@ -3019,14 +3004,14 @@ body.presskit-page .content-section:nth-of-type(5) {
   margin: 0 0 6px;
   color: #474e5a;
   font-family: 'Bermont', sans-serif;
-  font-size: 2.5rem;
+  font-size: 2.35rem;
   font-weight: 700;
   line-height: 1;
 }
 
 .schedule-venue-inline {
   color: #474e5a;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.2px;
 }
