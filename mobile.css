@@ -806,18 +806,18 @@
   grid-template-columns: 1fr;
 }
 
-.schedule-overview {
-  grid-template-columns: 1fr;
-  gap: 12px;
+.schedule-switcher {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
   margin-bottom: 24px;
 }
 
-.schedule-overview-card {
-  padding: 18px 18px 16px;
-}
-
-.schedule-overview-value {
-  font-size: 1.45rem;
+.schedule-switcher-button {
+  width: 100%;
+  min-width: 0;
+  font-size: 0.82rem;
+  padding: 12px 16px;
 }
 
 .schedule-card {

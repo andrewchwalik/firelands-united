@@ -3049,55 +3049,42 @@ body.presskit-page .content-section:nth-of-type(5) {
   line-height: 1.55;
 }
 
-.schedule-overview {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+.schedule-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
   margin-bottom: 30px;
 }
 
-.schedule-overview-card {
-  position: relative;
-  overflow: hidden;
+.schedule-switcher-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 210px;
+  padding: 13px 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(71, 78, 90, 0.16);
   background: #fff;
-  border: 1px solid #ececec;
-  border-radius: 16px;
-  padding: 22px 22px 20px;
-  box-shadow: 0 10px 18px rgba(20, 24, 32, 0.08);
-}
-
-.schedule-overview-card::before {
-  content: "";
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 6px;
-  background: linear-gradient(180deg, #f18a01 0%, #f9a94d 100%);
-}
-
-.schedule-overview-label {
-  display: inline-block;
-  margin-bottom: 10px;
-  color: #f18a01;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-.schedule-overview-value {
-  display: block;
   color: #474e5a;
-  font-family: 'Bermont', sans-serif;
-  font-size: 1.75rem;
-  line-height: 1;
-  margin-bottom: 8px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: 0 8px 18px rgba(20, 24, 32, 0.06);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease, color 0.18s ease;
 }
 
-.schedule-overview-card p {
-  margin: 0;
-  color: #5f6674;
-  font-size: 0.94rem;
-  line-height: 1.45;
+.schedule-switcher-button:hover {
+  transform: translateY(-1px);
+}
+
+.schedule-switcher-button.active {
+  background: #f18a01;
+  border-color: #f18a01;
+  color: #fff;
+  box-shadow: 0 10px 20px rgba(241, 138, 1, 0.24);
 }
 
 .schedule-month-group {
