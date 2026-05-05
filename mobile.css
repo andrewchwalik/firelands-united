@@ -872,6 +872,19 @@
   font-size: 0.7rem;
 }
 
+.schedule-actions {
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 14px;
+}
+
+.schedule-action-button {
+  width: 100%;
+  min-width: 0;
+  font-size: 0.76rem;
+  padding: 10px 12px;
+}
+
 .roster-tabs {
   flex-direction: column;
   gap: 8px;

@@ -107,6 +107,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
   startHomeNextMatchCountdown();
 
+  function initScheduleActionButtons() {
+    const scheduleCards = document.querySelectorAll(".schedule-card[data-directions-query]");
+    if (scheduleCards.length === 0) return;
+
+    const liveUrl = "https://www.youtube.com/@FirelandsUnited/streams";
+    const merchUrl = "https://ykxwgu-j1.myshopify.com";
+
+    scheduleCards.forEach((card) => {
+      if (card.querySelector(".schedule-actions")) return;
+
+      const directionsQuery = (card.dataset.directionsQuery || "").trim();
+      const actions = document.createElement("div");
+      actions.className = "schedule-actions";
+
+      const directionsButton = document.createElement("a");
+      directionsButton.className = "schedule-action-button directions-button";
+      directionsButton.textContent = "Get Directions";
+      directionsButton.href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(directionsQuery)}`;
+      directionsButton.target = "_blank";
+      directionsButton.rel = "noopener noreferrer";
+
+      const liveButton = document.createElement("a");
+      liveButton.className = "schedule-action-button live-button";
+      liveButton.textContent = "Watch Live";
+      liveButton.href = liveUrl;
+      liveButton.target = "_blank";
+      liveButton.rel = "noopener noreferrer";
+
+      const merchButton = document.createElement("a");
+      merchButton.className = "schedule-action-button merch-button";
+      merchButton.textContent = "Get Merch";
+      merchButton.href = merchUrl;
+      merchButton.target = "_blank";
+      merchButton.rel = "noopener noreferrer";
+
+      actions.append(directionsButton, liveButton, merchButton);
+      card.appendChild(actions);
+    });
+  }
+
+  initScheduleActionButtons();
+
   // ----- Shared player card source of truth -----
   // Source now lives in /players.json for easy non-code updates.
 
