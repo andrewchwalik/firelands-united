@@ -3052,8 +3052,8 @@ body.presskit-page .content-section:nth-of-type(5) {
 .schedule-switcher {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
+  gap: 10px;
+  justify-content: flex-start;
   margin-bottom: 30px;
 }
 
@@ -3061,14 +3061,14 @@ body.presskit-page .content-section:nth-of-type(5) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 210px;
-  padding: 13px 22px;
+  min-width: 168px;
+  padding: 11px 18px;
   border-radius: 999px;
   border: 1px solid rgba(71, 78, 90, 0.16);
   background: #fff;
   color: #474e5a;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
