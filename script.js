@@ -182,8 +182,13 @@ document.addEventListener("DOMContentLoaded", () => {
     if (rightName) rightName.textContent = match.rightTeam.name;
     if (mode) mode.textContent = match.modeText;
     if (type) type.textContent = `${match.teamLabel} · ${match.typeText}`;
-    if (detail) detail.textContent = `${match.dateText} · ${match.venueName}`;
-    if (location) location.textContent = match.locationText === "Venue TBA" ? "Venue details to be confirmed" : match.locationText;
+    if (detail) detail.textContent = `${match.dateText} · ${match.timeText}`;
+    if (location) {
+      location.textContent =
+        match.locationText === "Venue TBA"
+          ? "Venue details to be confirmed"
+          : `${match.venueName} · ${match.locationText}`;
+    }
     if (time) time.textContent = match.timeText;
     if (countdown) {
       countdown.dataset.matchDatetime = match.kickoff.toISOString();
