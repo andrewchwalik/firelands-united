@@ -2880,60 +2880,108 @@ body.presskit-page .content-section:nth-of-type(5) {
 
 .schedule-card {
   position: relative;
-  display: grid;
-  grid-template-columns: 116px minmax(0, 1fr);
-  gap: 18px;
-  align-items: center;
-  background: #fff;
-  border: 1px solid #ececec;
-  border-left-width: 5px;
-  border-radius: 16px;
-  padding: 18px;
-  box-shadow: 0 10px 18px rgba(20, 24, 32, 0.08);
+  overflow: visible;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.4), transparent 38%),
+    linear-gradient(135deg, rgba(249, 169, 77, 0.2) 0%, rgba(255, 255, 255, 0.92) 48%, rgba(241, 138, 1, 0.16) 100%);
+  border: 1px solid rgba(241, 138, 1, 0.3);
+  border-radius: 34px;
+  padding: 20px 26px 28px;
+  box-shadow: 0 14px 24px rgba(20, 24, 32, 0.09);
 }
 
 .schedule-card.home-match {
-  border-left-color: #f18a01;
+  border-color: rgba(241, 138, 1, 0.34);
 }
 
 .schedule-card.away-match {
-  border-left-color: #474e5a;
+  border-color: rgba(71, 78, 90, 0.2);
 }
 
-.schedule-date-block {
+.schedule-card::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -1px;
+  width: 108px;
+  height: 26px;
+  transform: translateX(-50%);
+  background:
+    linear-gradient(135deg, rgba(249, 169, 77, 0.2) 0%, rgba(255, 255, 255, 0.94) 48%, rgba(241, 138, 1, 0.14) 100%);
+  border: 1px solid rgba(241, 138, 1, 0.22);
+  border-top: none;
+  border-radius: 0 0 32px 32px;
+}
+
+.schedule-match-label {
+  margin: 0 0 14px;
+  text-align: center;
+  color: #5e6675;
+  font-size: 0.96rem;
+  font-weight: 500;
+}
+
+.schedule-matchup {
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) minmax(210px, 0.95fr) minmax(160px, 1fr);
+  gap: 14px;
+  align-items: center;
+}
+
+.schedule-team {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  min-height: 112px;
-  padding: 10px 8px;
-  border-radius: 12px;
-  background:
-    linear-gradient(135deg, rgba(241, 138, 1, 0.12), rgba(241, 138, 1, 0.02)),
-    #f7f8fa;
   text-align: center;
 }
 
-.schedule-month {
-  color: #f18a01;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+.schedule-team-logo-wrap {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: inset 0 0 0 1px rgba(241, 138, 1, 0.12);
+  margin-bottom: 10px;
 }
 
-.schedule-day {
-  color: #474e5a;
-  font-family: 'Bermont', sans-serif;
-  font-size: 2rem;
-  line-height: 1;
-  margin: 6px 0 5px;
+.schedule-team-logo {
+  width: 68px;
+  height: 68px;
+  object-fit: contain;
 }
 
-.schedule-weekday {
-  color: #6a7180;
-  font-size: 0.78rem;
-  font-weight: 600;
+.schedule-team-name {
+  margin: 0;
+  color: #181d27;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.schedule-match-center {
+  text-align: center;
+}
+
+.schedule-date {
+  margin: 0;
+  color: #707887;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.schedule-match-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 8px 18px rgba(20, 24, 32, 0.08);
 }
 
 .schedule-card-topline {
@@ -2948,7 +2996,7 @@ body.presskit-page .content-section:nth-of-type(5) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 28px;
+  min-height: 30px;
   padding: 4px 12px;
   border-radius: 999px;
   font-size: 0.72rem;
@@ -2968,9 +3016,24 @@ body.presskit-page .content-section:nth-of-type(5) {
 }
 
 .schedule-time {
+  margin: 0 0 6px;
   color: #474e5a;
-  font-size: 0.95rem;
+  font-family: 'Bermont', sans-serif;
+  font-size: 2.5rem;
   font-weight: 700;
+  line-height: 1;
+}
+
+.schedule-venue-inline {
+  color: #474e5a;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.schedule-venue-inline.venue-tba {
+  color: #7a8290;
+  font-weight: 600;
 }
 
 .schedule-card-details h3 {

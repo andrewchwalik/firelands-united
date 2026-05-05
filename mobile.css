@@ -739,22 +739,56 @@
 }
 
 .schedule-card {
+  padding: 16px 16px 24px;
+  border-radius: 24px;
+}
+
+.schedule-card::after {
+  width: 82px;
+  height: 20px;
+}
+
+.schedule-match-label {
+  font-size: 0.82rem;
+  margin-bottom: 12px;
+}
+
+.schedule-matchup {
   grid-template-columns: 1fr;
-  gap: 12px;
-  padding: 14px;
+  gap: 10px;
 }
 
-.schedule-date-block {
-  min-height: auto;
-  padding: 12px;
+.schedule-team-logo-wrap {
+  width: 72px;
+  height: 72px;
+  margin-bottom: 8px;
 }
 
-.schedule-card-details h3 {
-  font-size: 1.08rem;
+.schedule-team-logo {
+  width: 56px;
+  height: 56px;
 }
 
-.schedule-venue {
-  font-size: 0.86rem;
+.schedule-team-name {
+  font-size: 1rem;
+}
+
+.schedule-time {
+  font-size: 2rem;
+}
+
+.schedule-date {
+  font-size: 0.9rem;
+}
+
+.schedule-match-pill {
+  margin-top: 12px;
+  padding: 8px 12px;
+  flex-wrap: wrap;
+}
+
+.schedule-venue-inline {
+  font-size: 0.74rem;
 }
 
 .roster-tabs {
