@@ -295,6 +295,66 @@
   line-height: 1.1;
 }
 
+.home-next-match-section {
+  padding: 0 14px 42px;
+}
+
+.home-next-match-card {
+  min-height: auto;
+}
+
+.home-next-match-content {
+  min-height: auto;
+  padding: 28px 18px 30px;
+}
+
+.home-next-match-tag {
+  margin-bottom: 18px;
+  font-size: 0.82rem;
+  padding: 7px 12px;
+}
+
+.home-next-match-grid {
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.home-next-match-team,
+.home-next-match-team:last-child {
+  flex-direction: column;
+  gap: 10px;
+}
+
+.home-next-match-logo {
+  width: 92px;
+  height: 92px;
+}
+
+.home-next-match-team h3,
+.home-next-match-team:last-child h3 {
+  text-align: center;
+  font-size: 1.4rem;
+}
+
+.home-next-match-big {
+  font-size: 4.3rem;
+  margin-bottom: 10px;
+}
+
+.home-next-match-type {
+  font-size: 0.8rem;
+}
+
+.home-next-match-detail {
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.home-next-match-time {
+  font-size: 1rem;
+  margin-top: 12px;
+}
+
 .news-page-title {
   font-size: 2.1rem;
   line-height: 1.1;
