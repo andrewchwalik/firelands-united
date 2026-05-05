@@ -76,6 +76,150 @@ document.addEventListener("DOMContentLoaded", () => {
     link.appendChild(label);
   });
 
+  const SCHEDULE_PAGE_SOURCES = [
+    { url: "/schedule/", teamLabel: "Men's First Team" },
+    { url: "/womens-schedule/", teamLabel: "Women's First Team" },
+  ];
+
+  const MONTH_INDEX = {
+    january: "01",
+    february: "02",
+    march: "03",
+    april: "04",
+    may: "05",
+    june: "06",
+    july: "07",
+    august: "08",
+    september: "09",
+    october: "10",
+    november: "11",
+    december: "12",
+  };
+
+  function parseScheduleDateTime(dateText, timeText) {
+    const cleanedDate = (dateText || "").replace(/^[A-Za-z]{3},\s*/, "").trim();
+    const dateMatch = cleanedDate.match(/^([A-Za-z]+)\s+(\d{1,2}),\s*(\d{4})$/);
+    const timeMatch = (timeText || "").trim().match(/^(\d{1,2}):(\d{2})\s*(AM|PM)$/i);
+    if (!dateMatch || !timeMatch) return null;
+
+    const [, monthName, day, year] = dateMatch;
+    const month = MONTH_INDEX[monthName.toLowerCase()];
+    if (!month) return null;
+
+    let hours = Number(timeMatch[1]);
+    const minutes = timeMatch[2];
+    const meridiem = timeMatch[3].toUpperCase();
+    if (meridiem === "PM" && hours !== 12) hours += 12;
+    if (meridiem === "AM" && hours === 12) hours = 0;
+
+    const hourString = String(hours).padStart(2, "0");
+    return new Date(`${year}-${month}-${String(day).padStart(2, "0")}T${hourString}:${minutes}:00-04:00`);
+  }
+
+  function parseScheduleCard(card, teamLabel) {
+    const teams = card.querySelectorAll(".schedule-team");
+    if (teams.length < 2) return null;
+
+    const leftTeam = teams[0];
+    const rightTeam = teams[1];
+    const typeText = card.querySelector(".schedule-match-type")?.textContent?.trim() || "Match";
+    const timeText = card.querySelector(".schedule-time")?.textContent?.trim() || "";
+    const dateText = card.querySelector(".schedule-date")?.textContent?.trim() || "";
+    const statusText = card.querySelector(".schedule-status")?.textContent?.trim() || "";
+    const locationText = card.querySelector(".schedule-location")?.textContent?.trim() || "";
+    const kickoff = parseScheduleDateTime(dateText, timeText);
+    if (!kickoff) return null;
+
+    const statusParts = statusText.split("·").map((part) => part.trim()).filter(Boolean);
+    const venueName = statusParts[1] || (locationText && locationText !== "Venue TBA" ? locationText : "Venue TBA");
+
+    return {
+      teamLabel,
+      kickoff,
+      typeText,
+      timeText,
+      dateText,
+      statusText,
+      venueName,
+      locationText,
+      modeText: card.classList.contains("away-match") ? "Away Match" : "Home Match",
+      leftTeam: {
+        name: leftTeam.querySelector(".schedule-team-name")?.textContent?.trim() || "",
+        logo: leftTeam.querySelector(".schedule-team-logo")?.getAttribute("src") || "",
+      },
+      rightTeam: {
+        name: rightTeam.querySelector(".schedule-team-name")?.textContent?.trim() || "",
+        logo: rightTeam.querySelector(".schedule-team-logo")?.getAttribute("src") || "",
+      },
+    };
+  }
+
+  function updateHomeUpcomingMatch(match) {
+    const section = document.querySelector(".home-next-match-section");
+    if (!section || !match) return;
+
+    const teams = section.querySelectorAll(".home-next-match-team");
+    const leftLogo = teams[0]?.querySelector(".home-next-match-logo");
+    const leftName = teams[0]?.querySelector("h3");
+    const rightLogo = teams[1]?.querySelector(".home-next-match-logo");
+    const rightName = teams[1]?.querySelector("h3");
+    const mode = section.querySelector(".home-next-match-mode");
+    const type = section.querySelector(".home-next-match-type");
+    const detail = section.querySelector(".home-next-match-detail");
+    const location = section.querySelector(".home-next-match-location");
+    const time = section.querySelector(".home-next-match-time");
+    const countdown = section.querySelector(".home-next-match-countdown");
+
+    if (leftLogo) {
+      leftLogo.src = match.leftTeam.logo;
+      leftLogo.alt = `${match.leftTeam.name} badge`;
+    }
+    if (leftName) leftName.textContent = match.leftTeam.name;
+    if (rightLogo) {
+      rightLogo.src = match.rightTeam.logo;
+      rightLogo.alt = `${match.rightTeam.name} badge`;
+    }
+    if (rightName) rightName.textContent = match.rightTeam.name;
+    if (mode) mode.textContent = match.modeText;
+    if (type) type.textContent = `${match.teamLabel} · ${match.typeText}`;
+    if (detail) detail.textContent = `${match.dateText} · ${match.venueName}`;
+    if (location) location.textContent = match.locationText === "Venue TBA" ? "Venue details to be confirmed" : match.locationText;
+    if (time) time.textContent = match.timeText;
+    if (countdown) {
+      countdown.dataset.matchDatetime = match.kickoff.toISOString();
+      countdown.textContent = "0D : 00H : 00M : 00S";
+    }
+  }
+
+  async function syncHomeUpcomingMatchFromSchedules() {
+    const section = document.querySelector(".home-next-match-section");
+    if (!section) return;
+
+    try {
+      const responses = await Promise.all(
+        SCHEDULE_PAGE_SOURCES.map(async (source) => {
+          const response = await fetch(source.url, { cache: "no-store" });
+          if (!response.ok) throw new Error(`Failed to load ${source.url} (${response.status})`);
+          const markup = await response.text();
+          const doc = new DOMParser().parseFromString(markup, "text/html");
+          const matches = Array.from(doc.querySelectorAll(".schedule-card"))
+            .map((card) => parseScheduleCard(card, source.teamLabel))
+            .filter(Boolean);
+          return matches;
+        })
+      );
+
+      const allMatches = responses.flat().sort((a, b) => a.kickoff - b.kickoff);
+      const now = Date.now();
+      const currentOrUpcoming = allMatches.find((match) => match.kickoff.getTime() >= now - 3 * 60 * 60 * 1000);
+      if (currentOrUpcoming) {
+        updateHomeUpcomingMatch(currentOrUpcoming);
+      }
+    } catch (error) {
+      console.error("Error syncing upcoming match from schedule pages:", error);
+    }
+  }
+
   function startHomeNextMatchCountdown() {
     const countdownEls = document.querySelectorAll(".home-next-match-countdown[data-match-datetime]");
     if (countdownEls.length === 0) return;
@@ -106,6 +250,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   startHomeNextMatchCountdown();
+  syncHomeUpcomingMatchFromSchedules();
 
   function initScheduleActionButtons() {
     const scheduleCards = document.querySelectorAll(".schedule-card[data-directions-query]");
