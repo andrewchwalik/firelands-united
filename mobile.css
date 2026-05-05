@@ -296,7 +296,7 @@
 }
 
 .home-next-match-section {
-  padding: 0 14px 42px;
+  padding: 0 0 42px;
 }
 
 .home-next-match-card {
@@ -305,18 +305,23 @@
 
 .home-next-match-content {
   min-height: auto;
-  padding: 28px 18px 30px;
+  padding: 28px 18px 34px;
 }
 
-.home-next-match-tag {
+.home-next-match-header {
+  gap: 10px;
   margin-bottom: 18px;
+}
+
+.home-next-match-tag,
+.home-next-match-mode {
   font-size: 0.82rem;
   padding: 7px 12px;
 }
 
 .home-next-match-grid {
   grid-template-columns: 1fr;
-  gap: 18px;
+  gap: 22px;
 }
 
 .home-next-match-team,
@@ -338,16 +343,31 @@
 
 .home-next-match-big {
   font-size: 4.3rem;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
+  padding: 8px 0 12px;
+}
+
+.home-next-match-countdown {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  transform: translate(-50%, -44%);
 }
 
 .home-next-match-type {
   font-size: 0.8rem;
+  margin-bottom: 10px;
 }
 
 .home-next-match-detail {
   font-size: 0.82rem;
-  line-height: 1.45;
+  line-height: 1.35;
+  margin-bottom: 4px;
+}
+
+.home-next-match-location {
+  font-size: 0.76rem;
+  line-height: 1.4;
 }
 
 .home-next-match-time {

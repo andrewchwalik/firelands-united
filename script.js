@@ -76,6 +76,37 @@ document.addEventListener("DOMContentLoaded", () => {
     link.appendChild(label);
   });
 
+  function startHomeNextMatchCountdown() {
+    const countdownEls = document.querySelectorAll(".home-next-match-countdown[data-match-datetime]");
+    if (countdownEls.length === 0) return;
+
+    const formatCountdown = (distanceMs) => {
+      const totalSeconds = Math.max(0, Math.floor(distanceMs / 1000));
+      const days = Math.floor(totalSeconds / 86400);
+      const hours = Math.floor((totalSeconds % 86400) / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+      return `${days}D : ${String(hours).padStart(2, "0")}H : ${String(minutes).padStart(2, "0")}M : ${String(seconds).padStart(2, "0")}S`;
+    };
+
+    const tick = () => {
+      const now = Date.now();
+
+      countdownEls.forEach((el) => {
+        const matchTime = new Date(el.dataset.matchDatetime).getTime();
+        if (Number.isNaN(matchTime)) return;
+
+        const distance = matchTime - now;
+        el.textContent = distance <= 0 ? "LIVE NOW" : formatCountdown(distance);
+      });
+    };
+
+    tick();
+    window.setInterval(tick, 1000);
+  }
+
+  startHomeNextMatchCountdown();
+
   // ----- Shared player card source of truth -----
   // Source now lives in /players.json for easy non-code updates.
 
