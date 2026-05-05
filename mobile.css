@@ -724,6 +724,39 @@
   grid-template-columns: 1fr;
 }
 
+.schedule-overview {
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.schedule-overview-card {
+  padding: 18px 18px 16px;
+}
+
+.schedule-overview-value {
+  font-size: 1.45rem;
+}
+
+.schedule-card {
+  grid-template-columns: 1fr;
+  gap: 12px;
+  padding: 14px;
+}
+
+.schedule-date-block {
+  min-height: auto;
+  padding: 12px;
+}
+
+.schedule-card-details h3 {
+  font-size: 1.08rem;
+}
+
+.schedule-venue {
+  font-size: 0.86rem;
+}
+
 .roster-tabs {
   flex-direction: column;
   gap: 8px;

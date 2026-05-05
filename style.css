@@ -2813,6 +2813,185 @@ body.presskit-page .content-section:nth-of-type(5) {
   padding: 8px 0;
 }
 
+.schedule-header p {
+  max-width: 920px;
+  line-height: 1.55;
+}
+
+.schedule-overview {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.schedule-overview-card {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 16px;
+  padding: 22px 22px 20px;
+  box-shadow: 0 10px 18px rgba(20, 24, 32, 0.08);
+}
+
+.schedule-overview-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 6px;
+  background: linear-gradient(180deg, #f18a01 0%, #f9a94d 100%);
+}
+
+.schedule-overview-label {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #f18a01;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.schedule-overview-value {
+  display: block;
+  color: #474e5a;
+  font-family: 'Bermont', sans-serif;
+  font-size: 1.75rem;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.schedule-overview-card p {
+  margin: 0;
+  color: #5f6674;
+  font-size: 0.94rem;
+  line-height: 1.45;
+}
+
+.schedule-month-group {
+  margin-bottom: 30px;
+}
+
+.schedule-list {
+  display: grid;
+  gap: 14px;
+}
+
+.schedule-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 116px minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #ececec;
+  border-left-width: 5px;
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 10px 18px rgba(20, 24, 32, 0.08);
+}
+
+.schedule-card.home-match {
+  border-left-color: #f18a01;
+}
+
+.schedule-card.away-match {
+  border-left-color: #474e5a;
+}
+
+.schedule-date-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 112px;
+  padding: 10px 8px;
+  border-radius: 12px;
+  background:
+    linear-gradient(135deg, rgba(241, 138, 1, 0.12), rgba(241, 138, 1, 0.02)),
+    #f7f8fa;
+  text-align: center;
+}
+
+.schedule-month {
+  color: #f18a01;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.schedule-day {
+  color: #474e5a;
+  font-family: 'Bermont', sans-serif;
+  font-size: 2rem;
+  line-height: 1;
+  margin: 6px 0 5px;
+}
+
+.schedule-weekday {
+  color: #6a7180;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.schedule-card-topline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.schedule-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.35px;
+  text-transform: uppercase;
+}
+
+.schedule-badge.home {
+  background: rgba(241, 138, 1, 0.14);
+  color: #f18a01;
+}
+
+.schedule-badge.away {
+  background: rgba(71, 78, 90, 0.12);
+  color: #474e5a;
+}
+
+.schedule-time {
+  color: #474e5a;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.schedule-card-details h3 {
+  margin: 0 0 6px;
+  color: #474e5a;
+  font-size: 1.35rem;
+  line-height: 1.08;
+}
+
+.schedule-venue {
+  margin: 0;
+  color: #474e5a;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.schedule-venue-muted {
+  color: #7a8290;
+  font-weight: 500;
+}
+
 .history-panel[data-year="records"] .summary-grid .summary-item:last-child {
   border-bottom: none;
 }
