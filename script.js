@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const liveButton = document.createElement("a");
       liveButton.className = "schedule-action-button live-button";
-      liveButton.textContent = "Watch Live";
+      liveButton.textContent = "Watch the Stream";
       liveButton.href = liveUrl;
       liveButton.target = "_blank";
       liveButton.rel = "noopener noreferrer";
