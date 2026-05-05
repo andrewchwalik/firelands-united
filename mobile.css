@@ -743,29 +743,29 @@
   border-radius: 22px;
 }
 
-.schedule-match-label {
-  font-size: 0.82rem;
-  margin-bottom: 12px;
-}
-
 .schedule-matchup {
   grid-template-columns: 1fr;
   gap: 10px;
 }
 
 .schedule-team-logo-wrap {
-  width: 68px;
-  height: 68px;
+  width: 88px;
+  height: 88px;
   margin-bottom: 8px;
 }
 
 .schedule-team-logo {
-  width: 68px;
-  height: 68px;
+  width: 88px;
+  height: 88px;
+}
+
+.schedule-team-code {
+  font-size: 0.78rem;
+  margin-bottom: 3px;
 }
 
 .schedule-team-name {
-  font-size: 0.98rem;
+  font-size: 1rem;
 }
 
 .schedule-time {
