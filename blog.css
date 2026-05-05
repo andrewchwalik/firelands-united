@@ -886,7 +886,7 @@ body {
     margin: 0 auto;
   }
 
-  .sponsor-container a {
+  .sponsor-container > * {
     display: flex;
     justify-content: center;
     align-items: center;

@@ -547,7 +547,7 @@
   margin: 0 auto;
 }
 
-.sponsor-container a {
+.sponsor-container > * {
   display: flex;
   align-items: center;
   justify-content: center;
