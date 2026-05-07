@@ -197,8 +197,14 @@
   },
   {
     "name": "George Villiers",
-    "hometown": "Tiffin, OH",
+    "hometown": "Lancing, UK",
     "image": "/img/2025-headshots/george-villiers.webp"
+  },
+  {
+    "name": "Kaden Camp",
+    "hometown": "Sandusky, OH",
+    "aliases": ["Kaden Kamp"],
+    "roster": { "number": "#2", "position": "LB/RB", "appearances": 0 }
   },
   {
     "name": "Zoe Turner",
