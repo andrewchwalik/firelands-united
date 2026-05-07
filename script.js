@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const SCHEDULE_PAGE_SOURCES = [
-    { url: "/schedule/", teamLabel: "Men's First Team" },
+    { url: "/mens-schedule/", teamLabel: "Men's First Team" },
     { url: "/womens-schedule/", teamLabel: "Women's First Team" },
   ];
 
