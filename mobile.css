@@ -524,6 +524,10 @@
   grid-template-columns: 1fr;
 }
 
+.club-fees-practice-grid {
+  max-width: none;
+}
+
 .internship-tabs {
   margin: 0 0 22px;
 }

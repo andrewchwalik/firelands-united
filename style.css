@@ -2024,10 +2024,33 @@ body.join-info-page .about-story-section {
   line-height: 1.28;
 }
 
+.club-fees-section {
+  display: grid;
+  gap: 0;
+  margin-top: 14px;
+}
+
+.club-fees-section-title {
+  margin: 0 0 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #474e5a;
+  text-align: left;
+}
+
 .club-fees-tier-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
+}
+
+.club-fees-practice-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 360px;
 }
 
 .club-fees-tier {
@@ -2070,6 +2093,10 @@ body.join-info-page .about-story-section {
   line-height: 1.22;
   max-width: 16ch;
   text-align: center;
+}
+
+.club-fees-tier--practice p {
+  max-width: 24ch;
 }
 
 .club-fees-option-grid {
