@@ -825,7 +825,7 @@
 .matchday-grid {
   grid-template-columns: 1fr;
   gap: 16px;
-  margin-bottom: 28px;
+  margin-bottom: 22px;
 }
 
 .matchday-card,
@@ -854,6 +854,10 @@
 .matchday-kits-gallery {
   grid-template-columns: 1fr;
   gap: 14px;
+}
+
+.matchday-kits {
+  margin-bottom: 22px;
 }
 
 .matchday-closing {
