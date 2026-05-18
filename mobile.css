@@ -818,6 +818,43 @@
   font-size: 2.2rem;
 }
 
+.matchday-content {
+  padding: 36px 14px 56px;
+}
+
+.matchday-grid {
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.matchday-card,
+.matchday-kits {
+  padding: 22px 18px 20px;
+  border-radius: 20px;
+}
+
+.matchday-card h2,
+.matchday-kits h2,
+.matchday-closing h2 {
+  font-size: 1.55rem;
+}
+
+.matchday-card p,
+.matchday-kits p,
+.matchday-closing p {
+  font-size: 0.95rem;
+  line-height: 1.62;
+}
+
+.matchday-kits-copy {
+  margin-bottom: 18px;
+}
+
+.matchday-closing {
+  margin-top: 24px;
+}
+
 .summary-grid {
   grid-template-columns: 1fr;
 }
