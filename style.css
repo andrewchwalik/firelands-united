@@ -1618,16 +1618,7 @@ body {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 18px;
-  box-shadow: 0 12px 28px rgba(20, 24, 32, 0.12);
-}
-
-.matchday-kit-card figcaption {
-  margin-top: 12px;
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: #474e5a;
-  text-align: center;
+  border-radius: 0;
 }
 
 .matchday-closing {
