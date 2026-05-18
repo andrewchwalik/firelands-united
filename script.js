@@ -492,13 +492,14 @@ document.addEventListener("DOMContentLoaded", () => {
       if (existingNumberPill && existingPositionPill) {
         numberPart = existingNumberPill.textContent.trim() || numberPart;
         positionPart = existingPositionPill.textContent.trim() || positionPart;
-        if (existingAppsPill && year !== "2025" && year !== "2026") {
+        if (existingAppsPill) {
           appsPart = existingAppsPill.textContent.trim() || appsPart;
         }
       } else {
-        const [numberPartRaw, positionPartRaw] = subtextEl.textContent.split("|");
+        const [numberPartRaw, positionPartRaw, appsPartRaw] = subtextEl.textContent.split("|");
         numberPart = (numberPartRaw || numberPart).trim();
         positionPart = (positionPartRaw || positionPart).trim();
+        appsPart = (appsPartRaw || appsPart).trim();
       }
 
       subtextEl.innerHTML = `<span class="history-pill history-number-pill">${numberPart}</span><span class="history-pill history-position-pill">${positionPart}</span><span class="history-pill history-apps-pill">${appsPart}</span>`;
