@@ -853,7 +853,7 @@
 
 .matchday-kits-gallery {
   grid-template-columns: 1fr;
-  gap: 18px;
+  gap: 14px;
 }
 
 .matchday-closing {
