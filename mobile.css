@@ -851,6 +851,15 @@
   margin-bottom: 18px;
 }
 
+.matchday-kits-gallery {
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.matchday-kit-card figcaption {
+  font-size: 0.9rem;
+}
+
 .matchday-closing {
   margin-top: 24px;
 }
