@@ -841,6 +841,10 @@
   border-radius: 22px;
 }
 
+.schedule-card.is-complete {
+  box-shadow: 0 5px 12px rgba(20, 24, 32, 0.035);
+}
+
 .schedule-matchup {
   grid-template-columns: 1fr;
   gap: 10px;

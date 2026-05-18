@@ -3166,6 +3166,27 @@ body.presskit-page .content-section:nth-of-type(5) {
   border-color: rgba(71, 78, 90, 0.18);
 }
 
+.schedule-card.is-complete {
+  background: #f2f4f7;
+  border-color: rgba(71, 78, 90, 0.12);
+  box-shadow: 0 6px 14px rgba(20, 24, 32, 0.04);
+}
+
+.schedule-card.is-complete .schedule-team-code,
+.schedule-card.is-complete .schedule-date,
+.schedule-card.is-complete .schedule-location {
+  color: #9aa1ad;
+}
+
+.schedule-card.is-complete .schedule-team-name,
+.schedule-card.is-complete .schedule-status {
+  color: #616977;
+}
+
+.schedule-card.is-complete .schedule-time {
+  color: #5b6371;
+}
+
 .schedule-matchup {
   display: grid;
   grid-template-columns: minmax(160px, 1fr) minmax(210px, 0.95fr) minmax(160px, 1fr);

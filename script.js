@@ -278,6 +278,7 @@ document.addEventListener("DOMContentLoaded", () => {
         timeEl.dataset.scheduledTime = scheduledTime;
         timeEl.textContent = resultText;
         timeEl.classList.add("is-result");
+        card.classList.add("is-complete");
       }
     });
   }
