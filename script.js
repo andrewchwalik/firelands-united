@@ -258,6 +258,30 @@ document.addEventListener("DOMContentLoaded", () => {
   startHomeNextMatchCountdown();
   syncHomeUpcomingMatchFromSchedules();
 
+  function initSchedulePastResults() {
+    const scheduleCards = document.querySelectorAll(".schedule-card[data-result-text]");
+    if (scheduleCards.length === 0) return;
+
+    const now = Date.now();
+
+    scheduleCards.forEach((card) => {
+      const timeEl = card.querySelector(".schedule-time");
+      const dateText = card.querySelector(".schedule-date")?.textContent?.trim() || "";
+      const scheduledTime = timeEl?.dataset.scheduledTime || timeEl?.textContent?.trim() || "";
+      const resultText = card.dataset.resultText?.trim();
+      if (!timeEl || !resultText) return;
+
+      const kickoff = parseScheduleDateTime(dateText, scheduledTime);
+      if (!kickoff) return;
+
+      if (kickoff.getTime() <= now) {
+        timeEl.dataset.scheduledTime = scheduledTime;
+        timeEl.textContent = resultText;
+        timeEl.classList.add("is-result");
+      }
+    });
+  }
+
   function initScheduleActionButtons() {
     const scheduleCards = document.querySelectorAll(".schedule-card[data-directions-query]");
     if (scheduleCards.length === 0) return;
@@ -298,6 +322,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  initSchedulePastResults();
   initScheduleActionButtons();
 
   // ----- Shared player card source of truth -----

@@ -870,6 +870,10 @@
   font-size: 1.9rem;
 }
 
+.schedule-time.is-result {
+  font-size: 1.7rem;
+}
+
 .schedule-date {
   font-size: 0.84rem;
 }

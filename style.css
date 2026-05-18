@@ -3236,6 +3236,11 @@ body.presskit-page .content-section:nth-of-type(5) {
   line-height: 1;
 }
 
+.schedule-time.is-result {
+  font-size: 2.15rem;
+  letter-spacing: 0.02em;
+}
+
 .schedule-match-type {
   margin: 0 0 8px;
   color: #f18a01;
