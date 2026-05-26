@@ -21,6 +21,6 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Excerpt", name: "excerpt", widget: "text", hint: "Short summary shown on the news page and homepage" }
-      - { label: "Category", name: "category", widget: "select", options: ["Club News", "Updates", "Player Spotlight"], default: "Club News" }
+      - { label: "Category", name: "category", widget: "select", options: ["Club News", "Updates", "Player Spotlight", "Match Recap"], default: "Club News" }
       - { label: "Featured Image", name: "image", widget: "image", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
