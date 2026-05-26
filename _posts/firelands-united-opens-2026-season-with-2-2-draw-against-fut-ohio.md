@@ -4,7 +4,7 @@ date: 2026-05-11T10:55:00.000-04:00
 excerpt: Firelands United opened the 2026 men’s season with a 2-2 draw against
   Fut Ohio in the club’s first match at historic Strobel Field.
 category: Match Recap
-image: /img/blogs/firelands-united-vs-fut-ohio-match-recap.jpg
+image: /img/blogs/firelands-united-men-vs-fut-ohio-match-recap.jpg
 ---
 Firelands United opened the 2026 men’s season with a 2-2 draw against Fut Ohio on Sunday, May 10, earning a point in the club’s first match of the year and first home match at Strobel Field.
 
