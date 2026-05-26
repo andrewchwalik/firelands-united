@@ -14,7 +14,12 @@
 }
 
 .firelands-preview .blog-hero {
-  background: #251714;
+  background: transparent;
+}
+
+.firelands-preview .blog-hero-image {
+  background: transparent;
+  box-shadow: none;
 }
 
 .firelands-preview-placeholder {
@@ -49,4 +54,59 @@
   margin: 0 auto;
   max-width: 850px;
   padding: 0.85rem 1rem;
+}
+
+.firelands-entry-summary {
+  align-items: center;
+  display: flex;
+  gap: 14px;
+  min-height: 72px;
+}
+
+.firelands-entry-summary-thumb {
+  background: #f1f3f5;
+  border-radius: 6px;
+  flex: 0 0 74px;
+  height: 52px;
+  overflow: hidden;
+}
+
+.firelands-entry-summary-thumb img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.firelands-entry-summary-body {
+  min-width: 0;
+}
+
+.firelands-entry-summary-title {
+  color: #2f3838;
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 8px;
+}
+
+.firelands-entry-summary-meta {
+  align-items: center;
+  color: #7b838c;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.78rem;
+  gap: 8px;
+  line-height: 1.2;
+}
+
+.firelands-entry-summary-category {
+  background: #f18a01;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  padding: 4px 7px;
+  text-transform: uppercase;
 }

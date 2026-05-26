@@ -17,6 +17,8 @@ collections:
     slug: "{{slug}}"
     extension: "md"
     format: "frontmatter"
+    summary: "{{title}}|||{{date | date('MMM D, YYYY')}}|||{{category}}|||{{image}}"
+    sortable_fields: ["date", "title", "category", "commit_date"]
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }

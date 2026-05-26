@@ -17,6 +17,18 @@
     return "/img/blogs/" + imageValue.replace(/^\/+/, "");
   }
 
+  function escapeHtml(value) {
+    return String(value || "").replace(/[&<>"']/g, function (character) {
+      return {
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      }[character];
+    });
+  }
+
   function formatDate(dateValue) {
     if (!dateValue) return "Draft";
     var date = new Date(dateValue);
@@ -98,6 +110,49 @@
     return true;
   }
 
+  function renderEntrySummary(element, parts) {
+    var title = parts[0] || "Untitled";
+    var date = parts[1] || "Draft";
+    var category = parts[2] || "Uncategorized";
+    var image = resolveImagePath(parts[3] || "");
+
+    element.innerHTML =
+      '<div class="firelands-entry-summary">' +
+        '<div class="firelands-entry-summary-thumb">' +
+          (image ? '<img src="' + escapeHtml(image) + '" alt="">' : "") +
+        '</div>' +
+        '<div class="firelands-entry-summary-body">' +
+          '<div class="firelands-entry-summary-title">' + escapeHtml(title) + '</div>' +
+          '<div class="firelands-entry-summary-meta">' +
+            '<span class="firelands-entry-summary-category">' + escapeHtml(category) + '</span>' +
+            '<span>' + escapeHtml(date) + '</span>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+  }
+
+  function enhanceEntrySummaries() {
+    var candidates = document.querySelectorAll("main *:not(script):not(style), [class*='Collection'] *:not(script):not(style)");
+
+    candidates.forEach(function (element) {
+      if (element.dataset.firelandsSummary === "true") return;
+      if (element.children.length > 0 && !Array.prototype.some.call(element.childNodes, function (node) {
+        return node.nodeType === Node.TEXT_NODE && node.textContent.indexOf("|||") !== -1;
+      })) {
+        return;
+      }
+
+      var text = element.textContent.trim();
+      if (text.indexOf("|||") === -1) return;
+
+      var parts = text.split("|||");
+      if (parts.length < 4) return;
+
+      element.dataset.firelandsSummary = "true";
+      renderEntrySummary(element, parts);
+    });
+  }
+
   if (!registerFirelandsPreview()) {
     var attempts = 0;
     var timer = window.setInterval(function () {
@@ -107,4 +162,12 @@
       }
     }, 100);
   }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", enhanceEntrySummaries);
+  } else {
+    enhanceEntrySummaries();
+  }
+
+  window.setInterval(enhanceEntrySummaries, 1000);
 })();
