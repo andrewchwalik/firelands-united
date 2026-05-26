@@ -4,13 +4,38 @@
     return value || fallback || "";
   }
 
-  function resolveImagePath(imageValue, getAsset) {
+  function firstImageValue(imageValue) {
     if (!imageValue) return "";
-    if (typeof imageValue !== "string") return "";
+    if (Array.isArray(imageValue)) return firstImageValue(imageValue[0]);
+    if (imageValue.toJS) return firstImageValue(imageValue.toJS());
+    if (imageValue.toArray) return firstImageValue(imageValue.toArray());
+    return imageValue;
+  }
+
+  function resolveImagePath(imageValue, getAsset) {
+    imageValue = firstImageValue(imageValue);
+    if (!imageValue) return "";
+
     if (getAsset) {
       var asset = getAsset(imageValue);
-      if (asset) return asset.toString();
+      if (asset) {
+        if (typeof asset === "string") return asset;
+        if (asset.url) return asset.url;
+        if (asset.path) return asset.path;
+        if (asset.file && asset.file.url) return asset.file.url;
+        var assetString = asset.toString ? asset.toString() : "";
+        if (assetString && assetString !== "[object Object]") return assetString;
+      }
     }
+
+    if (typeof imageValue !== "string") {
+      if (imageValue.url) return imageValue.url;
+      if (imageValue.path) return imageValue.path;
+      if (imageValue.src) return imageValue.src;
+      return "";
+    }
+
+    if (imageValue.indexOf("blob:") === 0 || imageValue.indexOf("data:") === 0) return imageValue;
     if (/^(https?:)?\/\//.test(imageValue) || imageValue.charAt(0) === "/") {
       return imageValue;
     }
