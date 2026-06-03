@@ -346,10 +346,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function isCaptainInContext(playerName, year) {
     const normalized = normalizeName(playerName);
-    if (normalized !== normalizeName("Grant Miller")) return false;
-    // Requested contexts: main roster page and 2025 history tab.
-    if (year === "2025") return true;
-    if (!year) return true;
+    if (normalized === normalizeName("Grant Miller")) {
+      // Requested contexts: main roster page and 2025 history tab.
+      if (year === "2025") return true;
+      if (!year) return true;
+    }
+    if (normalized === normalizeName("Jack Ramey") && year === "2026") return true;
     return false;
   }
 
