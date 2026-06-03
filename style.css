@@ -1102,6 +1102,155 @@ body {
 }
 
 /* ============================================
+   LEAGUE STANDINGS SECTION (Homepage)
+   ============================================ */
+
+.league-standings-section {
+  background: #fff;
+  padding: 66px 20px 76px;
+  scroll-margin-top: 92px;
+}
+
+.league-standings-container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.league-standings-header {
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.league-standings-header h2 {
+  margin: 0;
+  color: #474E5A;
+  font-family: 'Bermont', sans-serif;
+  font-size: 2rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.league-standings-mark {
+  color: #f18a01;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.league-standings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+
+.league-standings-card {
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid rgba(71, 78, 90, 0.14);
+  border-radius: 12px;
+  box-shadow: 0 14px 34px rgba(71, 78, 90, 0.08);
+}
+
+.league-standings-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 20px 22px;
+  background: #474E5A;
+}
+
+.league-standings-card-header h3 {
+  margin: 0;
+  color: #fff;
+  font-family: 'Bermont', sans-serif;
+  font-size: 1.32rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.league-standings-card-header span {
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.league-table-wrap {
+  overflow-x: auto;
+}
+
+.league-table {
+  width: 100%;
+  min-width: 520px;
+  border-collapse: collapse;
+  color: #1b2432;
+}
+
+.league-table th,
+.league-table td {
+  padding: 14px 18px;
+  text-align: right;
+  border-bottom: 1px solid rgba(71, 78, 90, 0.1);
+}
+
+.league-table th:first-child,
+.league-table td:first-child {
+  width: 62%;
+  text-align: left;
+}
+
+.league-table th {
+  background: #f3f5f7;
+  color: #66748a;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.league-table td {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.league-table td:nth-child(3) {
+  color: #101827;
+  font-weight: 900;
+}
+
+.league-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.league-rank {
+  display: inline-block;
+  min-width: 24px;
+  margin-right: 10px;
+  color: #9aabc0;
+  font-weight: 800;
+}
+
+.league-table .firelands-row td {
+  background: rgba(241, 138, 1, 0.12);
+  color: #1b2432;
+  box-shadow: inset 0 1px 0 rgba(241, 138, 1, 0.18), inset 0 -1px 0 rgba(241, 138, 1, 0.18);
+}
+
+.league-table .firelands-row td:first-child {
+  color: #d97706;
+}
+
+.league-table .firelands-row .league-rank {
+  color: #f18a01;
+}
+
+/* ============================================
    NEWS / BLOG PAGE - Modern Grid Layout
    ============================================ */
 

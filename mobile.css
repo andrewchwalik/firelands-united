@@ -805,6 +805,73 @@
   height: 8px;
 }
 
+.league-standings-section {
+  padding: 42px 16px 52px;
+}
+
+.league-standings-header {
+  display: block;
+  margin-bottom: 22px;
+}
+
+.league-standings-header h2 {
+  font-size: 1.62rem;
+  line-height: 1.05;
+  margin-top: 8px;
+}
+
+.league-standings-mark {
+  font-size: 0.72rem;
+}
+
+.league-standings-grid {
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.league-standings-card {
+  border-radius: 10px;
+}
+
+.league-standings-card-header {
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 6px;
+  padding: 17px 18px;
+}
+
+.league-standings-card-header h3 {
+  font-size: 1.08rem;
+}
+
+.league-standings-card-header span {
+  font-size: 0.68rem;
+}
+
+.league-table {
+  min-width: 0;
+  table-layout: fixed;
+}
+
+.league-table th,
+.league-table td {
+  padding: 12px 8px;
+}
+
+.league-table th:first-child,
+.league-table td:first-child {
+  width: 58%;
+}
+
+.league-table td {
+  font-size: 0.82rem;
+}
+
+.league-rank {
+  min-width: 18px;
+  margin-right: 6px;
+}
+
 .history-content {
   padding: 35px 14px 50px;
 }
