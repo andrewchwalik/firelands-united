@@ -820,10 +820,6 @@
   margin-top: 8px;
 }
 
-.league-standings-mark {
-  font-size: 0.72rem;
-}
-
 .league-standings-grid {
   grid-template-columns: 1fr;
   gap: 18px;
