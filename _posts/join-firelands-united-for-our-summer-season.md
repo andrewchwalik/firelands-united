@@ -6,7 +6,7 @@ excerpt: Think you have what it takes to play minor league soccer? Submit your
 category: Club News
 image: /img/blogs/join-firelands-united-for-our-summer-season.jpg
 ---
-Firelands United is officially recruiting players for our inaugural men’s season in the Northern Ohio Soccer League (Northwest Region), and we’re looking for competitors who want to be part of something bigger than just another team.
+Firelands United is officially recruiting players for our inaugural men’s season in the Northern Ohio Soccer League (NOSL) Second Division, and we’re looking for competitors who want to be part of something bigger than just another team.
 
 This summer marks the beginning of a new chapter for soccer in the Firelands region. We’re not just launching a roster — we’re building a club. A culture. A standard. And that starts with the players who are willing to step forward and say, “I want to help build this.”
 
