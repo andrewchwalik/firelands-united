@@ -425,7 +425,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const appsEl = card.querySelector(".roster-appearances");
         if (numberEl) numberEl.textContent = player.roster.number || "#TBD";
         if (positionEl) positionEl.textContent = player.roster.position || "N/A";
-        if (appsEl) appsEl.textContent = `${player.roster.appearances ?? 0} All-Time Apps.`;
+        if (appsEl) {
+          const appearances = player.roster.appearances ?? 0;
+          appsEl.textContent = `${appearances} All-Time ${appearances === 1 ? "App." : "Apps."}`;
+        }
       }
 
       const rosterMeta = card.querySelector(".roster-meta");
