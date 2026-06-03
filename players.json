@@ -10,12 +10,12 @@
     "name": "Collin Biehler",
     "hometown": "Oak Harbor, OH",
     "image": "/img/2025-headshots/collin-biehler.webp",
-    "roster": { "number": "#17", "position": "GK", "appearances": 10 }
+    "roster": { "number": "#17", "position": "GK", "appearances": 13 }
   },
   {
     "name": "Kaiden Hawes",
     "hometown": "Oregon, OH",
-    "roster": { "number": "#3", "position": "CB", "appearances": 1 }
+    "roster": { "number": "#3", "position": "CB", "appearances": 5 }
   },
   {
     "name": "Yoni Moralez",
@@ -27,75 +27,75 @@
     "name": "Grant Miller",
     "hometown": "Tiffin, OH",
     "image": "/img/2025-headshots/grant-miller.webp",
-    "roster": { "number": "#5", "position": "CB", "appearances": 9 }
+    "roster": { "number": "#5", "position": "CB", "appearances": 11 }
   },
   {
     "name": "Christian Heidl",
     "hometown": "Huron, OH",
     "aliases": ["Chris Heidl"],
     "image": "/img/2025-headshots/chris-heidl.webp",
-    "roster": { "number": "#6", "position": "CM", "appearances": 9 }
+    "roster": { "number": "#6", "position": "CM", "appearances": 10 }
   },
   {
     "name": "Blake Kubasak",
     "hometown": "Lorain, OH",
     "image": "/img/2025-headshots/blake-kubasak.webp",
-    "roster": { "number": "#8", "position": "LWB/LB", "appearances": 11 }
+    "roster": { "number": "#8", "position": "LWB/LB", "appearances": 14 }
   },
   {
     "name": "Jon Slay",
     "hometown": "Sandusky, OH",
     "image": "/img/2025-headshots/jon-slay.webp",
-    "roster": { "number": "#9", "position": "ST/LW", "appearances": 11 }
+    "roster": { "number": "#9", "position": "ST/LW", "appearances": 14 }
   },
   {
     "name": "Brock Harman",
     "hometown": "Avon, OH",
     "image": "/img/2025-headshots/brock-harman.webp",
-    "roster": { "number": "#10", "position": "ST/CAM", "appearances": 6 }
+    "roster": { "number": "#10", "position": "ST/CAM", "appearances": 9 }
   },
   {
     "name": "Jonah Main",
     "hometown": "Berlin Heights, OH",
     "image": "/img/2025-headshots/jonah-main.webp",
-    "roster": { "number": "#11", "position": "CM", "appearances": 13 }
+    "roster": { "number": "#11", "position": "CM", "appearances": 16 }
   },
   {
     "name": "Reggie Johnson",
     "hometown": "Lorain, OH",
     "image": "/img/2025-headshots/reggie-johnson.webp",
-    "roster": { "number": "#12", "position": "ST/RW", "appearances": 13 }
+    "roster": { "number": "#12", "position": "ST/RW", "appearances": 16 }
   },
   {
     "name": "Jordan Dankert",
     "hometown": "Rossford, OH",
-    "roster": { "number": "#13", "position": "GK", "appearances": 1 }
+    "roster": { "number": "#13", "position": "GK", "appearances": 4 }
   },
   {
     "name": "Maximus Parsell",
     "hometown": "Sycamore, OH",
-    "roster": { "number": "#14", "position": "CM/CAM", "appearances": 2 }
+    "roster": { "number": "#14", "position": "CM/CAM", "appearances": 5 }
   },
   {
     "name": "Jack Ramey",
     "hometown": "Richmond, VA",
-    "roster": { "number": "#15", "position": "CM", "appearances": 2 }
+    "roster": { "number": "#15", "position": "CM", "appearances": 5 }
   },
   {
     "name": "Noah Clapsaddle",
     "hometown": "Oak Harbor, OH",
     "image": "/img/2025-headshots/noah-clapsaddle.webp",
-    "roster": { "number": "#16", "position": "LB/RB", "appearances": 11 }
+    "roster": { "number": "#16", "position": "LB/RB", "appearances": 13 }
   },
   {
     "name": "Ayden Adams",
     "hometown": "Tiffin, OH",
-    "roster": { "number": "#18", "position": "LW/LWB", "appearances": 2 }
+    "roster": { "number": "#18", "position": "LW/LWB", "appearances": 5 }
   },
   {
     "name": "Cohen Hawes",
     "hometown": "Oregon, OH",
-    "roster": { "number": "#19", "position": "LB/RB", "appearances": 2 }
+    "roster": { "number": "#19", "position": "LB/RB", "appearances": 4 }
   },
   {
     "name": "Kenny Alejandro",
@@ -107,7 +107,7 @@
     "name": "Coen Steinmetz",
     "hometown": "Tiffin, OH",
     "image": "/img/2025-headshots/coen-steinmetz.webp",
-    "roster": { "number": "#22", "position": "LB/RB", "appearances": 13 }
+    "roster": { "number": "#22", "position": "LB/RB", "appearances": 16 }
   },
   {
     "name": "Simon Joseph",
@@ -123,7 +123,7 @@
   {
     "name": "Carter Jones",
     "hometown": "Milan, OH",
-    "roster": { "number": "#21", "position": "FWD", "appearances": 2 }
+    "roster": { "number": "#21", "position": "FWD", "appearances": 5 }
   },
   {
     "name": "Jackson Gray",
@@ -133,12 +133,12 @@
   {
     "name": "Joseph Judge",
     "hometown": "Oak Harbor, OH",
-    "roster": { "number": "#TBD", "position": "CB", "appearances": 2 }
+    "roster": { "number": "#TBD", "position": "CB", "appearances": 4 }
   },
   {
     "name": "Ryan Graber",
     "hometown": "Amherst, OH",
-    "roster": { "number": "#TBD", "position": "LB/RB", "appearances": 2 }
+    "roster": { "number": "#TBD", "position": "LB/RB", "appearances": 5 }
   },
   {
     "name": "Alex Davidson",
@@ -209,7 +209,7 @@
     "name": "Kaden Camp",
     "hometown": "Sandusky, OH",
     "aliases": ["Kaden Kamp"],
-    "roster": { "number": "#2", "position": "LB/RB", "appearances": 1 }
+    "roster": { "number": "#2", "position": "LB/RB", "appearances": 4 }
   },
   {
     "name": "Zoe Turner",
