@@ -9,12 +9,13 @@
   {
     "name": "Collin Biehler",
     "hometown": "Oak Harbor, OH",
-    "image": "/img/2025-headshots/collin-biehler.webp",
+    "image": "/img/2026-men-headshots/collin-biehler.jpg",
     "roster": { "number": "#17", "position": "GK", "appearances": 13 }
   },
   {
     "name": "Kaiden Hawes",
     "hometown": "Oregon, OH",
+    "image": "/img/2026-men-headshots/kaiden-hawes.jpg",
     "roster": { "number": "#3", "position": "CB", "appearances": 5 }
   },
   {
@@ -45,7 +46,7 @@
   {
     "name": "Jon Slay",
     "hometown": "Sandusky, OH",
-    "image": "/img/2025-headshots/jon-slay.webp",
+    "image": "/img/2026-men-headshots/jon-slay.jpg",
     "roster": { "number": "#9", "position": "ST/LW", "appearances": 14 }
   },
   {
@@ -57,7 +58,7 @@
   {
     "name": "Jonah Main",
     "hometown": "Berlin Heights, OH",
-    "image": "/img/2025-headshots/jonah-main.webp",
+    "image": "/img/2026-men-headshots/jonah-main.jpg",
     "roster": { "number": "#11", "position": "CM", "appearances": 16 }
   },
   {
@@ -74,27 +75,31 @@
   {
     "name": "Maximus Parsell",
     "hometown": "Sycamore, OH",
+    "image": "/img/2026-men-headshots/maximus-parsell.jpg",
     "roster": { "number": "#14", "position": "CM/CAM", "appearances": 5 }
   },
   {
     "name": "Jack Ramey",
     "hometown": "Richmond, VA",
+    "image": "/img/2026-men-headshots/jack-ramey.jpg",
     "roster": { "number": "#15", "position": "CM", "appearances": 5 }
   },
   {
     "name": "Noah Clapsaddle",
     "hometown": "Oak Harbor, OH",
-    "image": "/img/2025-headshots/noah-clapsaddle.webp",
+    "image": "/img/2026-men-headshots/noah-clapsaddle.jpg",
     "roster": { "number": "#16", "position": "LB/RB", "appearances": 13 }
   },
   {
     "name": "Ayden Adams",
     "hometown": "Tiffin, OH",
+    "image": "/img/2026-men-headshots/ayden-adams.jpg",
     "roster": { "number": "#18", "position": "LW/LWB", "appearances": 5 }
   },
   {
     "name": "Cohen Hawes",
     "hometown": "Oregon, OH",
+    "image": "/img/2026-men-headshots/cohen-hawes.jpg",
     "roster": { "number": "#19", "position": "LB/RB", "appearances": 4 }
   },
   {
@@ -106,7 +111,7 @@
   {
     "name": "Coen Steinmetz",
     "hometown": "Tiffin, OH",
-    "image": "/img/2025-headshots/coen-steinmetz.webp",
+    "image": "/img/2026-men-headshots/coen-steinmetz.jpg",
     "roster": { "number": "#22", "position": "LB/RB", "appearances": 16 }
   },
   {
@@ -118,16 +123,19 @@
   {
     "name": "Erik Rangel Negrete",
     "hometown": "Norwalk, OH",
+    "image": "/img/2026-men-headshots/erik-rangel-negrete.jpg",
     "roster": { "number": "#7", "position": "CM/CAM", "appearances": 2 }
   },
   {
     "name": "Carter Jones",
     "hometown": "Milan, OH",
+    "image": "/img/2026-men-headshots/carter-jones.jpg",
     "roster": { "number": "#21", "position": "FWD", "appearances": 5 }
   },
   {
     "name": "Jackson Gray",
     "hometown": "Vermilion, OH",
+    "image": "/img/2026-men-headshots/jackson-gray.jpg",
     "roster": { "number": "#TBD", "position": "CB", "appearances": 2 }
   },
   {
@@ -138,6 +146,7 @@
   {
     "name": "Ryan Graber",
     "hometown": "Amherst, OH",
+    "image": "/img/2026-men-headshots/ryan-graber.jpg",
     "roster": { "number": "#TBD", "position": "LB/RB", "appearances": 5 }
   },
   {
@@ -186,7 +195,7 @@
   {
     "name": "Phil Kirimi",
     "hometown": "Oak Harbor, OH",
-    "image": "/img/2025-headshots/phil-kirimi.webp",
+    "image": "/img/2026-men-headshots/phil-kirimi.jpg",
     "roster": { "number": "#0", "position": "CB", "appearances": 6 }
   },
   {
@@ -209,6 +218,7 @@
     "name": "Kaden Camp",
     "hometown": "Sandusky, OH",
     "aliases": ["Kaden Kamp"],
+    "image": "/img/2026-men-headshots/kaden-camp.jpg",
     "roster": { "number": "#2", "position": "LB/RB", "appearances": 4 }
   },
   {
