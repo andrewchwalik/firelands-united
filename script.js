@@ -338,8 +338,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initSchedulePastResults();
   initScheduleActionButtons();
 
-  // ----- Shared player card source of truth -----
-  // Source now lives in /players.json for easy non-code updates.
+  // ----- Shared club data source of truth -----
+  // Source now lives in /data/*.json for easy non-code updates.
 
   function normalizeName(value) {
     return (value || "")
@@ -378,6 +378,150 @@ document.addEventListener("DOMContentLoaded", () => {
     return byName;
   }
 
+  function buildStaffMap(staff) {
+    const byName = new Map();
+    staff.forEach((person) => {
+      byName.set(normalizeName(person.name), person);
+    });
+    return byName;
+  }
+
+  function buildSeasonStatsMap(seasons) {
+    const byKey = new Map();
+    seasons.forEach((season) => {
+      byKey.set(`${season.team}-${season.season}`, season);
+    });
+    return byKey;
+  }
+
+  function getPageTeam() {
+    const path = window.location.pathname;
+    if (path.includes("womens")) return "women";
+    if (path.includes("mens") || path.includes("roster") || path.includes("staff")) return "men";
+    return null;
+  }
+
+  function getPlayerSeasonStats(player, year, seasonsByKey) {
+    if (!player || !year || !seasonsByKey) return null;
+    const season = seasonsByKey.get(`${player.team}-${year}`);
+    return season?.playerStats?.[player.id] || null;
+  }
+
+  function getRosterApps(player) {
+    return player?.roster?.allTimeAppearances ?? player?.roster?.appearances ?? 0;
+  }
+
+  function formatApps(value, labelPrefix = "") {
+    const apps = Number(value) || 0;
+    const noun = apps === 1 ? "App." : "Apps.";
+    return `${apps} ${labelPrefix}${noun}`;
+  }
+
+  function splitName(name) {
+    const parts = (name || "").trim().split(/\s+/).filter(Boolean);
+    return {
+      first: parts[0] || name || "",
+      last: parts.slice(1).join(" ") || ""
+    };
+  }
+
+  function avatarMarkup(person) {
+    if (person?.image) {
+      return `<div class="history-avatar avatar-photo"><img src="${person.image}" alt="${person.name} headshot" loading="lazy"></div>`;
+    }
+    return `<div class="history-avatar">${deriveInitials(person?.name)}</div>`;
+  }
+
+  function displayNumber(player) {
+    const raw = player?.roster?.number;
+    return raw ? `#${String(raw).replace(/^#/, "")}` : "#TBD";
+  }
+
+  function positionGroup(position) {
+    const value = (position || "").toUpperCase();
+    if (value.includes("GK")) return "Goalkeepers";
+    if (value.includes("ST") || value.includes("FWD") || value.includes("WING") || value.includes("LW") || value.includes("RW")) return "Attackers";
+    if (value.includes("CB") || value.includes("LB") || value.includes("RB") || value.includes("DEF")) return "Defenders";
+    return "Midfielders";
+  }
+
+  function playerCardMarkup(player, apps, allTime = true) {
+    const { first, last } = splitName(player.name);
+    const captain = player.roster?.captain ? '<span class="captain-armband" aria-label="Captain" title="Captain"></span>' : "";
+    return `
+      <article class="roster-card">
+        ${avatarMarkup(player)}
+        <h3><span class="roster-first-name">${first}</span><span class="roster-last-name">${last}${captain}</span></h3>
+        <p class="roster-meta"><span class="roster-number">${displayNumber(player)}</span><span class="roster-position">${player.roster?.position || "N/A"}</span><span class="roster-appearances">${formatApps(apps, allTime ? "All-Time " : "")}</span></p>
+        ${player.hometown ? `<p class="roster-hometown">${player.hometown}</p>` : ""}
+      </article>
+    `;
+  }
+
+  function historyPlayerMarkup(player, stats, year) {
+    const { first, last } = splitName(player.name);
+    const captain = isCaptainInContext(player.name, String(year)) ? '<span class="captain-armband" aria-label="Captain" title="Captain"></span>' : "";
+    const apps = stats?.appearances ?? 0;
+    return `
+      <article class="history-player">
+        ${avatarMarkup(player)}
+        <div>
+          <h3 class="history-name"><span class="history-first-name">${first}</span><span class="history-last-name">${last}${captain}</span></h3>
+          ${player.hometown ? `<p class="history-hometown">${player.hometown}</p>` : ""}
+          <p class="history-subtext"><span class="history-pill history-number-pill">${displayNumber(player)}</span><span class="history-pill history-position-pill">${player.roster?.position || "N/A"}</span><span class="history-pill history-apps-pill">${formatApps(apps)}</span></p>
+        </div>
+      </article>
+    `;
+  }
+
+  function coachCardMarkup(person, role) {
+    const { first, last } = splitName(person.name);
+    const matches = role.matchesCoached === null || role.matchesCoached === undefined
+      ? ""
+      : `<span class="roster-coach-matches">${role.matchesCoached} ${role.matchesCoached === 1 ? "Match" : "Matches"}</span>`;
+    return `
+      <article class="roster-card coaching-card">
+        ${avatarMarkup(person)}
+        <h3><span class="roster-first-name">${first}</span><span class="roster-last-name">${last}</span></h3>
+        <p class="roster-meta"><span class="roster-position">${role.title}</span>${matches}</p>
+        ${person.hometown ? `<p class="roster-hometown">${person.hometown}</p>` : ""}
+      </article>
+    `;
+  }
+
+  function renderRosterPages(players, staff) {
+    const panel = document.querySelector(".roster-panel[data-roster='first-team']");
+    if (!panel) return;
+    const team = getPageTeam();
+    if (!team) return;
+
+    const currentPlayers = players
+      .filter((player) => player.team === team && player.roster?.current)
+      .sort((a, b) => Number(a.roster?.number || 999) - Number(b.roster?.number || 999));
+    const currentRoles = staff
+      .map((person) => ({ person, role: getRoleForContext(person, team, "2026") }))
+      .filter((entry) => entry.role);
+
+    const groupOrder = ["Goalkeepers", "Defenders", "Midfielders", "Attackers"];
+    const grouped = new Map(groupOrder.map((group) => [group, []]));
+    currentPlayers.forEach((player) => {
+      grouped.get(positionGroup(player.roster?.position)).push(player);
+    });
+
+    panel.innerHTML = `
+      <div class="roster-group">
+        <h2 class="roster-group-title">Coaches</h2>
+        <div class="coaching-row">${currentRoles.map(({ person, role }) => coachCardMarkup(person, role)).join("")}</div>
+      </div>
+      ${groupOrder.map((group) => `
+        <div class="roster-group">
+          <h2 class="roster-group-title">${group}</h2>
+          <div class="roster-grid">${grouped.get(group).map((player) => playerCardMarkup(player, getRosterApps(player), true)).join("")}</div>
+        </div>
+      `).join("")}
+    `;
+  }
+
   function setCardAvatar(avatarEl, player, altName) {
     if (!avatarEl || !player) return;
     if (player.image) {
@@ -408,7 +552,7 @@ document.addEventListener("DOMContentLoaded", () => {
     hometownEl.textContent = hometown;
   }
 
-  function syncSharedPlayerCards(playerByName) {
+  function syncSharedPlayerCards(playerByName, seasonsByKey) {
     if (!playerByName || playerByName.size === 0) return;
 
     // Roster cards (main roster style)
@@ -435,11 +579,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const numberEl = card.querySelector(".roster-number");
         const positionEl = card.querySelector(".roster-position");
         const appsEl = card.querySelector(".roster-appearances");
-        if (numberEl) numberEl.textContent = player.roster.number || "#TBD";
+        if (numberEl) numberEl.textContent = player.roster.number ? `#${String(player.roster.number).replace(/^#/, "")}` : "#TBD";
         if (positionEl) positionEl.textContent = player.roster.position || "N/A";
         if (appsEl) {
-          const appearances = player.roster.appearances ?? 0;
-          appsEl.textContent = `${appearances} All-Time ${appearances === 1 ? "App." : "Apps."}`;
+          appsEl.textContent = formatApps(getRosterApps(player), "All-Time ");
         }
       }
 
@@ -463,10 +606,10 @@ document.addEventListener("DOMContentLoaded", () => {
       upsertCardHometown(detailCol, "history-hometown", player.hometown, historySubtext || null);
     });
 
-    formatHistoryRosterCards(playerByName);
+    formatHistoryRosterCards(playerByName, seasonsByKey);
   }
 
-  function formatHistoryRosterCards(playerByName) {
+  function formatHistoryRosterCards(playerByName, seasonsByKey) {
     const historyCards = document.querySelectorAll(
       '.history-panel[data-year="2025"] .history-roster .history-player:not(.coaching-card), .history-panel[data-year="2026"] .history-roster .history-player:not(.coaching-card)'
     );
@@ -495,14 +638,11 @@ document.addEventListener("DOMContentLoaded", () => {
       let numberPart = "#TBD";
       let positionPart = "N/A";
       let appsValue;
-      if (year === "2026") {
-        appsValue = 0;
-      } else if (year === "2025") {
-        appsValue = mappedPlayer?.seasons?.["2025"]?.appearances
-          ?? mappedPlayer?.roster?.appearances
-          ?? 0;
+      const seasonStats = getPlayerSeasonStats(mappedPlayer, year, seasonsByKey);
+      if (seasonStats) {
+        appsValue = seasonStats.appearances ?? 0;
       } else {
-        appsValue = mappedPlayer?.roster?.appearances ?? 0;
+        appsValue = getRosterApps(mappedPlayer);
       }
       let appsPart = `${appsValue} Apps.`;
 
@@ -523,22 +663,410 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  function loadAndSyncSharedPlayerCards() {
-    fetch("/players.json")
-      .then((r) => {
-        if (!r.ok) throw new Error(`Failed to load players.json (${r.status})`);
-        return r.json();
-      })
-      .then((players) => {
-        if (!Array.isArray(players)) return;
-        syncSharedPlayerCards(buildPlayerMap(players));
+  function getRoleForContext(person, team, year) {
+    if (!person?.roles) return null;
+    return person.roles.find((role) => {
+      const teamMatches = !team || role.team === team;
+      const yearMatches = !year || String(role.season) === String(year);
+      return teamMatches && yearMatches;
+    }) || null;
+  }
+
+  function syncStaffCards(staffByName) {
+    if (!staffByName || staffByName.size === 0) return;
+    const cards = document.querySelectorAll(".roster-card.coaching-card");
+    cards.forEach((card) => {
+      const first = card.querySelector(".roster-first-name");
+      const last = card.querySelector(".roster-last-name");
+      if (!first || !last) return;
+      const fullName = `${first.textContent?.trim() || ""} ${last.textContent?.trim() || ""}`.trim();
+      const person = staffByName.get(normalizeName(fullName));
+      if (!person) return;
+
+      const panel = card.closest(".history-panel");
+      const year = panel?.getAttribute("data-year") || "2026";
+      const team = getPageTeam();
+      const role = getRoleForContext(person, team, year) || getRoleForContext(person, null, year);
+      if (!role) return;
+
+      setCardAvatar(card.querySelector(".history-avatar"), person, person.name);
+      first.textContent = person.name.split(" ")[0] || person.name;
+      last.textContent = person.name.split(" ").slice(1).join(" ") || "";
+      const positionEl = card.querySelector(".roster-position");
+      if (positionEl) positionEl.textContent = role.title;
+      const matchesEl = card.querySelector(".roster-coach-matches");
+      if (matchesEl) {
+        if (role.matchesCoached === null || role.matchesCoached === undefined) {
+          matchesEl.remove();
+        } else {
+          matchesEl.textContent = `${role.matchesCoached} ${role.matchesCoached === 1 ? "Match" : "Matches"}`;
+        }
+      }
+      upsertCardHometown(card, "roster-hometown", person.hometown, card.querySelector(".roster-meta"));
+    });
+  }
+
+  function formatSignedNumber(value) {
+    const number = Number(value) || 0;
+    return number > 0 ? `+${number}` : String(number);
+  }
+
+  function renderLeagueStandings(standings) {
+    const section = document.querySelector(".league-standings-section");
+    if (!section || !Array.isArray(standings)) return;
+
+    const cards = section.querySelectorAll(".league-standings-card");
+    cards.forEach((card) => {
+      const isWomen = card.querySelector("h3")?.textContent?.toLowerCase().includes("women");
+      const team = isWomen ? "women" : "men";
+      const table = standings.find((entry) => entry.team === team);
+      if (!table) return;
+
+      const leagueEl = card.querySelector(".league-standings-card-header span");
+      if (leagueEl) leagueEl.textContent = table.league;
+      const tbody = card.querySelector("tbody");
+      if (!tbody) return;
+      tbody.innerHTML = table.rows.map((row) => `
+        <tr class="${row.highlight ? "firelands-row" : ""}">
+          <td><span class="league-rank">${row.rank}</span>${row.team}</td>
+          <td>${row.played}</td>
+          <td>${row.points}</td>
+          <td>${formatSignedNumber(row.goalDifference)}</td>
+        </tr>
+      `).join("");
+    });
+  }
+
+  function formatRecord(record) {
+    if (!record) return "N/A";
+    return `${record.wins}W - ${record.draws}D - ${record.losses}L`;
+  }
+
+  function topLeaderText(season, statKey) {
+    const entries = Object.entries(season.playerStats || {})
+      .map(([playerId, stats]) => ({ playerId, value: stats[statKey] || 0 }))
+      .filter((entry) => entry.value > 0)
+      .sort((a, b) => b.value - a.value);
+    if (entries.length === 0) return "N/A";
+    const topValue = entries[0].value;
+    const names = entries
+      .filter((entry) => entry.value === topValue)
+      .map((entry) => clubDataCache.playerById.get(entry.playerId)?.name || entry.playerId);
+    return `${names.join(" & ")} (${topValue})`;
+  }
+
+  function renderSummaryGrid(panel, season) {
+    const grid = panel.querySelector(".summary-grid");
+    if (!grid) return;
+    const existingItems = new Map(
+      Array.from(grid.querySelectorAll(".summary-item")).map((item) => [
+        item.querySelector(".summary-item-label")?.textContent?.trim(),
+        item.querySelector(".summary-item-value")?.textContent?.trim()
+      ]).filter(([label]) => label)
+    );
+    const items = [
+      ["League", season.league],
+      ["Regular Season Record", formatRecord(season.record)],
+      ["Table Finish", season.tableFinish || `N/A (${season.record?.points ?? 0} points)`],
+      ["Goals Scored", season.teamTotals?.goals ?? 0],
+      ["Total Assists", season.teamTotals?.assists ?? 0],
+      ["Clean Sheets", season.teamTotals?.cleanSheets ?? 0],
+      ["Total Saves", season.teamTotals?.saves ?? 0],
+      ["Yellow Cards", season.teamTotals?.yellowCards ?? 0],
+      ["Red Cards", season.teamTotals?.redCards ?? 0],
+      ["Top Goal Scorer", topLeaderText(season, "goals")],
+      ["Top Assister", topLeaderText(season, "assists")],
+      ["Top Saver", topLeaderText(season, "saves")],
+      ["Most Clean Sheets", "N/A"]
+    ];
+    existingItems.forEach((value, label) => {
+      if (!items.some(([itemLabel]) => itemLabel === label)) {
+        items.push([label, value]);
+      }
+    });
+    grid.innerHTML = items.map(([label, value]) => `
+      <div class="summary-item"><span class="summary-item-label">${label}</span><span class="summary-item-value">${value}</span></div>
+    `).join("");
+  }
+
+  function resultIcon(competition) {
+    if (competition === "Cup") return '<span class="trophy-icon trophy-silver" aria-hidden="true"></span> ';
+    if (competition === "Playoff") return '<span class="trophy-icon trophy-gold" aria-hidden="true"></span> ';
+    return "";
+  }
+
+  function renderMatchResults(panel, team, season, matches) {
+    const results = panel.querySelector(".season-mini-results-columns");
+    if (!results) return;
+    const seasonMatches = matches.filter((match) => match.team === team && Number(match.season) === Number(season));
+    if (seasonMatches.length === 0) return;
+    const midpoint = Math.ceil(seasonMatches.length / 2);
+    const columns = [seasonMatches.slice(0, midpoint), seasonMatches.slice(midpoint)].filter((group) => group.length);
+    results.innerHTML = columns.map((group) => `
+      <ul>
+        ${group.map((match) => {
+          const text = `${resultIcon(match.competition)}${match.homeTeam} ${match.homeScore} - ${match.awayTeam} ${match.awayScore}`;
+          return `<li>${match.videoUrl ? `<a href="${match.videoUrl}" target="_blank" rel="noopener noreferrer">${text}</a>` : text}</li>`;
+        }).join("")}
+        ${group === columns[columns.length - 1] ? '<li class="results-key"><span class="trophy-icon trophy-silver" aria-hidden="true"></span> Cup Match | <span class="trophy-icon trophy-gold" aria-hidden="true"></span> Playoff Match</li>' : ""}
+      </ul>
+    `).join("");
+  }
+
+  function renderBreakdown(panel, season) {
+    const breakdown = panel.querySelector(".season-breakdown");
+    if (!breakdown) return;
+    const groups = [
+      ["Goals", "goals"],
+      ["Assists", "assists"],
+      ["Saves", "saves"],
+      ["Yellow Cards", "yellowCards"],
+      ["Red Cards", "redCards"]
+    ];
+    breakdown.innerHTML = groups.map(([title, key]) => {
+      const rows = Object.entries(season.playerStats || {})
+        .map(([playerId, stats]) => ({ name: clubDataCache.playerById.get(playerId)?.name || playerId, value: stats[key] || 0 }))
+        .filter((row) => row.value > 0)
+        .sort((a, b) => b.value - a.value || a.name.localeCompare(b.name));
+      return `
+        <div class="breakdown-column">
+          <h3>${title}</h3>
+          <ul>${rows.length ? rows.map((row) => `<li>${row.name}: ${row.value}</li>`).join("") : "<li>N/A</li>"}</ul>
+        </div>
+      `;
+    }).join("");
+  }
+
+  function recordCardMarkup(player, subtext, valueText) {
+    if (!player) {
+      return `
+        <article class="history-player">
+          <div class="history-avatar">N/A</div>
+          <div>
+            <h3 class="history-name">No Record Yet</h3>
+            <p class="history-subtext">${subtext}</p>
+            <p class="history-meta-value">TBD</p>
+          </div>
+        </article>
+      `;
+    }
+    return `
+      <article class="history-player">
+        ${avatarMarkup(player)}
+        <div>
+          <h3 class="history-name">${player.name}</h3>
+          <p class="history-subtext">${subtext}</p>
+          <p class="history-meta-value">${valueText}</p>
+        </div>
+      </article>
+    `;
+  }
+
+  function statLabel(key) {
+    return {
+      appearances: "Matches",
+      goals: "Goals",
+      assists: "Assists",
+      saves: "Saves",
+      yellowCards: "Yellow Cards",
+      redCards: "Red Cards"
+    }[key] || key;
+  }
+
+  function topRows(rows, key) {
+    const sorted = rows
+      .filter((row) => (row[key] || 0) > 0)
+      .sort((a, b) => (b[key] || 0) - (a[key] || 0) || a.player.name.localeCompare(b.player.name));
+    if (sorted.length === 0) return [];
+    const topValue = sorted[0][key] || 0;
+    return sorted.filter((row) => (row[key] || 0) === topValue);
+  }
+
+  function setRecordSection(panel, title, rows) {
+    const titleEl = Array.from(panel.querySelectorAll(".records-leader-title"))
+      .find((el) => el.textContent.trim() === title);
+    const roster = titleEl?.closest(".record-section")?.querySelector(".records-roster");
+    if (!roster) return;
+    roster.innerHTML = rows.join("");
+  }
+
+  function renderRecordPanels(seasons, players) {
+    const team = getPageTeam();
+    const panel = document.querySelector('.history-panel[data-year="records"]');
+    if (!team || !panel) return;
+    const teamSeasons = seasons.filter((season) => season.team === team);
+    const teamLabel = team === "women" ? "Women's First Team" : "Men's First Team";
+
+    const aggregate = new Map();
+    teamSeasons.forEach((season) => {
+      Object.entries(season.playerStats || {}).forEach(([playerId, stats]) => {
+        const player = players.find((candidate) => candidate.id === playerId);
+        if (!player) return;
+        const row = aggregate.get(playerId) || { player };
+        ["appearances", "goals", "assists", "saves", "yellowCards", "redCards"].forEach((key) => {
+          row[key] = (row[key] || 0) + (stats[key] || 0);
+        });
+        aggregate.set(playerId, row);
+      });
+    });
+    const allTimeRows = Array.from(aggregate.values());
+    const allTimeSections = [
+      ["Club Leading Goal Scorer", "goals"],
+      ["Club Leading Assister", "assists"],
+      ["Club Leader in Saves", "saves"],
+      ["Club Leader in Yellow Cards", "yellowCards"],
+      ["Club Leader in Matches Played", "appearances"]
+    ];
+    allTimeSections.forEach(([title, key]) => {
+      const rows = topRows(allTimeRows, key);
+      setRecordSection(
+        panel,
+        title,
+        rows.length
+          ? rows.map((row) => recordCardMarkup(row.player, teamLabel, `${row[key]} ${statLabel(key)}`))
+          : [recordCardMarkup(null, teamLabel)]
+      );
+    });
+
+    const seasonRows = [];
+    teamSeasons.forEach((season) => {
+      Object.entries(season.playerStats || {}).forEach(([playerId, stats]) => {
+        const player = players.find((candidate) => candidate.id === playerId);
+        if (!player) return;
+        seasonRows.push({ player, season: season.season, ...stats });
+      });
+    });
+    const singleSeasonSections = [
+      ["Single Season Goal Record", "goals"],
+      ["Single Season Assist Record", "assists"],
+      ["Single Season Save Record", "saves"],
+      ["Single Season Yellow Card Record", "yellowCards"],
+      ["Single Season Red Card Record", "redCards"]
+    ];
+    singleSeasonSections.forEach(([title, key]) => {
+      const rows = topRows(seasonRows, key);
+      setRecordSection(
+        panel,
+        title,
+        rows.length
+          ? rows.map((row) => recordCardMarkup(row.player, `${row.season} Season`, `${row[key]} ${statLabel(key)}`))
+          : [recordCardMarkup(null, `${teamSeasons[0]?.season || "Current"} Season`)]
+      );
+    });
+  }
+
+  function renderCurrentSeasonRoster(panel, season, players, staff) {
+    if (String(season.season) !== "2026") return;
+    const existingRosterGroups = Array.from(panel.querySelectorAll(".roster-group"));
+    const firstRosterGroup = existingRosterGroups.find((group) => group.querySelector(".coaching-row, .history-roster"));
+    if (!firstRosterGroup) return;
+    existingRosterGroups.forEach((group) => group.remove());
+
+    const currentRoles = staff
+      .map((person) => ({ person, role: getRoleForContext(person, season.team, season.season) }))
+      .filter((entry) => entry.role);
+    const playerRows = Object.entries(season.playerStats || {})
+      .map(([playerId, stats]) => ({ player: players.find((candidate) => candidate.id === playerId), stats }))
+      .filter((entry) => entry.player);
+    const groupOrder = ["Goalkeepers", "Defenders", "Midfielders", "Attackers"];
+    const grouped = new Map(groupOrder.map((group) => [group, []]));
+    playerRows.forEach((entry) => {
+      grouped.get(positionGroup(entry.player.roster?.position)).push(entry);
+    });
+
+    const rosterMarkup = `
+      <div class="roster-group">
+        <h3 class="roster-group-title">Coaches</h3>
+        <div class="coaching-row">${currentRoles.map(({ person, role }) => coachCardMarkup(person, role)).join("")}</div>
+      </div>
+      ${groupOrder.map((group) => `
+        <div class="roster-group">
+          <h3 class="roster-group-title">${group}</h3>
+          <div class="history-roster">${grouped.get(group).map(({ player, stats }) => historyPlayerMarkup(player, stats, season.season)).join("")}</div>
+        </div>
+      `).join("")}
+    `;
+    const breakdown = panel.querySelector(".season-breakdown");
+    if (breakdown) {
+      breakdown.insertAdjacentHTML("afterend", rosterMarkup);
+    } else {
+      panel.insertAdjacentHTML("beforeend", rosterMarkup);
+    }
+  }
+
+  function renderSeasonPanels(seasons, matches, players, staff) {
+    const team = getPageTeam();
+    if (!team) return;
+    document.querySelectorAll(".history-panel[data-year]").forEach((panel) => {
+      const year = panel.getAttribute("data-year");
+      if (!/^\d{4}$/.test(year)) return;
+      const season = seasons.find((entry) => entry.team === team && String(entry.season) === year);
+      if (!season) return;
+      renderSummaryGrid(panel, season);
+      renderMatchResults(panel, team, season.season, matches);
+      renderBreakdown(panel, season);
+      renderCurrentSeasonRoster(panel, season, players, staff);
+    });
+  }
+
+  const clubDataCache = {
+    playerById: new Map()
+  };
+
+  async function loadClubData() {
+    const [playersResponse, staffResponse, seasonResponse, matchesResponse, standingsResponse] = await Promise.all([
+      fetch("/data/players.json", { cache: "no-store" }),
+      fetch("/data/staff.json", { cache: "no-store" }),
+      fetch("/data/season-stats.json", { cache: "no-store" }),
+      fetch("/data/matches.json", { cache: "no-store" }),
+      fetch("/data/standings.json", { cache: "no-store" })
+    ]);
+
+    for (const response of [playersResponse, staffResponse, seasonResponse, matchesResponse, standingsResponse]) {
+      if (!response.ok) throw new Error(`Failed to load club data (${response.url}: ${response.status})`);
+    }
+
+    const [playersData, staffData, seasonData, matchesData, standingsData] = await Promise.all([
+      playersResponse.json(),
+      staffResponse.json(),
+      seasonResponse.json(),
+      matchesResponse.json(),
+      standingsResponse.json()
+    ]);
+
+    const players = playersData.players || [];
+    clubDataCache.playerById = new Map([
+      ...players.map((player) => [player.id, player]),
+      ...(staffData.staff || []).map((person) => [person.id, person])
+    ]);
+    return {
+      players,
+      staff: staffData.staff || [],
+      seasons: seasonData.seasons || [],
+      matches: matchesData.matches || [],
+      standings: standingsData.standings || []
+    };
+  }
+
+  function loadAndSyncClubData() {
+    loadClubData()
+      .then((data) => {
+        const playerByName = buildPlayerMap(data.players);
+        const staffByName = buildStaffMap(data.staff);
+        const seasonsByKey = buildSeasonStatsMap(data.seasons);
+        renderRosterPages(data.players, data.staff);
+        syncSharedPlayerCards(playerByName, seasonsByKey);
+        syncStaffCards(staffByName);
+        renderLeagueStandings(data.standings);
+        renderSeasonPanels(data.seasons, data.matches, data.players, data.staff);
+        renderRecordPanels(data.seasons, data.players);
       })
       .catch((err) => {
-        console.error("Error loading player card data:", err);
+        console.error("Error loading club data:", err);
       });
   }
 
-  loadAndSyncSharedPlayerCards();
+  loadAndSyncClubData();
 
   function formatBlogDate(value) {
     if (!value) return "";

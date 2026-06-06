@@ -107,6 +107,7 @@ const main = async () => {
       team: season.team,
       season: season.season,
       league: season.league,
+      tableFinish: season.tableFinish,
       record: season.record,
       teamTotals: season.teamTotals,
       leaders: leadersFor(seasonEntries)
@@ -126,7 +127,7 @@ const main = async () => {
   }));
 
   const output = {
-    generatedAt: new Date().toISOString(),
+    generatedBy: "scripts/build-stats.mjs",
     sourceFiles: [
       "data/players.json",
       "data/staff.json",

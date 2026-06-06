@@ -6,6 +6,7 @@
       "season": 2026,
       "league": "NOSL Second Division",
       "record": { "wins": 1, "draws": 3, "losses": 1, "points": 6 },
+      "tableFinish": "N/A (6 points)",
       "teamTotals": {
         "goals": 17,
         "assists": 11,
@@ -46,6 +47,7 @@
       "season": 2025,
       "league": "NOSL",
       "record": { "wins": 6, "draws": 0, "losses": 3, "points": 18 },
+      "tableFinish": "2nd Place (18 points)",
       "teamTotals": {
         "goals": 25,
         "assists": 18,
@@ -86,6 +88,7 @@
       "season": 2026,
       "league": "NOSL",
       "record": { "wins": 0, "draws": 0, "losses": 3, "points": 0 },
+      "tableFinish": "N/A (0 points)",
       "teamTotals": {
         "goals": 0,
         "assists": 0,
