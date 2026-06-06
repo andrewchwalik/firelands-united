@@ -1,0 +1,269 @@
+{
+  "schemaVersion": 1,
+  "matches": [
+    {
+      "id": "2025-men-ac-elite-away",
+      "team": "men",
+      "season": 2025,
+      "date": "2025",
+      "competition": "NOSL",
+      "homeTeam": "AC Elite",
+      "awayTeam": "Firelands United",
+      "homeScore": 2,
+      "awayScore": 1,
+      "videoUrl": "https://youtu.be/_HABYa4T_G4"
+    },
+    {
+      "id": "2025-men-fc-perrysburg-home",
+      "team": "men",
+      "season": 2025,
+      "date": "2025",
+      "competition": "NOSL",
+      "homeTeam": "Firelands United",
+      "awayTeam": "FC Perrysburg",
+      "homeScore": 3,
+      "awayScore": 0,
+      "videoUrl": "https://youtu.be/xDoNWhEfZtQ"
+    },
+    {
+      "id": "2025-men-akron-united-cup",
+      "team": "men",
+      "season": 2025,
+      "date": "2025",
+      "competition": "Cup",
+      "homeTeam": "Akron United",
+      "awayTeam": "Firelands United",
+      "homeScore": 3,
+      "awayScore": 0,
+      "videoUrl": "https://youtu.be/sgfUoYpet24"
+    },
+    {
+      "id": "2025-men-valentis-away",
+      "team": "men",
+      "season": 2025,
+      "date": "2025",
+      "competition": "NOSL",
+      "homeTeam": "Valentis Athletica",
+      "awayTeam": "Firelands United",
+      "homeScore": 0,
+      "awayScore": 3,
+      "videoUrl": "https://www.youtube.com/live/38ye3R4PvjE"
+    },
+    {
+      "id": "2025-men-fc-perrysburg-away",
+      "team": "men",
+      "season": 2025,
+      "date": "2025",
+      "competition": "NOSL",
+      "homeTeam": "FC Perrysburg",
+      "awayTeam": "Firelands United",
+      "homeScore": 0,
+      "awayScore": 2,
+      "videoUrl": "https://youtu.be/JR2ZiHlUeh0"
+    },
+    {
+      "id": "2025-men-valentis-home",
+      "team": "men",
+      "season": 2025,
+      "date": "2025",
+      "competition": "NOSL",
+      "homeTeam": "Firelands United",
+      "awayTeam": "Valentis Athletica",
+      "homeScore": 0,
+      "awayScore": 9,
+      "videoUrl": "https://youtu.be/_WWoDl1CNYU"
+    },
+    {
+      "id": "2025-men-ac-elite-away-2",
+      "team": "men",
+      "season": 2025,
+      "date": "2025",
+      "competition": "NOSL",
+      "homeTeam": "AC Elite",
+      "awayTeam": "Firelands United",
+      "homeScore": 1,
+      "awayScore": 3,
+      "videoUrl": "https://youtu.be/s1jNth4WimQ"
+    },
+    {
+      "id": "2025-men-ac-elite-home",
+      "team": "men",
+      "season": 2025,
+      "date": "2025",
+      "competition": "NOSL",
+      "homeTeam": "Firelands United",
+      "awayTeam": "AC Elite",
+      "homeScore": 3,
+      "awayScore": 2,
+      "videoUrl": "https://youtu.be/kDEyla1Jj_s"
+    },
+    {
+      "id": "2025-men-fc-perrysburg-home-2",
+      "team": "men",
+      "season": 2025,
+      "date": "2025",
+      "competition": "NOSL",
+      "homeTeam": "Firelands United",
+      "awayTeam": "FC Perrysburg",
+      "homeScore": 6,
+      "awayScore": 4
+    },
+    {
+      "id": "2025-men-valentis-home-2",
+      "team": "men",
+      "season": 2025,
+      "date": "2025",
+      "competition": "NOSL",
+      "homeTeam": "Firelands United",
+      "awayTeam": "Valentis Athletica",
+      "homeScore": 4,
+      "awayScore": 6
+    },
+    {
+      "id": "2025-men-ac-elite-playoff",
+      "team": "men",
+      "season": 2025,
+      "date": "2025",
+      "competition": "Playoff",
+      "homeTeam": "Firelands United",
+      "awayTeam": "AC Elite",
+      "homeScore": 1,
+      "awayScore": 5
+    },
+    {
+      "id": "2026-men-fut-ohio-home",
+      "team": "men",
+      "season": 2026,
+      "date": "2026-05-10",
+      "competition": "NOSL Second Division",
+      "homeTeam": "Firelands United",
+      "awayTeam": "Fut Ohio",
+      "homeScore": 2,
+      "awayScore": 2,
+      "videoUrl": "https://youtube.com/live/nqEKGr4f7Y4?feature=share",
+      "playerEvents": {
+        "goals": { "reggie-johnson": 1, "cohen-hawes": 1 },
+        "assists": { "ayden-adams": 1 }
+      }
+    },
+    {
+      "id": "2026-men-valentis-away",
+      "team": "men",
+      "season": 2026,
+      "date": "2026",
+      "competition": "NOSL Second Division",
+      "homeTeam": "Valentis Athletica II",
+      "awayTeam": "Firelands United",
+      "homeScore": 1,
+      "awayScore": 6
+    },
+    {
+      "id": "2026-men-fc-rayos-cup",
+      "team": "men",
+      "season": 2026,
+      "date": "2026",
+      "competition": "Cup",
+      "homeTeam": "Firelands United",
+      "awayTeam": "FC Rayos",
+      "homeScore": 4,
+      "awayScore": 2
+    },
+    {
+      "id": "2026-men-greater-toledo-home",
+      "team": "men",
+      "season": 2026,
+      "date": "2026",
+      "competition": "NOSL Second Division",
+      "homeTeam": "Firelands United",
+      "awayTeam": "Greater Toledo FC",
+      "homeScore": 3,
+      "awayScore": 5
+    },
+    {
+      "id": "2026-men-fut-ohio-away",
+      "team": "men",
+      "season": 2026,
+      "date": "2026",
+      "competition": "NOSL Second Division",
+      "homeTeam": "Fut Ohio",
+      "awayTeam": "Firelands United",
+      "homeScore": 1,
+      "awayScore": 1,
+      "playerEvents": {
+        "goals": { "simon-joseph": 1 },
+        "assists": { "reggie-johnson": 1 },
+        "saves": { "collin-biehler": 9 },
+        "yellowCards": { "jordan-dankert": 2, "erik-rangel-negrete": 1, "reggie-johnson": 1 },
+        "redCards": { "jordan-dankert": 1 }
+      }
+    },
+    {
+      "id": "2026-men-greater-toledo-cup",
+      "team": "men",
+      "season": 2026,
+      "date": "2026-06-04",
+      "competition": "Cup",
+      "homeTeam": "Firelands United",
+      "awayTeam": "Greater Toledo FC",
+      "homeScore": 0,
+      "awayScore": 3,
+      "playerEvents": {
+        "saves": { "collin-biehler": 11 }
+      }
+    },
+    {
+      "id": "2026-men-akron-club-home",
+      "team": "men",
+      "season": 2026,
+      "date": "2026-06-06",
+      "competition": "NOSL Second Division",
+      "homeTeam": "Firelands United",
+      "awayTeam": "Akron Club",
+      "homeScore": 1,
+      "awayScore": 1,
+      "playerEvents": {
+        "goals": { "reggie-johnson": 1 },
+        "assists": { "kaden-camp": 1 },
+        "saves": { "collin-biehler": 8 }
+      }
+    },
+    {
+      "id": "2026-women-susserfuss-away",
+      "team": "women",
+      "season": 2026,
+      "date": "2026",
+      "competition": "NOSL",
+      "homeTeam": "Susserfuss Ballverein",
+      "awayTeam": "Firelands United",
+      "homeScore": 17,
+      "awayScore": 0,
+      "halftimeScore": "6-0",
+      "videoUrl": "https://youtube.com/live/xlas3mRq62s?feature=share"
+    },
+    {
+      "id": "2026-women-north-fc-home",
+      "team": "women",
+      "season": 2026,
+      "date": "2026",
+      "competition": "NOSL",
+      "homeTeam": "Firelands United",
+      "awayTeam": "North FC",
+      "homeScore": 0,
+      "awayScore": 5
+    },
+    {
+      "id": "2026-women-delaware-rising-away",
+      "team": "women",
+      "season": 2026,
+      "date": "2026",
+      "competition": "NOSL",
+      "homeTeam": "Delaware Rising",
+      "awayTeam": "Firelands United",
+      "homeScore": 9,
+      "awayScore": 0,
+      "playerEvents": {
+        "saves": { "kelly-klimaszewski": 10 }
+      }
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "seasons": [
+    {
+      "team": "men",
+      "season": 2026,
+      "league": "NOSL Second Division",
+      "record": { "wins": 1, "draws": 3, "losses": 1, "points": 6 },
+      "teamTotals": {
+        "goals": 17,
+        "assists": 11,
+        "cleanSheets": 0,
+        "saves": 52,
+        "yellowCards": 9,
+        "redCards": 1
+      },
+      "playerStats": {
+        "jordan-dankert": { "appearances": 5, "saves": 7, "assists": 2, "yellowCards": 2, "redCards": 1 },
+        "collin-biehler": { "appearances": 7, "saves": 45 },
+        "kaiden-hawes": { "appearances": 7, "goals": 1, "yellowCards": 1 },
+        "kaden-camp": { "appearances": 6, "assists": 1, "yellowCards": 1 },
+        "grant-miller": { "appearances": 2, "yellowCards": 1 },
+        "blake-kubasak": { "appearances": 5, "assists": 3 },
+        "noah-clapsaddle": { "appearances": 6 },
+        "cohen-hawes": { "appearances": 5, "goals": 1 },
+        "coen-steinmetz": { "appearances": 7 },
+        "jackson-gray": { "appearances": 4 },
+        "joseph-judge": { "appearances": 6 },
+        "ryan-graber": { "appearances": 7 },
+        "phil-kirimi": { "appearances": 3 },
+        "christian-heidl": { "appearances": 1 },
+        "jonah-main": { "appearances": 7, "goals": 1 },
+        "maximus-parsell": { "appearances": 7 },
+        "jack-ramey": { "appearances": 7, "assists": 1, "yellowCards": 2 },
+        "erik-rangel-negrete": { "appearances": 3, "assists": 1, "yellowCards": 1 },
+        "jon-slay": { "appearances": 6, "goals": 1 },
+        "brock-harman": { "appearances": 4, "goals": 5, "assists": 1 },
+        "reggie-johnson": { "appearances": 7, "goals": 6, "assists": 1, "yellowCards": 1 },
+        "carter-jones": { "appearances": 7, "goals": 1 },
+        "ayden-adams": { "appearances": 7, "assists": 1 },
+        "simon-joseph": { "appearances": 3, "goals": 1 }
+      }
+    },
+    {
+      "team": "men",
+      "season": 2025,
+      "league": "NOSL",
+      "record": { "wins": 6, "draws": 0, "losses": 3, "points": 18 },
+      "teamTotals": {
+        "goals": 25,
+        "assists": 18,
+        "cleanSheets": 3,
+        "saves": 86,
+        "yellowCards": 13,
+        "redCards": 0
+      },
+      "playerStats": {
+        "reggie-johnson": { "appearances": 11, "goals": 9, "assists": 4, "yellowCards": 2 },
+        "jon-slay": { "appearances": 10, "goals": 4, "assists": 3, "yellowCards": 3 },
+        "luis-alvarado": { "appearances": 10, "goals": 3 },
+        "alex-davidson": { "appearances": 7, "goals": 2, "assists": 4 },
+        "christian-heidl": { "appearances": 9, "goals": 2, "assists": 1 },
+        "brock-harman": { "appearances": 5, "goals": 2, "assists": 1 },
+        "simon-joseph": { "appearances": 7, "goals": 1 },
+        "yoni-moralez": { "appearances": 7, "goals": 1 },
+        "blake-kubasak": { "appearances": 9, "goals": 1 },
+        "kevin-alejandro": { "appearances": 5, "assists": 1, "yellowCards": 3 },
+        "connor-hauger": { "appearances": 10, "assists": 1, "yellowCards": 2 },
+        "kelly-itito": { "appearances": 8, "assists": 1 },
+        "phil-kirimi": { "appearances": 4, "assists": 1 },
+        "jonah-main": { "appearances": 11, "assists": 1 },
+        "collin-biehler": { "appearances": 8, "saves": 63 },
+        "luke-avers": { "appearances": 3, "saves": 23 },
+        "kenny-alejandro": { "appearances": 7, "yellowCards": 1 },
+        "grant-miller": { "appearances": 9, "yellowCards": 1 },
+        "andrew-chwalik": { "yellowCards": 1 },
+        "noah-clapsaddle": { "appearances": 9 },
+        "coen-steinmetz": { "appearances": 11 },
+        "kylen-coopshaw": { "appearances": 5 },
+        "bryan-gerber": { "appearances": 4 },
+        "zane-gabrielson": { "appearances": 5 }
+      }
+    },
+    {
+      "team": "women",
+      "season": 2026,
+      "league": "NOSL",
+      "record": { "wins": 0, "draws": 0, "losses": 3, "points": 0 },
+      "teamTotals": {
+        "goals": 0,
+        "assists": 0,
+        "cleanSheets": 0,
+        "saves": 33,
+        "yellowCards": 0,
+        "redCards": 0
+      },
+      "playerStats": {
+        "hannah-mccray": { "appearances": 1 },
+        "kelly-klimaszewski": { "appearances": 3, "saves": 33 },
+        "stephanie-lewis": { "appearances": 3 },
+        "kali-benedict": { "appearances": 1 },
+        "ash-harmon": { "appearances": 2 },
+        "anna-calmer": { "appearances": 3 },
+        "jensen-prowant": { "appearances": 3 },
+        "meghan-youngless": { "appearances": 3 },
+        "morgan-woods": { "appearances": 2 },
+        "haley-chaput": { "appearances": 2 },
+        "kellyn-ritchie": { "appearances": 1 },
+        "megan-oconnor": { "appearances": 2 },
+        "paige-ackerman": { "appearances": 3 },
+        "amelia-chartrant": { "appearances": 2 },
+        "taryn-temple": { "appearances": 2 },
+        "debby-eberly": { "appearances": 3 },
+        "kaleigh-atkins": { "appearances": 3 },
+        "caroline-tackett": { "appearances": 2 },
+        "hailey-wilson": { "appearances": 2 }
+      }
+    }
+  ]
+}
