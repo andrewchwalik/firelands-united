@@ -767,6 +767,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const items = [
       ["League", season.league],
       ["Regular Season Record", formatRecord(season.record)],
+      ...(season.cupRecord ? [["Cup Record", formatRecord(season.cupRecord)]] : []),
       ["Table Finish", season.tableFinish || `N/A (${season.record?.points ?? 0} points)`],
       ["Goals Scored", season.teamTotals?.goals ?? 0],
       ["Total Assists", season.teamTotals?.assists ?? 0],

@@ -109,6 +109,7 @@ const main = async () => {
       league: season.league,
       tableFinish: season.tableFinish,
       record: season.record,
+      cupRecord: season.cupRecord,
       teamTotals: season.teamTotals,
       leaders: leadersFor(seasonEntries)
     };

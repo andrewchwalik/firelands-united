@@ -1107,6 +1107,11 @@
           "losses": 1,
           "points": 6
         },
+        "cupRecord": {
+          "wins": 1,
+          "draws": 0,
+          "losses": 1
+        },
         "teamTotals": {
           "goals": 17,
           "assists": 11,
@@ -1740,6 +1745,11 @@
           "draws": 0,
           "losses": 3,
           "points": 18
+        },
+        "cupRecord": {
+          "wins": 0,
+          "draws": 0,
+          "losses": 1
         },
         "teamTotals": {
           "goals": 25,
