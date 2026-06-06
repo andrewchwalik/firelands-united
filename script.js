@@ -742,6 +742,11 @@ document.addEventListener("DOMContentLoaded", () => {
     return `${record.wins}W - ${record.draws}D - ${record.losses}L`;
   }
 
+  function formatCupRecord(record) {
+    if (!record) return "N/A";
+    return `${record.wins}W - ${record.losses}L`;
+  }
+
   function topLeaderText(season, statKey) {
     const entries = Object.entries(season.playerStats || {})
       .map(([playerId, stats]) => ({ playerId, value: stats[statKey] || 0 }))
@@ -767,7 +772,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const items = [
       ["League", season.league],
       ["Regular Season Record", formatRecord(season.record)],
-      ...(season.cupRecord ? [["Cup Record", formatRecord(season.cupRecord)]] : []),
+      ...(season.cupRecord ? [["Cup Record", formatCupRecord(season.cupRecord)]] : []),
       ["Table Finish", season.tableFinish || `N/A (${season.record?.points ?? 0} points)`],
       ["Goals Scored", season.teamTotals?.goals ?? 0],
       ["Total Assists", season.teamTotals?.assists ?? 0],
