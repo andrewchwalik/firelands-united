@@ -360,6 +360,7 @@
       "name": "Haley Chaput",
       "team": "women",
       "hometown": "Milan, OH",
+      "image": "/img/2026-women-headshots/haley-chaput.png",
       "roster": { "number": "1", "position": "MID", "allTimeAppearances": 2, "seasons": ["2026"], "current": true }
     },
     {
@@ -391,7 +392,7 @@
       "name": "Amelia Chartrant",
       "team": "women",
       "hometown": "Norwalk, OH",
-      "image": "/img/2026-women-headshots/amelia-chartrant.jpg",
+      "image": "/img/2026-women-headshots/amelia-chartrant.png",
       "roster": { "number": "7", "position": "ST", "allTimeAppearances": 2, "seasons": ["2026"], "current": true }
     },
     {
@@ -407,6 +408,7 @@
       "name": "Debby Eberly",
       "team": "women",
       "hometown": "Brunswick, OH",
+      "image": "/img/2026-women-headshots/deb-eberly.png",
       "roster": { "number": "21", "position": "ST/DEF", "allTimeAppearances": 3, "seasons": ["2026"], "current": true }
     },
     {
@@ -422,6 +424,7 @@
       "name": "Caroline Tackett",
       "team": "women",
       "hometown": "Lodi, OH",
+      "image": "/img/2026-women-headshots/caroline-tackett.png",
       "roster": { "number": "16", "position": "FWD", "allTimeAppearances": 2, "seasons": ["2026"], "current": true }
     },
     {
@@ -429,6 +432,7 @@
       "name": "Hailey Wilson",
       "team": "women",
       "hometown": "Valley City, OH",
+      "image": "/img/2026-women-headshots/hailey-wilson.png",
       "roster": { "number": "3", "position": "FWD/WING", "allTimeAppearances": 2, "seasons": ["2026"], "current": true }
     }
   ]
