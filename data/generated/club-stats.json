@@ -2964,6 +2964,38 @@
   },
   "staffTotals": [
     {
+      "id": "chris-schnell",
+      "name": "Chris Schnell",
+      "roles": [
+        {
+          "team": "men",
+          "season": 2026,
+          "title": "Head Coach",
+          "matchesCoached": 8
+        }
+      ],
+      "matchesCoached": 8
+    },
+    {
+      "id": "zane-gabrielson",
+      "name": "Zane Gabrielson",
+      "roles": [
+        {
+          "team": "men",
+          "season": 2026,
+          "title": "Assistant Coach",
+          "matchesCoached": 8
+        },
+        {
+          "team": "men",
+          "season": 2025,
+          "title": "Assistant Coach",
+          "matchesCoached": 4
+        }
+      ],
+      "matchesCoached": 12
+    },
+    {
       "id": "andrew-chwalik",
       "name": "Andrew Chwalik",
       "roles": [
@@ -2987,38 +3019,6 @@
         }
       ],
       "matchesCoached": 6
-    },
-    {
-      "id": "chris-schnell",
-      "name": "Chris Schnell",
-      "roles": [
-        {
-          "team": "men",
-          "season": 2026,
-          "title": "Head Coach",
-          "matchesCoached": 7
-        }
-      ],
-      "matchesCoached": 7
-    },
-    {
-      "id": "zane-gabrielson",
-      "name": "Zane Gabrielson",
-      "roles": [
-        {
-          "team": "men",
-          "season": 2026,
-          "title": "Assistant Coach",
-          "matchesCoached": 7
-        },
-        {
-          "team": "men",
-          "season": 2025,
-          "title": "Assistant Coach",
-          "matchesCoached": 4
-        }
-      ],
-      "matchesCoached": 11
     },
     {
       "id": "jordan-dankert",

@@ -2,22 +2,11 @@
   "schemaVersion": 1,
   "staff": [
     {
-      "id": "andrew-chwalik",
-      "name": "Andrew Chwalik",
-      "hometown": "Marblehead, OH",
-      "image": "/img/2026-women-headshots/andrew-chwalik.jpg",
-      "roles": [
-        { "team": "men", "season": 2026, "title": "Director", "matchesCoached": null },
-        { "team": "women", "season": 2026, "title": "Head Coach", "matchesCoached": 2 },
-        { "team": "men", "season": 2025, "title": "Assistant Coach", "matchesCoached": 4 }
-      ]
-    },
-    {
       "id": "chris-schnell",
       "name": "Chris Schnell",
       "hometown": "Norwalk, OH",
       "roles": [
-        { "team": "men", "season": 2026, "title": "Head Coach", "matchesCoached": 7 }
+        { "team": "men", "season": 2026, "title": "Head Coach", "matchesCoached": 8 }
       ]
     },
     {
@@ -26,7 +15,18 @@
       "hometown": "Tiffin, OH",
       "image": "/img/2025-headshots/zane-gabrielson.webp",
       "roles": [
-        { "team": "men", "season": 2026, "title": "Assistant Coach", "matchesCoached": 7 },
+        { "team": "men", "season": 2026, "title": "Assistant Coach", "matchesCoached": 8 },
+        { "team": "men", "season": 2025, "title": "Assistant Coach", "matchesCoached": 4 }
+      ]
+    },
+    {
+      "id": "andrew-chwalik",
+      "name": "Andrew Chwalik",
+      "hometown": "Marblehead, OH",
+      "image": "/img/2026-women-headshots/andrew-chwalik.jpg",
+      "roles": [
+        { "team": "men", "season": 2026, "title": "Director", "matchesCoached": null },
+        { "team": "women", "season": 2026, "title": "Head Coach", "matchesCoached": 2 },
         { "team": "men", "season": 2025, "title": "Assistant Coach", "matchesCoached": 4 }
       ]
     },
