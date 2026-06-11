@@ -16,6 +16,7 @@
       "team": "men",
       "hometown": "Oak Harbor, OH",
       "image": "/img/2026-men-headshots/collin-biehler.jpg",
+      "seasonImages": { "2025": "/img/2025-headshots/collin-biehler.webp", "2026": "/img/2026-men-headshots/collin-biehler.jpg" },
       "roster": { "number": "17", "position": "GK", "allTimeAppearances": 15, "seasons": ["2025", "2026"], "current": true }
     },
     {
@@ -40,6 +41,7 @@
       "team": "men",
       "hometown": "Tiffin, OH",
       "image": "/img/2025-headshots/grant-miller.webp",
+      "seasonImages": { "2025": "/img/2025-headshots/grant-miller.webp" },
       "roster": { "number": "5", "position": "CB", "allTimeAppearances": 11, "seasons": ["2025", "2026"], "current": true }
     },
     {
@@ -49,6 +51,7 @@
       "hometown": "Huron, OH",
       "aliases": ["Chris Heidl"],
       "image": "/img/2025-headshots/chris-heidl.webp",
+      "seasonImages": { "2025": "/img/2025-headshots/chris-heidl.webp" },
       "roster": { "number": "6", "position": "CM", "allTimeAppearances": 10, "seasons": ["2025", "2026"], "current": true }
     },
     {
@@ -57,6 +60,7 @@
       "team": "men",
       "hometown": "Lorain, OH",
       "image": "/img/2025-headshots/blake-kubasak.webp",
+      "seasonImages": { "2025": "/img/2025-headshots/blake-kubasak.webp" },
       "roster": { "number": "8", "position": "LWB/LB", "allTimeAppearances": 15, "seasons": ["2025", "2026"], "current": true }
     },
     {
@@ -65,6 +69,7 @@
       "team": "men",
       "hometown": "Sandusky, OH",
       "image": "/img/2026-men-headshots/jon-slay.jpg",
+      "seasonImages": { "2025": "/img/2025-headshots/jon-slay.webp", "2026": "/img/2026-men-headshots/jon-slay.jpg" },
       "roster": { "number": "9", "position": "ST/LW", "allTimeAppearances": 17, "seasons": ["2025", "2026"], "current": true }
     },
     {
@@ -73,6 +78,7 @@
       "team": "men",
       "hometown": "Avon, OH",
       "image": "/img/2025-headshots/brock-harman.webp",
+      "seasonImages": { "2025": "/img/2025-headshots/brock-harman.webp" },
       "roster": { "number": "10", "position": "ST/CAM", "allTimeAppearances": 9, "seasons": ["2025", "2026"], "current": true }
     },
     {
@@ -81,6 +87,7 @@
       "team": "men",
       "hometown": "Berlin Heights, OH",
       "image": "/img/2026-men-headshots/jonah-main.jpg",
+      "seasonImages": { "2025": "/img/2025-headshots/jonah-main.webp", "2026": "/img/2026-men-headshots/jonah-main.jpg" },
       "roster": { "number": "11", "position": "CM", "allTimeAppearances": 19, "seasons": ["2025", "2026"], "current": true }
     },
     {
@@ -89,6 +96,7 @@
       "team": "men",
       "hometown": "Lorain, OH",
       "image": "/img/2025-headshots/reggie-johnson.webp",
+      "seasonImages": { "2025": "/img/2025-headshots/reggie-johnson.webp" },
       "roster": { "number": "12", "position": "ST/RW", "allTimeAppearances": 19, "seasons": ["2025", "2026"], "current": true }
     },
     {
@@ -120,6 +128,7 @@
       "team": "men",
       "hometown": "Oak Harbor, OH",
       "image": "/img/2026-men-headshots/noah-clapsaddle.jpg",
+      "seasonImages": { "2025": "/img/2025-headshots/noah-clapsaddle.webp", "2026": "/img/2026-men-headshots/noah-clapsaddle.jpg" },
       "roster": { "number": "16", "position": "LB/RB", "allTimeAppearances": 16, "seasons": ["2025", "2026"], "current": true }
     },
     {
@@ -152,6 +161,7 @@
       "team": "men",
       "hometown": "Tiffin, OH",
       "image": "/img/2026-men-headshots/coen-steinmetz.jpg",
+      "seasonImages": { "2025": "/img/2025-headshots/coen-steinmetz.webp", "2026": "/img/2026-men-headshots/coen-steinmetz.jpg" },
       "roster": { "number": "22", "position": "LB/RB", "allTimeAppearances": 19, "seasons": ["2025", "2026"], "current": true }
     },
     {
@@ -160,6 +170,7 @@
       "team": "men",
       "hometown": "Perrysburg, OH",
       "image": "/img/2025-headshots/simon-joseph.webp",
+      "seasonImages": { "2025": "/img/2025-headshots/simon-joseph.webp" },
       "roster": { "number": "77", "position": "ST", "allTimeAppearances": 11, "seasons": ["2025", "2026"], "current": true }
     },
     {
@@ -264,6 +275,7 @@
       "team": "men",
       "hometown": "Oak Harbor, OH",
       "image": "/img/2026-men-headshots/phil-kirimi.jpg",
+      "seasonImages": { "2025": "/img/2025-headshots/phil-kirimi.webp", "2026": "/img/2026-men-headshots/phil-kirimi.jpg" },
       "roster": { "number": "0", "position": "CB", "allTimeAppearances": 8, "seasons": ["2025", "2026"], "current": true }
     },
     {

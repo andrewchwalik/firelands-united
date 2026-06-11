@@ -425,9 +425,15 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 
-  function avatarMarkup(person) {
-    if (person?.image) {
-      return `<div class="history-avatar avatar-photo"><img src="${person.image}" alt="${person.name} headshot" loading="lazy"></div>`;
+  function imageForContext(person, year) {
+    if (!person) return "";
+    return (year && person.seasonImages?.[String(year)]) || person.image || "";
+  }
+
+  function avatarMarkup(person, year) {
+    const image = imageForContext(person, year);
+    if (image) {
+      return `<div class="history-avatar avatar-photo"><img src="${image}" alt="${person.name} headshot" loading="lazy"></div>`;
     }
     return `<div class="history-avatar">${deriveInitials(person?.name)}</div>`;
   }
@@ -464,7 +470,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const apps = stats?.appearances ?? 0;
     return `
       <article class="history-player">
-        ${avatarMarkup(player)}
+        ${avatarMarkup(player, year)}
         <div>
           <h3 class="history-name"><span class="history-first-name">${first}</span><span class="history-last-name">${last}${captain}</span></h3>
           ${player.hometown ? `<p class="history-hometown">${player.hometown}</p>` : ""}
@@ -522,11 +528,12 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   }
 
-  function setCardAvatar(avatarEl, player, altName) {
+  function setCardAvatar(avatarEl, player, altName, year) {
     if (!avatarEl || !player) return;
-    if (player.image) {
+    const image = imageForContext(player, year);
+    if (image) {
       avatarEl.classList.add("avatar-photo");
-      avatarEl.innerHTML = `<img src="${player.image}" alt="${altName} headshot" loading="lazy">`;
+      avatarEl.innerHTML = `<img src="${image}" alt="${altName} headshot" loading="lazy">`;
       return;
     }
     avatarEl.classList.remove("avatar-photo");
@@ -598,8 +605,12 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!player) return;
       nameEl.textContent = player.name;
       const card = nameEl.closest(".history-player");
+      const panelYear = card?.closest(".history-panel")?.getAttribute("data-year");
+      const subtext = card?.querySelector(".history-subtext")?.textContent || "";
+      const recordSeasonMatch = subtext.match(/\b(20\d{2}) Season\b/);
+      const avatarYear = /^\d{4}$/.test(panelYear || "") ? panelYear : recordSeasonMatch?.[1];
       const avatarEl = card?.querySelector(".history-avatar");
-      setCardAvatar(avatarEl, player, player.name);
+      setCardAvatar(avatarEl, player, player.name, avatarYear);
 
       const detailCol = nameEl.parentElement;
       const historySubtext = detailCol?.querySelector(".history-subtext");
@@ -843,7 +854,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }).join("");
   }
 
-  function recordCardMarkup(player, subtext, valueText) {
+  function recordCardMarkup(player, subtext, valueText, year) {
     if (!player) {
       return `
         <article class="history-player">
@@ -858,7 +869,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     return `
       <article class="history-player">
-        ${avatarMarkup(player)}
+        ${avatarMarkup(player, year)}
         <div>
           <h3 class="history-name">${player.name}</h3>
           <p class="history-subtext">${subtext}</p>
@@ -958,7 +969,7 @@ document.addEventListener("DOMContentLoaded", () => {
         panel,
         title,
         rows.length
-          ? rows.map((row) => recordCardMarkup(row.player, `${row.season} Season`, `${row[key]} ${statLabel(key)}`))
+          ? rows.map((row) => recordCardMarkup(row.player, `${row.season} Season`, `${row[key]} ${statLabel(key)}`, row.season))
           : [recordCardMarkup(null, `${teamSeasons[0]?.season || "Current"} Season`)]
       );
     });
