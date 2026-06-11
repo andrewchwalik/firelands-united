@@ -5,18 +5,18 @@
       "team": "men",
       "season": 2026,
       "league": "NOSL Second Division",
-      "updatedAt": "2026-06-06",
+      "updatedAt": "2026-06-10",
       "rows": [
-        { "rank": 1, "team": "Greater Toledo FC", "played": 3, "points": 9, "goalDifference": 13 },
-        { "rank": 2, "team": "Fut Ohio", "played": 4, "points": 8, "goalDifference": 8 },
-        { "rank": 3, "team": "Forest City FC", "played": 3, "points": 7, "goalDifference": 5 },
-        { "rank": 4, "team": "Firelands United", "played": 5, "points": 6, "goalDifference": 3, "highlight": true },
-        { "rank": 5, "team": "CF Akron", "played": 4, "points": 6, "goalDifference": 2 },
-        { "rank": 6, "team": "Mansfield Liederkranz II", "played": 2, "points": 3, "goalDifference": -2 },
-        { "rank": 7, "team": "FC Rayos", "played": 3, "points": 3, "goalDifference": -5 },
-        { "rank": 8, "team": "Elite FC", "played": 3, "points": 1, "goalDifference": -7 },
-        { "rank": 9, "team": "Concordia SC", "played": 1, "points": 0, "goalDifference": -2 },
-        { "rank": 10, "team": "Valentis Athletica II", "played": 4, "points": 0, "goalDifference": -15 }
+        { "rank": 1, "team": "Greater Toledo FC", "played": 4, "points": 10, "goalDifference": 13 },
+        { "rank": 2, "team": "Firelands United", "played": 6, "points": 9, "goalDifference": 8, "highlight": true },
+        { "rank": 3, "team": "Fut Ohio", "played": 5, "points": 9, "goalDifference": 8 },
+        { "rank": 4, "team": "Forest City FC", "played": 3, "points": 7, "goalDifference": 5 },
+        { "rank": 5, "team": "Elite FC", "played": 5, "points": 7, "goalDifference": -3 },
+        { "rank": 6, "team": "CF Akron", "played": 4, "points": 6, "goalDifference": 2 },
+        { "rank": 7, "team": "Mansfield Liederkranz II", "played": 3, "points": 3, "goalDifference": -3 },
+        { "rank": 8, "team": "FC Rayos", "played": 5, "points": 3, "goalDifference": -11 },
+        { "rank": 9, "team": "Valentis Athletica II", "played": 5, "points": 3, "goalDifference": -14 },
+        { "rank": 10, "team": "Concordia SC", "played": 2, "points": 0, "goalDifference": -5 }
       ]
     },
     {

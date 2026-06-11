@@ -24,7 +24,7 @@
       "team": "men",
       "hometown": "Oregon, OH",
       "image": "/img/2026-men-headshots/kaiden-hawes.jpg",
-      "roster": { "number": "3", "position": "CB", "allTimeAppearances": 7, "seasons": ["2026"], "current": true }
+      "roster": { "number": "3", "position": "CB", "allTimeAppearances": 8, "seasons": ["2026"], "current": true }
     },
     {
       "id": "yoni-moralez",
@@ -57,7 +57,7 @@
       "team": "men",
       "hometown": "Lorain, OH",
       "image": "/img/2025-headshots/blake-kubasak.webp",
-      "roster": { "number": "8", "position": "LWB/LB", "allTimeAppearances": 14, "seasons": ["2025", "2026"], "current": true }
+      "roster": { "number": "8", "position": "LWB/LB", "allTimeAppearances": 15, "seasons": ["2025", "2026"], "current": true }
     },
     {
       "id": "jon-slay",
@@ -65,7 +65,7 @@
       "team": "men",
       "hometown": "Sandusky, OH",
       "image": "/img/2026-men-headshots/jon-slay.jpg",
-      "roster": { "number": "9", "position": "ST/LW", "allTimeAppearances": 16, "seasons": ["2025", "2026"], "current": true }
+      "roster": { "number": "9", "position": "ST/LW", "allTimeAppearances": 17, "seasons": ["2025", "2026"], "current": true }
     },
     {
       "id": "brock-harman",
@@ -81,7 +81,7 @@
       "team": "men",
       "hometown": "Berlin Heights, OH",
       "image": "/img/2026-men-headshots/jonah-main.jpg",
-      "roster": { "number": "11", "position": "CM", "allTimeAppearances": 18, "seasons": ["2025", "2026"], "current": true }
+      "roster": { "number": "11", "position": "CM", "allTimeAppearances": 19, "seasons": ["2025", "2026"], "current": true }
     },
     {
       "id": "reggie-johnson",
@@ -89,14 +89,14 @@
       "team": "men",
       "hometown": "Lorain, OH",
       "image": "/img/2025-headshots/reggie-johnson.webp",
-      "roster": { "number": "12", "position": "ST/RW", "allTimeAppearances": 18, "seasons": ["2025", "2026"], "current": true }
+      "roster": { "number": "12", "position": "ST/RW", "allTimeAppearances": 19, "seasons": ["2025", "2026"], "current": true }
     },
     {
       "id": "jordan-dankert",
       "name": "Jordan Dankert",
       "team": "men",
       "hometown": "Rossford, OH",
-      "roster": { "number": "13", "position": "GK", "allTimeAppearances": 5, "seasons": ["2026"], "current": true }
+      "roster": { "number": "13", "position": "GK", "allTimeAppearances": 6, "seasons": ["2026"], "current": true }
     },
     {
       "id": "maximus-parsell",
@@ -104,7 +104,7 @@
       "team": "men",
       "hometown": "Sycamore, OH",
       "image": "/img/2026-men-headshots/maximus-parsell.jpg",
-      "roster": { "number": "14", "position": "CM/CAM", "allTimeAppearances": 7, "seasons": ["2026"], "current": true }
+      "roster": { "number": "14", "position": "CM/CAM", "allTimeAppearances": 8, "seasons": ["2026"], "current": true }
     },
     {
       "id": "jack-ramey",
@@ -112,7 +112,7 @@
       "team": "men",
       "hometown": "Richmond, VA",
       "image": "/img/2026-men-headshots/jack-ramey.jpg",
-      "roster": { "number": "15", "position": "CM", "allTimeAppearances": 7, "seasons": ["2026"], "current": true, "captain": true }
+      "roster": { "number": "15", "position": "CM", "allTimeAppearances": 8, "seasons": ["2026"], "current": true, "captain": true }
     },
     {
       "id": "noah-clapsaddle",
@@ -120,7 +120,7 @@
       "team": "men",
       "hometown": "Oak Harbor, OH",
       "image": "/img/2026-men-headshots/noah-clapsaddle.jpg",
-      "roster": { "number": "16", "position": "LB/RB", "allTimeAppearances": 15, "seasons": ["2025", "2026"], "current": true }
+      "roster": { "number": "16", "position": "LB/RB", "allTimeAppearances": 16, "seasons": ["2025", "2026"], "current": true }
     },
     {
       "id": "ayden-adams",
@@ -128,7 +128,7 @@
       "team": "men",
       "hometown": "Tiffin, OH",
       "image": "/img/2026-men-headshots/ayden-adams.jpg",
-      "roster": { "number": "18", "position": "LW/LWB", "allTimeAppearances": 7, "seasons": ["2026"], "current": true }
+      "roster": { "number": "18", "position": "LW/LWB", "allTimeAppearances": 8, "seasons": ["2026"], "current": true }
     },
     {
       "id": "cohen-hawes",
@@ -136,7 +136,7 @@
       "team": "men",
       "hometown": "Oregon, OH",
       "image": "/img/2026-men-headshots/cohen-hawes.jpg",
-      "roster": { "number": "19", "position": "LB/RB", "allTimeAppearances": 5, "seasons": ["2026"], "current": true }
+      "roster": { "number": "19", "position": "LB/RB", "allTimeAppearances": 6, "seasons": ["2026"], "current": true }
     },
     {
       "id": "kenny-alejandro",
@@ -152,7 +152,7 @@
       "team": "men",
       "hometown": "Tiffin, OH",
       "image": "/img/2026-men-headshots/coen-steinmetz.jpg",
-      "roster": { "number": "22", "position": "LB/RB", "allTimeAppearances": 18, "seasons": ["2025", "2026"], "current": true }
+      "roster": { "number": "22", "position": "LB/RB", "allTimeAppearances": 19, "seasons": ["2025", "2026"], "current": true }
     },
     {
       "id": "simon-joseph",
@@ -160,7 +160,7 @@
       "team": "men",
       "hometown": "Perrysburg, OH",
       "image": "/img/2025-headshots/simon-joseph.webp",
-      "roster": { "number": "77", "position": "ST", "allTimeAppearances": 10, "seasons": ["2025", "2026"], "current": true }
+      "roster": { "number": "77", "position": "ST", "allTimeAppearances": 11, "seasons": ["2025", "2026"], "current": true }
     },
     {
       "id": "erik-rangel-negrete",
@@ -168,7 +168,7 @@
       "team": "men",
       "hometown": "Norwalk, OH",
       "image": "/img/2026-men-headshots/erik-rangel-negrete.jpg",
-      "roster": { "number": "7", "position": "CM/CAM", "allTimeAppearances": 3, "seasons": ["2026"], "current": true }
+      "roster": { "number": "7", "position": "CM/CAM", "allTimeAppearances": 4, "seasons": ["2026"], "current": true }
     },
     {
       "id": "carter-jones",
@@ -176,7 +176,7 @@
       "team": "men",
       "hometown": "Milan, OH",
       "image": "/img/2026-men-headshots/carter-jones.jpg",
-      "roster": { "number": "21", "position": "FWD", "allTimeAppearances": 7, "seasons": ["2026"], "current": true }
+      "roster": { "number": "21", "position": "FWD", "allTimeAppearances": 8, "seasons": ["2026"], "current": true }
     },
     {
       "id": "jackson-gray",
@@ -184,14 +184,14 @@
       "team": "men",
       "hometown": "Vermilion, OH",
       "image": "/img/2026-men-headshots/jackson-gray.jpg",
-      "roster": { "number": "20", "position": "CB", "allTimeAppearances": 4, "seasons": ["2026"], "current": true }
+      "roster": { "number": "20", "position": "CB", "allTimeAppearances": 5, "seasons": ["2026"], "current": true }
     },
     {
       "id": "joseph-judge",
       "name": "Joseph Judge",
       "team": "men",
       "hometown": "Oak Harbor, OH",
-      "roster": { "number": "23", "position": "CB", "allTimeAppearances": 6, "seasons": ["2026"], "current": true }
+      "roster": { "number": "23", "position": "CB", "allTimeAppearances": 7, "seasons": ["2026"], "current": true }
     },
     {
       "id": "ryan-graber",
@@ -264,7 +264,7 @@
       "team": "men",
       "hometown": "Oak Harbor, OH",
       "image": "/img/2026-men-headshots/phil-kirimi.jpg",
-      "roster": { "number": "0", "position": "CB", "allTimeAppearances": 7, "seasons": ["2025", "2026"], "current": true }
+      "roster": { "number": "0", "position": "CB", "allTimeAppearances": 8, "seasons": ["2025", "2026"], "current": true }
     },
     {
       "id": "zane-gabrielson",
@@ -281,7 +281,7 @@
       "hometown": "Sandusky, OH",
       "aliases": ["Kaden Kamp"],
       "image": "/img/2026-men-headshots/kaden-camp.jpg",
-      "roster": { "number": "2", "position": "LB/RB", "allTimeAppearances": 6, "seasons": ["2026"], "current": true }
+      "roster": { "number": "2", "position": "LB/RB", "allTimeAppearances": 7, "seasons": ["2026"], "current": true }
     },
     {
       "id": "hannah-mccray",

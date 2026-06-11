@@ -783,7 +783,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ["Top Goal Scorer", topLeaderText(season, "goals")],
       ["Top Assister", topLeaderText(season, "assists")],
       ["Top Saver", topLeaderText(season, "saves")],
-      ["Most Clean Sheets", "N/A"]
+      ["Most Clean Sheets", topLeaderText(season, "cleanSheets")]
     ];
     existingItems.forEach((value, label) => {
       if (!items.some(([itemLabel]) => itemLabel === label)) {
@@ -873,6 +873,7 @@ document.addEventListener("DOMContentLoaded", () => {
       appearances: "Matches",
       goals: "Goals",
       assists: "Assists",
+      cleanSheets: "Clean Sheets",
       saves: "Saves",
       yellowCards: "Yellow Cards",
       redCards: "Red Cards"
@@ -909,7 +910,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const player = players.find((candidate) => candidate.id === playerId);
         if (!player) return;
         const row = aggregate.get(playerId) || { player };
-        ["appearances", "goals", "assists", "saves", "yellowCards", "redCards"].forEach((key) => {
+        ["appearances", "goals", "assists", "cleanSheets", "saves", "yellowCards", "redCards"].forEach((key) => {
           row[key] = (row[key] || 0) + (stats[key] || 0);
         });
         aggregate.set(playerId, row);
@@ -920,6 +921,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ["Club Leading Goal Scorer", "goals"],
       ["Club Leading Assister", "assists"],
       ["Club Leader in Saves", "saves"],
+      ["Club Leader in Clean Sheets", "cleanSheets"],
       ["Club Leader in Yellow Cards", "yellowCards"],
       ["Club Leader in Matches Played", "appearances"]
     ];
@@ -946,6 +948,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ["Single Season Goal Record", "goals"],
       ["Single Season Assist Record", "assists"],
       ["Single Season Save Record", "saves"],
+      ["Single Season Clean Sheet Record", "cleanSheets"],
       ["Single Season Yellow Card Record", "yellowCards"],
       ["Single Season Red Card Record", "redCards"]
     ];

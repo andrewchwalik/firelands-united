@@ -8,6 +8,7 @@ const statKeys = [
   "appearances",
   "goals",
   "assists",
+  "cleanSheets",
   "saves",
   "yellowCards",
   "redCards"

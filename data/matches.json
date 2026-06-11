@@ -228,6 +228,23 @@
       }
     },
     {
+      "id": "2026-men-fc-rayos-home",
+      "team": "men",
+      "season": 2026,
+      "date": "2026-06-10",
+      "competition": "NOSL Second Division",
+      "homeTeam": "Firelands United",
+      "awayTeam": "FC Rayos",
+      "homeScore": 5,
+      "awayScore": 0,
+      "playerEvents": {
+        "goals": { "reggie-johnson": 1, "kaden-camp": 2, "blake-kubasak": 1, "ayden-adams": 1 },
+        "assists": { "jordan-dankert": 1, "kaden-camp": 1 },
+        "saves": { "jordan-dankert": 7 },
+        "yellowCards": { "coen-steinmetz": 1 }
+      }
+    },
+    {
       "id": "2026-women-susserfuss-away",
       "team": "women",
       "season": 2026,
