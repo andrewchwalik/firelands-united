@@ -8,31 +8,31 @@
       "updatedAt": "2026-06-16",
       "rows": [
         { "rank": 1, "team": "Firelands United", "played": 7, "points": 12, "goalDifference": 13, "highlight": true },
-        { "rank": 2, "team": "Greater Toledo FC", "played": 4, "points": 10, "goalDifference": 13 },
-        { "rank": 3, "team": "Fut Ohio", "played": 5, "points": 9, "goalDifference": 8 },
-        { "rank": 4, "team": "Forest City FC", "played": 3, "points": 7, "goalDifference": 5 },
-        { "rank": 5, "team": "Elite FC", "played": 5, "points": 7, "goalDifference": -3 },
-        { "rank": 6, "team": "CF Akron", "played": 4, "points": 6, "goalDifference": 2 },
-        { "rank": 7, "team": "Mansfield Liederkranz II", "played": 3, "points": 3, "goalDifference": -3 },
-        { "rank": 8, "team": "FC Rayos", "played": 5, "points": 3, "goalDifference": -11 },
-        { "rank": 9, "team": "Valentis Athletica II", "played": 6, "points": 3, "goalDifference": -19 },
-        { "rank": 10, "team": "Concordia SC", "played": 2, "points": 0, "goalDifference": -5 }
+        { "rank": 2, "team": "Fut Ohio", "played": 6, "points": 12, "goalDifference": 8 },
+        { "rank": 3, "team": "Forest City FC", "played": 4, "points": 10, "goalDifference": 15 },
+        { "rank": 4, "team": "Greater Toledo FC", "played": 4, "points": 10, "goalDifference": 13 },
+        { "rank": 5, "team": "Mansfield Liederkranz II", "played": 4, "points": 6, "goalDifference": -4 },
+        { "rank": 6, "team": "CF Akron", "played": 5, "points": 6, "goalDifference": -8 },
+        { "rank": 7, "team": "Elite FC", "played": 6, "points": 4, "goalDifference": -8 },
+        { "rank": 8, "team": "Concordia SC", "played": 3, "points": 3, "goalDifference": 0 },
+        { "rank": 9, "team": "FC Rayos", "played": 5, "points": 3, "goalDifference": -11 },
+        { "rank": 10, "team": "Valentis Athletica II", "played": 6, "points": 3, "goalDifference": -18 }
       ]
     },
     {
       "team": "women",
       "season": 2026,
       "league": "NOSL",
-      "updatedAt": "2026-06-03",
+      "updatedAt": "2026-06-16",
       "rows": [
-        { "rank": 1, "team": "Delaware Rising", "played": 4, "points": 12, "goalDifference": 16 },
-        { "rank": 2, "team": "Susserfuss Ballverein", "played": 3, "points": 6, "goalDifference": 21 },
-        { "rank": 3, "team": "North FC", "played": 2, "points": 6, "goalDifference": 10 },
-        { "rank": 4, "team": "Ohio City SC", "played": 2, "points": 3, "goalDifference": 8 },
-        { "rank": 5, "team": "Elite FC", "played": 0, "points": 0, "goalDifference": 0 },
-        { "rank": 6, "team": "Panthers FC", "played": 1, "points": 0, "goalDifference": -3 },
-        { "rank": 7, "team": "Mansfield Liederkranz", "played": 1, "points": 0, "goalDifference": -6 },
-        { "rank": 8, "team": "Valentis Athletica", "played": 2, "points": 0, "goalDifference": -15 },
+        { "rank": 1, "team": "Delaware Rising", "played": 5, "points": 15, "goalDifference": 18 },
+        { "rank": 2, "team": "Susserfuss Ballverein", "played": 5, "points": 12, "goalDifference": 32 },
+        { "rank": 3, "team": "North FC", "played": 5, "points": 12, "goalDifference": 16 },
+        { "rank": 4, "team": "Ohio City SC", "played": 3, "points": 3, "goalDifference": 4 },
+        { "rank": 5, "team": "Panthers FC", "played": 3, "points": 3, "goalDifference": -10 },
+        { "rank": 6, "team": "Elite FC", "played": 0, "points": 0, "goalDifference": 0 },
+        { "rank": 7, "team": "Mansfield Liederkranz", "played": 3, "points": 0, "goalDifference": -13 },
+        { "rank": 8, "team": "Valentis Athletica", "played": 3, "points": 0, "goalDifference": -16 },
         { "rank": 9, "team": "Firelands United", "played": 3, "points": 0, "goalDifference": -31, "highlight": true }
       ]
     }
