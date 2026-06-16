@@ -245,6 +245,22 @@
       }
     },
     {
+      "id": "2026-men-valentis-home",
+      "team": "men",
+      "season": 2026,
+      "date": "2026-06-14",
+      "competition": "NOSL Second Division",
+      "homeTeam": "Firelands United",
+      "awayTeam": "Valentis Athletica II",
+      "homeScore": 6,
+      "awayScore": 1,
+      "playerEvents": {
+        "goals": { "kaiden-hawes": 1, "kaden-camp": 1, "jonah-main": 2, "reggie-johnson": 1, "phil-kirimi": 1 },
+        "assists": { "kaden-camp": 1, "collin-biehler": 1, "alex-davidson": 1, "blake-kubasak": 1 },
+        "saves": { "collin-biehler": 3, "jordan-dankert": 3 }
+      }
+    },
+    {
       "id": "2026-women-susserfuss-away",
       "team": "women",
       "season": 2026,

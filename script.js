@@ -1056,8 +1056,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const players = playersData.players || [];
     clubDataCache.playerById = new Map([
-      ...players.map((player) => [player.id, player]),
-      ...(staffData.staff || []).map((person) => [person.id, person])
+      ...(staffData.staff || []).map((person) => [person.id, person]),
+      ...players.map((player) => [player.id, player])
     ]);
     return {
       players,
