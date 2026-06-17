@@ -70,6 +70,7 @@
   {
     "name": "Jordan Dankert",
     "hometown": "Rossford, OH",
+    "image": "/img/2026-men-headshots/jordan-dankert.jpg",
     "roster": { "number": "#13", "position": "GK", "appearances": 5 }
   },
   {
@@ -123,7 +124,7 @@
   {
     "name": "Erik Rangel Negrete",
     "hometown": "Norwalk, OH",
-    "image": "/img/2026-men-headshots/erik-rangel-negrete.jpg",
+    "image": "/img/2026-men-headshots/erik-negrete.jpg",
     "roster": { "number": "#7", "position": "CM/CAM", "appearances": 3 }
   },
   {
@@ -141,6 +142,7 @@
   {
     "name": "Joseph Judge",
     "hometown": "Oak Harbor, OH",
+    "image": "/img/2026-men-headshots/joseph-judge.jpg",
     "roster": { "number": "#TBD", "position": "CB", "appearances": 6 }
   },
   {

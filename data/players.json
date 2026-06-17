@@ -104,6 +104,7 @@
       "name": "Jordan Dankert",
       "team": "men",
       "hometown": "Rossford, OH",
+      "image": "/img/2026-men-headshots/jordan-dankert.jpg",
       "roster": { "number": "13", "position": "GK", "allTimeAppearances": 7, "seasons": ["2026"], "current": true }
     },
     {
@@ -178,7 +179,7 @@
       "name": "Erik Rangel Negrete",
       "team": "men",
       "hometown": "Norwalk, OH",
-      "image": "/img/2026-men-headshots/erik-rangel-negrete.jpg",
+      "image": "/img/2026-men-headshots/erik-negrete.jpg",
       "roster": { "number": "7", "position": "CM/CAM", "allTimeAppearances": 4, "seasons": ["2026"], "current": true }
     },
     {
@@ -202,6 +203,7 @@
       "name": "Joseph Judge",
       "team": "men",
       "hometown": "Oak Harbor, OH",
+      "image": "/img/2026-men-headshots/joseph-judge.jpg",
       "roster": { "number": "23", "position": "CB", "allTimeAppearances": 8, "seasons": ["2026"], "current": true }
     },
     {
