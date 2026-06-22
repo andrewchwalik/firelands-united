@@ -297,6 +297,20 @@
       "playerEvents": {
         "saves": { "kelly-klimaszewski": 10 }
       }
+    },
+    {
+      "id": "2026-women-mansfield-home",
+      "team": "women",
+      "season": 2026,
+      "date": "2026-06-21",
+      "competition": "NOSL",
+      "homeTeam": "Firelands United",
+      "awayTeam": "Mansfield Liederkranz",
+      "homeScore": 0,
+      "awayScore": 5,
+      "playerEvents": {
+        "saves": { "kelly-klimaszewski": 8 }
+      }
     }
   ]
 }
