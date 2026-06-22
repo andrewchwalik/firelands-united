@@ -6,7 +6,7 @@
       "name": "Chris Schnell",
       "hometown": "Norwalk, OH",
       "roles": [
-        { "team": "men", "season": 2026, "title": "Head Coach", "matchesCoached": 8 }
+        { "team": "men", "season": 2026, "title": "Head Coach", "matchesCoached": 9 }
       ]
     },
     {
@@ -15,7 +15,7 @@
       "hometown": "Tiffin, OH",
       "image": "/img/2025-headshots/zane-gabrielson.webp",
       "roles": [
-        { "team": "men", "season": 2026, "title": "Assistant Coach", "matchesCoached": 9 },
+        { "team": "men", "season": 2026, "title": "Assistant Coach", "matchesCoached": 10 },
         { "team": "men", "season": 2025, "title": "Assistant Coach", "matchesCoached": 4 }
       ]
     },

@@ -3152,10 +3152,10 @@
           "team": "men",
           "season": 2026,
           "title": "Head Coach",
-          "matchesCoached": 8
+          "matchesCoached": 9
         }
       ],
-      "matchesCoached": 8
+      "matchesCoached": 9
     },
     {
       "id": "zane-gabrielson",
@@ -3165,7 +3165,7 @@
           "team": "men",
           "season": 2026,
           "title": "Assistant Coach",
-          "matchesCoached": 9
+          "matchesCoached": 10
         },
         {
           "team": "men",
@@ -3174,7 +3174,7 @@
           "matchesCoached": 4
         }
       ],
-      "matchesCoached": 13
+      "matchesCoached": 14
     },
     {
       "id": "andrew-chwalik",
