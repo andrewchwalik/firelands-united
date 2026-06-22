@@ -25,14 +25,14 @@
       "league": "NOSL",
       "updatedAt": "2026-06-16",
       "rows": [
-        { "rank": 1, "team": "Delaware Rising", "played": 5, "points": 15, "goalDifference": 18 },
+        { "rank": 1, "team": "Delaware Rising", "played": 6, "points": 18, "goalDifference": 22 },
         { "rank": 2, "team": "Susserfuss Ballverein", "played": 5, "points": 12, "goalDifference": 32 },
         { "rank": 3, "team": "North FC", "played": 5, "points": 12, "goalDifference": 16 },
-        { "rank": 4, "team": "Ohio City SC", "played": 3, "points": 3, "goalDifference": 4 },
-        { "rank": 5, "team": "Mansfield Liederkranz", "played": 4, "points": 3, "goalDifference": -8 },
-        { "rank": 6, "team": "Panthers FC", "played": 3, "points": 3, "goalDifference": -10 },
+        { "rank": 4, "team": "Ohio City SC", "played": 4, "points": 6, "goalDifference": 7 },
+        { "rank": 5, "team": "Mansfield Liederkranz", "played": 5, "points": 6, "goalDifference": -6 },
+        { "rank": 6, "team": "Valentis Athletica", "played": 5, "points": 3, "goalDifference": -20 },
         { "rank": 7, "team": "Elite FC", "played": 0, "points": 0, "goalDifference": 0 },
-        { "rank": 8, "team": "Valentis Athletica", "played": 3, "points": 0, "goalDifference": -16 },
+        { "rank": 8, "team": "Panthers FC", "played": 4, "points": 0, "goalDifference": -15 },
         { "rank": 9, "team": "Firelands United", "played": 4, "points": 0, "goalDifference": -36, "highlight": true }
       ]
     }
