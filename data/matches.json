@@ -261,6 +261,23 @@
       }
     },
     {
+      "id": "2026-men-greater-toledo-away",
+      "team": "men",
+      "season": 2026,
+      "date": "2026-06-20",
+      "competition": "NOSL Second Division",
+      "homeTeam": "Greater Toledo FC",
+      "awayTeam": "Firelands United",
+      "homeScore": 0,
+      "awayScore": 2,
+      "playerEvents": {
+        "goals": { "jon-slay": 1, "reggie-johnson": 1 },
+        "assists": { "kaden-camp": 1, "jordan-dankert": 1 },
+        "saves": { "jordan-dankert": 11 },
+        "yellowCards": { "jack-ramey": 1, "cohen-hawes": 1 }
+      }
+    },
+    {
       "id": "2026-women-susserfuss-away",
       "team": "women",
       "season": 2026,
