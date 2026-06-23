@@ -495,6 +495,16 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   }
 
+  function coachSortValue(entry, team) {
+    const preferredOrder = {
+      men: ["chris-schnell", "zane-gabrielson", "andrew-chwalik"],
+      women: ["andrew-chwalik", "jordan-dankert", "zane-gabrielson"],
+    };
+    const order = preferredOrder[team] || [];
+    const index = order.indexOf(entry.person.id);
+    return index === -1 ? order.length : index;
+  }
+
   function renderRosterPages(players, staff) {
     const panel = document.querySelector(".roster-panel[data-roster='first-team']");
     if (!panel) return;
@@ -506,7 +516,8 @@ document.addEventListener("DOMContentLoaded", () => {
       .sort((a, b) => Number(a.roster?.number || 999) - Number(b.roster?.number || 999));
     const currentRoles = staff
       .map((person) => ({ person, role: getRoleForContext(person, team, "2026") }))
-      .filter((entry) => entry.role);
+      .filter((entry) => entry.role)
+      .sort((a, b) => coachSortValue(a, team) - coachSortValue(b, team) || a.person.name.localeCompare(b.person.name));
 
     const groupOrder = ["Goalkeepers", "Defenders", "Midfielders", "Attackers"];
     const grouped = new Map(groupOrder.map((group) => [group, []]));
@@ -984,7 +995,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const currentRoles = staff
       .map((person) => ({ person, role: getRoleForContext(person, season.team, season.season) }))
-      .filter((entry) => entry.role);
+      .filter((entry) => entry.role)
+      .sort((a, b) => coachSortValue(a, season.team) - coachSortValue(b, season.team) || a.person.name.localeCompare(b.person.name));
     const playerRows = Object.entries(season.playerStats || {})
       .map(([playerId, stats]) => ({ player: players.find((candidate) => candidate.id === playerId), stats }))
       .filter((entry) => entry.player);

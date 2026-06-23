@@ -3007,6 +3007,7 @@ body.presskit-page .content-section:nth-of-type(5) {
     "media meta";
   grid-template-rows: auto auto auto;
   align-items: center;
+  align-content: center;
   position: relative;
   overflow: hidden;
   min-height: 200px;

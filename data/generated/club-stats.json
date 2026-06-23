@@ -386,15 +386,6 @@
           "appearances": 4
         },
         {
-          "id": "debby-eberly",
-          "name": "Debby Eberly",
-          "team": "women",
-          "seasons": [
-            2026
-          ],
-          "appearances": 4
-        },
-        {
           "id": "erik-rangel-negrete",
           "name": "Erik Rangel Negrete",
           "team": "men",
@@ -472,6 +463,15 @@
         {
           "id": "caroline-tackett",
           "name": "Caroline Tackett",
+          "team": "women",
+          "seasons": [
+            2026
+          ],
+          "appearances": 3
+        },
+        {
+          "id": "debby-eberly",
+          "name": "Debby Eberly",
           "team": "women",
           "seasons": [
             2026
@@ -2859,19 +2859,6 @@
               "redCards": 0
             },
             {
-              "id": "debby-eberly",
-              "name": "Debby Eberly",
-              "team": "women",
-              "season": 2026,
-              "appearances": 4,
-              "goals": 0,
-              "assists": 0,
-              "cleanSheets": 0,
-              "saves": 0,
-              "yellowCards": 0,
-              "redCards": 0
-            },
-            {
               "id": "jensen-prowant",
               "name": "Jensen Prowant",
               "team": "women",
@@ -2965,6 +2952,19 @@
             {
               "id": "caroline-tackett",
               "name": "Caroline Tackett",
+              "team": "women",
+              "season": 2026,
+              "appearances": 3,
+              "goals": 0,
+              "assists": 0,
+              "cleanSheets": 0,
+              "saves": 0,
+              "yellowCards": 0,
+              "redCards": 0
+            },
+            {
+              "id": "debby-eberly",
+              "name": "Debby Eberly",
               "team": "women",
               "season": 2026,
               "appearances": 3,
@@ -3196,7 +3196,7 @@
           "team": "women",
           "season": 2026,
           "title": "Head Coach",
-          "matchesCoached": 2
+          "matchesCoached": 3
         },
         {
           "team": "men",
@@ -3205,7 +3205,7 @@
           "matchesCoached": 4
         }
       ],
-      "matchesCoached": 6
+      "matchesCoached": 7
     },
     {
       "id": "jordan-dankert",
@@ -3215,10 +3215,10 @@
           "team": "women",
           "season": 2026,
           "title": "Assistant Coach",
-          "matchesCoached": 1
+          "matchesCoached": 2
         }
       ],
-      "matchesCoached": 1
+      "matchesCoached": 2
     },
     {
       "id": "george-villiers",

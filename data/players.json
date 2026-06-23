@@ -432,7 +432,7 @@
       "team": "women",
       "hometown": "Brunswick, OH",
       "image": "/img/2026-women-headshots/deb-eberly.png",
-      "roster": { "number": "21", "position": "ST/DEF", "allTimeAppearances": 4, "seasons": ["2026"], "current": true }
+      "roster": { "number": "21", "position": "ST/DEF", "allTimeAppearances": 3, "seasons": ["2026"], "current": true }
     },
     {
       "id": "kaleigh-atkins",

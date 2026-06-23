@@ -27,7 +27,7 @@
       "image": "/img/2026-women-headshots/andrew-chwalik.jpg",
       "roles": [
         { "team": "men", "season": 2026, "title": "Director", "matchesCoached": null },
-        { "team": "women", "season": 2026, "title": "Head Coach", "matchesCoached": 2 },
+        { "team": "women", "season": 2026, "title": "Head Coach", "matchesCoached": 3 },
         { "team": "men", "season": 2025, "title": "Assistant Coach", "matchesCoached": 4 }
       ]
     },
@@ -37,7 +37,7 @@
       "hometown": "Rossford, OH",
       "image": "/img/2026-women-headshots/coach-jordan-dankert.jpg",
       "roles": [
-        { "team": "women", "season": 2026, "title": "Assistant Coach", "matchesCoached": 1 }
+        { "team": "women", "season": 2026, "title": "Assistant Coach", "matchesCoached": 2 }
       ]
     },
     {
