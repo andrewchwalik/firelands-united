@@ -16,6 +16,7 @@
       "image": "/img/2025-headshots/zane-gabrielson.webp",
       "roles": [
         { "team": "men", "season": 2026, "title": "Assistant Coach", "matchesCoached": 10 },
+        { "team": "women", "season": 2026, "title": "Assistant Coach", "matchesCoached": null },
         { "team": "men", "season": 2025, "title": "Assistant Coach", "matchesCoached": 4 }
       ]
     },
