@@ -328,6 +328,18 @@
       "playerEvents": {
         "saves": { "kelly-klimaszewski": 9 }
       }
+    },
+    {
+      "id": "2026-women-panthers-home",
+      "team": "women",
+      "season": 2026,
+      "date": "2026-06-27",
+      "competition": "NOSL",
+      "homeTeam": "Firelands United",
+      "awayTeam": "Panthers FC",
+      "homeScore": 3,
+      "awayScore": 0,
+      "notes": "Panthers FC forfeited; Firelands United awarded a 3-0 win."
     }
   ]
 }
