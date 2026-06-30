@@ -278,6 +278,22 @@
       }
     },
     {
+      "id": "2026-men-fc-rayos-away",
+      "team": "men",
+      "season": 2026,
+      "date": "2026-06-28",
+      "competition": "NOSL Second Division",
+      "homeTeam": "FC Rayos",
+      "awayTeam": "Firelands United",
+      "homeScore": 2,
+      "awayScore": 8,
+      "playerEvents": {
+        "goals": { "alex-davidson": 3, "kaden-camp": 3, "maximus-parsell": 1, "jon-slay": 1 },
+        "assists": { "alex-davidson": 2, "kaden-camp": 1, "blake-kubasak": 2 },
+        "saves": { "collin-biehler": 6, "jordan-dankert": 5 }
+      }
+    },
+    {
       "id": "2026-women-susserfuss-away",
       "team": "women",
       "season": 2026,
