@@ -3252,29 +3252,29 @@
       "team": "men",
       "season": 2026,
       "league": "NOSL Second Division",
-      "updatedAt": "2026-06-22",
+      "updatedAt": "2026-06-29",
       "rows": [
         {
           "rank": 1,
           "team": "Firelands United",
-          "played": 8,
-          "points": 15,
-          "goalDifference": 15,
+          "played": 9,
+          "points": 18,
+          "goalDifference": 21,
           "highlight": true
         },
         {
           "rank": 2,
+          "team": "Forest City FC",
+          "played": 7,
+          "points": 16,
+          "goalDifference": 23
+        },
+        {
+          "rank": 3,
           "team": "Fut Ohio",
           "played": 7,
           "points": 15,
           "goalDifference": 14
-        },
-        {
-          "rank": 3,
-          "team": "Forest City FC",
-          "played": 5,
-          "points": 13,
-          "goalDifference": 17
         },
         {
           "rank": 4,
@@ -3285,45 +3285,45 @@
         },
         {
           "rank": 5,
-          "team": "Mansfield Liederkranz II",
-          "played": 6,
-          "points": 9,
+          "team": "CF Akron",
+          "played": 8,
+          "points": 10,
           "goalDifference": -6
         },
         {
           "rank": 6,
-          "team": "Elite FC",
-          "played": 8,
-          "points": 7,
-          "goalDifference": -7
+          "team": "Mansfield Liederkranz II",
+          "played": 7,
+          "points": 9,
+          "goalDifference": -14
         },
         {
           "rank": 7,
-          "team": "CF Akron",
-          "played": 7,
+          "team": "Concordia SC",
+          "played": 6,
           "points": 7,
-          "goalDifference": -9
+          "goalDifference": -1
         },
         {
           "rank": 8,
+          "team": "Elite FC",
+          "played": 9,
+          "points": 7,
+          "goalDifference": -10
+        },
+        {
+          "rank": 9,
           "team": "Valentis Athletica II",
           "played": 7,
           "points": 6,
           "goalDifference": -15
         },
         {
-          "rank": 9,
-          "team": "Concordia SC",
-          "played": 5,
-          "points": 4,
-          "goalDifference": -3
-        },
-        {
           "rank": 10,
           "team": "FC Rayos",
-          "played": 6,
+          "played": 7,
           "points": 3,
-          "goalDifference": -17
+          "goalDifference": -23
         }
       ]
     },
@@ -3331,21 +3331,21 @@
       "team": "women",
       "season": 2026,
       "league": "NOSL",
-      "updatedAt": "2026-06-16",
+      "updatedAt": "2026-06-29",
       "rows": [
         {
           "rank": 1,
+          "team": "Süsserfuss Ballverein",
+          "played": 7,
+          "points": 18,
+          "goalDifference": 54
+        },
+        {
+          "rank": 2,
           "team": "Delaware Rising",
           "played": 6,
           "points": 18,
           "goalDifference": 22
-        },
-        {
-          "rank": 2,
-          "team": "Susserfuss Ballverein",
-          "played": 5,
-          "points": 12,
-          "goalDifference": 32
         },
         {
           "rank": 3,
@@ -3356,46 +3356,46 @@
         },
         {
           "rank": 4,
+          "team": "Mansfield Liederkranz",
+          "played": 6,
+          "points": 9,
+          "goalDifference": -5
+        },
+        {
+          "rank": 5,
           "team": "Ohio City SC",
           "played": 4,
           "points": 6,
           "goalDifference": 7
         },
         {
-          "rank": 5,
-          "team": "Mansfield Liederkranz",
-          "played": 5,
-          "points": 6,
-          "goalDifference": -6
-        },
-        {
           "rank": 6,
-          "team": "Valentis Athletica",
-          "played": 5,
+          "team": "Panthers FC",
+          "played": 7,
           "points": 3,
-          "goalDifference": -20
+          "goalDifference": -26
         },
         {
           "rank": 7,
+          "team": "Firelands United",
+          "played": 5,
+          "points": 3,
+          "goalDifference": -33,
+          "highlight": true
+        },
+        {
+          "rank": 8,
           "team": "Elite FC",
           "played": 0,
           "points": 0,
           "goalDifference": 0
         },
         {
-          "rank": 8,
-          "team": "Panthers FC",
-          "played": 4,
-          "points": 0,
-          "goalDifference": -15
-        },
-        {
           "rank": 9,
-          "team": "Firelands United",
-          "played": 4,
+          "team": "Valentis Athletica",
+          "played": 6,
           "points": 0,
-          "goalDifference": -36,
-          "highlight": true
+          "goalDifference": -35
         }
       ]
     }
