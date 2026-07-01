@@ -5,6 +5,7 @@
       "id": "chris-schnell",
       "name": "Chris Schnell",
       "hometown": "Norwalk, OH",
+      "image": "/img/2026-men-headshots/chris-schnell.jpg",
       "roles": [
         { "team": "men", "season": 2026, "title": "Head Coach", "matchesCoached": 10 }
       ]

@@ -95,8 +95,8 @@
       "name": "Reggie Johnson",
       "team": "men",
       "hometown": "Lorain, OH",
-      "image": "/img/2025-headshots/reggie-johnson.webp",
-      "seasonImages": { "2025": "/img/2025-headshots/reggie-johnson.webp" },
+      "image": "/img/2026-men-headshots/reggie-johnson.jpg",
+      "seasonImages": { "2025": "/img/2025-headshots/reggie-johnson.webp", "2026": "/img/2026-men-headshots/reggie-johnson.jpg" },
       "roster": { "number": "12", "position": "ST/RW", "allTimeAppearances": 22, "seasons": ["2025", "2026"], "current": true }
     },
     {
@@ -219,7 +219,8 @@
       "name": "Alex Davidson",
       "team": "men",
       "hometown": "Norwalk, OH",
-      "image": "/img/2025-headshots/alex-davidson.webp",
+      "image": "/img/2026-men-headshots/alex-davidson.jpg",
+      "seasonImages": { "2025": "/img/2025-headshots/alex-davidson.webp", "2026": "/img/2026-men-headshots/alex-davidson.jpg" },
       "roster": { "number": "27", "position": "MID", "allTimeAppearances": 9, "seasons": ["2025", "2026"], "current": true }
     },
     {
