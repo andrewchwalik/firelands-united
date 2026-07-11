@@ -356,6 +356,20 @@
       "homeScore": 3,
       "awayScore": 0,
       "notes": "Panthers FC forfeited; Firelands United awarded a 3-0 win."
+    },
+    {
+      "id": "2026-women-ohio-city-home",
+      "team": "women",
+      "season": 2026,
+      "date": "2026-07-11",
+      "competition": "NOSL",
+      "homeTeam": "Firelands United",
+      "awayTeam": "Ohio City SC",
+      "homeScore": 0,
+      "awayScore": 4,
+      "playerEvents": {
+        "saves": { "kelly-klimaszewski": 5, "hannah-mccray": 6 }
+      }
     }
   ]
 }
