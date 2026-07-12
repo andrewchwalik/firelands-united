@@ -2893,7 +2893,7 @@
           "points": 3
         },
         "teamTotals": {
-          "goals": 3,
+          "goals": 0,
           "assists": 0,
           "cleanSheets": 1,
           "saves": 53,
@@ -3279,7 +3279,7 @@
           "team": "women",
           "season": 2026,
           "title": "Head Coach",
-          "matchesCoached": 3
+          "matchesCoached": 5
         },
         {
           "team": "men",
@@ -3288,7 +3288,7 @@
           "matchesCoached": 4
         }
       ],
-      "matchesCoached": 7
+      "matchesCoached": 9
     },
     {
       "id": "jordan-dankert",
