@@ -294,6 +294,22 @@
       }
     },
     {
+      "id": "2026-men-forest-city-away",
+      "team": "men",
+      "season": 2026,
+      "date": "2026-07-11",
+      "competition": "NOSL Second Division",
+      "homeTeam": "Forest City FC",
+      "awayTeam": "Firelands United",
+      "homeScore": 5,
+      "awayScore": 1,
+      "playerEvents": {
+        "goals": { "kaden-camp": 1 },
+        "assists": { "blake-kubasak": 1 },
+        "saves": { "collin-biehler": 6 }
+      }
+    },
+    {
       "id": "2026-women-susserfuss-away",
       "team": "women",
       "season": 2026,
