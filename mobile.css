@@ -352,6 +352,12 @@
   padding: 12px 0 14px;
 }
 
+.home-next-match-playoff-label {
+  font-size: 2.35rem;
+  margin-bottom: 12px;
+  padding: 4px 0 6px;
+}
+
 .home-next-match-countdown {
   font-size: 0.7rem;
   letter-spacing: 0.05em;

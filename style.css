@@ -755,6 +755,14 @@ body {
   padding: 16px 0 18px;
 }
 
+.home-next-match-playoff-label {
+  color: #f18a01;
+  font-size: clamp(2.1rem, 5vw, 3.6rem);
+  line-height: 0.9;
+  margin-bottom: 16px;
+  padding: 6px 0 8px;
+}
+
 .home-next-match-countdown {
   position: absolute;
   left: 50%;
