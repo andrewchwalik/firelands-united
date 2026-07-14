@@ -823,6 +823,12 @@ document.addEventListener("DOMContentLoaded", () => {
     return "";
   }
 
+  function resultNote(match) {
+    if (!match.notes) return "";
+    if (/forfeit/i.test(match.notes)) return ' <span class="result-note">(forfeit win)</span>';
+    return ` <span class="result-note">(${match.notes})</span>`;
+  }
+
   function renderMatchResults(panel, team, season, matches) {
     const results = panel.querySelector(".season-mini-results-columns");
     if (!results) return;
@@ -833,7 +839,7 @@ document.addEventListener("DOMContentLoaded", () => {
     results.innerHTML = columns.map((group) => `
       <ul>
         ${group.map((match) => {
-          const text = `${resultIcon(match.competition)}${match.homeTeam} ${match.homeScore} - ${match.awayTeam} ${match.awayScore}`;
+          const text = `${resultIcon(match.competition)}${match.homeTeam} ${match.homeScore} - ${match.awayTeam} ${match.awayScore}${resultNote(match)}`;
           return `<li>${match.videoUrl ? `<a href="${match.videoUrl}" target="_blank" rel="noopener noreferrer">${text}</a>` : text}</li>`;
         }).join("")}
         ${group === columns[columns.length - 1] ? '<li class="results-key"><span class="trophy-icon trophy-silver" aria-hidden="true"></span> Cup Match | <span class="trophy-icon trophy-gold" aria-hidden="true"></span> Playoff Match</li>' : ""}
