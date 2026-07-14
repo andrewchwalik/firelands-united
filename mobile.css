@@ -358,6 +358,11 @@
   padding: 4px 0 6px;
 }
 
+.home-next-match-countdown-only {
+  margin-bottom: 12px;
+  padding: 4px 0 6px;
+}
+
 .home-next-match-countdown {
   font-size: 0.7rem;
   letter-spacing: 0.05em;
@@ -365,6 +370,11 @@
   transform: translate(-50%, -50%);
   padding: 6px 10px 5px;
   border-radius: 7px;
+}
+
+.home-next-match-countdown-only .home-next-match-countdown {
+  font-size: 1rem;
+  padding: 11px 14px 10px;
 }
 
 .home-next-match-type {

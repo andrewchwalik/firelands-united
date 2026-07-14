@@ -763,6 +763,13 @@ body {
   padding: 6px 0 8px;
 }
 
+.home-next-match-countdown-only {
+  font-size: 1rem;
+  line-height: 1;
+  margin-bottom: 16px;
+  padding: 8px 0 10px;
+}
+
 .home-next-match-countdown {
   position: absolute;
   left: 50%;
@@ -781,6 +788,15 @@ body {
   padding: 7px 12px 6px;
   border-radius: 8px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
+}
+
+.home-next-match-countdown-only .home-next-match-countdown {
+  position: static;
+  transform: none;
+  color: #fff;
+  font-size: clamp(1.15rem, 3.2vw, 2rem);
+  line-height: 1;
+  padding: 14px 22px 12px;
 }
 
 .home-next-match-detail {
