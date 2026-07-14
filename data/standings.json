@@ -23,17 +23,17 @@
       "team": "women",
       "season": 2026,
       "league": "NOSL",
-      "updatedAt": "2026-07-11",
+      "updatedAt": "2026-07-13",
       "rows": [
-        { "rank": 1, "team": "Süsserfuss Ballverein", "played": 7, "points": 18, "goalDifference": 54 },
-        { "rank": 2, "team": "Delaware Rising", "played": 6, "points": 18, "goalDifference": 22 },
-        { "rank": 3, "team": "North FC", "played": 6, "points": 15, "goalDifference": 17 },
+        { "rank": 1, "team": "Delaware Rising", "played": 7, "points": 21, "goalDifference": 23 },
+        { "rank": 2, "team": "Süsserfuss Ballverein", "played": 7, "points": 18, "goalDifference": 54 },
+        { "rank": 3, "team": "North FC", "played": 7, "points": 15, "goalDifference": 16 },
         { "rank": 4, "team": "Ohio City SC", "played": 7, "points": 12, "goalDifference": 14 },
         { "rank": 5, "team": "Mansfield Liederkranz", "played": 7, "points": 9, "goalDifference": -9 },
-        { "rank": 6, "team": "Panthers FC", "played": 7, "points": 3, "goalDifference": -26 },
-        { "rank": 7, "team": "Firelands United", "played": 6, "points": 3, "goalDifference": -37, "highlight": true },
-        { "rank": 8, "team": "Elite FC", "played": 0, "points": 0, "goalDifference": 0 },
-        { "rank": 9, "team": "Valentis Athletica", "played": 6, "points": 0, "goalDifference": -35 }
+        { "rank": 6, "team": "Firelands United", "played": 7, "points": 4, "goalDifference": -37, "highlight": true },
+        { "rank": 7, "team": "Panthers FC", "played": 7, "points": 3, "goalDifference": -26 },
+        { "rank": 8, "team": "Valentis Athletica", "played": 7, "points": 1, "goalDifference": -35 },
+        { "rank": 9, "team": "Elite FC", "played": 0, "points": 0, "goalDifference": 0 }
       ]
     }
   ]

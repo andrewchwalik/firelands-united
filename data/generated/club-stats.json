@@ -11,7 +11,7 @@
     "players": 58,
     "staff": 6,
     "seasons": 3,
-    "matches": 29,
+    "matches": 30,
     "standings": 2
   },
   "leaders": {
@@ -346,6 +346,71 @@
           "seasons": [
             2026
           ],
+          "appearances": 6
+        },
+        {
+          "id": "kaleigh-atkins",
+          "name": "Kaleigh Atkins",
+          "team": "women",
+          "seasons": [
+            2026
+          ],
+          "appearances": 6
+        },
+        {
+          "id": "kelly-klimaszewski",
+          "name": "Kelly Klimaszewski",
+          "team": "women",
+          "seasons": [
+            2026
+          ],
+          "appearances": 6,
+          "saves": 53
+        },
+        {
+          "id": "paige-ackerman",
+          "name": "Paige Ackerman",
+          "team": "women",
+          "seasons": [
+            2026
+          ],
+          "appearances": 6
+        },
+        {
+          "id": "amelia-chartrant",
+          "name": "Amelia Chartrant",
+          "team": "women",
+          "seasons": [
+            2026
+          ],
+          "appearances": 5,
+          "goals": 1
+        },
+        {
+          "id": "ash-harmon",
+          "name": "Ash Harmon",
+          "team": "women",
+          "seasons": [
+            2026
+          ],
+          "appearances": 5
+        },
+        {
+          "id": "caroline-tackett",
+          "name": "Caroline Tackett",
+          "team": "women",
+          "seasons": [
+            2026
+          ],
+          "appearances": 5
+        },
+        {
+          "id": "debby-eberly",
+          "name": "Debby Eberly",
+          "team": "women",
+          "seasons": [
+            2026
+          ],
           "appearances": 5
         },
         {
@@ -360,8 +425,8 @@
           "yellowCards": 1
         },
         {
-          "id": "kaleigh-atkins",
-          "name": "Kaleigh Atkins",
+          "id": "haley-chaput",
+          "name": "Haley Chaput",
           "team": "women",
           "seasons": [
             2026
@@ -369,14 +434,13 @@
           "appearances": 5
         },
         {
-          "id": "kelly-klimaszewski",
-          "name": "Kelly Klimaszewski",
+          "id": "jensen-prowant",
+          "name": "Jensen Prowant",
           "team": "women",
           "seasons": [
             2026
           ],
-          "appearances": 5,
-          "saves": 47
+          "appearances": 5
         },
         {
           "id": "kevin-alejandro",
@@ -399,8 +463,8 @@
           "appearances": 5
         },
         {
-          "id": "paige-ackerman",
-          "name": "Paige Ackerman",
+          "id": "meghan-youngless",
+          "name": "Meghan Youngless",
           "team": "women",
           "seasons": [
             2026
@@ -417,24 +481,6 @@
           "appearances": 5
         },
         {
-          "id": "amelia-chartrant",
-          "name": "Amelia Chartrant",
-          "team": "women",
-          "seasons": [
-            2026
-          ],
-          "appearances": 4
-        },
-        {
-          "id": "ash-harmon",
-          "name": "Ash Harmon",
-          "team": "women",
-          "seasons": [
-            2026
-          ],
-          "appearances": 4
-        },
-        {
           "id": "bryan-gerber",
           "name": "Bryan Gerber",
           "team": "men",
@@ -444,35 +490,28 @@
           "appearances": 4
         },
         {
-          "id": "caroline-tackett",
-          "name": "Caroline Tackett",
+          "id": "hailey-wilson",
+          "name": "Hailey Wilson",
           "team": "women",
           "seasons": [
             2026
           ],
-          "appearances": 4
+          "appearances": 4,
+          "goals": 1
         },
         {
-          "id": "debby-eberly",
-          "name": "Debby Eberly",
+          "id": "hannah-mccray",
+          "name": "Hannah McCray",
           "team": "women",
           "seasons": [
             2026
           ],
-          "appearances": 4
+          "appearances": 4,
+          "saves": 10
         },
         {
-          "id": "haley-chaput",
-          "name": "Haley Chaput",
-          "team": "women",
-          "seasons": [
-            2026
-          ],
-          "appearances": 4
-        },
-        {
-          "id": "jensen-prowant",
-          "name": "Jensen Prowant",
+          "id": "kali-benedict",
+          "name": "Kali Benedict",
           "team": "women",
           "seasons": [
             2026
@@ -482,15 +521,6 @@
         {
           "id": "megan-oconnor",
           "name": "Megan O'Connor",
-          "team": "women",
-          "seasons": [
-            2026
-          ],
-          "appearances": 4
-        },
-        {
-          "id": "meghan-youngless",
-          "name": "Meghan Youngless",
           "team": "women",
           "seasons": [
             2026
@@ -536,32 +566,14 @@
           "yellowCards": 1
         },
         {
-          "id": "hailey-wilson",
-          "name": "Hailey Wilson",
-          "team": "women",
-          "seasons": [
-            2026
-          ],
-          "appearances": 3
-        },
-        {
-          "id": "hannah-mccray",
-          "name": "Hannah McCray",
+          "id": "kellyn-ritchie",
+          "name": "Kellyn Ritchie",
           "team": "women",
           "seasons": [
             2026
           ],
           "appearances": 3,
-          "saves": 6
-        },
-        {
-          "id": "kali-benedict",
-          "name": "Kali Benedict",
-          "team": "women",
-          "seasons": [
-            2026
-          ],
-          "appearances": 3
+          "assists": 2
         },
         {
           "id": "luke-avers",
@@ -575,8 +587,8 @@
           "saves": 23
         },
         {
-          "id": "kellyn-ritchie",
-          "name": "Kellyn Ritchie",
+          "id": "lana-furniss",
+          "name": "Lana Furniss",
           "team": "women",
           "seasons": [
             2026
@@ -586,15 +598,6 @@
         {
           "id": "alli-cooley",
           "name": "Alli Cooley",
-          "team": "women",
-          "seasons": [
-            2026
-          ],
-          "appearances": 1
-        },
-        {
-          "id": "lana-furniss",
-          "name": "Lana Furniss",
           "team": "women",
           "seasons": [
             2026
@@ -743,6 +746,16 @@
           "goals": 2
         },
         {
+          "id": "amelia-chartrant",
+          "name": "Amelia Chartrant",
+          "team": "women",
+          "seasons": [
+            2026
+          ],
+          "appearances": 5,
+          "goals": 1
+        },
+        {
           "id": "ayden-adams",
           "name": "Ayden Adams",
           "team": "men",
@@ -773,6 +786,16 @@
           "appearances": 10,
           "goals": 1,
           "yellowCards": 1
+        },
+        {
+          "id": "hailey-wilson",
+          "name": "Hailey Wilson",
+          "team": "women",
+          "seasons": [
+            2026
+          ],
+          "appearances": 4,
+          "goals": 1
         },
         {
           "id": "maximus-parsell",
@@ -894,6 +917,16 @@
           ],
           "appearances": 9,
           "goals": 7,
+          "assists": 2
+        },
+        {
+          "id": "kellyn-ritchie",
+          "name": "Kellyn Ritchie",
+          "team": "women",
+          "seasons": [
+            2026
+          ],
+          "appearances": 3,
           "assists": 2
         },
         {
@@ -1072,8 +1105,8 @@
           "seasons": [
             2026
           ],
-          "appearances": 5,
-          "saves": 47
+          "appearances": 6,
+          "saves": 53
         },
         {
           "id": "jordan-dankert",
@@ -1107,8 +1140,8 @@
           "seasons": [
             2026
           ],
-          "appearances": 3,
-          "saves": 6
+          "appearances": 4,
+          "saves": 10
         }
       ],
       "yellowCards": [
@@ -2885,18 +2918,18 @@
         "team": "women",
         "season": 2026,
         "league": "NOSL",
-        "tableFinish": "N/A (3 points)",
+        "tableFinish": "N/A (4 points)",
         "record": {
           "wins": 1,
-          "draws": 0,
+          "draws": 1,
           "losses": 5,
-          "points": 3
+          "points": 4
         },
         "teamTotals": {
-          "goals": 0,
-          "assists": 0,
+          "goals": 2,
+          "assists": 2,
           "cleanSheets": 1,
-          "saves": 53,
+          "saves": 63,
           "yellowCards": 0,
           "redCards": 0
         },
@@ -2907,7 +2940,7 @@
               "name": "Anna Calmer",
               "team": "women",
               "season": 2026,
-              "appearances": 5,
+              "appearances": 6,
               "goals": 0,
               "assists": 0,
               "cleanSheets": 0,
@@ -2920,7 +2953,7 @@
               "name": "Kaleigh Atkins",
               "team": "women",
               "season": 2026,
-              "appearances": 5,
+              "appearances": 6,
               "goals": 0,
               "assists": 0,
               "cleanSheets": 0,
@@ -2933,11 +2966,11 @@
               "name": "Kelly Klimaszewski",
               "team": "women",
               "season": 2026,
-              "appearances": 5,
+              "appearances": 6,
               "goals": 0,
               "assists": 0,
               "cleanSheets": 0,
-              "saves": 47,
+              "saves": 53,
               "yellowCards": 0,
               "redCards": 0
             },
@@ -2946,7 +2979,7 @@
               "name": "Paige Ackerman",
               "team": "women",
               "season": 2026,
-              "appearances": 5,
+              "appearances": 6,
               "goals": 0,
               "assists": 0,
               "cleanSheets": 0,
@@ -2959,8 +2992,8 @@
               "name": "Amelia Chartrant",
               "team": "women",
               "season": 2026,
-              "appearances": 4,
-              "goals": 0,
+              "appearances": 5,
+              "goals": 1,
               "assists": 0,
               "cleanSheets": 0,
               "saves": 0,
@@ -2972,7 +3005,7 @@
               "name": "Ash Harmon",
               "team": "women",
               "season": 2026,
-              "appearances": 4,
+              "appearances": 5,
               "goals": 0,
               "assists": 0,
               "cleanSheets": 0,
@@ -2985,7 +3018,7 @@
               "name": "Caroline Tackett",
               "team": "women",
               "season": 2026,
-              "appearances": 4,
+              "appearances": 5,
               "goals": 0,
               "assists": 0,
               "cleanSheets": 0,
@@ -2998,7 +3031,7 @@
               "name": "Debby Eberly",
               "team": "women",
               "season": 2026,
-              "appearances": 4,
+              "appearances": 5,
               "goals": 0,
               "assists": 0,
               "cleanSheets": 0,
@@ -3011,7 +3044,7 @@
               "name": "Haley Chaput",
               "team": "women",
               "season": 2026,
-              "appearances": 4,
+              "appearances": 5,
               "goals": 0,
               "assists": 0,
               "cleanSheets": 0,
@@ -3022,6 +3055,58 @@
             {
               "id": "jensen-prowant",
               "name": "Jensen Prowant",
+              "team": "women",
+              "season": 2026,
+              "appearances": 5,
+              "goals": 0,
+              "assists": 0,
+              "cleanSheets": 0,
+              "saves": 0,
+              "yellowCards": 0,
+              "redCards": 0
+            },
+            {
+              "id": "meghan-youngless",
+              "name": "Meghan Youngless",
+              "team": "women",
+              "season": 2026,
+              "appearances": 5,
+              "goals": 0,
+              "assists": 0,
+              "cleanSheets": 0,
+              "saves": 0,
+              "yellowCards": 0,
+              "redCards": 0
+            },
+            {
+              "id": "hailey-wilson",
+              "name": "Hailey Wilson",
+              "team": "women",
+              "season": 2026,
+              "appearances": 4,
+              "goals": 1,
+              "assists": 0,
+              "cleanSheets": 0,
+              "saves": 0,
+              "yellowCards": 0,
+              "redCards": 0
+            },
+            {
+              "id": "hannah-mccray",
+              "name": "Hannah McCray",
+              "team": "women",
+              "season": 2026,
+              "appearances": 4,
+              "goals": 0,
+              "assists": 0,
+              "cleanSheets": 0,
+              "saves": 10,
+              "yellowCards": 0,
+              "redCards": 0
+            },
+            {
+              "id": "kali-benedict",
+              "name": "Kali Benedict",
               "team": "women",
               "season": 2026,
               "appearances": 4,
@@ -3035,19 +3120,6 @@
             {
               "id": "megan-oconnor",
               "name": "Megan O'Connor",
-              "team": "women",
-              "season": 2026,
-              "appearances": 4,
-              "goals": 0,
-              "assists": 0,
-              "cleanSheets": 0,
-              "saves": 0,
-              "yellowCards": 0,
-              "redCards": 0
-            },
-            {
-              "id": "meghan-youngless",
-              "name": "Meghan Youngless",
               "team": "women",
               "season": 2026,
               "appearances": 4,
@@ -3098,47 +3170,21 @@
               "redCards": 0
             },
             {
-              "id": "hailey-wilson",
-              "name": "Hailey Wilson",
-              "team": "women",
-              "season": 2026,
-              "appearances": 3,
-              "goals": 0,
-              "assists": 0,
-              "cleanSheets": 0,
-              "saves": 0,
-              "yellowCards": 0,
-              "redCards": 0
-            },
-            {
-              "id": "hannah-mccray",
-              "name": "Hannah McCray",
-              "team": "women",
-              "season": 2026,
-              "appearances": 3,
-              "goals": 0,
-              "assists": 0,
-              "cleanSheets": 0,
-              "saves": 6,
-              "yellowCards": 0,
-              "redCards": 0
-            },
-            {
-              "id": "kali-benedict",
-              "name": "Kali Benedict",
-              "team": "women",
-              "season": 2026,
-              "appearances": 3,
-              "goals": 0,
-              "assists": 0,
-              "cleanSheets": 0,
-              "saves": 0,
-              "yellowCards": 0,
-              "redCards": 0
-            },
-            {
               "id": "kellyn-ritchie",
               "name": "Kellyn Ritchie",
+              "team": "women",
+              "season": 2026,
+              "appearances": 3,
+              "goals": 0,
+              "assists": 2,
+              "cleanSheets": 0,
+              "saves": 0,
+              "yellowCards": 0,
+              "redCards": 0
+            },
+            {
+              "id": "lana-furniss",
+              "name": "Lana Furniss",
               "team": "women",
               "season": 2026,
               "appearances": 2,
@@ -3163,19 +3209,6 @@
               "redCards": 0
             },
             {
-              "id": "lana-furniss",
-              "name": "Lana Furniss",
-              "team": "women",
-              "season": 2026,
-              "appearances": 1,
-              "goals": 0,
-              "assists": 0,
-              "cleanSheets": 0,
-              "saves": 0,
-              "yellowCards": 0,
-              "redCards": 0
-            },
-            {
               "id": "magdalene-durbak",
               "name": "Magdalene Durbak",
               "team": "women",
@@ -3189,8 +3222,49 @@
               "redCards": 0
             }
           ],
-          "goals": [],
-          "assists": [],
+          "goals": [
+            {
+              "id": "amelia-chartrant",
+              "name": "Amelia Chartrant",
+              "team": "women",
+              "season": 2026,
+              "appearances": 5,
+              "goals": 1,
+              "assists": 0,
+              "cleanSheets": 0,
+              "saves": 0,
+              "yellowCards": 0,
+              "redCards": 0
+            },
+            {
+              "id": "hailey-wilson",
+              "name": "Hailey Wilson",
+              "team": "women",
+              "season": 2026,
+              "appearances": 4,
+              "goals": 1,
+              "assists": 0,
+              "cleanSheets": 0,
+              "saves": 0,
+              "yellowCards": 0,
+              "redCards": 0
+            }
+          ],
+          "assists": [
+            {
+              "id": "kellyn-ritchie",
+              "name": "Kellyn Ritchie",
+              "team": "women",
+              "season": 2026,
+              "appearances": 3,
+              "goals": 0,
+              "assists": 2,
+              "cleanSheets": 0,
+              "saves": 0,
+              "yellowCards": 0,
+              "redCards": 0
+            }
+          ],
           "cleanSheets": [],
           "saves": [
             {
@@ -3198,11 +3272,11 @@
               "name": "Kelly Klimaszewski",
               "team": "women",
               "season": 2026,
-              "appearances": 5,
+              "appearances": 6,
               "goals": 0,
               "assists": 0,
               "cleanSheets": 0,
-              "saves": 47,
+              "saves": 53,
               "yellowCards": 0,
               "redCards": 0
             },
@@ -3211,11 +3285,11 @@
               "name": "Hannah McCray",
               "team": "women",
               "season": 2026,
-              "appearances": 3,
+              "appearances": 4,
               "goals": 0,
               "assists": 0,
               "cleanSheets": 0,
-              "saves": 6,
+              "saves": 10,
               "yellowCards": 0,
               "redCards": 0
             }
@@ -3279,7 +3353,7 @@
           "team": "women",
           "season": 2026,
           "title": "Head Coach",
-          "matchesCoached": 5
+          "matchesCoached": 6
         },
         {
           "team": "men",
@@ -3288,7 +3362,7 @@
           "matchesCoached": 4
         }
       ],
-      "matchesCoached": 9
+      "matchesCoached": 10
     },
     {
       "id": "jordan-dankert",
@@ -3414,28 +3488,28 @@
       "team": "women",
       "season": 2026,
       "league": "NOSL",
-      "updatedAt": "2026-07-11",
+      "updatedAt": "2026-07-13",
       "rows": [
         {
           "rank": 1,
+          "team": "Delaware Rising",
+          "played": 7,
+          "points": 21,
+          "goalDifference": 23
+        },
+        {
+          "rank": 2,
           "team": "Süsserfuss Ballverein",
           "played": 7,
           "points": 18,
           "goalDifference": 54
         },
         {
-          "rank": 2,
-          "team": "Delaware Rising",
-          "played": 6,
-          "points": 18,
-          "goalDifference": 22
-        },
-        {
           "rank": 3,
           "team": "North FC",
-          "played": 6,
+          "played": 7,
           "points": 15,
-          "goalDifference": 17
+          "goalDifference": 16
         },
         {
           "rank": 4,
@@ -3453,32 +3527,32 @@
         },
         {
           "rank": 6,
+          "team": "Firelands United",
+          "played": 7,
+          "points": 4,
+          "goalDifference": -37,
+          "highlight": true
+        },
+        {
+          "rank": 7,
           "team": "Panthers FC",
           "played": 7,
           "points": 3,
           "goalDifference": -26
         },
         {
-          "rank": 7,
-          "team": "Firelands United",
-          "played": 6,
-          "points": 3,
-          "goalDifference": -37,
-          "highlight": true
+          "rank": 8,
+          "team": "Valentis Athletica",
+          "played": 7,
+          "points": 1,
+          "goalDifference": -35
         },
         {
-          "rank": 8,
+          "rank": 9,
           "team": "Elite FC",
           "played": 0,
           "points": 0,
           "goalDifference": 0
-        },
-        {
-          "rank": 9,
-          "team": "Valentis Athletica",
-          "played": 6,
-          "points": 0,
-          "goalDifference": -35
         }
       ]
     }

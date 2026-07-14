@@ -313,7 +313,7 @@
       "team": "women",
       "hometown": "Elyria, OH",
       "image": "/img/2026-women-headshots/hannah-mccray.jpg",
-      "roster": { "number": "23", "position": "GK", "allTimeAppearances": 3, "seasons": ["2026"], "current": true }
+      "roster": { "number": "23", "position": "GK", "allTimeAppearances": 4, "seasons": ["2026"], "current": true }
     },
     {
       "id": "kelly-klimaszewski",
@@ -321,7 +321,7 @@
       "team": "women",
       "hometown": "North Royalton, OH",
       "image": "/img/2026-women-headshots/kelly-klimaszewski.jpg",
-      "roster": { "number": "35", "position": "GK", "allTimeAppearances": 5, "seasons": ["2026"], "current": true }
+      "roster": { "number": "35", "position": "GK", "allTimeAppearances": 6, "seasons": ["2026"], "current": true }
     },
     {
       "id": "stephanie-lewis",
@@ -337,7 +337,7 @@
       "team": "women",
       "hometown": "Cleveland, OH",
       "image": "/img/2026-women-headshots/kali-benedict.jpg",
-      "roster": { "number": "13", "position": "CB/CDM", "allTimeAppearances": 3, "seasons": ["2026"], "current": true }
+      "roster": { "number": "13", "position": "CB/CDM", "allTimeAppearances": 4, "seasons": ["2026"], "current": true }
     },
     {
       "id": "ash-harmon",
@@ -345,7 +345,7 @@
       "team": "women",
       "hometown": "Columbus, OH",
       "image": "/img/2026-women-headshots/ash-harmon.jpg",
-      "roster": { "number": "17", "position": "LB/RB", "allTimeAppearances": 4, "seasons": ["2026"], "current": true }
+      "roster": { "number": "17", "position": "LB/RB", "allTimeAppearances": 5, "seasons": ["2026"], "current": true }
     },
     {
       "id": "anna-calmer",
@@ -353,7 +353,7 @@
       "team": "women",
       "hometown": "Fairview Park, OH",
       "image": "/img/2026-women-headshots/anna-calmer.jpg",
-      "roster": { "number": "8", "position": "CB/CDM", "allTimeAppearances": 5, "seasons": ["2026"], "current": true }
+      "roster": { "number": "8", "position": "CB/CDM", "allTimeAppearances": 6, "seasons": ["2026"], "current": true }
     },
     {
       "id": "jensen-prowant",
@@ -361,7 +361,7 @@
       "team": "women",
       "hometown": "Tiffin, OH",
       "image": "/img/2026-women-headshots/jensen-prowant.jpg",
-      "roster": { "number": "19", "position": "CDM/CB", "allTimeAppearances": 4, "seasons": ["2026"], "current": true }
+      "roster": { "number": "19", "position": "CDM/CB", "allTimeAppearances": 5, "seasons": ["2026"], "current": true }
     },
     {
       "id": "meghan-youngless",
@@ -369,7 +369,7 @@
       "team": "women",
       "hometown": "New London, OH",
       "image": "/img/2026-women-headshots/meghan-youngless.jpg",
-      "roster": { "number": "4", "position": "DEF/MID", "allTimeAppearances": 4, "seasons": ["2026"], "current": true }
+      "roster": { "number": "4", "position": "DEF/MID", "allTimeAppearances": 5, "seasons": ["2026"], "current": true }
     },
     {
       "id": "morgan-woods",
@@ -385,7 +385,7 @@
       "team": "women",
       "hometown": "Milan, OH",
       "image": "/img/2026-women-headshots/haley-chaput.png",
-      "roster": { "number": "1", "position": "MID", "allTimeAppearances": 4, "seasons": ["2026"], "current": true }
+      "roster": { "number": "1", "position": "MID", "allTimeAppearances": 5, "seasons": ["2026"], "current": true }
     },
     {
       "id": "kellyn-ritchie",
@@ -393,7 +393,7 @@
       "team": "women",
       "hometown": "Norwalk, OH",
       "image": "/img/2026-women-headshots/kellyn-ritchie.jpg",
-      "roster": { "number": "11", "position": "CAM", "allTimeAppearances": 2, "seasons": ["2026"], "current": true }
+      "roster": { "number": "11", "position": "CAM", "allTimeAppearances": 3, "seasons": ["2026"], "current": true }
     },
     {
       "id": "megan-oconnor",
@@ -409,7 +409,7 @@
       "team": "women",
       "hometown": "Sandusky, OH",
       "image": "/img/2026-women-headshots/paige-ackerman.jpg",
-      "roster": { "number": "9", "position": "MID", "allTimeAppearances": 5, "seasons": ["2026"], "current": true }
+      "roster": { "number": "9", "position": "MID", "allTimeAppearances": 6, "seasons": ["2026"], "current": true }
     },
     {
       "id": "amelia-chartrant",
@@ -417,7 +417,7 @@
       "team": "women",
       "hometown": "Norwalk, OH",
       "image": "/img/2026-women-headshots/amelia-chartrant.png",
-      "roster": { "number": "7", "position": "ST", "allTimeAppearances": 4, "seasons": ["2026"], "current": true }
+      "roster": { "number": "7", "position": "ST", "allTimeAppearances": 5, "seasons": ["2026"], "current": true }
     },
     {
       "id": "taryn-temple",
@@ -433,7 +433,7 @@
       "team": "women",
       "hometown": "Brunswick, OH",
       "image": "/img/2026-women-headshots/deb-eberly.png",
-      "roster": { "number": "21", "position": "ST/DEF", "allTimeAppearances": 4, "seasons": ["2026"], "current": true }
+      "roster": { "number": "21", "position": "ST/DEF", "allTimeAppearances": 5, "seasons": ["2026"], "current": true }
     },
     {
       "id": "kaleigh-atkins",
@@ -441,7 +441,7 @@
       "team": "women",
       "hometown": "Parma, OH",
       "image": "/img/2026-women-headshots/kaleigh-atkins.jpg",
-      "roster": { "number": "18", "position": "WING/ST", "allTimeAppearances": 5, "seasons": ["2026"], "current": true }
+      "roster": { "number": "18", "position": "WING/ST", "allTimeAppearances": 6, "seasons": ["2026"], "current": true }
     },
     {
       "id": "caroline-tackett",
@@ -449,7 +449,7 @@
       "team": "women",
       "hometown": "Lodi, OH",
       "image": "/img/2026-women-headshots/caroline-tackett.png",
-      "roster": { "number": "16", "position": "FWD", "allTimeAppearances": 4, "seasons": ["2026"], "current": true }
+      "roster": { "number": "16", "position": "FWD", "allTimeAppearances": 5, "seasons": ["2026"], "current": true }
     },
     {
       "id": "hailey-wilson",
@@ -457,13 +457,13 @@
       "team": "women",
       "hometown": "Valley City, OH",
       "image": "/img/2026-women-headshots/hailey-wilson.png",
-      "roster": { "number": "3", "position": "FWD/WING", "allTimeAppearances": 3, "seasons": ["2026"], "current": true }
+      "roster": { "number": "3", "position": "FWD/WING", "allTimeAppearances": 4, "seasons": ["2026"], "current": true }
     },
     {
       "id": "lana-furniss",
       "name": "Lana Furniss",
       "team": "women",
-      "roster": { "number": "61", "position": "MID", "allTimeAppearances": 1, "seasons": ["2026"], "current": true }
+      "roster": { "number": "61", "position": "MID", "allTimeAppearances": 2, "seasons": ["2026"], "current": true }
     },
     {
       "id": "magdalene-durbak",

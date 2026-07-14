@@ -386,6 +386,22 @@
       "playerEvents": {
         "saves": { "kelly-klimaszewski": 5, "hannah-mccray": 6 }
       }
+    },
+    {
+      "id": "2026-women-valentis-away",
+      "team": "women",
+      "season": 2026,
+      "date": "2026-07-12",
+      "competition": "NOSL",
+      "homeTeam": "Valentis Athletica",
+      "awayTeam": "Firelands United",
+      "homeScore": 2,
+      "awayScore": 2,
+      "playerEvents": {
+        "goals": { "amelia-chartrant": 1, "hailey-wilson": 1 },
+        "assists": { "kellyn-ritchie": 2 },
+        "saves": { "kelly-klimaszewski": 6, "hannah-mccray": 4 }
+      }
     }
   ]
 }
