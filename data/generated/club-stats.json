@@ -3409,7 +3409,7 @@
       "team": "men",
       "season": 2026,
       "league": "NOSL Second Division",
-      "updatedAt": "2026-07-11",
+      "updatedAt": "2026-07-13",
       "rows": [
         {
           "rank": 1,
@@ -3427,6 +3427,13 @@
         },
         {
           "rank": 3,
+          "team": "Fut Ohio",
+          "played": 10,
+          "points": 21,
+          "goalDifference": 16
+        },
+        {
+          "rank": 4,
           "team": "Firelands United",
           "played": 10,
           "points": 18,
@@ -3434,39 +3441,32 @@
           "highlight": true
         },
         {
-          "rank": 4,
-          "team": "Fut Ohio",
-          "played": 9,
-          "points": 18,
-          "goalDifference": 15
-        },
-        {
           "rank": 5,
           "team": "CF Akron",
-          "played": 9,
+          "played": 10,
           "points": 15,
-          "goalDifference": 0
+          "goalDifference": -3
         },
         {
           "rank": 6,
-          "team": "Concordia SC",
-          "played": 9,
-          "points": 10,
-          "goalDifference": -1
+          "team": "Mansfield Liederkranz II",
+          "played": 10,
+          "points": 12,
+          "goalDifference": -19
         },
         {
           "rank": 7,
-          "team": "Mansfield Liederkranz II",
-          "played": 9,
-          "points": 9,
-          "goalDifference": -20
+          "team": "Concordia SC",
+          "played": 10,
+          "points": 10,
+          "goalDifference": -2
         },
         {
           "rank": 8,
           "team": "Elite FC",
-          "played": 9,
-          "points": 6,
-          "goalDifference": -13
+          "played": 10,
+          "points": 9,
+          "goalDifference": -10
         },
         {
           "rank": 9,
@@ -3478,9 +3478,9 @@
         {
           "rank": 10,
           "team": "FC Rayos",
-          "played": 9,
+          "played": 10,
           "points": 3,
-          "goalDifference": -39
+          "goalDifference": -40
         }
       ]
     },

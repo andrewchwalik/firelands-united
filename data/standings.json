@@ -5,18 +5,18 @@
       "team": "men",
       "season": 2026,
       "league": "NOSL Second Division",
-      "updatedAt": "2026-07-11",
+      "updatedAt": "2026-07-13",
       "rows": [
         { "rank": 1, "team": "Greater Toledo FC", "played": 10, "points": 25, "goalDifference": 35 },
         { "rank": 2, "team": "Forest City FC", "played": 10, "points": 25, "goalDifference": 32 },
-        { "rank": 3, "team": "Firelands United", "played": 10, "points": 18, "goalDifference": 17, "highlight": true },
-        { "rank": 4, "team": "Fut Ohio", "played": 9, "points": 18, "goalDifference": 15 },
-        { "rank": 5, "team": "CF Akron", "played": 9, "points": 15, "goalDifference": 0 },
-        { "rank": 6, "team": "Concordia SC", "played": 9, "points": 10, "goalDifference": -1 },
-        { "rank": 7, "team": "Mansfield Liederkranz II", "played": 9, "points": 9, "goalDifference": -20 },
-        { "rank": 8, "team": "Elite FC", "played": 9, "points": 6, "goalDifference": -13 },
+        { "rank": 3, "team": "Fut Ohio", "played": 10, "points": 21, "goalDifference": 16 },
+        { "rank": 4, "team": "Firelands United", "played": 10, "points": 18, "goalDifference": 17, "highlight": true },
+        { "rank": 5, "team": "CF Akron", "played": 10, "points": 15, "goalDifference": -3 },
+        { "rank": 6, "team": "Mansfield Liederkranz II", "played": 10, "points": 12, "goalDifference": -19 },
+        { "rank": 7, "team": "Concordia SC", "played": 10, "points": 10, "goalDifference": -2 },
+        { "rank": 8, "team": "Elite FC", "played": 10, "points": 9, "goalDifference": -10 },
         { "rank": 9, "team": "Valentis Athletica II", "played": 10, "points": 6, "goalDifference": -26 },
-        { "rank": 10, "team": "FC Rayos", "played": 9, "points": 3, "goalDifference": -39 }
+        { "rank": 10, "team": "FC Rayos", "played": 10, "points": 3, "goalDifference": -40 }
       ]
     },
     {

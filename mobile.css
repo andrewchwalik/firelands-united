@@ -950,6 +950,12 @@
   border-radius: 22px;
 }
 
+.schedule-card.playoff-match::before {
+  top: 10px;
+  right: 12px;
+  font-size: 1.35rem;
+}
+
 .schedule-card.is-complete {
   box-shadow: 0 5px 12px rgba(20, 24, 32, 0.035);
 }
