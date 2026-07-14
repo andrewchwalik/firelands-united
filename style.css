@@ -3403,18 +3403,6 @@ body.presskit-page .content-section:nth-of-type(5) {
   box-shadow: 0 10px 24px rgba(201, 151, 49, 0.14);
 }
 
-.schedule-card.playoff-match::before {
-  content: "PLAYOFF";
-  position: absolute;
-  top: 14px;
-  right: 18px;
-  color: rgba(201, 151, 49, 0.22);
-  font-family: 'Bermont', sans-serif;
-  font-size: 2rem;
-  line-height: 1;
-  pointer-events: none;
-}
-
 .schedule-card.playoff-match .schedule-match-type,
 .schedule-card.playoff-match .schedule-time {
   color: #c99731;
