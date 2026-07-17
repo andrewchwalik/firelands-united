@@ -1243,6 +1243,10 @@ body {
   border-bottom: 0;
 }
 
+.league-table .playoff-row td:first-child {
+  box-shadow: inset 4px 0 0 rgba(241, 138, 1, 0.72);
+}
+
 .league-rank {
   display: inline-block;
   min-width: 24px;
@@ -1263,6 +1267,26 @@ body {
 
 .league-table .firelands-row .league-rank {
   color: #f18a01;
+}
+
+.league-playoff-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 14px 18px 2px;
+  color: #66748a;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.league-playoff-note span {
+  display: inline-block;
+  width: 18px;
+  height: 4px;
+  border-radius: 999px;
+  background: #f18a01;
 }
 
 /* ============================================

@@ -749,7 +749,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const tbody = card.querySelector("tbody");
       if (!tbody) return;
       tbody.innerHTML = table.rows.map((row) => `
-        <tr class="${row.highlight ? "firelands-row" : ""}">
+        <tr class="${[row.rank <= 4 ? "playoff-row" : "", row.highlight ? "firelands-row" : ""].filter(Boolean).join(" ")}">
           <td><span class="league-rank">${row.rank}</span>${row.team}</td>
           <td>${row.played}</td>
           <td>${row.points}</td>
