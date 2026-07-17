@@ -11,7 +11,7 @@
     "players": 58,
     "staff": 6,
     "seasons": 3,
-    "matches": 30,
+    "matches": 31,
     "standings": 2
   },
   "leaders": {
@@ -25,7 +25,7 @@
             2025,
             2026
           ],
-          "appearances": 23,
+          "appearances": 24,
           "yellowCards": 1
         },
         {
@@ -36,7 +36,7 @@
             2025,
             2026
           ],
-          "appearances": 23,
+          "appearances": 24,
           "goals": 3,
           "assists": 1
         },
@@ -48,8 +48,8 @@
             2025,
             2026
           ],
-          "appearances": 23,
-          "goals": 18,
+          "appearances": 24,
+          "goals": 19,
           "assists": 5,
           "yellowCards": 3
         },
@@ -61,10 +61,11 @@
             2025,
             2026
           ],
-          "appearances": 20,
+          "appearances": 21,
           "goals": 7,
-          "assists": 3,
-          "yellowCards": 3
+          "yellowCards": 5,
+          "redCards": 1,
+          "assists": 3
         },
         {
           "id": "noah-clapsaddle",
@@ -74,7 +75,7 @@
             2025,
             2026
           ],
-          "appearances": 20
+          "appearances": 21
         },
         {
           "id": "blake-kubasak",
@@ -108,7 +109,7 @@
           "seasons": [
             2026
           ],
-          "appearances": 12,
+          "appearances": 13,
           "goals": 1,
           "assists": 1
         },
@@ -119,7 +120,7 @@
           "seasons": [
             2026
           ],
-          "appearances": 12,
+          "appearances": 13,
           "assists": 1,
           "yellowCards": 3
         },
@@ -130,7 +131,7 @@
           "seasons": [
             2026
           ],
-          "appearances": 12,
+          "appearances": 13,
           "goals": 2,
           "yellowCards": 1
         },
@@ -141,7 +142,7 @@
           "seasons": [
             2026
           ],
-          "appearances": 12,
+          "appearances": 13,
           "goals": 1
         },
         {
@@ -152,8 +153,53 @@
             2025,
             2026
           ],
-          "appearances": 12,
+          "appearances": 13,
           "goals": 2
+        },
+        {
+          "id": "kaden-camp",
+          "name": "Kaden Camp",
+          "team": "men",
+          "seasons": [
+            2026
+          ],
+          "appearances": 12,
+          "goals": 7,
+          "assists": 5,
+          "yellowCards": 1
+        },
+        {
+          "id": "phil-kirimi",
+          "name": "Phil Kirimi",
+          "team": "men",
+          "seasons": [
+            2025,
+            2026
+          ],
+          "appearances": 12,
+          "goals": 1,
+          "assists": 1
+        },
+        {
+          "id": "carter-jones",
+          "name": "Carter Jones",
+          "team": "men",
+          "seasons": [
+            2026
+          ],
+          "appearances": 11,
+          "goals": 1
+        },
+        {
+          "id": "cohen-hawes",
+          "name": "Cohen Hawes",
+          "team": "men",
+          "seasons": [
+            2026
+          ],
+          "appearances": 11,
+          "goals": 1,
+          "yellowCards": 1
         },
         {
           "id": "grant-miller",
@@ -167,30 +213,6 @@
           "yellowCards": 2
         },
         {
-          "id": "kaden-camp",
-          "name": "Kaden Camp",
-          "team": "men",
-          "seasons": [
-            2026
-          ],
-          "appearances": 11,
-          "goals": 7,
-          "assists": 5,
-          "yellowCards": 1
-        },
-        {
-          "id": "phil-kirimi",
-          "name": "Phil Kirimi",
-          "team": "men",
-          "seasons": [
-            2025,
-            2026
-          ],
-          "appearances": 11,
-          "goals": 1,
-          "assists": 1
-        },
-        {
           "id": "ryan-graber",
           "name": "Ryan Graber",
           "team": "men",
@@ -200,14 +222,28 @@
           "appearances": 11
         },
         {
-          "id": "carter-jones",
-          "name": "Carter Jones",
+          "id": "alex-davidson",
+          "name": "Alex Davidson",
           "team": "men",
           "seasons": [
+            2025,
             2026
           ],
           "appearances": 10,
-          "goals": 1
+          "goals": 5,
+          "assists": 7
+        },
+        {
+          "id": "brock-harman",
+          "name": "Brock Harman",
+          "team": "men",
+          "seasons": [
+            2025,
+            2026
+          ],
+          "appearances": 10,
+          "goals": 7,
+          "assists": 2
         },
         {
           "id": "christian-heidl",
@@ -222,17 +258,6 @@
           "assists": 1
         },
         {
-          "id": "cohen-hawes",
-          "name": "Cohen Hawes",
-          "team": "men",
-          "seasons": [
-            2026
-          ],
-          "appearances": 10,
-          "goals": 1,
-          "yellowCards": 1
-        },
-        {
           "id": "connor-hauger",
           "name": "Connor Hauger",
           "team": "men",
@@ -244,47 +269,13 @@
           "yellowCards": 2
         },
         {
-          "id": "luis-alvarado",
-          "name": "Luis Alvarado",
-          "team": "men",
-          "seasons": [
-            2025
-          ],
-          "appearances": 10,
-          "goals": 3
-        },
-        {
-          "id": "alex-davidson",
-          "name": "Alex Davidson",
-          "team": "men",
-          "seasons": [
-            2025,
-            2026
-          ],
-          "appearances": 9,
-          "goals": 5,
-          "assists": 7
-        },
-        {
-          "id": "brock-harman",
-          "name": "Brock Harman",
-          "team": "men",
-          "seasons": [
-            2025,
-            2026
-          ],
-          "appearances": 9,
-          "goals": 7,
-          "assists": 2
-        },
-        {
           "id": "jordan-dankert",
           "name": "Jordan Dankert",
           "team": "men",
           "seasons": [
             2026
           ],
-          "appearances": 9,
+          "appearances": 10,
           "assists": 4,
           "cleanSheets": 2,
           "saves": 33,
@@ -298,7 +289,17 @@
           "seasons": [
             2026
           ],
-          "appearances": 9
+          "appearances": 10
+        },
+        {
+          "id": "luis-alvarado",
+          "name": "Luis Alvarado",
+          "team": "men",
+          "seasons": [
+            2025
+          ],
+          "appearances": 10,
+          "goals": 3
         },
         {
           "id": "jackson-gray",
@@ -307,7 +308,7 @@
           "seasons": [
             2026
           ],
-          "appearances": 8
+          "appearances": 9
         },
         {
           "id": "kelly-itito",
@@ -481,6 +482,17 @@
           "appearances": 5
         },
         {
+          "id": "andrew-chwalik",
+          "name": "Andrew Chwalik",
+          "team": "men",
+          "seasons": [
+            2025,
+            2026
+          ],
+          "appearances": 4,
+          "yellowCards": 1
+        },
+        {
           "id": "bryan-gerber",
           "name": "Bryan Gerber",
           "team": "men",
@@ -555,17 +567,6 @@
           "appearances": 4
         },
         {
-          "id": "andrew-chwalik",
-          "name": "Andrew Chwalik",
-          "team": "men",
-          "seasons": [
-            2025,
-            2026
-          ],
-          "appearances": 3,
-          "yellowCards": 1
-        },
-        {
           "id": "kellyn-ritchie",
           "name": "Kellyn Ritchie",
           "team": "women",
@@ -623,8 +624,8 @@
             2025,
             2026
           ],
-          "appearances": 23,
-          "goals": 18,
+          "appearances": 24,
+          "goals": 19,
           "assists": 5,
           "yellowCards": 3
         },
@@ -636,7 +637,7 @@
             2025,
             2026
           ],
-          "appearances": 9,
+          "appearances": 10,
           "goals": 7,
           "assists": 2
         },
@@ -648,10 +649,11 @@
             2025,
             2026
           ],
-          "appearances": 20,
+          "appearances": 21,
           "goals": 7,
-          "assists": 3,
-          "yellowCards": 3
+          "yellowCards": 5,
+          "redCards": 1,
+          "assists": 3
         },
         {
           "id": "kaden-camp",
@@ -660,7 +662,7 @@
           "seasons": [
             2026
           ],
-          "appearances": 11,
+          "appearances": 12,
           "goals": 7,
           "assists": 5,
           "yellowCards": 1
@@ -673,7 +675,7 @@
             2025,
             2026
           ],
-          "appearances": 9,
+          "appearances": 10,
           "goals": 5,
           "assists": 7
         },
@@ -685,7 +687,7 @@
             2025,
             2026
           ],
-          "appearances": 23,
+          "appearances": 24,
           "goals": 3,
           "assists": 1
         },
@@ -730,7 +732,7 @@
           "seasons": [
             2026
           ],
-          "appearances": 12,
+          "appearances": 13,
           "goals": 2,
           "yellowCards": 1
         },
@@ -742,7 +744,7 @@
             2025,
             2026
           ],
-          "appearances": 12,
+          "appearances": 13,
           "goals": 2
         },
         {
@@ -762,7 +764,7 @@
           "seasons": [
             2026
           ],
-          "appearances": 12,
+          "appearances": 13,
           "goals": 1,
           "assists": 1
         },
@@ -773,7 +775,7 @@
           "seasons": [
             2026
           ],
-          "appearances": 10,
+          "appearances": 11,
           "goals": 1
         },
         {
@@ -783,7 +785,7 @@
           "seasons": [
             2026
           ],
-          "appearances": 10,
+          "appearances": 11,
           "goals": 1,
           "yellowCards": 1
         },
@@ -804,7 +806,7 @@
           "seasons": [
             2026
           ],
-          "appearances": 12,
+          "appearances": 13,
           "goals": 1
         },
         {
@@ -815,7 +817,7 @@
             2025,
             2026
           ],
-          "appearances": 11,
+          "appearances": 12,
           "goals": 1,
           "assists": 1
         },
@@ -839,7 +841,7 @@
             2025,
             2026
           ],
-          "appearances": 9,
+          "appearances": 10,
           "goals": 5,
           "assists": 7
         },
@@ -862,7 +864,7 @@
           "seasons": [
             2026
           ],
-          "appearances": 11,
+          "appearances": 12,
           "goals": 7,
           "assists": 5,
           "yellowCards": 1
@@ -875,8 +877,8 @@
             2025,
             2026
           ],
-          "appearances": 23,
-          "goals": 18,
+          "appearances": 24,
+          "goals": 19,
           "assists": 5,
           "yellowCards": 3
         },
@@ -887,7 +889,7 @@
           "seasons": [
             2026
           ],
-          "appearances": 9,
+          "appearances": 10,
           "assists": 4,
           "cleanSheets": 2,
           "saves": 33,
@@ -902,10 +904,11 @@
             2025,
             2026
           ],
-          "appearances": 20,
+          "appearances": 21,
           "goals": 7,
-          "assists": 3,
-          "yellowCards": 3
+          "yellowCards": 5,
+          "redCards": 1,
+          "assists": 3
         },
         {
           "id": "brock-harman",
@@ -915,7 +918,7 @@
             2025,
             2026
           ],
-          "appearances": 9,
+          "appearances": 10,
           "goals": 7,
           "assists": 2
         },
@@ -936,7 +939,7 @@
           "seasons": [
             2026
           ],
-          "appearances": 12,
+          "appearances": 13,
           "goals": 1,
           "assists": 1
         },
@@ -994,7 +997,7 @@
           "seasons": [
             2026
           ],
-          "appearances": 12,
+          "appearances": 13,
           "assists": 1,
           "yellowCards": 3
         },
@@ -1006,7 +1009,7 @@
             2025,
             2026
           ],
-          "appearances": 23,
+          "appearances": 24,
           "goals": 3,
           "assists": 1
         },
@@ -1039,7 +1042,7 @@
             2025,
             2026
           ],
-          "appearances": 11,
+          "appearances": 12,
           "goals": 1,
           "assists": 1
         }
@@ -1052,7 +1055,7 @@
           "seasons": [
             2026
           ],
-          "appearances": 9,
+          "appearances": 10,
           "assists": 4,
           "cleanSheets": 2,
           "saves": 33,
@@ -1115,7 +1118,7 @@
           "seasons": [
             2026
           ],
-          "appearances": 9,
+          "appearances": 10,
           "assists": 4,
           "cleanSheets": 2,
           "saves": 33,
@@ -1146,17 +1149,6 @@
       ],
       "yellowCards": [
         {
-          "id": "jack-ramey",
-          "name": "Jack Ramey",
-          "team": "men",
-          "seasons": [
-            2026
-          ],
-          "appearances": 12,
-          "assists": 1,
-          "yellowCards": 3
-        },
-        {
           "id": "jon-slay",
           "name": "Jon Slay",
           "team": "men",
@@ -1164,9 +1156,21 @@
             2025,
             2026
           ],
-          "appearances": 20,
+          "appearances": 21,
           "goals": 7,
-          "assists": 3,
+          "yellowCards": 5,
+          "redCards": 1,
+          "assists": 3
+        },
+        {
+          "id": "jack-ramey",
+          "name": "Jack Ramey",
+          "team": "men",
+          "seasons": [
+            2026
+          ],
+          "appearances": 13,
+          "assists": 1,
           "yellowCards": 3
         },
         {
@@ -1188,8 +1192,8 @@
             2025,
             2026
           ],
-          "appearances": 23,
-          "goals": 18,
+          "appearances": 24,
+          "goals": 19,
           "assists": 5,
           "yellowCards": 3
         },
@@ -1222,7 +1226,7 @@
           "seasons": [
             2026
           ],
-          "appearances": 9,
+          "appearances": 10,
           "assists": 4,
           "cleanSheets": 2,
           "saves": 33,
@@ -1237,7 +1241,7 @@
             2025,
             2026
           ],
-          "appearances": 3,
+          "appearances": 4,
           "yellowCards": 1
         },
         {
@@ -1248,7 +1252,7 @@
             2025,
             2026
           ],
-          "appearances": 23,
+          "appearances": 24,
           "yellowCards": 1
         },
         {
@@ -1258,7 +1262,7 @@
           "seasons": [
             2026
           ],
-          "appearances": 10,
+          "appearances": 11,
           "goals": 1,
           "yellowCards": 1
         },
@@ -1280,7 +1284,7 @@
           "seasons": [
             2026
           ],
-          "appearances": 11,
+          "appearances": 12,
           "goals": 7,
           "assists": 5,
           "yellowCards": 1
@@ -1292,7 +1296,7 @@
           "seasons": [
             2026
           ],
-          "appearances": 12,
+          "appearances": 13,
           "goals": 2,
           "yellowCards": 1
         },
@@ -1309,13 +1313,27 @@
       ],
       "redCards": [
         {
+          "id": "jon-slay",
+          "name": "Jon Slay",
+          "team": "men",
+          "seasons": [
+            2025,
+            2026
+          ],
+          "appearances": 21,
+          "goals": 7,
+          "yellowCards": 5,
+          "redCards": 1,
+          "assists": 3
+        },
+        {
           "id": "jordan-dankert",
           "name": "Jordan Dankert",
           "team": "men",
           "seasons": [
             2026
           ],
-          "appearances": 9,
+          "appearances": 10,
           "assists": 4,
           "cleanSheets": 2,
           "saves": 33,
@@ -1329,7 +1347,7 @@
         "team": "men",
         "season": 2026,
         "league": "NOSL Second Division",
-        "tableFinish": "N/A (18 points)",
+        "tableFinish": "4th Place (18 points)",
         "record": {
           "wins": 5,
           "draws": 3,
@@ -1342,12 +1360,12 @@
           "losses": 1
         },
         "teamTotals": {
-          "goals": 39,
+          "goals": 40,
           "assists": 25,
           "cleanSheets": 2,
           "saves": 93,
-          "yellowCards": 12,
-          "redCards": 1
+          "yellowCards": 14,
+          "redCards": 2
         },
         "leaders": {
           "appearances": [
@@ -1356,7 +1374,7 @@
               "name": "Ayden Adams",
               "team": "men",
               "season": 2026,
-              "appearances": 12,
+              "appearances": 13,
               "goals": 1,
               "assists": 1,
               "cleanSheets": 0,
@@ -1369,7 +1387,7 @@
               "name": "Coen Steinmetz",
               "team": "men",
               "season": 2026,
-              "appearances": 12,
+              "appearances": 13,
               "goals": 0,
               "assists": 0,
               "cleanSheets": 0,
@@ -1382,7 +1400,7 @@
               "name": "Jack Ramey",
               "team": "men",
               "season": 2026,
-              "appearances": 12,
+              "appearances": 13,
               "goals": 0,
               "assists": 1,
               "cleanSheets": 0,
@@ -1395,7 +1413,7 @@
               "name": "Jonah Main",
               "team": "men",
               "season": 2026,
-              "appearances": 12,
+              "appearances": 13,
               "goals": 3,
               "assists": 0,
               "cleanSheets": 0,
@@ -1408,7 +1426,7 @@
               "name": "Kaiden Hawes",
               "team": "men",
               "season": 2026,
-              "appearances": 12,
+              "appearances": 13,
               "goals": 2,
               "assists": 0,
               "cleanSheets": 0,
@@ -1421,7 +1439,7 @@
               "name": "Maximus Parsell",
               "team": "men",
               "season": 2026,
-              "appearances": 12,
+              "appearances": 13,
               "goals": 1,
               "assists": 0,
               "cleanSheets": 0,
@@ -1434,8 +1452,8 @@
               "name": "Reggie Johnson",
               "team": "men",
               "season": 2026,
-              "appearances": 12,
-              "goals": 9,
+              "appearances": 13,
+              "goals": 10,
               "assists": 1,
               "cleanSheets": 0,
               "saves": 0,
@@ -1447,7 +1465,7 @@
               "name": "Kaden Camp",
               "team": "men",
               "season": 2026,
-              "appearances": 11,
+              "appearances": 12,
               "goals": 7,
               "assists": 5,
               "cleanSheets": 0,
@@ -1460,13 +1478,52 @@
               "name": "Noah Clapsaddle",
               "team": "men",
               "season": 2026,
-              "appearances": 11,
+              "appearances": 12,
               "goals": 0,
               "assists": 0,
               "cleanSheets": 0,
               "saves": 0,
               "yellowCards": 0,
               "redCards": 0
+            },
+            {
+              "id": "carter-jones",
+              "name": "Carter Jones",
+              "team": "men",
+              "season": 2026,
+              "appearances": 11,
+              "goals": 1,
+              "assists": 0,
+              "cleanSheets": 0,
+              "saves": 0,
+              "yellowCards": 0,
+              "redCards": 0
+            },
+            {
+              "id": "cohen-hawes",
+              "name": "Cohen Hawes",
+              "team": "men",
+              "season": 2026,
+              "appearances": 11,
+              "goals": 1,
+              "assists": 0,
+              "cleanSheets": 0,
+              "saves": 0,
+              "yellowCards": 1,
+              "redCards": 0
+            },
+            {
+              "id": "jon-slay",
+              "name": "Jon Slay",
+              "team": "men",
+              "season": 2026,
+              "appearances": 11,
+              "goals": 3,
+              "assists": 0,
+              "cleanSheets": 0,
+              "saves": 0,
+              "yellowCards": 2,
+              "redCards": 1
             },
             {
               "id": "ryan-graber",
@@ -1495,32 +1552,6 @@
               "redCards": 0
             },
             {
-              "id": "carter-jones",
-              "name": "Carter Jones",
-              "team": "men",
-              "season": 2026,
-              "appearances": 10,
-              "goals": 1,
-              "assists": 0,
-              "cleanSheets": 0,
-              "saves": 0,
-              "yellowCards": 0,
-              "redCards": 0
-            },
-            {
-              "id": "cohen-hawes",
-              "name": "Cohen Hawes",
-              "team": "men",
-              "season": 2026,
-              "appearances": 10,
-              "goals": 1,
-              "assists": 0,
-              "cleanSheets": 0,
-              "saves": 0,
-              "yellowCards": 1,
-              "redCards": 0
-            },
-            {
               "id": "collin-biehler",
               "name": "Collin Biehler",
               "team": "men",
@@ -1534,24 +1565,11 @@
               "redCards": 0
             },
             {
-              "id": "jon-slay",
-              "name": "Jon Slay",
-              "team": "men",
-              "season": 2026,
-              "appearances": 10,
-              "goals": 3,
-              "assists": 0,
-              "cleanSheets": 0,
-              "saves": 0,
-              "yellowCards": 0,
-              "redCards": 0
-            },
-            {
               "id": "jordan-dankert",
               "name": "Jordan Dankert",
               "team": "men",
               "season": 2026,
-              "appearances": 9,
+              "appearances": 10,
               "goals": 0,
               "assists": 4,
               "cleanSheets": 2,
@@ -1564,7 +1582,7 @@
               "name": "Joseph Judge",
               "team": "men",
               "season": 2026,
-              "appearances": 9,
+              "appearances": 10,
               "goals": 0,
               "assists": 0,
               "cleanSheets": 0,
@@ -1577,7 +1595,7 @@
               "name": "Jackson Gray",
               "team": "men",
               "season": 2026,
-              "appearances": 8,
+              "appearances": 9,
               "goals": 0,
               "assists": 0,
               "cleanSheets": 0,
@@ -1590,9 +1608,35 @@
               "name": "Phil Kirimi",
               "team": "men",
               "season": 2026,
-              "appearances": 7,
+              "appearances": 8,
               "goals": 1,
               "assists": 0,
+              "cleanSheets": 0,
+              "saves": 0,
+              "yellowCards": 0,
+              "redCards": 0
+            },
+            {
+              "id": "simon-joseph",
+              "name": "Simon Joseph",
+              "team": "men",
+              "season": 2026,
+              "appearances": 6,
+              "goals": 1,
+              "assists": 0,
+              "cleanSheets": 0,
+              "saves": 0,
+              "yellowCards": 0,
+              "redCards": 0
+            },
+            {
+              "id": "brock-harman",
+              "name": "Brock Harman",
+              "team": "men",
+              "season": 2026,
+              "appearances": 5,
+              "goals": 5,
+              "assists": 1,
               "cleanSheets": 0,
               "saves": 0,
               "yellowCards": 0,
@@ -1612,37 +1656,11 @@
               "redCards": 0
             },
             {
-              "id": "simon-joseph",
-              "name": "Simon Joseph",
-              "team": "men",
-              "season": 2026,
-              "appearances": 5,
-              "goals": 1,
-              "assists": 0,
-              "cleanSheets": 0,
-              "saves": 0,
-              "yellowCards": 0,
-              "redCards": 0
-            },
-            {
-              "id": "brock-harman",
-              "name": "Brock Harman",
-              "team": "men",
-              "season": 2026,
-              "appearances": 4,
-              "goals": 5,
-              "assists": 1,
-              "cleanSheets": 0,
-              "saves": 0,
-              "yellowCards": 0,
-              "redCards": 0
-            },
-            {
               "id": "andrew-chwalik",
               "name": "Andrew Chwalik",
               "team": "men",
               "season": 2026,
-              "appearances": 3,
+              "appearances": 4,
               "goals": 0,
               "assists": 0,
               "cleanSheets": 0,
@@ -1655,7 +1673,7 @@
               "name": "Alex Davidson",
               "team": "men",
               "season": 2026,
-              "appearances": 2,
+              "appearances": 3,
               "goals": 3,
               "assists": 3,
               "cleanSheets": 0,
@@ -1696,8 +1714,8 @@
               "name": "Reggie Johnson",
               "team": "men",
               "season": 2026,
-              "appearances": 12,
-              "goals": 9,
+              "appearances": 13,
+              "goals": 10,
               "assists": 1,
               "cleanSheets": 0,
               "saves": 0,
@@ -1709,7 +1727,7 @@
               "name": "Kaden Camp",
               "team": "men",
               "season": 2026,
-              "appearances": 11,
+              "appearances": 12,
               "goals": 7,
               "assists": 5,
               "cleanSheets": 0,
@@ -1722,7 +1740,7 @@
               "name": "Brock Harman",
               "team": "men",
               "season": 2026,
-              "appearances": 4,
+              "appearances": 5,
               "goals": 5,
               "assists": 1,
               "cleanSheets": 0,
@@ -1735,7 +1753,7 @@
               "name": "Alex Davidson",
               "team": "men",
               "season": 2026,
-              "appearances": 2,
+              "appearances": 3,
               "goals": 3,
               "assists": 3,
               "cleanSheets": 0,
@@ -1748,20 +1766,20 @@
               "name": "Jon Slay",
               "team": "men",
               "season": 2026,
-              "appearances": 10,
+              "appearances": 11,
               "goals": 3,
               "assists": 0,
               "cleanSheets": 0,
               "saves": 0,
-              "yellowCards": 0,
-              "redCards": 0
+              "yellowCards": 2,
+              "redCards": 1
             },
             {
               "id": "jonah-main",
               "name": "Jonah Main",
               "team": "men",
               "season": 2026,
-              "appearances": 12,
+              "appearances": 13,
               "goals": 3,
               "assists": 0,
               "cleanSheets": 0,
@@ -1774,7 +1792,7 @@
               "name": "Kaiden Hawes",
               "team": "men",
               "season": 2026,
-              "appearances": 12,
+              "appearances": 13,
               "goals": 2,
               "assists": 0,
               "cleanSheets": 0,
@@ -1787,7 +1805,7 @@
               "name": "Ayden Adams",
               "team": "men",
               "season": 2026,
-              "appearances": 12,
+              "appearances": 13,
               "goals": 1,
               "assists": 1,
               "cleanSheets": 0,
@@ -1813,7 +1831,7 @@
               "name": "Carter Jones",
               "team": "men",
               "season": 2026,
-              "appearances": 10,
+              "appearances": 11,
               "goals": 1,
               "assists": 0,
               "cleanSheets": 0,
@@ -1826,7 +1844,7 @@
               "name": "Cohen Hawes",
               "team": "men",
               "season": 2026,
-              "appearances": 10,
+              "appearances": 11,
               "goals": 1,
               "assists": 0,
               "cleanSheets": 0,
@@ -1839,7 +1857,7 @@
               "name": "Maximus Parsell",
               "team": "men",
               "season": 2026,
-              "appearances": 12,
+              "appearances": 13,
               "goals": 1,
               "assists": 0,
               "cleanSheets": 0,
@@ -1852,7 +1870,7 @@
               "name": "Phil Kirimi",
               "team": "men",
               "season": 2026,
-              "appearances": 7,
+              "appearances": 8,
               "goals": 1,
               "assists": 0,
               "cleanSheets": 0,
@@ -1865,7 +1883,7 @@
               "name": "Simon Joseph",
               "team": "men",
               "season": 2026,
-              "appearances": 5,
+              "appearances": 6,
               "goals": 1,
               "assists": 0,
               "cleanSheets": 0,
@@ -1893,7 +1911,7 @@
               "name": "Kaden Camp",
               "team": "men",
               "season": 2026,
-              "appearances": 11,
+              "appearances": 12,
               "goals": 7,
               "assists": 5,
               "cleanSheets": 0,
@@ -1906,7 +1924,7 @@
               "name": "Jordan Dankert",
               "team": "men",
               "season": 2026,
-              "appearances": 9,
+              "appearances": 10,
               "goals": 0,
               "assists": 4,
               "cleanSheets": 2,
@@ -1919,7 +1937,7 @@
               "name": "Alex Davidson",
               "team": "men",
               "season": 2026,
-              "appearances": 2,
+              "appearances": 3,
               "goals": 3,
               "assists": 3,
               "cleanSheets": 0,
@@ -1932,7 +1950,7 @@
               "name": "Ayden Adams",
               "team": "men",
               "season": 2026,
-              "appearances": 12,
+              "appearances": 13,
               "goals": 1,
               "assists": 1,
               "cleanSheets": 0,
@@ -1945,7 +1963,7 @@
               "name": "Brock Harman",
               "team": "men",
               "season": 2026,
-              "appearances": 4,
+              "appearances": 5,
               "goals": 5,
               "assists": 1,
               "cleanSheets": 0,
@@ -1984,7 +2002,7 @@
               "name": "Jack Ramey",
               "team": "men",
               "season": 2026,
-              "appearances": 12,
+              "appearances": 13,
               "goals": 0,
               "assists": 1,
               "cleanSheets": 0,
@@ -1997,8 +2015,8 @@
               "name": "Reggie Johnson",
               "team": "men",
               "season": 2026,
-              "appearances": 12,
-              "goals": 9,
+              "appearances": 13,
+              "goals": 10,
               "assists": 1,
               "cleanSheets": 0,
               "saves": 0,
@@ -2012,7 +2030,7 @@
               "name": "Jordan Dankert",
               "team": "men",
               "season": 2026,
-              "appearances": 9,
+              "appearances": 10,
               "goals": 0,
               "assists": 4,
               "cleanSheets": 2,
@@ -2040,7 +2058,7 @@
               "name": "Jordan Dankert",
               "team": "men",
               "season": 2026,
-              "appearances": 9,
+              "appearances": 10,
               "goals": 0,
               "assists": 4,
               "cleanSheets": 2,
@@ -2055,7 +2073,7 @@
               "name": "Jack Ramey",
               "team": "men",
               "season": 2026,
-              "appearances": 12,
+              "appearances": 13,
               "goals": 0,
               "assists": 1,
               "cleanSheets": 0,
@@ -2064,11 +2082,24 @@
               "redCards": 0
             },
             {
+              "id": "jon-slay",
+              "name": "Jon Slay",
+              "team": "men",
+              "season": 2026,
+              "appearances": 11,
+              "goals": 3,
+              "assists": 0,
+              "cleanSheets": 0,
+              "saves": 0,
+              "yellowCards": 2,
+              "redCards": 1
+            },
+            {
               "id": "jordan-dankert",
               "name": "Jordan Dankert",
               "team": "men",
               "season": 2026,
-              "appearances": 9,
+              "appearances": 10,
               "goals": 0,
               "assists": 4,
               "cleanSheets": 2,
@@ -2081,7 +2112,7 @@
               "name": "Coen Steinmetz",
               "team": "men",
               "season": 2026,
-              "appearances": 12,
+              "appearances": 13,
               "goals": 0,
               "assists": 0,
               "cleanSheets": 0,
@@ -2094,7 +2125,7 @@
               "name": "Cohen Hawes",
               "team": "men",
               "season": 2026,
-              "appearances": 10,
+              "appearances": 11,
               "goals": 1,
               "assists": 0,
               "cleanSheets": 0,
@@ -2133,7 +2164,7 @@
               "name": "Kaden Camp",
               "team": "men",
               "season": 2026,
-              "appearances": 11,
+              "appearances": 12,
               "goals": 7,
               "assists": 5,
               "cleanSheets": 0,
@@ -2146,7 +2177,7 @@
               "name": "Kaiden Hawes",
               "team": "men",
               "season": 2026,
-              "appearances": 12,
+              "appearances": 13,
               "goals": 2,
               "assists": 0,
               "cleanSheets": 0,
@@ -2159,8 +2190,8 @@
               "name": "Reggie Johnson",
               "team": "men",
               "season": 2026,
-              "appearances": 12,
-              "goals": 9,
+              "appearances": 13,
+              "goals": 10,
               "assists": 1,
               "cleanSheets": 0,
               "saves": 0,
@@ -2170,11 +2201,24 @@
           ],
           "redCards": [
             {
+              "id": "jon-slay",
+              "name": "Jon Slay",
+              "team": "men",
+              "season": 2026,
+              "appearances": 11,
+              "goals": 3,
+              "assists": 0,
+              "cleanSheets": 0,
+              "saves": 0,
+              "yellowCards": 2,
+              "redCards": 1
+            },
+            {
               "id": "jordan-dankert",
               "name": "Jordan Dankert",
               "team": "men",
               "season": 2026,
-              "appearances": 9,
+              "appearances": 10,
               "goals": 0,
               "assists": 4,
               "cleanSheets": 2,
@@ -3309,10 +3353,10 @@
           "team": "men",
           "season": 2026,
           "title": "Head Coach",
-          "matchesCoached": 11
+          "matchesCoached": 12
         }
       ],
-      "matchesCoached": 11
+      "matchesCoached": 12
     },
     {
       "id": "zane-gabrielson",

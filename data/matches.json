@@ -310,6 +310,22 @@
       }
     },
     {
+      "id": "2026-men-greater-toledo-playoff-away",
+      "team": "men",
+      "season": 2026,
+      "date": "2026-07-14",
+      "competition": "Playoff",
+      "homeTeam": "Greater Toledo FC",
+      "awayTeam": "Firelands United",
+      "homeScore": 4,
+      "awayScore": 1,
+      "playerEvents": {
+        "goals": { "reggie-johnson": 1 },
+        "yellowCards": { "jon-slay": 2 },
+        "redCards": { "jon-slay": 1 }
+      }
+    },
+    {
       "id": "2026-women-susserfuss-away",
       "team": "women",
       "season": 2026,
