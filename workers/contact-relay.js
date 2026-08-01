@@ -248,12 +248,13 @@ export default {
           `**${teamLabel} Superlatives Ballot**\n` +
           picks.map((pick) => `${pick.category}: ${pick.player}`).join("\n");
 
-        const voteResponse = await postToDiscord(env.DISCORD_WEBHOOK_URL, voteContent);
+        const superlativesWebhook = env.SUPERLATIVES_DISCORD_WEBHOOK_URL || env.DISCORD_WEBHOOK_URL;
+        const voteResponse = await postToDiscord(superlativesWebhook, voteContent);
         if (!voteResponse.ok) {
           return jsonResponse({ error: "Discord relay failed" }, 502, corsHeaders);
         }
 
-        await postToDiscord(env.DISCORD_WEBHOOK_URL, formatSuperlativesTally(teamLabel, tally));
+        await postToDiscord(superlativesWebhook, formatSuperlativesTally(teamLabel, tally));
         return jsonResponse({ ok: true, tally }, 200, corsHeaders);
       }
 
