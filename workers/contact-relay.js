@@ -1,4 +1,5 @@
 const MAX_RESUME_SIZE = 8 * 1024 * 1024;
+const DISCORD_CONTENT_LIMIT = 1900;
 
 const SUPERLATIVE_CATEGORIES = [
   "Most likely to become a professional soccer player",
@@ -96,6 +97,37 @@ async function postToDiscord(webhookUrl, content, resume) {
   });
 }
 
+function splitDiscordContent(content) {
+  const chunks = [];
+  let current = "";
+
+  for (const line of content.split("\n")) {
+    const next = current ? `${current}\n${line}` : line;
+    if (next.length <= DISCORD_CONTENT_LIMIT) {
+      current = next;
+      continue;
+    }
+
+    if (current) chunks.push(current);
+    current = line;
+  }
+
+  if (current) chunks.push(current);
+  return chunks;
+}
+
+async function postTextToDiscord(webhookUrl, content) {
+  const chunks = splitDiscordContent(content);
+  const responses = [];
+
+  for (let index = 0; index < chunks.length; index += 1) {
+    const prefix = chunks.length > 1 ? `Part ${index + 1}/${chunks.length}\n` : "";
+    responses.push(await postToDiscord(webhookUrl, `${prefix}${chunks[index]}`));
+  }
+
+  return responses;
+}
+
 function normalizeSuperlativesTeam(team, teamLabel) {
   const raw = `${team || ""} ${teamLabel || ""}`.toLowerCase();
   if (raw.includes("women")) return "women";
@@ -162,11 +194,14 @@ function formatSuperlativesTally(teamLabel, tally) {
     const leaderText = category.leaders
       .map((leader) => `${leader.player} (${leader.votes})`)
       .join(" / ");
-    return `${category.category}: ${leaderText}`;
+    const countText = category.counts
+      .map((entry) => `${entry.player} ${entry.votes}`)
+      .join(", ");
+    return `${category.category}\nLeader: ${leaderText}\nAll votes: ${countText}`;
   });
 
   return [
-    `**Current ${teamLabel} Superlatives Leaders**`,
+    `**Current ${teamLabel} Superlatives Leaders and Vote Counts**`,
     `Ballots counted: ${tally.ballotCount}`,
     "",
     ...lines
@@ -255,7 +290,7 @@ export default {
           return jsonResponse({ error: "Discord relay failed" }, 502, corsHeaders);
         }
 
-        await postToDiscord(superlativesWebhook, formatSuperlativesTally(teamLabel, tally));
+        await postTextToDiscord(superlativesWebhook, formatSuperlativesTally(teamLabel, tally));
         return jsonResponse({ ok: true, tally }, 200, corsHeaders);
       }
 
