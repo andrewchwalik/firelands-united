@@ -80,6 +80,9 @@ document.addEventListener("DOMContentLoaded", () => {
       formType: "superlatives-vote",
       name: voterName,
       email: voterEmail,
+      team: config.team || "",
+      teamLabel,
+      picks,
       timestamp,
       newsletterOptIn: false,
       subject: `${teamLabel} Superlatives Ballot`,
@@ -91,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
       submitButton.textContent = "Submitting...";
     }
 
-    fetch("https://firelandsunited-contact.chwalik.workers.dev", {
+    fetch("https://firelandsunited-contact.chwalik.workers.dev/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload)
