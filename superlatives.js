@@ -48,7 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (errorMessage) errorMessage.hidden = true;
 
     const voterName = document.getElementById("voter-name")?.value.trim() || "";
-    const voterEmail = document.getElementById("voter-email")?.value.trim() || "";
     const honey = document.getElementById("superlatives-honey")?.value || "";
     if (honey) return;
 
@@ -60,9 +59,9 @@ document.addEventListener("DOMContentLoaded", () => {
       };
     });
 
-    if (!voterName || !voterEmail || picks.some((pick) => !pick.player)) {
+    if (!voterName || picks.some((pick) => !pick.player)) {
       if (errorMessage) {
-        errorMessage.textContent = "Please add your name, email, and a pick for every superlative.";
+        errorMessage.textContent = "Please add your name and a pick for every superlative.";
         errorMessage.hidden = false;
       }
       return;
@@ -79,7 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const payload = {
       formType: "superlatives-vote",
       name: voterName,
-      email: voterEmail,
       team: config.team || "",
       teamLabel,
       picks,

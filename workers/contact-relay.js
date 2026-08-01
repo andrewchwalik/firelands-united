@@ -216,7 +216,7 @@ export default {
         const teamLabel = body.teamLabel || (team === "women" ? "Women's First Team" : "Men's First Team");
         const picks = normalizePicks(body.picks);
 
-        if (!name || !email || picks.length !== SUPERLATIVE_CATEGORIES.length) {
+        if (!name || picks.length !== SUPERLATIVE_CATEGORIES.length) {
           return jsonResponse({ error: "Missing required fields" }, 400, corsHeaders);
         }
 
@@ -226,7 +226,6 @@ export default {
           team,
           teamLabel,
           name,
-          email,
           timestamp,
           submittedAt: new Date().toISOString(),
           picks
@@ -244,7 +243,7 @@ export default {
         );
 
         const voteContent =
-          `${timestamp} | ${name} | ${email}\n` +
+          `${timestamp} | ${name}\n` +
           `**${teamLabel} Superlatives Ballot**\n` +
           picks.map((pick) => `${pick.category}: ${pick.player}`).join("\n");
 

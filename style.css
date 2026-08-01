@@ -1869,6 +1869,10 @@ body {
     gap: 12px;
 }
 
+.superlatives-form .input-group {
+    grid-template-columns: 1fr;
+}
+
 .contact-form input,
 .contact-form textarea {
     width: 100%;
