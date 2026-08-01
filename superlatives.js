@@ -11,7 +11,9 @@ const SUPERLATIVE_CATEGORIES = [
   "Most likely to have the best excuse for missing practice",
   "Most likely to become a future coach",
   "Most likely to be the first one at practice",
-  "Most likely to successfully pull off a 5-star skill move"
+  "Most likely to successfully pull off a 5-star skill move",
+  "Most likely to show up with the best pregame fit",
+  "Most likely to bring the best sideline energy"
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
