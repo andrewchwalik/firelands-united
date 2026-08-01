@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Men's Superlatives Vote | Firelands United</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/mobile.css" media="screen and (max-width: 768px)">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="/img/firelands-united-favicon.png" type="image/png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Firelands United">
+  <meta property="og:title" content="Men's Superlatives Vote | Firelands United">
+  <meta property="og:description" content="Vote for the Firelands United men's first team end-of-season superlatives.">
+  <meta property="og:url" content="https://firelandsunited.com/mens-superlatives/">
+  <meta property="og:image" content="https://firelandsunited.com/img/social-share.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Men's Superlatives Vote | Firelands United">
+  <meta name="twitter:description" content="Vote for the Firelands United men's first team end-of-season superlatives.">
+  <meta name="twitter:image" content="https://firelandsunited.com/img/social-share.jpg">
+</head>
+<body class="history-page superlatives-page">
+  <header class="navbar">
+    <div class="logo"><a href="/home/"><img src="/img/firelands-badge.png" alt="Firelands United Logo"></a></div>
+    <div class="hamburger-menu" id="hamburger-menu"><span></span><span></span><span></span></div>
+    <nav class="nav-links" id="nav-links">
+      <a href="/home/">Home</a>
+      <div class="nav-dropdown"><a href="/about/" class="nav-dropdown-toggle">About</a><div class="nav-dropdown-menu"><a href="/news/">News</a><a href="/about/">Our Story</a><a href="https://www.youtube.com/playlist?list=PLWFAnIt998SuqVAiIXR0JmYhzMo-7yRHZ" target="_blank" rel="noopener noreferrer">Current Vlog</a><a href="/contact/">Contact</a></div></div>
+      <div class="nav-dropdown"><a href="/sponsorships/" class="nav-dropdown-toggle">Join</a><div class="nav-dropdown-menu"><a href="/sponsorships/">Sponsorships</a><a href="/internships/">Internships</a><a href="/volunteer/">Volunteers</a><a href="/tryouts/">Tryouts</a></div></div>
+      <div class="nav-dropdown"><a href="/mens-roster/" class="nav-dropdown-toggle active">Men&apos;s Team</a><div class="nav-dropdown-menu"><a href="/mens-schedule/">Schedule</a>
+          <a href="/home/#league-standings">Table</a>
+          <a href="/mens-roster/">Roster</a>
+          <a href="/staff/">Staff</a>
+          <a href="/mens-team-history/">Stats</a></div></div>
+      <div class="nav-dropdown"><a href="/womens-roster/" class="nav-dropdown-toggle">Women&apos;s Team</a><div class="nav-dropdown-menu"><a href="/womens-schedule/">Schedule</a>
+          <a href="/home/#league-standings">Table</a>
+          <a href="/womens-roster/">Roster</a>
+          <a href="/womens-staff/">Staff</a>
+          <a href="/womens-team-history/">Stats</a></div></div>
+      <a href="https://ykxwgu-j1.myshopify.com" class="nav-merch" target="_blank" rel="noopener noreferrer">Merch</a>
+      <img src="/img/hamburger-menu-image.png" alt="Super Collin" class="menu-keeper">
+    </nav>
+  </header>
+
+  <main class="history-content superlatives-content">
+    <section class="history-header superlatives-header">
+      <span class="superlatives-kicker">2026 Men's First Team</span>
+      <h1>Superlatives Vote</h1>
+      <p class="roster-intro">Pick one player for each end-of-season superlative. Submit once, and your ballot will go straight to the club.</p>
+    </section>
+
+    <section class="superlatives-form-panel">
+      <p class="contact-success-message" id="superlatives-success-message" hidden>Thanks. Your superlatives ballot has been submitted.</p>
+      <p class="contact-success-message contact-error-message" id="superlatives-error-message" hidden>Could not submit your ballot. Please try again in a moment.</p>
+
+      <form class="contact-form superlatives-form" id="superlatives-form">
+        <input type="text" name="_honey" id="superlatives-honey" style="display:none">
+        <div class="input-group">
+          <input type="text" name="voterName" id="voter-name" placeholder="Your Name" required>
+          <input type="email" name="voterEmail" id="voter-email" placeholder="Your Email" required>
+        </div>
+        <div class="superlatives-ballot-grid" id="superlatives-ballot-grid"></div>
+        <button type="submit" class="submit-button" id="superlatives-submit">Submit Ballot</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer"></footer>
+
+  <script>
+    window.SUPERLATIVES_CONFIG = {
+      teamLabel: "Men's First Team",
+      players: [
+        "Simon Joseph",
+        "Jonathan Normington-Slay",
+        "Reggie Johnson",
+        "Ayden Adams",
+        "Carter Jones",
+        "Jonah Main",
+        "Brock Harman",
+        "Maximus Parsell",
+        "Erik Rangel Negrete",
+        "Jack Ramey",
+        "Phil Kirimi",
+        "Alex Davidson",
+        "Coen Steinmetz",
+        "Kaiden Hawes",
+        "Cohen Hawes",
+        "Jackson Gray",
+        "Noah Clapsaddle",
+        "Blake Kubasak",
+        "Joseph Judge",
+        "Ryan Graber",
+        "Kaden Camp",
+        "Collin Biehler",
+        "Jordan Dankert"
+      ]
+    };
+  </script>
+  <script src="/script.js"></script>
+  <script src="/superlatives.js"></script>
+</body>
+</html>

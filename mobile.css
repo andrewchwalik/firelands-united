@@ -480,6 +480,18 @@
   gap: 10px;
 }
 
+.superlatives-form-panel {
+  padding: 20px;
+}
+
+.superlatives-ballot-grid {
+  grid-template-columns: 1fr;
+}
+
+.superlative-question {
+  min-height: 0;
+}
+
 .contact-optin {
   font-size: 0.86rem;
   gap: 8px;

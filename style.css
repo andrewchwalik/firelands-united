@@ -1910,6 +1910,95 @@ body {
     flex: 0 0 auto;
 }
 
+/* ============================================
+   SUPERLATIVES VOTING
+   ============================================ */
+
+.superlatives-page {
+    background: #f6f3ec;
+}
+
+.superlatives-content {
+    padding-bottom: 72px;
+}
+
+.superlatives-header {
+    max-width: 880px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.superlatives-kicker {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(241, 138, 1, 0.14);
+    color: #d97706;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.superlatives-form-panel {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 28px;
+    border: 1px solid rgba(71, 78, 90, 0.14);
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 18px 48px rgba(71, 78, 90, 0.12);
+}
+
+.superlatives-form {
+    gap: 18px;
+}
+
+.superlatives-ballot-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.superlative-question {
+    display: grid;
+    gap: 8px;
+    min-height: 128px;
+    padding: 16px;
+    border: 1px solid rgba(71, 78, 90, 0.14);
+    border-radius: 10px;
+    background: #fafafa;
+}
+
+.superlative-question span {
+    color: #474e5a;
+    font-size: 0.9rem;
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+.superlative-question select {
+    width: 100%;
+    align-self: end;
+    border: 1px solid #d8dbe2;
+    border-radius: 10px;
+    background: #fff;
+    color: #1b2432;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 12px 14px;
+    outline: none;
+}
+
+.superlative-question select:focus {
+    border-color: #f18a01;
+    box-shadow: 0 0 0 2px rgba(241, 138, 1, 0.15);
+}
+
 .submit-button {
     justify-self: start;
     border: 2px solid #f18a01;
