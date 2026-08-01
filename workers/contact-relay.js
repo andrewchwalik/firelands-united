@@ -204,14 +204,11 @@ function formatSuperlativesTally(teamLabel, tally) {
     const leaderText = category.leaders
       .map((leader) => `${leader.player} (${leader.votes})`)
       .join(" / ");
-    const countText = category.counts
-      .map((entry) => `${entry.player} ${entry.votes}`)
-      .join(", ");
-    return `${category.category}\nLeader: ${leaderText}\nAll votes: ${countText}`;
+    return `${category.category}: ${leaderText}`;
   });
 
   return [
-    `**Current ${teamLabel} Superlatives Leaders and Vote Counts**`,
+    `**Current ${teamLabel} Superlatives Leaders**`,
     `Ballots counted: ${tally.ballotCount}`,
     "",
     ...lines
