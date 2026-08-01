@@ -134,6 +134,16 @@ function normalizeSuperlativesTeam(team, teamLabel) {
   return "men";
 }
 
+function getSuperlativesWebhook(env, team) {
+  if (team === "women") {
+    return env.WOMENS_SUPERLATIVES_DISCORD_WEBHOOK_URL ||
+      env.SUPERLATIVES_DISCORD_WEBHOOK_URL ||
+      env.DISCORD_WEBHOOK_URL;
+  }
+
+  return env.SUPERLATIVES_DISCORD_WEBHOOK_URL || env.DISCORD_WEBHOOK_URL;
+}
+
 function normalizePicks(picks) {
   return picks
     .map((pick) => ({
@@ -284,7 +294,7 @@ export default {
           `**${teamLabel} Superlatives Ballot**\n` +
           picks.map((pick) => `${pick.category}: ${pick.player}`).join("\n");
 
-        const superlativesWebhook = env.SUPERLATIVES_DISCORD_WEBHOOK_URL || env.DISCORD_WEBHOOK_URL;
+        const superlativesWebhook = getSuperlativesWebhook(env, team);
         const voteResponse = await postToDiscord(superlativesWebhook, voteContent);
         if (!voteResponse.ok) {
           return jsonResponse({ error: "Discord relay failed" }, 502, corsHeaders);

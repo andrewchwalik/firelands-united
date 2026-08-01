@@ -12,3 +12,4 @@ id = "50c14f2634fb4472a7595c5c3a460055"
 # Set these secrets via CLI, not in this file:
 # wrangler secret put DISCORD_WEBHOOK_URL
 # wrangler secret put SUPERLATIVES_DISCORD_WEBHOOK_URL
+# wrangler secret put WOMENS_SUPERLATIVES_DISCORD_WEBHOOK_URL
