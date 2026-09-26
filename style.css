@@ -1131,7 +1131,7 @@ body {
 
 .league-standings-section {
   background: #fff;
-  padding: 66px 20px 76px;
+  padding: 40px 20px 44px;
   scroll-margin-top: 92px;
 }
 
@@ -1141,7 +1141,7 @@ body {
 }
 
 .league-standings-header {
-  margin-bottom: 28px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -1174,7 +1174,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 14px;
-  padding: 20px 22px;
+  padding: 13px 18px;
   background: #474E5A;
 }
 
@@ -1209,7 +1209,8 @@ body {
 
 .league-table th,
 .league-table td {
-  padding: 14px 18px;
+  padding: 8px 18px;
+  line-height: 1.4;
   text-align: right;
   border-bottom: 1px solid rgba(71, 78, 90, 0.1);
 }
