@@ -15,6 +15,12 @@ for (const profile of profiles) {
   const html = await read(file);
   assert.equal(player.profileUrl, `/players/${profile.id}/`);
   assert.ok(!/{{\w+}}/.test(html), 'No unresolved template fields');
+  assert.equal((html.match(/<table /g) || []).length, 1, 'One combined season table');
+  assert.ok(!html.includes('Season spotlight') && !html.includes('Every season. One club.'));
+  assert.ok(html.includes('class="profile-scoring-stats"') || html.includes('profile-career-stats profile-scoring-stats'));
+  assert.ok(html.includes('Seasons with Firelands United') || html.includes('Season with Firelands United'));
+  if (profile.height) assert.ok(html.includes('Height:'));
+  if (profile.weight) assert.ok(html.includes(`Weight: ${profile.weight}`));
   const records = seasons.filter(s => s.team === player.team && s.playerStats[player.id]);
   for (const record of records) {
     const cells = keys.map(key => `<td>${record.playerStats[player.id][key] ?? 0}</td>`).join('');

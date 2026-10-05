@@ -83,25 +83,22 @@
       <div class="profile-portrait-caption"><img src="/img/firelands-badge.png" alt="" width="36" height="48"><span>Firelands United<br><strong>{{team}}</strong></span></div>
     </div>
     <div class="profile-identity">
-      <p class="profile-eyebrow">The Lands / Player profile</p>
+      <p class="profile-eyebrow">Player profile</p>
       <h1 id="player-name"><span>{{firstName}}</span>{{lastName}}</h1>
-      <div class="profile-details"><span>{{position}}</span><span>{{hometown}}</span><span>First season {{firstSeason}}</span></div>
+      <div class="profile-details"><span>{{position}}</span><span>{{hometown}}</span>{{measurements}}<span class="profile-tenure">{{seasonTenure}}</span></div>
       <p class="profile-bio">{{bio}}</p>
       <h2 class="profile-eyebrow">All-time club stats</h2>
       <div class="profile-career-stats">{{totalCards}}</div>
+      <div class="profile-career-stats profile-scoring-stats"><div class="profile-stat"><strong>{{contribution}}</strong><span>Goal contributions</span><small>Goals + assists</small></div><div class="profile-stat"><strong>{{rate}}</strong><span>Goals per appearance</span></div></div>
     </div>
   </section>
-  <section class="profile-season" aria-labelledby="season-title">
-    <div class="profile-section-heading"><div><p class="profile-eyebrow">The numbers</p><h2 id="season-title">Season spotlight</h2></div><div class="profile-selector" hidden><label for="profile-season-select">Choose season</label><select id="profile-season-select">{{options}}</select></div></div>
-    <div id="profile-season-panels" aria-live="polite">{{panels}}</div>
-  </section>
-  <section class="profile-record" aria-labelledby="record-title">
-    <div class="profile-section-heading"><div><p class="profile-eyebrow">Every season. One club.</p><h2 id="record-title">The club record</h2></div><span class="profile-season-count">{{seasonCount}} seasons with the Lands</span></div>
+  <section class="profile-season" aria-labelledby="record-title">
+    <div class="profile-section-heading"><h2 id="record-title">Season-by-season stats</h2></div>
     <div class="profile-table-wrap" tabindex="0" role="region" aria-label="Season statistics, scroll horizontally on small screens">
       <table class="profile-table"><caption>Season totals across all recorded competitions</caption><thead><tr><th scope="col">Season</th><th scope="col">Apps</th><th scope="col">Goals</th><th scope="col">Assists</th><th scope="col">Saves</th><th scope="col">Yellow cards</th><th scope="col">Red cards</th></tr></thead><tbody>{{rows}}</tbody><tfoot><tr><th scope="row">All time</th>{{totalCells}}</tr></tfoot></table>
     </div>
     <p class="profile-note">Apps = appearances. Includes league, cup and playoff statistics recorded by the club. Unrecorded stat categories count as zero.</p>
-    <div class="profile-impact"><div><strong>{{contribution}}</strong><span>Goal contributions<br>Goals + assists, all time</span></div><div><strong>{{rate}}</strong><span>Goals per appearance<br>Across all recorded seasons</span></div><a href="{{rosterUrl}}">Meet the rest of the team <span aria-hidden="true">&rarr;</span></a></div>
+    <a class="profile-team-link" href="{{rosterUrl}}">Meet the rest of the team <span aria-hidden="true">&rarr;</span></a>
   </section>
 </main>
   <footer class="site-footer">
@@ -135,6 +132,5 @@
 
   </footer>
 <script src="/script.js"></script>
-<script src="/player-profile.js"></script>
 </body>
 </html>
