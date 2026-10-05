@@ -8,6 +8,9 @@ const escape = (value) => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;', 
 const keys = ['appearances', 'goals', 'assists', 'saves', 'yellowCards', 'redCards'];
 const labels = ['Appearances', 'Goals', 'Assists', 'Saves', 'Yellow cards', 'Red cards'];
 
+export const statKeysForPosition = (position = '') =>
+  keys.filter(key => key !== 'saves' || /\b(GK|goalkeeper|keeper)\b/i.test(position));
+
 // Publish another player by adding their bio to player-profiles.json and their
 // profileUrl to players.json. The regular build-stats command rebuilds profiles.
 export async function buildPlayerPages() {
@@ -18,6 +21,7 @@ export async function buildPlayerPages() {
   for (const profile of profiles) {
     const player = players.find(p => p.id === profile.id);
     if (!player) throw new Error(`Unknown player profile: ${profile.id}`);
+    const displayedKeys = statKeysForPosition(player.roster?.position);
     const rows = seasons.filter(s => s.team === player.team && s.playerStats[player.id])
       .sort((a, b) => b.season - a.season)
       .map(s => ({ year: s.season, league: s.league, ...Object.fromEntries(keys.map(k => [k, s.playerStats[player.id][k] ?? 0])) }));
@@ -32,8 +36,9 @@ export async function buildPlayerPages() {
       bio: escape(profile.bio), seasonTenure: `${rows.length} ${rows.length === 1 ? 'Season' : 'Seasons'} with Firelands United`,
       measurements: [profile.height && `<span>Height: ${escape(profile.height)}</span>`, profile.weight && `<span>Weight: ${escape(profile.weight)}</span>`].filter(Boolean).join(''),
       totalCards: statCards(totals, ['appearances', 'goals', 'assists']),
-      rows: rows.map(r => `<tr><th scope="row">${r.year}</th>${keys.map(k => `<td>${r[k]}</td>`).join('')}</tr>`).join(''),
-      totalCells: keys.map(k => `<td>${totals[k]}</td>`).join(''),
+      statHeaders: displayedKeys.map(k => `<th scope="col">${k === 'appearances' ? 'Apps' : labels[keys.indexOf(k)]}</th>`).join(''),
+      rows: rows.map(r => `<tr><th scope="row">${r.year}</th>${displayedKeys.map(k => `<td>${r[k]}</td>`).join('')}</tr>`).join(''),
+      totalCells: displayedKeys.map(k => `<td>${totals[k]}</td>`).join(''),
       contribution: totals.goals + totals.assists,
       rate: totals.appearances ? (totals.goals / totals.appearances).toFixed(2) : '0.00'
     };

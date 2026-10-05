@@ -1,18 +1,23 @@
 import assert from 'node:assert/strict';
 import { readFile, access } from 'node:fs/promises';
-import { buildPlayerPages } from './build-player-pages.mjs';
+import { buildPlayerPages, statKeysForPosition } from './build-player-pages.mjs';
 
 const root = new URL('../', import.meta.url);
 const read = file => readFile(new URL(file, root), 'utf8');
 const { players } = JSON.parse(await read('data/players.json'));
 const { seasons } = JSON.parse(await read('data/season-stats.json'));
 const { profiles } = JSON.parse(await read('data/player-profiles.json'));
-const keys = ['appearances', 'goals', 'assists', 'saves', 'yellowCards', 'redCards'];
+assert.ok(statKeysForPosition('GK').includes('saves'));
+assert.ok(statKeysForPosition('GK/CB').includes('saves'));
+assert.ok(!statKeysForPosition('ST/RW').includes('saves'));
+assert.ok(!statKeysForPosition().includes('saves'));
 await buildPlayerPages();
 for (const profile of profiles) {
   const player = players.find(p => p.id === profile.id);
+  const keys = statKeysForPosition(player.roster?.position);
   const file = `players/${profile.id}/index.html`;
   const html = await read(file);
+  assert.equal(html.includes('<th scope="col">Saves</th>'), keys.includes('saves'));
   assert.equal(player.profileUrl, `/players/${profile.id}/`);
   assert.ok(!/{{\w+}}/.test(html), 'No unresolved template fields');
   assert.equal((html.match(/<table /g) || []).length, 1, 'One combined season table');
