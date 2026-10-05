@@ -1,5 +1,6 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { buildPlayerPages } from "./build-player-pages.mjs";
 
 const root = path.resolve(new URL("..", import.meta.url).pathname);
 const dataDir = path.join(root, "data");
@@ -160,6 +161,7 @@ const main = async () => {
     "utf8"
   );
 
+  await buildPlayerPages();
   console.log(
     `Generated data/generated/club-stats.json from ${players.length} players, ${seasons.length} seasons, and ${matches.length} matches.`
   );

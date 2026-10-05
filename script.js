@@ -1086,6 +1086,22 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 
+  function linkPlayerProfiles(players) {
+    players.filter(player => player.profileUrl).forEach(player => {
+      document.querySelectorAll('.roster-card:not(.coaching-card), .history-player:not(.coaching-card)').forEach(card => {
+        const photo = card.querySelector('img');
+        const name = card.querySelector('h3');
+        if (!name || photo?.alt !== `${player.name} headshot` || name.querySelector('a')) return;
+        const link = document.createElement('a');
+        link.href = player.profileUrl;
+        link.className = 'player-profile-link';
+        link.setAttribute('aria-label', `View ${player.name}'s player profile`);
+        while (name.firstChild) link.appendChild(name.firstChild);
+        name.appendChild(link);
+      });
+    });
+  }
+
   function loadAndSyncClubData() {
     loadClubData()
       .then((data) => {
@@ -1098,6 +1114,7 @@ document.addEventListener("DOMContentLoaded", () => {
         renderLeagueStandings(data.standings);
         renderSeasonPanels(data.seasons, data.matches, data.players, data.staff);
         renderRecordPanels(data.seasons, data.players);
+        linkPlayerProfiles(data.players);
       })
       .catch((err) => {
         console.error("Error loading club data:", err);

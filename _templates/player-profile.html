@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{name}} | Firelands United</title>
+  <meta name="description" content="{{name}}'s Firelands United player profile, season statistics and all-time club record.">
+  <link rel="canonical" href="https://firelandsunited.com/players/{{id}}/">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="{{name}} | Firelands United">
+  <meta property="og:description" content="Season by season. Every appearance, goal and assist for the Lands.">
+  <meta property="og:url" content="https://firelandsunited.com/players/{{id}}/">
+  <meta property="og:image" content="https://firelandsunited.com{{image}}">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/img/firelands-united-favicon.png">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/mobile.css" media="screen and (max-width: 768px)">
+  <link rel="stylesheet" href="/player-profile.css">
+</head>
+<body class="player-profile-page">
+  <header class="navbar">
+    <div class="logo">
+      <a href="/">
+        <img src="/img/firelands-badge.png" alt="Firelands United Logo" />
+      </a>
+    </div>
+    <div class="hamburger-menu" id="hamburger-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav class="nav-links" id="nav-links">
+      <a href="/home/">Home</a>
+      <div class="nav-dropdown">
+        <a href="/about/" class="nav-dropdown-toggle">About</a>
+        <div class="nav-dropdown-menu">
+          <a href="/news/">News</a>
+          <a href="/about/">Our Story</a>
+          <a href="https://www.youtube.com/playlist?list=PLWFAnIt998SuqVAiIXR0JmYhzMo-7yRHZ" target="_blank" rel="noopener noreferrer">Current Vlog</a>
+          <a href="/contact/">Contact</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="/sponsorships/" class="nav-dropdown-toggle">Join</a>
+        <div class="nav-dropdown-menu">
+          <a href="/sponsorships/">Sponsorships</a>
+          <a href="/internships/">Internships</a>
+          <a href="/volunteer/">Volunteers</a>
+          <a href="/tryouts/">Tryouts</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="/mens-roster/" class="nav-dropdown-toggle active">Men&apos;s Team</a>
+        <div class="nav-dropdown-menu">
+          <a href="/mens-schedule/">Schedule</a>
+          <a href="/home/#league-standings">Table</a>
+          <a href="/mens-roster/">Roster</a>
+          <a href="/staff/">Staff</a>
+          <a href="/mens-team-history/">Stats</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="/womens-roster/" class="nav-dropdown-toggle">Women&apos;s Team</a>
+        <div class="nav-dropdown-menu">
+          <a href="/womens-schedule/">Schedule</a>
+          <a href="/home/#league-standings">Table</a>
+          <a href="/womens-roster/">Roster</a>
+          <a href="/womens-staff/">Staff</a>
+          <a href="/womens-team-history/">Stats</a>
+        </div>
+      </div>
+      <a href="https://ykxwgu-j1.myshopify.com" class="nav-merch" target="_blank" rel="noopener noreferrer">Merch</a>
+      <img src="/img/hamburger-menu-image.png" alt="Super Collin" class="menu-keeper">
+    </nav>
+  </header>
+<main class="profile-main">
+  <nav class="profile-breadcrumb" aria-label="Breadcrumb"><a href="{{rosterUrl}}">First team roster</a><span aria-hidden="true">/</span><span>{{name}}</span></nav>
+  <section class="profile-hero" aria-labelledby="player-name">
+    <div class="profile-portrait">
+      <img src="{{image}}" alt="{{name}}" width="500" height="500" fetchpriority="high">
+      <span class="profile-shirt" aria-label="Shirt number {{number}}">{{number}}</span>
+      <div class="profile-portrait-caption"><img src="/img/firelands-badge.png" alt="" width="36" height="48"><span>Firelands United<br><strong>{{team}}</strong></span></div>
+    </div>
+    <div class="profile-identity">
+      <p class="profile-eyebrow">The Lands / Player profile</p>
+      <h1 id="player-name"><span>{{firstName}}</span>{{lastName}}</h1>
+      <div class="profile-details"><span>{{position}}</span><span>{{hometown}}</span><span>First season {{firstSeason}}</span></div>
+      <p class="profile-bio">{{bio}}</p>
+      <h2 class="profile-eyebrow">All-time club stats</h2>
+      <div class="profile-career-stats">{{totalCards}}</div>
+    </div>
+  </section>
+  <section class="profile-season" aria-labelledby="season-title">
+    <div class="profile-section-heading"><div><p class="profile-eyebrow">The numbers</p><h2 id="season-title">Season spotlight</h2></div><div class="profile-selector" hidden><label for="profile-season-select">Choose season</label><select id="profile-season-select">{{options}}</select></div></div>
+    <div id="profile-season-panels" aria-live="polite">{{panels}}</div>
+  </section>
+  <section class="profile-record" aria-labelledby="record-title">
+    <div class="profile-section-heading"><div><p class="profile-eyebrow">Every season. One club.</p><h2 id="record-title">The club record</h2></div><span class="profile-season-count">{{seasonCount}} seasons with the Lands</span></div>
+    <div class="profile-table-wrap" tabindex="0" role="region" aria-label="Season statistics, scroll horizontally on small screens">
+      <table class="profile-table"><caption>Season totals across all recorded competitions</caption><thead><tr><th scope="col">Season</th><th scope="col">Apps</th><th scope="col">Goals</th><th scope="col">Assists</th><th scope="col">Saves</th><th scope="col">Yellow cards</th><th scope="col">Red cards</th></tr></thead><tbody>{{rows}}</tbody><tfoot><tr><th scope="row">All time</th>{{totalCells}}</tr></tfoot></table>
+    </div>
+    <p class="profile-note">Apps = appearances. Includes league, cup and playoff statistics recorded by the club. Unrecorded stat categories count as zero.</p>
+    <div class="profile-impact"><div><strong>{{contribution}}</strong><span>Goal contributions<br>Goals + assists, all time</span></div><div><strong>{{rate}}</strong><span>Goals per appearance<br>Across all recorded seasons</span></div><a href="{{rosterUrl}}">Meet the rest of the team <span aria-hidden="true">&rarr;</span></a></div>
+  </section>
+</main>
+  <footer class="site-footer">
+<div class="footer-links-container">
+  <div class="footer-logo">
+    <img src="/img/firelands-badge.png" alt="Firelands United Logo">
+    <div class="footer-bottom"><p>&copy; 2026 Firelands United</p><a href="#">Terms of Service</a> | <a href="/privacy-policy/">Privacy Policy</a></div>
+  </div>
+  <div class="footer-column"><h3>Roster</h3><ul><li><a href="/mens-roster/">Men&apos;s Team</a></li><li><a href="https://forms.gle/6bRJ7Fdy3uzhya3M9" target="_blank" rel="noopener noreferrer">Women&apos;s Team</a></li><li><a href="/tryouts/">Tryouts</a></li></ul></div>
+  <div class="footer-column"><h3>Information</h3><ul><li><a href="/news/">News</a></li><li><a href="https://www.youtube.com/playlist?list=PLWFAnIt998SuqVAiIXR0JmYhzMo-7yRHZ" target="_blank" rel="noopener noreferrer">Latest Vlog</a></li><li><a href="/about/">Our Story</a></li></ul></div>
+  <div class="footer-column"><h3>Reach Out</h3><ul><li><a href="/volunteer/">Volunteers</a></li><li><a href="/internships/">Internships</a></li><li><a href="/contact/">Contact</a></li></ul></div>
+  <div class="footer-column"><h3>Support</h3><ul><li><a href="/sponsorships/">Sponsorships</a></li><li><a href="https://ykxwgu-j1.myshopify.com" target="_blank" rel="noopener noreferrer">Merch</a></li><li><span>Membership</span></li></ul></div>
+  <div class="footer-social-column">
+    <h3>Follow</h3>
+    <div class="footer-social-links">
+      <a href="https://www.instagram.com/firelandsunited/" target="_blank" rel="noopener noreferrer" aria-label="Firelands United on Instagram">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@11/icons/instagram.svg" alt="Instagram">
+      </a>
+      <a href="https://www.facebook.com/firelandsunited" target="_blank" rel="noopener noreferrer" aria-label="Firelands United on Facebook">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@11/icons/facebook.svg" alt="Facebook">
+      </a>
+      <a href="https://www.youtube.com/@FirelandsUnited" target="_blank" rel="noopener noreferrer" aria-label="Firelands United on YouTube">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@11/icons/youtube.svg" alt="YouTube">
+      </a>
+    </div>
+  </div>
+</div>
+<div class="footer-gif">
+  <img src="/img/soccer-juggling.gif" alt="Soccer player juggling a ball">
+</div>
+
+  </footer>
+<script src="/script.js"></script>
+<script src="/player-profile.js"></script>
+</body>
+</html>
