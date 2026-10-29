@@ -56,3 +56,18 @@
 .profile-scoring-stats .profile-stat strong { font-size: 2rem; }
 .profile-stat small { font-size: .65rem; color: #e5e6e8; }
 .profile-team-link { color: #904700; font-size: .8rem; font-weight: 700; }
+
+.profile-awards-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; list-style: none; }
+.profile-award { display: flex; align-items: flex-start; gap: 14px; padding: 20px 16px; border-top: 3px solid var(--profile-orange); border-radius: 8px; background: #f5f5f3; }
+.profile-award-count { font-family: 'Bermont', sans-serif; font-size: 2rem; line-height: 1; color: #a95300; white-space: nowrap; }
+.profile-award h3 { font-size: .85rem; line-height: 1.5; }
+.profile-award p { margin-top: 6px; font-size: .75rem; }
+.profile-superlatives { margin-top: 24px; padding-top: 22px; border-top: 1px solid #e3e3df; }
+.profile-superlatives h3 { font-size: .85rem; margin-bottom: 12px; }
+.profile-superlatives ul { list-style: none; display: grid; gap: 12px; }
+.profile-superlatives li { display: flex; align-items: baseline; gap: 16px; font-size: .82rem; line-height: 1.6; }
+.profile-award-year { color: #a95300; font-weight: 700; flex-shrink: 0; }
+@media (max-width: 768px) {
+  .profile-awards-grid { grid-template-columns: 1fr; gap: 12px; }
+  .profile-award { padding: 16px; }
+}

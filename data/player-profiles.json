@@ -4,6 +4,15 @@
       "id": "reggie-johnson",
       "height": "5'8\"",
       "weight": "160 lbs",
+      "awards": [
+        { "title": "NOSL Player of the Season", "count": 2 },
+        { "title": "Club Offensive Player of the Season", "count": 2 },
+        { "title": "Player of the Match", "count": 1, "season": 2026 }
+      ],
+      "superlatives": [
+        { "season": 2026, "title": "Voted Most Likely to Have the Best Goal Celebration" },
+        { "season": 2025, "title": "Voted Most Likely to Have the Best Goal Celebration" }
+      ],
       "bio": "From Lorain to the Lands. Reggie Johnson represents Firelands United as a striker and right winger. Explore his season-by-season record and all-time contributions to the club below."
     }
   ]

@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { readFile, access } from 'node:fs/promises';
-import { buildPlayerPages, statKeysForPosition } from './build-player-pages.mjs';
+import { buildPlayerPages, statKeysForPosition, renderHonors } from './build-player-pages.mjs';
 
 const root = new URL('../', import.meta.url);
 const read = file => readFile(new URL(file, root), 'utf8');
@@ -11,6 +11,9 @@ assert.ok(statKeysForPosition('GK').includes('saves'));
 assert.ok(statKeysForPosition('GK/CB').includes('saves'));
 assert.ok(!statKeysForPosition('ST/RW').includes('saves'));
 assert.ok(!statKeysForPosition().includes('saves'));
+assert.equal(renderHonors({}), '', 'Omit honors for players without awards');
+assert.ok(renderHonors({ awards: [{ title: '<Test>', count: 2 }] }).includes('&lt;Test&gt;'));
+assert.ok(renderHonors({ superlatives: [{ season: 2026, title: 'Team vote' }] }).includes('Team vote'));
 await buildPlayerPages();
 for (const profile of profiles) {
   const player = players.find(p => p.id === profile.id);
@@ -26,6 +29,12 @@ for (const profile of profiles) {
   assert.ok(html.includes('Seasons with Firelands United') || html.includes('Season with Firelands United'));
   if (profile.height) assert.ok(html.includes('Height:'));
   if (profile.weight) assert.ok(html.includes(`Weight: ${profile.weight}`));
+  assert.ok(html.includes(renderHonors(profile)), 'Published honors match player data');
+  if (profile.id === 'reggie-johnson') {
+    assert.deepEqual(profile.awards.map(a => a.count), [2, 2, 1]);
+    assert.equal(profile.awards[2].season, 2026);
+    assert.deepEqual(profile.superlatives.map(s => s.season), [2026, 2025]);
+  }
   const records = seasons.filter(s => s.team === player.team && s.playerStats[player.id]);
   for (const record of records) {
     const cells = keys.map(key => `<td>${record.playerStats[player.id][key] ?? 0}</td>`).join('');

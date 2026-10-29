@@ -11,6 +11,19 @@ const labels = ['Appearances', 'Goals', 'Assists', 'Saves', 'Yellow cards', 'Red
 export const statKeysForPosition = (position = '') =>
   keys.filter(key => key !== 'saves' || /\b(GK|goalkeeper|keeper)\b/i.test(position));
 
+export function renderHonors(profile) {
+  const awards = profile.awards || [];
+  const superlatives = profile.superlatives || [];
+  if (!awards.length && !superlatives.length) return '';
+  const awardCards = awards.length ? `<ul class="profile-awards-grid">${awards.map(award =>
+    `<li class="profile-award"><span class="profile-award-count" aria-label="${escape(award.count)} ${award.count === 1 ? 'time' : 'times'}">${escape(award.count)}&times;</span><div><h3>${escape(award.title)}</h3>${award.season ? `<p>${escape(award.season)}</p>` : ''}</div></li>`
+  ).join('')}</ul>` : '';
+  const votes = superlatives.length ? `<div class="profile-superlatives"><h3>Superlatives</h3><ul>${superlatives.map(vote =>
+    `<li><span class="profile-award-year">${escape(vote.season)}</span><span>${escape(vote.title)}</span></li>`
+  ).join('')}</ul></div>` : '';
+  return `<section class="profile-season profile-honors" aria-labelledby="honors-title"><div class="profile-section-heading"><h2 id="honors-title">Awards &amp; honors</h2></div>${awardCards}${votes}</section>`;
+}
+
 // Publish another player by adding their bio to player-profiles.json and their
 // profileUrl to players.json. The regular build-stats command rebuilds profiles.
 export async function buildPlayerPages() {
@@ -36,6 +49,7 @@ export async function buildPlayerPages() {
       bio: escape(profile.bio), seasonTenure: `${rows.length} ${rows.length === 1 ? 'Season' : 'Seasons'} with Firelands United`,
       measurements: [profile.height && `<span>Height: ${escape(profile.height)}</span>`, profile.weight && `<span>Weight: ${escape(profile.weight)}</span>`].filter(Boolean).join(''),
       totalCards: statCards(totals, ['appearances', 'goals', 'assists']),
+      honors: renderHonors(profile),
       statHeaders: displayedKeys.map(k => `<th scope="col">${k === 'appearances' ? 'Apps' : labels[keys.indexOf(k)]}</th>`).join(''),
       rows: rows.map(r => `<tr><th scope="row">${r.year}</th>${displayedKeys.map(k => `<td>${r[k]}</td>`).join('')}</tr>`).join(''),
       totalCells: displayedKeys.map(k => `<td>${totals[k]}</td>`).join(''),
