@@ -29,6 +29,11 @@ for (const profile of profiles) {
   assert.ok(html.includes('Seasons with Firelands United') || html.includes('Season with Firelands United'));
   if (profile.height) assert.ok(html.includes('Height:'));
   if (profile.weight) assert.ok(html.includes(`Weight: ${profile.weight}`));
+  if (profile.cutout) {
+    assert.ok(html.includes('profile-hero-with-cutout'));
+    assert.ok(html.includes(`src="${profile.cutout}"`));
+    assert.ok(html.includes('class="profile-performance-numbers"'));
+  }
   assert.ok(html.includes(renderHonors(profile)), 'Published honors match player data');
   if (profile.id === 'reggie-johnson') {
     assert.deepEqual(profile.awards.map(a => a.count), [2, 2, 1]);

@@ -71,3 +71,30 @@
   .profile-awards-grid { grid-template-columns: 1fr; gap: 12px; }
   .profile-award { padding: 16px; }
 }
+
+/* Give the cutout its own column so it never sits over the statistics. */
+.profile-hero-with-cutout { overflow: visible; }
+.profile-hero-with-cutout .profile-portrait { overflow: hidden; border-radius: 24px 0 0 24px; }
+.profile-hero-with-cutout .profile-identity { border-radius: 0 24px 24px 0; }
+.profile-hero-with-cutout .profile-performance { display: grid; grid-template-columns: minmax(0, 1fr) clamp(140px, 18vw, 220px); gap: 20px; align-items: center; }
+.profile-performance-numbers { min-width: 0; }
+.profile-cutout { overflow: clip; overflow-clip-margin: 8px; position: relative; width: 100%; aspect-ratio: 650 / 1100; align-self: end; transform: translate(24px, 65px); pointer-events: none; z-index: 2; }
+/* Account for transparent margins in the original PNG without altering it. */
+.profile-cutout img { position: absolute; width: 166.154%; max-width: none; height: 122.727%; left: -30.769%; top: -12.727%; object-fit: contain; }
+.profile-hero-with-cutout + .profile-season { margin-top: 70px; }
+@media (min-width: 601px) and (max-width: 900px) {
+  .profile-hero-with-cutout .profile-performance { grid-template-columns: minmax(0, 1fr) 100px; gap: 12px; }
+  .profile-hero-with-cutout .profile-stat strong { font-size: 1.8rem; }
+  .profile-hero-with-cutout .profile-career-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .profile-cutout { transform: translate(12px, 50px); }
+}
+@media (max-width: 600px) {
+  .profile-hero-with-cutout .profile-portrait { border-radius: 16px 16px 0 0; }
+  .profile-hero-with-cutout .profile-identity { border-radius: 0 0 16px 16px; }
+  .profile-hero-with-cutout .profile-performance { grid-template-columns: minmax(0, 1fr) clamp(76px, 23vw, 120px); gap: 12px; }
+  .profile-hero-with-cutout .profile-career-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 10px; }
+  .profile-hero-with-cutout .profile-stat strong { font-size: 1.8rem; }
+  .profile-hero-with-cutout .profile-stat span { font-size: .65rem; overflow-wrap: anywhere; }
+  .profile-cutout { transform: translate(8px, 48px); }
+  .profile-hero-with-cutout + .profile-season { margin-top: 58px; }
+}

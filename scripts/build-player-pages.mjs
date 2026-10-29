@@ -50,6 +50,8 @@ export async function buildPlayerPages() {
       measurements: [profile.height && `<span>Height: ${escape(profile.height)}</span>`, profile.weight && `<span>Weight: ${escape(profile.weight)}</span>`].filter(Boolean).join(''),
       totalCards: statCards(totals, ['appearances', 'goals', 'assists']),
       honors: renderHonors(profile),
+      cutoutClass: profile.cutout ? ' profile-hero-with-cutout' : '',
+      cutout: profile.cutout ? `<div class="profile-cutout" aria-hidden="true"><img src="${escape(profile.cutout)}" alt="" width="1080" height="1350"></div>` : '',
       statHeaders: displayedKeys.map(k => `<th scope="col">${k === 'appearances' ? 'Apps' : labels[keys.indexOf(k)]}</th>`).join(''),
       rows: rows.map(r => `<tr><th scope="row">${r.year}</th>${displayedKeys.map(k => `<td>${r[k]}</td>`).join('')}</tr>`).join(''),
       totalCells: displayedKeys.map(k => `<td>${totals[k]}</td>`).join(''),

@@ -76,7 +76,7 @@
   </header>
 <main class="profile-main">
   <nav class="profile-breadcrumb" aria-label="Breadcrumb"><a href="{{rosterUrl}}">First team roster</a><span aria-hidden="true">/</span><span>{{name}}</span></nav>
-  <section class="profile-hero" aria-labelledby="player-name">
+  <section class="profile-hero{{cutoutClass}}" aria-labelledby="player-name">
     <div class="profile-portrait">
       <img src="{{image}}" alt="{{name}}" width="500" height="500" fetchpriority="high">
       <span class="profile-shirt" aria-label="Shirt number {{number}}">{{number}}</span>
@@ -87,8 +87,13 @@
       <div class="profile-details"><span>{{position}}</span><span>{{hometown}}</span>{{measurements}}<span class="profile-tenure">{{seasonTenure}}</span></div>
       <p class="profile-bio">{{bio}}</p>
       <h2 class="profile-eyebrow">All-time club stats</h2>
+      <div class="profile-performance">
+      <div class="profile-performance-numbers">
       <div class="profile-career-stats">{{totalCards}}</div>
       <div class="profile-career-stats profile-scoring-stats"><div class="profile-stat"><strong>{{contribution}}</strong><span>Goal contributions</span><small>Goals + assists</small></div><div class="profile-stat"><strong>{{rate}}</strong><span>Goals per appearance</span></div></div>
+      </div>
+      {{cutout}}
+      </div>
     </div>
   </section>
   {{honors}}
