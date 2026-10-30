@@ -86,7 +86,6 @@ export async function buildPlayerPages() {
       totalCards: statCards(totals, ['appearances', 'goals', 'assists']),
       honors: renderHonors(profile),
       matches: renderMatches(profile, player, seasons, matches),
-      honorsLink: (profile.awards?.length || profile.superlatives?.length) ? '<a href="#honors-title">Awards &amp; honors</a>' : '',
       cutoutClass: profile.cutout ? ' profile-hero-with-cutout' : '',
       cutout: profile.cutout ? `<div class="profile-cutout" aria-hidden="true"><img src="${escape(profile.cutout)}" alt="" width="1080" height="1350" fetchpriority="high"></div>` : `<img class="profile-art-fallback" src="${escape(player.image)}" alt="${escape(player.name)}" width="500" height="500">`,
       statHeaders: displayedKeys.map(k => `<th scope="col">${k === 'appearances' ? 'Apps' : labels[keys.indexOf(k)]}</th>`).join(''),

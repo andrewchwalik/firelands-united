@@ -25,6 +25,9 @@ for (const profile of profiles) {
   assert.equal(player.profileUrl, `/players/${profile.id}/`);
   assert.ok(!/{{\w+}}/.test(html), 'No unresolved template fields');
   assert.ok(html.includes('class="profile-dashboard"'), 'Profile details use the card layout');
+  assert.equal((html.match(/role="tab"/g) || []).length, 2);
+  assert.ok(html.includes('id="profile-matches-panel" role="tabpanel" aria-labelledby="profile-matches-tab" hidden'));
+  assert.ok(html.includes('src="/player-profile.js"'));
   for (const [, anchor] of html.matchAll(/href="#([^"]+)"/g)) {
     assert.ok(html.includes(`id="${anchor}"`), `Section link ${anchor} has a destination`);
   }

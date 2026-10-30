@@ -1,6 +1,6 @@
 const CACHE_SECONDS = 300;
 const YOUTUBE_CHANNEL_HANDLE_URL = "https://www.youtube.com/@FirelandsUnited/videos";
-const CACHE_VERSION = "v2";
+const CACHE_VERSION = "v3";
 
 function jsonResponse(body, status, corsHeaders) {
   return new Response(JSON.stringify(body), {
@@ -13,45 +13,40 @@ function jsonResponse(body, status, corsHeaders) {
   });
 }
 
-function decodeHtml(value) {
-  return (value || "")
-    .replace(/\\u0026/g, "&")
-    .replace(/\\u003d/g, "=")
-    .replace(/\\u002F/g, "/")
-    .replace(/&amp;/g, "&")
-    .replace(/&#39;/g, "'")
-    .replace(/&quot;/g, "\"");
-}
-
-async function fetchLatestYoutubeVideo() {
+export async function fetchLatestYoutubeVideo() {
   const response = await fetch(YOUTUBE_CHANNEL_HANDLE_URL, {
     headers: {
       "User-Agent": "Mozilla/5.0",
       "Accept-Language": "en-US,en;q=0.9"
-    }
+    },
+    signal: AbortSignal.timeout(12000)
   });
   if (!response.ok) {
     throw new Error(`YouTube page request failed (${response.status})`);
   }
 
   const html = await response.text();
-  const videoIdMatch = html.match(/"videoId":"([^"]+)"/);
+  const videoIdMatch = html.match(/"videoId":"([A-Za-z0-9_-]{11})"/);
   if (!videoIdMatch?.[1]) {
     throw new Error("Could not determine latest YouTube video ID.");
   }
 
   const videoId = videoIdMatch[1];
-  const titleMatch = html.match(new RegExp(`"videoId":"${videoId}".*?"title":\\{"runs":\\[\\{"text":"([^"]+)"\\}`, "s"));
-  const publishedMatch = html.match(new RegExp(`"videoId":"${videoId}".*?"publishedTimeText":\\{"simpleText":"([^"]+)"\\}`, "s"));
-  const title = decodeHtml(titleMatch?.[1] || "Watch on YouTube");
-  const publishedAt = decodeHtml(publishedMatch?.[1] || "");
+  // Resolve metadata for this exact video, never unrelated titles in the channel HTML.
   const url = `https://www.youtube.com/watch?v=${videoId}`;
+  const metadataResponse = await fetch(`https://www.youtube.com/oembed?url=${encodeURIComponent(url)}&format=json`, {
+    signal: AbortSignal.timeout(8000)
+  });
+  if (!metadataResponse.ok) throw new Error(`YouTube metadata request failed (${metadataResponse.status})`);
+  const metadata = await metadataResponse.json();
+  if (typeof metadata.title !== 'string' || !metadata.title.trim()) throw new Error('YouTube video title missing.');
+  const title = metadata.title.trim();
 
   return {
     id: videoId,
     title,
     url,
-    published_at: publishedAt,
+    published_at: "",
     thumbnail: videoId ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg` : ""
   };
 }

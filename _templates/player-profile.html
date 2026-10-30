@@ -93,8 +93,8 @@
       <div class="profile-career-stats profile-scoring-stats"><div class="profile-stat"><strong>{{contribution}}</strong><span>Goal contributions</span><small>Goals + assists</small></div><div class="profile-stat"><strong>{{rate}}</strong><span>Goals per appearance</span></div></div>
     </div>
   </section>
-  <nav class="profile-section-nav" aria-label="Player sections"><a href="#about-player">About</a><a href="#record-title">Season stats</a>{{honorsLink}}<a href="#matches-title">Matches</a></nav>
-  <div class="profile-dashboard">
+  <nav class="profile-section-nav" role="tablist" aria-label="Player sections"><button type="button" role="tab" id="profile-about-tab" aria-controls="profile-about-panel" aria-selected="true">About</button><button type="button" role="tab" id="profile-matches-tab" aria-controls="profile-matches-panel" aria-selected="false" tabindex="-1">Matches</button></nav>
+  <div class="profile-dashboard" id="profile-about-panel" role="tabpanel" aria-labelledby="profile-about-tab">
     <section class="profile-about profile-season" id="about-player" aria-labelledby="about-title">
       <div class="profile-about-heading"><img src="{{image}}" alt="{{name}} headshot" width="64" height="64" loading="lazy"><div><h2 id="about-title">About {{firstName}}</h2><p>{{team}} &middot; #{{number}}</p></div></div>
       <p class="profile-bio">{{bio}}</p>
@@ -108,8 +108,8 @@
       <p class="profile-note">Apps = appearances. Includes league, cup and playoff statistics recorded by the club. Unrecorded stat categories count as zero.</p>
     </section>
     {{honors}}
-    {{matches}}
   </div>
+  <div id="profile-matches-panel" role="tabpanel" aria-labelledby="profile-matches-tab" hidden>{{matches}}</div>
 </main>
   <footer class="site-footer">
 <div class="footer-links-container">
@@ -142,5 +142,6 @@
 
   </footer>
 <script src="/script.js"></script>
+<script src="/player-profile.js"></script>
 </body>
 </html>

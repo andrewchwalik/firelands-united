@@ -49,7 +49,7 @@
     {
       "team": "men",
       "season": 2025,
-      "league": "NOSL",
+      "league": "NOSL Northwest Division",
       "record": { "wins": 6, "draws": 0, "losses": 3, "points": 18 },
       "cupRecord": { "wins": 0, "draws": 0, "losses": 1 },
       "tableFinish": "2nd Place (18 points)",

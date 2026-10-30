@@ -2046,7 +2046,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const socialCacheKeys = {
       instagram: "firelands-contact-social-instagram-v2",
-      social: "firelands-contact-social-combined"
+      social: "firelands-contact-social-combined-v3"
     };
 
     function readCachedJson(key) {
