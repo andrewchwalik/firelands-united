@@ -23,6 +23,10 @@ for (const profile of profiles) {
   assert.equal(html.includes('<th scope="col">Saves</th>'), keys.includes('saves'));
   assert.equal(player.profileUrl, `/players/${profile.id}/`);
   assert.ok(!/{{\w+}}/.test(html), 'No unresolved template fields');
+  assert.ok(html.includes('class="profile-dashboard"'), 'Profile details use the card layout');
+  for (const [, anchor] of html.matchAll(/href="#([^"]+)"/g)) {
+    assert.ok(html.includes(`id="${anchor}"`), `Section link ${anchor} has a destination`);
+  }
   assert.equal((html.match(/<table /g) || []).length, 1, 'One combined season table');
   assert.ok(!html.includes('Season spotlight') && !html.includes('Every season. One club.'));
   assert.ok(html.includes('class="profile-scoring-stats"') || html.includes('profile-career-stats profile-scoring-stats'));
