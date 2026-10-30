@@ -6,6 +6,7 @@ const root = new URL('../', import.meta.url);
 const read = file => readFile(new URL(file, root), 'utf8');
 const { players } = JSON.parse(await read('data/players.json'));
 const { seasons } = JSON.parse(await read('data/season-stats.json'));
+const { matches } = JSON.parse(await read('data/matches.json'));
 const { profiles } = JSON.parse(await read('data/player-profiles.json'));
 assert.ok(statKeysForPosition('GK').includes('saves'));
 assert.ok(statKeysForPosition('GK/CB').includes('saves'));
@@ -40,17 +41,33 @@ for (const profile of profiles) {
   }
   assert.ok(html.includes(renderHonors(profile)), 'Published honors match player data');
   if (profile.id === 'reggie-johnson') {
-    assert.deepEqual(profile.awards.map(a => a.count), [2, 2, 1]);
-    assert.equal(profile.awards[2].season, 2026);
+    assert.equal(profile.awards.length, 5);
+    assert.deepEqual(profile.awards.filter(a => a.category === 'league').map(a => a.season), [2026, 2025]);
+    assert.ok(!html.includes('NOSL Player of the Season'));
+    assert.equal((html.match(/class="profile-match"/g) || []).length, 24);
+    assert.equal(new Set(profile.matchIds).size, 24);
+    for (const season of seasons.filter(s => s.team === player.team)) {
+      const played = matches.filter(m => profile.matchIds.includes(m.id) && m.season === season.season);
+      assert.equal(played.length, season.playerStats[player.id].appearances);
+      for (const key of ['goals', 'assists', 'yellowCards']) {
+        const recorded = played.reduce((sum, m) => sum + (m.playerEvents?.[key]?.[player.id] || 0), 0);
+        assert.ok(recorded <= (season.playerStats[player.id][key] || 0), 'Match contributions do not exceed season totals');
+      }
+    }
+    for (const id of profile.matchIds) {
+      const match = matches.find(m => m.id === id);
+      assert.ok(html.includes(match.homeScore + '&ndash;' + match.awayScore));
+    }
+    assert.equal(profile.awards[4].season, 2026);
     assert.deepEqual(profile.superlatives.map(s => s.season), [2026, 2025]);
   }
   const records = seasons.filter(s => s.team === player.team && s.playerStats[player.id]);
   for (const record of records) {
     const cells = keys.map(key => `<td>${record.playerStats[player.id][key] ?? 0}</td>`).join('');
-    assert.ok(html.includes(`<tr><th scope="row">${record.season}</th>${cells}</tr>`), `Season ${record.season} matches source`);
+    assert.ok(html.includes(`<tr><th scope="row">${record.season}</th><td>${record.league}</td>${cells}</tr>`), `Season ${record.season} matches source`);
   }
   const totals = keys.map(key => records.reduce((sum, r) => sum + (r.playerStats[player.id][key] ?? 0), 0));
-  assert.ok(html.includes(`<tfoot><tr><th scope="row">All time</th>${totals.map(n => `<td>${n}</td>`).join('')}</tr></tfoot>`));
+  assert.ok(html.includes(`<tfoot><tr><th scope="row">All time</th><td>&mdash;</td>${totals.map(n => `<td>${n}</td>`).join('')}</tr></tfoot>`));
   for (const [, asset] of html.matchAll(/(?:src|href)="(\/(?:img|fonts)\/[^"?]+)"/g)) {
     await access(new URL(asset.slice(1), root));
   }

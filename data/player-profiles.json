@@ -6,15 +6,70 @@
       "height": "5'8\"",
       "weight": "160 lbs",
       "awards": [
-        { "title": "NOSL Player of the Season", "count": 2 },
-        { "title": "Club Offensive Player of the Season", "count": 2 },
-        { "title": "Player of the Match", "count": 1, "season": 2026 }
+        {
+          "title": "NOSL Team of the Season",
+          "category": "league",
+          "season": 2026
+        },
+        {
+          "title": "NOSL Team of the Season",
+          "category": "league",
+          "season": 2025
+        },
+        {
+          "title": "Club Offensive Player of the Season",
+          "category": "offensive",
+          "season": 2026
+        },
+        {
+          "title": "Club Offensive Player of the Season",
+          "category": "offensive",
+          "season": 2025
+        },
+        {
+          "title": "Player of the Match",
+          "category": "match",
+          "season": 2026
+        }
       ],
       "superlatives": [
-        { "season": 2026, "title": "Voted Most Likely to Have the Best Goal Celebration" },
-        { "season": 2025, "title": "Voted Most Likely to Have the Best Goal Celebration" }
+        {
+          "season": 2026,
+          "title": "Voted Most Likely to Have the Best Goal Celebration"
+        },
+        {
+          "season": 2025,
+          "title": "Voted Most Likely to Have the Best Goal Celebration"
+        }
       ],
-      "bio": "From Lorain to the Lands. Reggie Johnson represents Firelands United as a striker and right winger. Explore his season-by-season record and all-time contributions to the club below."
+      "bio": "From Lorain to the Lands. Reggie Johnson represents Firelands United as a striker and right winger. Explore his season-by-season record and all-time contributions to the club below.",
+      "matchIds": [
+        "2025-men-ac-elite-away",
+        "2025-men-fc-perrysburg-home",
+        "2025-men-akron-united-cup",
+        "2025-men-valentis-away",
+        "2025-men-fc-perrysburg-away",
+        "2025-men-valentis-home",
+        "2025-men-ac-elite-away-2",
+        "2025-men-ac-elite-home",
+        "2025-men-fc-perrysburg-home-2",
+        "2025-men-valentis-home-2",
+        "2025-men-ac-elite-playoff",
+        "2026-men-fut-ohio-home",
+        "2026-men-valentis-away",
+        "2026-men-fc-rayos-cup",
+        "2026-men-greater-toledo-home",
+        "2026-men-fut-ohio-away",
+        "2026-men-greater-toledo-cup",
+        "2026-men-akron-club-home",
+        "2026-men-fc-rayos-home",
+        "2026-men-valentis-home",
+        "2026-men-greater-toledo-away",
+        "2026-men-fc-rayos-away",
+        "2026-men-forest-city-away",
+        "2026-men-greater-toledo-playoff-away"
+      ],
+      "matchRecordNote": "The 2025 and 2026 match lists are based on his season appearance totals, which cover every recorded club match in those seasons. Individual match contributions are shown where recorded; missing details do not mean zero contributions."
     }
   ]
 }
