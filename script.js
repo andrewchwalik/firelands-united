@@ -1,4 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Decorate neutral, light surfaces only; preserve photography and existing textures.
+  function decorateInteriorSurfaces() {
+    if (/^\/(?:home(?:\/index\.html)?\/?|index\.html)?$/.test(location.pathname)) return;
+    document.querySelectorAll('body, main, section, article, div').forEach(surface => {
+      if (surface.closest('header, footer, nav, .sponsor-section, .newsletter-section') || surface.classList.contains('club-flame-surface')) return;
+      const style = getComputedStyle(surface);
+      const color = style.backgroundColor.match(/[\d.]+/g)?.map(Number);
+      if (!color || color.length < 3 || (color.length > 3 && color[3] < .95) || style.backgroundImage !== 'none') return;
+      const rgb = color.slice(0, 3);
+      if (Math.min(...rgb) < 220 || Math.max(...rgb) - Math.min(...rgb) > 25) return;
+      if (surface !== document.body && (surface.clientWidth < 280 || surface.clientHeight < 150)) return;
+      surface.classList.add('club-flame-surface');
+    });
+  }
+  decorateInteriorSurfaces();
+  window.addEventListener('load', decorateInteriorSurfaces, { once: true });
+  document.addEventListener('click', event => {
+    if (event.target.closest('.year-tab, .roster-tab')) requestAnimationFrame(decorateInteriorSurfaces);
+  });
   // ----- Shared sponsors include -----
   // Single source of truth: /partials/sponsors.html
   async function loadSharedSponsors() {
@@ -1091,13 +1110,13 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelectorAll('.roster-card:not(.coaching-card), .history-player:not(.coaching-card)').forEach(card => {
         const photo = card.querySelector('img');
         const name = card.querySelector('h3');
-        if (!name || photo?.alt !== `${player.name} headshot` || name.querySelector('a')) return;
+        if (!name || photo?.alt !== `${player.name} headshot` || card.querySelector('.player-profile-link')) return;
         const link = document.createElement('a');
         link.href = player.profileUrl;
         link.className = 'player-profile-link';
         link.setAttribute('aria-label', `View ${player.name}'s player profile`);
-        while (name.firstChild) link.appendChild(name.firstChild);
-        name.appendChild(link);
+        card.classList.add('linked-player-card');
+        card.appendChild(link);
       });
     });
   }
@@ -1115,6 +1134,7 @@ document.addEventListener("DOMContentLoaded", () => {
         renderSeasonPanels(data.seasons, data.matches, data.players, data.staff);
         renderRecordPanels(data.seasons, data.players);
         linkPlayerProfiles(data.players);
+        decorateInteriorSurfaces();
       })
       .catch((err) => {
         console.error("Error loading club data:", err);
