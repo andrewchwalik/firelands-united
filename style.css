@@ -2678,7 +2678,7 @@ body.join-info-page .about-story-section {
   position: absolute;
   inset: auto 0 -1px;
   height: clamp(14px, 3.5vw, 64px);
-  background: url('/img/sponsorships-burned-edge.svg') center bottom / 100% 100% no-repeat;
+  background: url('/img/sponsorships-burned-edge.svg?v=2') center bottom / 100% 100% no-repeat;
   pointer-events: none;
 }
 

@@ -1,8 +1,41 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 80" preserveAspectRatio="none">
   <defs>
-    <path id="edge" d="M-4 40 L18 42 31 38 45 43 64 40 82 46 103 44 119 49 138 45 151 47 172 41 188 44 207 36 222 39 241 30 256 33 274 26 291 29 310 21 328 26 341 23 359 32 377 29 395 37 412 34 429 42 447 39 467 47 481 44 502 51 519 47 537 53 556 48 571 51 589 43 608 46 624 38 640 41 661 32 679 35 694 27 712 31 731 22 748 25 763 18 784 23 801 20 819 28 838 25 855 34 871 30 892 39 909 36 926 44 944 40 962 47 979 43 999 49 1017 44 1033 47 1052 39 1070 42 1087 34 1106 37 1123 29 1141 33 1158 26 1175 30 1195 24 1212 29 1229 26 1248 35 1267 31 1285 39 1302 36 1320 44 1341 41 1357 48 1376 44 1394 50 1411 46 1429 49 1447 41 1466 44 1484 36 1501 39 1520 31 1537 35 1554 29 1573 34 1589 31 1604 35 L1604 84 H-4 Z"/>
+    <linearGradient id="char" x1="0" x2="1">
+      <stop offset="0" stop-color="#302a26" stop-opacity=".4"/>
+      <stop offset=".13" stop-color="#211b17" stop-opacity=".8"/>
+      <stop offset=".29" stop-color="#614332" stop-opacity=".3"/>
+      <stop offset=".47" stop-color="#30221b" stop-opacity=".65"/>
+      <stop offset=".62" stop-color="#594234" stop-opacity=".35"/>
+      <stop offset=".78" stop-color="#211b17" stop-opacity=".85"/>
+      <stop offset="1" stop-color="#493327" stop-opacity=".45"/>
+    </linearGradient>
+    <path id="edge" d="M-5 51
+      C14 48 29 58 48 55 L57 58 Q76 59 91 51
+      C105 48 108 29 122 26 L128 30 Q133 23 139 27
+      C148 29 150 42 160 42 Q171 41 176 32
+      C185 13 203 10 217 15 L222 12 228 18
+      C241 16 246 35 261 38 Q281 47 311 44
+      L326 47 Q369 49 396 43 C415 38 423 44 439 42
+      L448 45 453 41 Q478 36 496 39
+      C516 40 521 54 545 58 Q557 61 568 57
+      L574 60 C604 65 647 58 665 53
+      Q677 47 681 35 L686 39 Q690 33 697 36
+      C709 42 710 56 727 55 Q749 56 756 45
+      C761 37 757 21 766 18 L773 23 780 20
+      Q789 19 794 31 C802 43 815 40 827 44
+      Q853 51 873 49 L881 52 Q909 48 926 55
+      C941 61 977 64 994 58 L1001 61 1012 57
+      Q1035 52 1048 41 C1062 30 1090 33 1106 29
+      L1113 32 Q1120 26 1128 30 C1145 35 1150 46 1164 43
+      Q1178 40 1180 24 C1182 13 1193 6 1203 11
+      L1208 8 1215 17 Q1223 20 1225 32
+      C1228 45 1243 50 1258 46 L1265 50
+      Q1291 54 1303 49 C1328 41 1363 46 1380 39
+      L1388 42 Q1400 37 1418 40 C1441 44 1443 56 1463 57
+      L1472 54 1481 58 Q1520 63 1546 55
+      C1562 50 1575 55 1587 49 L1605 52 V85 H-5 Z"/>
   </defs>
-  <!-- A shallow, non-repeating torn silhouette with a fine charred rim. -->
-  <use href="#edge" fill="#fff" stroke="#302a26" stroke-opacity=".5" stroke-width="7" stroke-linejoin="round"/>
-  <use href="#edge" fill="#fff" stroke="#b47a43" stroke-opacity=".6" stroke-width="2.5" stroke-linejoin="round"/>
+  <!-- Uneven burn pockets and quiet stretches, with varied char intensity. -->
+  <use href="#edge" fill="#fff" stroke="url(#char)" stroke-width="7" stroke-linejoin="round"/>
+  <use href="#edge" fill="#fff" stroke="#b47a43" stroke-opacity=".55" stroke-width="2" stroke-linejoin="round"/>
 </svg>
