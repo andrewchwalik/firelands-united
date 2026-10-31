@@ -54,13 +54,15 @@
 .profile-table tfoot { background: #474e5a; color: #fff; font-weight: 700; }
 .profile-table tfoot th { color: #ffb456; }
 .profile-note { font-size: .65rem; line-height: 1.7; color: #676d76; margin: 14px 0 0; }
-.profile-awards-grid { display: grid; gap: 12px; list-style: none; padding: 0; }
-.profile-award { display: flex; align-items: center; gap: 14px; padding: 14px; border: 1px solid #ebe4da; border-left: 3px solid var(--profile-orange); border-radius: 8px; background: #fcfaf6; }
-.profile-award-count { font: 1.7rem/1 'Bermont', sans-serif; color: #a95300; white-space: nowrap; }
-.profile-award h3 { font-size: .76rem; line-height: 1.5; }
+.profile-awards-grid { display: grid; gap: 14px; list-style: none; padding: 0; }
+.profile-award { position: relative; isolation: isolate; display: flex; align-items: center; gap: 18px; padding: 20px; border: 1px solid #606672; border-radius: 12px; color: #fff; background: linear-gradient(120deg, #ffffff08, transparent 52%), linear-gradient(155deg, #4c5360, #353c47); box-shadow: inset 0 1px 0 #ffffff20, 0 5px 12px #242a3412; }
+.profile-award::before { content: ''; position: absolute; top: -1px; left: 20px; right: 20px; height: 1px; background: linear-gradient(90deg, transparent, #efb76a, transparent); }
+.profile-award::after { content: ''; position: absolute; right: 9px; bottom: 9px; width: 12px; height: 12px; border-right: 1px solid #efb76a55; border-bottom: 1px solid #efb76a55; border-radius: 0 0 4px 0; pointer-events: none; }
+.profile-award > div { min-width: 0; }
+.profile-award h3 { font-size: .78rem; font-weight: 600; line-height: 1.5; color: #fff; text-wrap: pretty; }
 .profile-award p { font-size: .68rem; margin-top: 4px; }
-.profile-award-icon { flex: 0 0 30px; width: 30px; height: 30px; color: #a95300; }
-.profile-award .profile-award-year { margin: 0 0 4px; }
+.profile-award-icon { box-sizing: border-box; flex: 0 0 54px; width: 54px; height: 54px; padding: 12px; border: 1px solid #ffdc9b; border-radius: 50%; color: #68400e; background: linear-gradient(140deg, #fff1c9, #eaaa4d 55%, #bf7728); box-shadow: inset 0 0 0 3px #ffffff26, inset 0 -2px 4px #6b3d181f, 0 3px 8px #171c2740; }
+.profile-award .profile-award-year { margin: 0 0 6px; color: #ffc16f; font-size: .64rem; font-weight: 700; letter-spacing: .16em; }
 .profile-matches { grid-column: 1 / -1; }
 .profile-season-selector { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
 .profile-season-selector button { border: 1px solid #d9dce0; border-radius: 999px; padding: 8px 20px; background: #fff; color: var(--profile-grey); font: 700 .8rem 'Montserrat', sans-serif; cursor: pointer; }
