@@ -2665,6 +2665,20 @@ body.join-info-page .about-story-section {
   line-height: 1.45;
 }
 
+.sponsorships-banner {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+.sponsorships-banner img {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: auto;
+}
+
 .sponsorships-page-section {
   background: #f5f5f5;
   padding: 60px 20px 64px;
