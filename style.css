@@ -2679,6 +2679,17 @@ body.join-info-page .about-story-section {
   height: auto;
 }
 
+@media (min-width: 769px) {
+  body.sponsorships-info-page .news-ticker {
+    z-index: 2;
+  }
+
+  /* Show the banner through the ticker's transparent badge cutout. */
+  body.sponsorships-info-page .news-ticker + .sponsorships-banner {
+    margin-top: -38px;
+  }
+}
+
 .sponsorships-page-section {
   background: #f5f5f5;
   padding: 60px 20px 64px;
