@@ -4295,5 +4295,10 @@ body.presskit-page .content-section:nth-of-type(5) {
 .linked-player-card:has(> .player-profile-link:hover) { box-shadow: 0 10px 24px #474e5a30, 0 0 0 2px #f18a01; }
 .linked-player-card > .player-profile-link:focus-visible { outline: 3px solid #f18a01; outline-offset: -4px; }
 
-/* The artwork itself fades unevenly, leaving ample quiet space behind text. */
-body .club-flame-surface, body.club-flame-surface { background-image: url('/img/club-flame-pattern.svg'); background-size: 780px 960px; background-repeat: repeat; }
+/* Only the page canvas receives texture. Tile edges fade fully to transparent. */
+body.club-flame-background {
+  background-image: url('/img/club-flame-atmosphere.svg');
+  background-size: 1600px 1800px;
+  background-position: center top;
+  background-repeat: repeat;
+}
