@@ -10,8 +10,6 @@
 .roster-hero-details dt { color: #ffb456; font-size: .6rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 8px; }
 .roster-hero-details dd { margin: 0; color: #fff; font-size: .76rem; font-weight: 600; line-height: 1.5; }
 .roster-hero-details dd span { display: block; font-size: .68rem; font-weight: 400; color: #d8dce0; }
-.roster-hero-history { color: #ffc16f; font-size: .72rem; text-underline-offset: 4px; }
-.roster-hero-history:focus-visible { outline: 2px solid #ffc16f; outline-offset: 5px; }
 .roster-hero-players { position: relative; align-self: stretch; min-height: 350px; isolation: isolate; pointer-events: none; }
 /* Keep the supplied transparent artwork intact; position its visible figures together. */
 .roster-hero-player { position: absolute; bottom: -38px; width: 33.33%; height: 390px; }
