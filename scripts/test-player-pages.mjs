@@ -50,6 +50,8 @@ for (const profile of profiles) {
   assert.ok(html.includes(renderHonors(profile)), 'Published honors match player data');
   if (profile.id === 'reggie-johnson') {
     assert.equal(profile.awards.length, 5);
+    const awardList = renderHonors(profile).split('</ul>')[0];
+    assert.deepEqual([...awardList.matchAll(/class="profile-award-year">(\d{4})/g)].map(match => Number(match[1])), [2026, 2026, 2026, 2025, 2025]);
     assert.deepEqual(profile.awards.filter(a => a.category === 'league').map(a => a.season), [2026, 2025]);
     assert.ok(!html.includes('NOSL Player of the Season'));
     assert.equal((html.match(/class="profile-match"/g) || []).length, 24);

@@ -47,7 +47,7 @@ export function renderMatches(profile, player, seasons, matches) {
 }
 
 export function renderHonors(profile) {
-  const awards = profile.awards || [];
+  const awards = [...(profile.awards || [])].sort((a, b) => (b.season || 0) - (a.season || 0));
   const superlatives = profile.superlatives || [];
   if (!awards.length && !superlatives.length) return '';
   const awardCards = awards.length ? `<ul class="profile-awards-grid">${awards.map(award =>
