@@ -2666,10 +2666,20 @@ body.join-info-page .about-story-section {
 }
 
 .sponsorships-banner {
+  position: relative;
   width: 100%;
   margin: 0;
   padding: 0;
   line-height: 0;
+}
+
+.sponsorships-banner::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 -1px;
+  height: clamp(14px, 3.5vw, 64px);
+  background: url('/img/sponsorships-burned-edge.svg') center bottom / 100% 100% no-repeat;
+  pointer-events: none;
 }
 
 .sponsorships-banner img {
