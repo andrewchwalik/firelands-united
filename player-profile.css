@@ -43,7 +43,7 @@
 .profile-about-heading { display: flex; align-items: center; gap: 14px; }
 .profile-about-heading img { width: 56px; height: 56px; object-fit: cover; border-radius: 10px; }
 .profile-about-heading p { margin-top: 7px; font-size: .7rem; color: #676d76; }
-.profile-bio { font-size: .84rem; line-height: 1.8; margin: 18px 0; color: #5a626d; }
+.profile-bio { font-size: .84rem; line-height: 1.8; margin: 18px 0; color: #5a626d; white-space: pre-line; }
 .profile-team-link { color: #995000; font-size: .75rem; font-weight: 700; }
 .profile-table-wrap { overflow-x: auto; border: 1px solid #e3e5e7; border-radius: 9px; }
 .profile-table { width: 100%; min-width: 480px; border-collapse: collapse; font-size: .78rem; text-align: right; }
