@@ -531,12 +531,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     panel.innerHTML = `
       <div class="roster-group">
-        <h2 class="roster-group-title">Coaches</h2>
+        <h2 class="roster-group-title" id="roster-coaches">Coaches</h2>
         <div class="coaching-row">${currentRoles.map(({ person, role }) => coachCardMarkup(person, role)).join("")}</div>
       </div>
       ${groupOrder.map((group) => `
         <div class="roster-group">
-          <h2 class="roster-group-title">${group}</h2>
+          <h2 class="roster-group-title" id="roster-${group === "Attackers" ? "forwards" : group.toLowerCase()}">${group === "Attackers" ? "Forwards" : group}</h2>
           <div class="roster-grid">${grouped.get(group).map((player) => playerCardMarkup(player, getRosterApps(player), true)).join("")}</div>
         </div>
       `).join("")}
@@ -1346,6 +1346,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // ----- Roster page tabs -----
   const rosterTabs = document.querySelectorAll(".roster-tab");
   const rosterPanels = document.querySelectorAll(".roster-panel");
+
+  document.querySelectorAll('.roster-jump-nav a').forEach((link) => {
+    link.addEventListener('click', () => {
+      // Reveal the target before the browser follows the native anchor link.
+      document.querySelector('.roster-tab[data-roster="first-team"]')?.click();
+    });
+  });
 
   if (rosterTabs.length > 0 && rosterPanels.length > 0) {
     rosterTabs.forEach((tab) => {

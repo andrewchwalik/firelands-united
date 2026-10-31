@@ -3071,6 +3071,37 @@ body.presskit-page .content-section:nth-of-type(5) {
   flex-wrap: wrap;
 }
 
+.roster-jump-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  margin: 0 0 28px;
+  padding: 14px 0;
+  border-block: 1px solid rgba(71, 78, 90, 0.16);
+}
+
+.roster-jump-nav a {
+  color: #474e5a;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 6px 0;
+}
+
+.roster-jump-nav a:hover {
+  color: #b65e00;
+}
+
+.roster-jump-nav a:focus-visible {
+  outline: 2px solid #f18a01;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.roster-content .roster-group-title[id] {
+  scroll-margin-top: 120px;
+}
+
 .roster-tab {
   border: 2px solid #f18a01;
   border-radius: 999px;
