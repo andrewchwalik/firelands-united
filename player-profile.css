@@ -62,6 +62,10 @@
 .profile-award-icon { flex: 0 0 30px; width: 30px; height: 30px; color: #a95300; }
 .profile-award .profile-award-year { margin: 0 0 4px; }
 .profile-matches { grid-column: 1 / -1; }
+.profile-season-selector { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.profile-season-selector button { border: 1px solid #d9dce0; border-radius: 999px; padding: 8px 20px; background: #fff; color: var(--profile-grey); font: 700 .8rem 'Montserrat', sans-serif; cursor: pointer; }
+.profile-season-selector button[aria-selected="true"] { background: var(--profile-orange); border-color: var(--profile-orange); color: #252b34; }
+.profile-season-selector button:hover { border-color: var(--profile-orange); }
 .profile-match-season { margin-top: 26px; }
 .profile-match-season h3 { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; font-size: 1.1rem; margin-bottom: 14px; }
 .profile-match-season h3 span { font-size: .75rem; font-weight: 400; color: #676d76; }

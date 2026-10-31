@@ -27,7 +27,8 @@ export function renderMatches(profile, player, seasons, matches) {
     return match;
   });
   const years = [...new Set(selected.map(m => m.season))].sort((a, b) => b - a);
-  const groups = years.map(year => {
+  const selector = years.length ? `<div class="profile-season-selector" role="tablist" aria-label="Match season">${years.map((year, index) => `<button type="button" role="tab" id="match-season-tab-${year}" aria-controls="match-season-${year}" aria-selected="${index === 0}" tabindex="${index === 0 ? 0 : -1}">${year}</button>`).join('')}</div>` : '';
+  const groups = years.map((year, index) => {
     const season = seasons.find(s => s.team === player.team && s.season === year);
     if (!season?.league) throw new Error(`Missing league for ${player.id}, ${year}`);
     const cards = selected.filter(m => m.season === year).map(m => {
@@ -40,9 +41,9 @@ export function renderMatches(profile, player, seasons, matches) {
       const date = /^\d{4}-\d{2}-\d{2}$/.test(m.date) ? new Date(`${m.date}T12:00:00Z`).toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric', timeZone:'UTC'}) : 'Date not recorded';
       return `<li class="profile-match"><p class="profile-match-meta">${escape(date)} &middot; ${escape(m.competition)}</p><div class="profile-match-score"><span>${escape(m.homeTeam)}</span><strong aria-label="${m.homeScore} to ${m.awayScore}">${m.homeScore}&ndash;${m.awayScore}</strong><span>${escape(m.awayTeam)}</span></div><p class="profile-match-contributions">${contributions.length ? escape(contributions.join(' / ')) : 'Individual contributions not recorded.'}</p></li>`;
     }).join('');
-    return `<div class="profile-match-season"><h3>${year} <span>${escape(season.league)}</span></h3><ul class="profile-match-list">${cards}</ul></div>`;
+    return `<div class="profile-match-season" id="match-season-${year}" role="tabpanel" aria-labelledby="match-season-tab-${year}"${index === 0 ? '' : ' hidden'}><h3>${year} <span>${escape(season.league)}</span></h3><ul class="profile-match-list">${cards}</ul></div>`;
   }).join('');
-  return `<section class="profile-season profile-matches" aria-labelledby="matches-title"><div class="profile-section-heading"><h2 id="matches-title">Matches</h2></div><p class="profile-note">${escape(profile.matchRecordNote || 'Final scores and individual contributions from recorded player appearances.')}</p>${groups || '<p>Individual match appearances have not been recorded yet.</p>'}</section>`;
+  return `<section class="profile-season profile-matches" aria-labelledby="matches-title"><div class="profile-section-heading"><h2 id="matches-title">Matches</h2></div><p class="profile-note">${escape(profile.matchRecordNote || 'Final scores and individual contributions from recorded player appearances.')}</p>${selector}${groups || '<p>Individual match appearances have not been recorded yet.</p>'}</section>`;
 }
 
 export function renderHonors(profile) {

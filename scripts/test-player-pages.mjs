@@ -25,7 +25,12 @@ for (const profile of profiles) {
   assert.equal(player.profileUrl, `/players/${profile.id}/`);
   assert.ok(!/{{\w+}}/.test(html), 'No unresolved template fields');
   assert.ok(html.includes('class="profile-dashboard"'), 'Profile details use the card layout');
-  assert.equal((html.match(/role="tab"/g) || []).length, 2);
+  const matchYears = [...new Set(matches.filter(m => profile.matchIds?.includes(m.id)).map(m => m.season))].sort((a, b) => b - a);
+  assert.equal((html.match(/role="tab"/g) || []).length, 2 + matchYears.length);
+  for (const [index, year] of matchYears.entries()) {
+    assert.ok(html.includes(`id="match-season-tab-${year}" aria-controls="match-season-${year}" aria-selected="${index === 0}"`));
+    assert.ok(html.includes(`id="match-season-${year}" role="tabpanel" aria-labelledby="match-season-tab-${year}"${index === 0 ? '' : ' hidden'}>`));
+  }
   assert.ok(html.includes('id="profile-matches-panel" role="tabpanel" aria-labelledby="profile-matches-tab" hidden'));
   assert.ok(html.includes('src="/player-profile.js"'));
   for (const [, anchor] of html.matchAll(/href="#([^"]+)"/g)) {
