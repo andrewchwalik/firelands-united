@@ -2665,7 +2665,7 @@ body.join-info-page .about-story-section {
   line-height: 1.45;
 }
 
-.sponsorships-banner {
+.page-image-banner {
   position: relative;
   width: 100%;
   margin: 0;
@@ -2673,16 +2673,20 @@ body.join-info-page .about-story-section {
   line-height: 0;
 }
 
-.sponsorships-banner::after {
+.page-image-banner::after {
   content: '';
   position: absolute;
   inset: auto 0 -1px;
   height: clamp(14px, 3.5vw, 64px);
-  background: url('/img/sponsorships-burned-edge.svg?v=2') center bottom / 100% 100% no-repeat;
+  background: var(--banner-edge, url('/img/sponsorships-burned-edge.svg?v=2')) center bottom / 100% 100% no-repeat;
   pointer-events: none;
 }
 
-.sponsorships-banner img {
+.about-banner { --banner-edge: url('/img/about-burned-edge.svg'); }
+.contact-banner { --banner-edge: url('/img/contact-burned-edge.svg'); }
+.news-banner { --banner-edge: url('/img/news-burned-edge.svg'); }
+
+.page-image-banner img {
   display: block;
   width: 100%;
   max-width: none;
@@ -2690,12 +2694,12 @@ body.join-info-page .about-story-section {
 }
 
 @media (min-width: 769px) {
-  body.sponsorships-info-page .news-ticker {
+  body:has(.page-image-banner) .news-ticker {
     z-index: 2;
   }
 
   /* Show the banner through the ticker's transparent badge cutout. */
-  body.sponsorships-info-page .news-ticker + .sponsorships-banner {
+  .news-ticker + .page-image-banner {
     margin-top: -38px;
   }
 }
