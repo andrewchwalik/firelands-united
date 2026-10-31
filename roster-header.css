@@ -1,0 +1,37 @@
+.roster-hero { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 32px; align-items: center; margin: 26px 0 32px; padding: 38px; min-height: 390px; border-radius: 18px; color: #fff; background: radial-gradient(ellipse at 75% 100%, #f18a0140, transparent 60%), repeating-linear-gradient(120deg, transparent 0 26px, #ffffff04 27px 28px), #474e5a; box-shadow: 0 18px 40px #242a3414; }
+.roster-hero { overflow: clip; }
+.roster-hero::before { content: ''; position: absolute; top: 0; left: 38px; width: 64px; height: 4px; background: #f18a01; }
+.roster-hero-copy { min-width: 0; position: relative; z-index: 2; }
+.roster-hero-eyebrow { color: #e3e5e9; font-size: .66rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin: 0 0 24px; }
+.roster-hero h1 { font: clamp(3rem, 5vw, 4.5rem)/.95 'Bermont', sans-serif; text-transform: uppercase; margin: 0 0 22px; color: #fff; }
+.roster-hero h1 span { display: block; font-size: .65em; line-height: 1; margin-bottom: 4px; color: #f18a01; }
+.roster-hero-intro { max-width: 460px; color: #e1e4e8; font-size: .83rem; line-height: 1.75; margin: 0 0 24px; }
+.roster-hero-details { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; border-top: 1px solid #ffffff26; padding-top: 18px; margin: 0 0 22px; }
+.roster-hero-details dt { color: #ffb456; font-size: .6rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 8px; }
+.roster-hero-details dd { margin: 0; color: #fff; font-size: .76rem; font-weight: 600; line-height: 1.5; }
+.roster-hero-details dd span { display: block; font-size: .68rem; font-weight: 400; color: #d8dce0; }
+.roster-hero-history { color: #ffc16f; font-size: .72rem; text-underline-offset: 4px; }
+.roster-hero-history:focus-visible { outline: 2px solid #ffc16f; outline-offset: 5px; }
+.roster-hero-players { position: relative; align-self: stretch; min-height: 350px; isolation: isolate; pointer-events: none; }
+/* Keep the supplied transparent artwork intact; position its visible figures together. */
+.roster-hero-player { position: absolute; bottom: -38px; width: 33.33%; height: 390px; }
+.roster-hero-player img { position: absolute; height: 115%; width: auto; max-width: none; bottom: -6%; left: 50%; transform: translateX(-50%); }
+.roster-hero-player-alex { left: 0; height: 370px; z-index: 1; }
+.roster-hero-player-grant { left: 32%; height: 415px; z-index: 3; }
+.roster-hero-player-jon { right: 0; height: 385px; z-index: 2; }
+@media (max-width: 900px) {
+  .roster-hero { padding: 28px; gap: 18px; grid-template-columns: minmax(0, 1fr) minmax(0, .95fr); }
+  .roster-hero-player { bottom: -28px; }
+  .roster-hero-player-alex { height: 300px; }
+  .roster-hero-player-grant { height: 340px; }
+  .roster-hero-player-jon { height: 310px; }
+}
+@media (max-width: 650px) {
+  .roster-hero { grid-template-columns: minmax(0, 1fr); gap: 22px; padding: 26px 22px 0; margin-top: 0; }
+  .roster-hero h1 { font-size: 3.1rem; }
+  .roster-hero-players { width: 100%; max-width: 380px; justify-self: center; min-height: 260px; }
+  .roster-hero-player { bottom: 0; }
+  .roster-hero-player-alex { height: 230px; }
+  .roster-hero-player-grant { height: 260px; }
+  .roster-hero-player-jon { height: 240px; }
+}

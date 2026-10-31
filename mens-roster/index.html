@@ -6,6 +6,7 @@
   <title>Men&apos;s Roster | Firelands United</title>
   <link rel="stylesheet" href="/style.css" />
   <link rel="stylesheet" href="/mobile.css" media="screen and (max-width: 768px)" />
+  <link rel="stylesheet" href="/roster-header.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="icon" href="/img/firelands-united-favicon.png" type="image/png">
 
@@ -84,9 +85,22 @@
   </header>
 
   <main class="history-content roster-content">
-    <section class="history-header">
-      <h1>Men&apos;s Roster</h1>
-      <p class="roster-intro">The Firelands United men&apos;s first team competes in the NOSL Second Division. The roster is comprised of local players ranging from Toledo to Tiffin to Lorain to Norwalk, and everywhere in between. You can look back at all our seasons and rosters in the History tab. Click on each player to view their stats and player bio.</p>
+    <section class="roster-hero" aria-labelledby="roster-title">
+      <div class="roster-hero-copy">
+        <p class="roster-hero-eyebrow">Firelands United &middot; First Team</p>
+        <h1 id="roster-title"><span>Men&apos;s</span> Roster</h1>
+        <p class="roster-hero-intro">Local talent. One united team. Meet the players representing the Firelands, from Toledo to Tiffin, Lorain to Norwalk, and everywhere in between.</p>
+        <dl class="roster-hero-details">
+          <div><dt>League</dt><dd>NOSL Second Division</dd></div>
+          <div><dt>Home ground</dt><dd>Strobel Field <span>Sandusky, Ohio</span></dd></div>
+        </dl>
+        <a class="roster-hero-history" href="/mens-team-history/">Explore team stats &amp; past seasons <span aria-hidden="true">&rarr;</span></a>
+      </div>
+      <div class="roster-hero-players" role="img" aria-label="Alex Davidson, Grant Miller, and Jon Slay in Firelands United match kits">
+        <div class="roster-hero-player roster-hero-player-alex"><img src="/img/player-cutouts/alex-davidson.png" alt="" width="1080" height="1350" fetchpriority="high"></div>
+        <div class="roster-hero-player roster-hero-player-grant"><img src="/img/player-cutouts/grant-miller.png" alt="" width="1080" height="1350" fetchpriority="high"></div>
+        <div class="roster-hero-player roster-hero-player-jon"><img src="/img/player-cutouts/jon-slay.png" alt="" width="1080" height="1350" fetchpriority="high"></div>
+      </div>
     </section>
 
     <section class="roster-tabs" aria-label="Roster views">
