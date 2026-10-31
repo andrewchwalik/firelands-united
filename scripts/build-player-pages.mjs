@@ -89,7 +89,7 @@ export async function buildPlayerPages() {
       matches: renderMatches(profile, player, seasons, matches),
       cutoutClass: profile.cutout ? ' profile-hero-with-cutout' : '',
       cutout: profile.cutout ? `<div class="profile-cutout" aria-hidden="true"><img src="${escape(profile.cutout)}" alt="" width="1080" height="1350" fetchpriority="high"></div>` : `<img class="profile-art-fallback" src="${escape(player.image)}" alt="${escape(player.name)}" width="500" height="500">`,
-      statHeaders: displayedKeys.map(k => `<th scope="col">${k === 'appearances' ? 'Apps' : labels[keys.indexOf(k)]}</th>`).join(''),
+      statHeaders: displayedKeys.map(k => `<th scope="col">${k === 'appearances' ? 'Apps.' : labels[keys.indexOf(k)]}</th>`).join(''),
       rows: rows.map(r => `<tr><th scope="row">${r.year}</th><td>${escape(r.league)}</td>${displayedKeys.map(k => `<td>${r[k]}</td>`).join('')}</tr>`).join(''),
       totalCells: displayedKeys.map(k => `<td>${totals[k]}</td>`).join(''),
       contribution: totals.goals + totals.assists,
