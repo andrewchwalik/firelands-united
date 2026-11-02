@@ -2686,6 +2686,12 @@ body.join-info-page .about-story-section {
 .contact-banner { --banner-edge: url('/img/contact-burned-edge.svg'); }
 .news-banner { --banner-edge: url('/img/news-burned-edge.svg'); }
 
+.internships-banner { --banner-edge: url('/img/internships-burned-edge.svg'); }
+.tryouts-banner { --banner-edge: url('/img/tryouts-burned-edge.svg'); }
+.volunteer-banner { --banner-edge: url('/img/volunteer-burned-edge.svg'); }
+.mens-roster-banner { --banner-edge: url('/img/mens-roster-burned-edge.svg'); }
+.womens-roster-banner { --banner-edge: url('/img/womens-roster-burned-edge.svg'); }
+
 .page-image-banner img {
   display: block;
   width: 100%;
