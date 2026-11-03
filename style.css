@@ -2678,31 +2678,31 @@ body.join-info-page .about-story-section {
   position: absolute;
   inset: auto 0 -1px;
   height: clamp(14px, 3.5vw, 64px);
-  background: var(--banner-edge, url('/img/sponsorships-burned-edge.svg?v=2')) center bottom / 100% 100% no-repeat;
+  background: var(--banner-edge, url('/img/sponsorships-burned-edge.svg?v=20261103')) center bottom / 100% 100% no-repeat;
   pointer-events: none;
 }
 
-.about-banner { --banner-edge: url('/img/about-burned-edge.svg'); }
-.contact-banner { --banner-edge: url('/img/contact-burned-edge.svg'); }
-.news-banner { --banner-edge: url('/img/news-burned-edge.svg'); }
+.about-banner { --banner-edge: url('/img/about-burned-edge.svg?v=20261103'); }
+.contact-banner { --banner-edge: url('/img/contact-burned-edge.svg?v=20261103'); }
+.news-banner { --banner-edge: url('/img/news-burned-edge.svg?v=20261103'); }
 
-.internships-banner { --banner-edge: url('/img/internships-burned-edge.svg'); }
-.tryouts-banner { --banner-edge: url('/img/tryouts-burned-edge.svg'); }
-.volunteer-banner { --banner-edge: url('/img/volunteer-burned-edge.svg'); }
-.mens-roster-banner { --banner-edge: url('/img/mens-roster-burned-edge.svg'); }
-.womens-roster-banner { --banner-edge: url('/img/womens-roster-burned-edge.svg'); }
+.internships-banner { --banner-edge: url('/img/internships-burned-edge.svg?v=20261103'); }
+.tryouts-banner { --banner-edge: url('/img/tryouts-burned-edge.svg?v=20261103'); }
+.volunteer-banner { --banner-edge: url('/img/volunteer-burned-edge.svg?v=20261103'); }
+.mens-roster-banner { --banner-edge: url('/img/mens-roster-burned-edge.svg?v=20261103'); }
+.womens-roster-banner { --banner-edge: url('/img/womens-roster-burned-edge.svg?v=20261103'); }
 
-.mens-staff-banner { --banner-edge: url('/img/mens-staff-burned-edge.svg'); }
+.mens-staff-banner { --banner-edge: url('/img/mens-staff-burned-edge.svg?v=20261103'); }
 
-.womens-staff-banner { --banner-edge: url('/img/womens-staff-burned-edge.svg'); }
+.womens-staff-banner { --banner-edge: url('/img/womens-staff-burned-edge.svg?v=20261103'); }
 
-.mens-schedule-banner { --banner-edge: url('/img/mens-schedule-burned-edge.svg'); }
+.mens-schedule-banner { --banner-edge: url('/img/mens-schedule-burned-edge.svg?v=20261103'); }
 
-.womens-schedule-banner { --banner-edge: url('/img/womens-schedule-burned-edge.svg'); }
+.womens-schedule-banner { --banner-edge: url('/img/womens-schedule-burned-edge.svg?v=20261103'); }
 
-.mens-stats-banner { --banner-edge: url('/img/mens-stats-burned-edge.svg'); }
+.mens-stats-banner { --banner-edge: url('/img/mens-stats-burned-edge.svg?v=20261103'); }
 
-.womens-stats-banner { --banner-edge: url('/img/womens-stats-burned-edge.svg'); }
+.womens-stats-banner { --banner-edge: url('/img/womens-stats-burned-edge.svg?v=20261103'); }
 
 .page-image-banner img {
   display: block;
