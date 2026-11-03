@@ -1348,9 +1348,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const rosterPanels = document.querySelectorAll(".roster-panel");
 
   document.querySelectorAll('.roster-jump-nav a').forEach((link) => {
-    link.addEventListener('click', () => {
-      // Reveal the target before the browser follows the native anchor link.
+    link.addEventListener('click', (event) => {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      const target = document.getElementById(link.hash.slice(1));
+      if (!target) return;
+
+      event.preventDefault();
+      // Reveal the first-team panel before measuring the destination.
       document.querySelector('.roster-tab[data-roster="first-team"]')?.click();
+      if (window.location.hash !== link.hash) {
+        window.history.pushState(null, '', link.hash);
+      }
+      requestAnimationFrame(() => {
+        target.setAttribute('tabindex', '-1');
+        target.focus({ preventScroll: true });
+        target.scrollIntoView({
+          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+          block: 'start'
+        });
+      });
     });
   });
 
