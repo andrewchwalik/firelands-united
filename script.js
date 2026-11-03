@@ -1346,6 +1346,22 @@ document.addEventListener("DOMContentLoaded", () => {
   // ----- Roster page tabs -----
   const rosterTabs = document.querySelectorAll(".roster-tab");
   const rosterPanels = document.querySelectorAll(".roster-panel");
+  let rosterScrollFrame = null;
+  const cancelRosterScroll = () => {
+    cancelAnimationFrame(rosterScrollFrame);
+    rosterScrollFrame = null;
+  };
+  if (document.querySelector('.roster-jump-nav')) {
+    // Do not restore a previously selected group's scroll position on refresh.
+    window.history.scrollRestoration = 'manual';
+    window.addEventListener('wheel', cancelRosterScroll, { passive: true });
+    window.addEventListener('touchstart', cancelRosterScroll, { passive: true });
+    window.addEventListener('keydown', (event) => {
+      if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' ', 'Escape', 'Tab'].includes(event.key)) {
+        cancelRosterScroll();
+      }
+    });
+  }
 
   document.querySelectorAll('.roster-jump-nav a').forEach((link) => {
     link.addEventListener('click', (event) => {
@@ -1354,18 +1370,35 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!target) return;
 
       event.preventDefault();
+      cancelRosterScroll();
       // Reveal the first-team panel before measuring the destination.
       document.querySelector('.roster-tab[data-roster="first-team"]')?.click();
-      if (window.location.hash !== link.hash) {
-        window.history.pushState(null, '', link.hash);
+      if (window.location.hash.startsWith('#roster-')) {
+        window.history.replaceState(window.history.state, '', window.location.pathname + window.location.search);
       }
-      requestAnimationFrame(() => {
+      rosterScrollFrame = requestAnimationFrame(() => {
         target.setAttribute('tabindex', '-1');
         target.focus({ preventScroll: true });
-        target.scrollIntoView({
-          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
-          block: 'start'
-        });
+        const start = window.scrollY;
+        const margin = parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
+        const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+        const destination = Math.max(0, Math.min(maxScroll, start + target.getBoundingClientRect().top - margin));
+        const distance = destination - start;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || Math.abs(distance) < 1) {
+          window.scrollTo({ top: destination, behavior: 'instant' });
+          rosterScrollFrame = null;
+          return;
+        }
+        const duration = Math.min(1300, 850 + Math.abs(distance) * 0.12);
+        const started = performance.now();
+        const animate = (now) => {
+          const progress = Math.min(1, (now - started) / duration);
+          // Quintic easing starts and ends gently, without a sudden velocity change.
+          const eased = progress < 0.5 ? 16 * progress ** 5 : 1 - (-2 * progress + 2) ** 5 / 2;
+          window.scrollTo({ top: start + distance * eased, behavior: 'instant' });
+          rosterScrollFrame = progress < 1 ? requestAnimationFrame(animate) : null;
+        };
+        rosterScrollFrame = requestAnimationFrame(animate);
       });
     });
   });
