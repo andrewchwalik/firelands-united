@@ -2692,6 +2692,18 @@ body.join-info-page .about-story-section {
 .mens-roster-banner { --banner-edge: url('/img/mens-roster-burned-edge.svg'); }
 .womens-roster-banner { --banner-edge: url('/img/womens-roster-burned-edge.svg'); }
 
+.mens-staff-banner { --banner-edge: url('/img/mens-staff-burned-edge.svg'); }
+
+.womens-staff-banner { --banner-edge: url('/img/womens-staff-burned-edge.svg'); }
+
+.mens-schedule-banner { --banner-edge: url('/img/mens-schedule-burned-edge.svg'); }
+
+.womens-schedule-banner { --banner-edge: url('/img/womens-schedule-burned-edge.svg'); }
+
+.mens-stats-banner { --banner-edge: url('/img/mens-stats-burned-edge.svg'); }
+
+.womens-stats-banner { --banner-edge: url('/img/womens-stats-burned-edge.svg'); }
+
 .page-image-banner img {
   display: block;
   width: 100%;
