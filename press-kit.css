@@ -2,7 +2,8 @@
 .press-hero { display: grid; grid-template-columns: minmax(0, 1fr) 240px; align-items: center; gap: 48px; padding: 48px; border-radius: 20px; color: #fff; background: radial-gradient(ellipse at 90% 90%, #f18a0133, transparent 60%), repeating-linear-gradient(125deg, transparent 0 32px, #ffffff05 33px 34px), #474e5a; }
 .press-kit .press-eyebrow { font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #a75500; margin: 0 0 14px; }
 .press-hero .press-eyebrow { color: #ffc16f; }
-.press-hero h1 { font-family: 'Bermont', sans-serif; font-size: clamp(3rem, 6vw, 5.5rem); line-height: 1; text-transform: uppercase; margin: 0 0 24px; }
+.press-hero h2 { font-family: 'Bermont', sans-serif; font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1; text-transform: uppercase; margin: 0 0 24px; }
+.press-kit-banner { --banner-edge: url('/img/press-kit-burned-edge.svg?v=20261103'); }
 .press-hero p:not(.press-eyebrow) { max-width: 610px; color: #e7e9ec; line-height: 1.8; margin-bottom: 28px; }
 .press-hero > img { width: 100%; height: 280px; object-fit: contain; }
 .press-button { display: inline-flex; align-items: center; justify-content: space-between; gap: 20px; padding: 14px 20px; border-radius: 8px; background: #f18a01; color: #242a32; font-size: .85rem; font-weight: 700; text-decoration: none; }
