@@ -4393,8 +4393,46 @@ body.presskit-page .content-section:nth-of-type(5) {
 
 /* Only the page canvas receives texture. Tile edges fade fully to transparent. */
 body.club-flame-background {
-  background-image: url('/img/club-flame-atmosphere.svg?v=20261105-motion');
+  position: relative;
+  isolation: isolate;
+}
+
+/* Move cached, viewport-sized layers instead of repainting an animated SVG
+   across the full document. Overscan keeps the layer edges off screen. */
+body.club-flame-background::before,
+body.club-flame-background::after {
+  content: '';
+  position: fixed;
+  inset: -80px;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url('/img/club-flame-atmosphere.svg?v=20261105-smooth');
   background-size: 1600px 1800px;
   background-position: center top;
   background-repeat: repeat;
+  transform-origin: center bottom;
+  will-change: transform;
+  opacity: .65;
+  animation: club-flame-flow 14s ease-in-out infinite;
+}
+
+body.club-flame-background::after {
+  background-position: calc(50% + 480px) -600px;
+  opacity: .35;
+  animation-duration: 19s;
+  animation-delay: -9s;
+  animation-direction: reverse;
+}
+
+@keyframes club-flame-flow {
+  0%, 100% { transform: translate3d(-8px, 12px, 0) skewX(-.6deg) scaleY(1); }
+  50% { transform: translate3d(8px, -18px, 0) skewX(.6deg) scaleY(1.025); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.club-flame-background::before,
+  body.club-flame-background::after {
+    animation: none;
+    will-change: auto;
+  }
 }
