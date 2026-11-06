@@ -4403,7 +4403,7 @@ body.club-flame-background::before,
 body.club-flame-background::after {
   content: '';
   position: fixed;
-  inset: -80px;
+  inset: -120px;
   z-index: -1;
   pointer-events: none;
   background-image: url('/img/club-flame-atmosphere.svg?v=20261105-smooth');
@@ -4413,20 +4413,20 @@ body.club-flame-background::after {
   transform-origin: center bottom;
   will-change: transform;
   opacity: .65;
-  animation: club-flame-flow 14s ease-in-out infinite;
+  animation: club-flame-flow 10s ease-in-out infinite;
 }
 
 body.club-flame-background::after {
   background-position: calc(50% + 480px) -600px;
   opacity: .35;
-  animation-duration: 19s;
-  animation-delay: -9s;
+  animation-duration: 14s;
+  animation-delay: -7s;
   animation-direction: reverse;
 }
 
 @keyframes club-flame-flow {
-  0%, 100% { transform: translate3d(-8px, 12px, 0) skewX(-.6deg) scaleY(1); }
-  50% { transform: translate3d(8px, -18px, 0) skewX(.6deg) scaleY(1.025); }
+  0%, 100% { transform: translate3d(-24px, 24px, 0) skewX(-1.2deg) scaleY(1); }
+  50% { transform: translate3d(24px, -48px, 0) skewX(1.2deg) scaleY(1.05); }
 }
 
 @media (prefers-reduced-motion: reduce) {

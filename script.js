@@ -1391,6 +1391,12 @@ document.addEventListener("DOMContentLoaded", () => {
           rosterScrollFrame = null;
           return;
         }
+        if (link.closest('.partner-page')) {
+          // Let the browser animate scrolling without main-thread frame updates.
+          window.scrollTo({ top: destination, behavior: 'smooth' });
+          rosterScrollFrame = null;
+          return;
+        }
         const duration = Math.min(1300, 850 + Math.abs(distance) * 0.12);
         const started = performance.now();
         const animate = (now) => {
