@@ -2666,6 +2666,7 @@ body.join-info-page .about-story-section {
 }
 
 .page-image-banner {
+  --burn-height: clamp(14px, 3.5vw, 64px);
   position: relative;
   width: 100%;
   margin: 0;
@@ -2676,35 +2677,40 @@ body.join-info-page .about-story-section {
 .page-image-banner::after {
   content: '';
   position: absolute;
-  inset: auto 0 -1px;
-  height: clamp(14px, 3.5vw, 64px);
-  background: var(--banner-edge, url('/img/sponsorships-burned-edge.svg?v=20261103b')) center bottom / 100% 100% no-repeat;
+  inset: auto 0 0;
+  height: var(--burn-height);
+  background: var(--banner-edge, url('/img/sponsorships-burned-edge.svg?v=20261105')) center bottom / 100% 100% no-repeat;
   pointer-events: none;
 }
 
-.about-banner { --banner-edge: url('/img/about-burned-edge.svg?v=20261103b'); }
-.contact-banner { --banner-edge: url('/img/contact-burned-edge.svg?v=20261103b'); }
-.news-banner { --banner-edge: url('/img/news-burned-edge.svg?v=20261103b'); }
+.about-banner { --banner-edge: url('/img/about-burned-edge.svg?v=20261105'); --banner-mask: url('/img/about-burned-mask.svg'); }
+.contact-banner { --banner-edge: url('/img/contact-burned-edge.svg?v=20261105'); --banner-mask: url('/img/contact-burned-mask.svg'); }
+.news-banner { --banner-edge: url('/img/news-burned-edge.svg?v=20261105'); --banner-mask: url('/img/news-burned-mask.svg'); }
 
-.internships-banner { --banner-edge: url('/img/internships-burned-edge.svg?v=20261103b'); }
-.tryouts-banner { --banner-edge: url('/img/tryouts-burned-edge.svg?v=20261103b'); }
-.volunteer-banner { --banner-edge: url('/img/volunteer-burned-edge.svg?v=20261103b'); }
-.mens-roster-banner { --banner-edge: url('/img/mens-roster-burned-edge.svg?v=20261103b'); }
-.womens-roster-banner { --banner-edge: url('/img/womens-roster-burned-edge.svg?v=20261103b'); }
+.internships-banner { --banner-edge: url('/img/internships-burned-edge.svg?v=20261105'); --banner-mask: url('/img/internships-burned-mask.svg'); }
+.tryouts-banner { --banner-edge: url('/img/tryouts-burned-edge.svg?v=20261105'); --banner-mask: url('/img/tryouts-burned-mask.svg'); }
+.volunteer-banner { --banner-edge: url('/img/volunteer-burned-edge.svg?v=20261105'); --banner-mask: url('/img/volunteer-burned-mask.svg'); }
+.mens-roster-banner { --banner-edge: url('/img/mens-roster-burned-edge.svg?v=20261105'); --banner-mask: url('/img/mens-roster-burned-mask.svg'); }
+.womens-roster-banner { --banner-edge: url('/img/womens-roster-burned-edge.svg?v=20261105'); --banner-mask: url('/img/womens-roster-burned-mask.svg'); }
 
-.mens-staff-banner { --banner-edge: url('/img/mens-staff-burned-edge.svg?v=20261103b'); }
+.mens-staff-banner { --banner-edge: url('/img/mens-staff-burned-edge.svg?v=20261105'); --banner-mask: url('/img/mens-staff-burned-mask.svg'); }
 
-.womens-staff-banner { --banner-edge: url('/img/womens-staff-burned-edge.svg?v=20261103b'); }
+.womens-staff-banner { --banner-edge: url('/img/womens-staff-burned-edge.svg?v=20261105'); --banner-mask: url('/img/womens-staff-burned-mask.svg'); }
 
-.mens-schedule-banner { --banner-edge: url('/img/mens-schedule-burned-edge.svg?v=20261103b'); }
+.mens-schedule-banner { --banner-edge: url('/img/mens-schedule-burned-edge.svg?v=20261105'); --banner-mask: url('/img/mens-schedule-burned-mask.svg'); }
 
-.womens-schedule-banner { --banner-edge: url('/img/womens-schedule-burned-edge.svg?v=20261103b'); }
+.womens-schedule-banner { --banner-edge: url('/img/womens-schedule-burned-edge.svg?v=20261105'); --banner-mask: url('/img/womens-schedule-burned-mask.svg'); }
 
-.mens-stats-banner { --banner-edge: url('/img/mens-stats-burned-edge.svg?v=20261103b'); }
+.mens-stats-banner { --banner-edge: url('/img/mens-stats-burned-edge.svg?v=20261105'); --banner-mask: url('/img/mens-stats-burned-mask.svg'); }
 
-.womens-stats-banner { --banner-edge: url('/img/womens-stats-burned-edge.svg?v=20261103b'); }
+.womens-stats-banner { --banner-edge: url('/img/womens-stats-burned-edge.svg?v=20261105'); --banner-mask: url('/img/womens-stats-burned-mask.svg'); }
 
 .page-image-banner img {
+  /* Cut away the burned area so the continuous body texture shows through. */
+  -webkit-mask: linear-gradient(#fff, #fff) top / 100% calc(100% - var(--burn-height) + 1px) no-repeat,
+    var(--banner-mask, url('/img/sponsorships-burned-mask.svg')) bottom / 100% var(--burn-height) no-repeat;
+  mask: linear-gradient(#fff, #fff) top / 100% calc(100% - var(--burn-height) + 1px) no-repeat,
+    var(--banner-mask, url('/img/sponsorships-burned-mask.svg')) bottom / 100% var(--burn-height) no-repeat;
   display: block;
   width: 100%;
   max-width: none;

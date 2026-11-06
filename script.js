@@ -1351,7 +1351,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cancelAnimationFrame(rosterScrollFrame);
     rosterScrollFrame = null;
   };
-  if (document.querySelector('.roster-jump-nav')) {
+  if (document.querySelector('.roster-jump-nav, .partner-page')) {
     // Do not restore a previously selected group's scroll position on refresh.
     window.history.scrollRestoration = 'manual';
     window.addEventListener('wheel', cancelRosterScroll, { passive: true });
@@ -1363,7 +1363,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  document.querySelectorAll('.roster-jump-nav a').forEach((link) => {
+  document.querySelectorAll('.roster-jump-nav a, .partner-page a[href^="#"]').forEach((link) => {
     link.addEventListener('click', (event) => {
       if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
       const target = document.getElementById(link.hash.slice(1));
@@ -1372,7 +1372,9 @@ document.addEventListener("DOMContentLoaded", () => {
       event.preventDefault();
       cancelRosterScroll();
       // Reveal the first-team panel before measuring the destination.
-      document.querySelector('.roster-tab[data-roster="first-team"]')?.click();
+      if (link.closest('.roster-jump-nav')) {
+        document.querySelector('.roster-tab[data-roster="first-team"]')?.click();
+      }
       if (window.location.hash.startsWith('#roster-')) {
         window.history.replaceState(window.history.state, '', window.location.pathname + window.location.search);
       }
