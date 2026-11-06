@@ -16,6 +16,8 @@
 .partner-page .partner-eyebrow { font-size: 11px; letter-spacing: .17em; text-transform: uppercase; font-weight: 800; color: #a45b00; margin-bottom: 20px; }
 .partner-page a { text-decoration: none; }
 .partner-page a:focus-visible { outline: 3px solid var(--partner-orange); outline-offset: 5px; }
+/* Scroll destinations receive focus for navigation, not a visible control outline. */
+.partner-page section[tabindex="-1"]:focus { outline: none; }
 .partner-page .partner-button { display: inline-flex; align-items: center; justify-content: space-between; gap: 22px; padding: 17px 23px; border-radius: 7px; background: var(--partner-orange); color: #222934; font-size: 14px; font-weight: 800; transition: background .2s, transform .2s; }
 .partner-page .partner-button:hover { background: #ffab37; transform: translateY(-2px); }
 .partner-intro { display: grid; grid-template-columns: 1.35fr .65fr; align-items: center; gap: 64px; }
