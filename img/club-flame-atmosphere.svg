@@ -1,4 +1,29 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1800" viewBox="0 0 1600 1800">
+  <style>
+    /* Each tongue moves independently; the tile's stationary masks hide its seams. */
+    g[fill] > path {
+      transform-box: fill-box;
+      transform-origin: center bottom;
+      animation: flame-rise 7s ease-in-out infinite alternate;
+    }
+    g[fill] > path:nth-child(2) { animation-duration: 8.7s; animation-delay: -4s; }
+    g[fill] > path:nth-child(3) { animation-duration: 6.3s; animation-delay: -2s; }
+    g[fill] > path:nth-child(4) { animation-duration: 9.1s; animation-delay: -6s; }
+    g[fill="url(#ember)"] > path { animation-name: flame-curl; animation-delay: -3s; }
+    @keyframes flame-rise {
+      0% { transform: translate(0, 10px) skewX(-2deg) scale(1, .96); }
+      45% { transform: translate(9px, -12px) skewX(1.8deg) scale(.97, 1.02); }
+      100% { transform: translate(-7px, -28px) skewX(-1deg) scale(1.02, 1.06); }
+    }
+    @keyframes flame-curl {
+      0% { transform: translate(5px, 8px) skewX(2deg) scale(.97, .98); }
+      55% { transform: translate(-9px, -18px) skewX(-2.5deg) scale(1.02, 1.04); }
+      100% { transform: translate(4px, -30px) skewX(1deg) scale(.98, 1.07); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      g[fill] > path { animation: none; }
+    }
+  </style>
   <defs>
     <linearGradient id="horizontal">
       <stop stop-color="black"/>
