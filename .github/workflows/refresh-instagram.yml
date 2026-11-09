@@ -1,0 +1,84 @@
+name: Refresh Instagram with RSSHub
+
+on:
+  push:
+    branches: [codex/rsshub-instagram]
+    paths:
+      - '.github/workflows/refresh-instagram.yml'
+      - 'scripts/*instagram-rsshub.mjs'
+      - 'workers/instagram-rsshub.js'
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: 'Publish a successful snapshot (main branch only)'
+        type: boolean
+        default: false
+  schedule:
+    - cron: '23 5,17 * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: instagram-rsshub
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    permissions:
+      contents: write
+      pages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test saved-feed handling
+        run: |
+          node scripts/test-instagram-rsshub.mjs
+          node scripts/test-refresh-instagram-rsshub.mjs
+      - name: Start temporary RSSHub
+        run: |
+          docker pull ghcr.io/diygod/rsshub:latest
+          docker image inspect ghcr.io/diygod/rsshub:latest --format '{{json .RepoDigests}}'
+          docker run -d --name rsshub -p 127.0.0.1:1200:1200 \
+            -e NODE_ENV=production -e CACHE_TYPE=memory \
+            ghcr.io/diygod/rsshub:latest
+          for attempt in $(seq 1 60); do
+            if curl -fsS http://127.0.0.1:1200/healthz >/dev/null; then exit 0; fi
+            sleep 2
+          done
+          echo 'RSSHub did not become healthy.' >&2
+          exit 1
+      - name: Fetch and save latest Instagram post
+        run: node scripts/refresh-instagram-rsshub.mjs
+      - name: Save preview for inspection
+        uses: actions/upload-artifact@v4
+        with:
+          name: instagram-preview
+          path: data/instagram/
+          retention-days: 7
+          if-no-files-found: error
+      - name: Publish verified snapshot
+        if: github.ref == 'refs/heads/main' && (github.event_name == 'schedule' || inputs.publish)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/instagram/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Refresh saved Instagram post'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+          # Bot commits do not automatically trigger legacy GitHub Pages builds.
+          gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds"
+      - name: RSSHub diagnostics
+        if: failure()
+        run: docker logs --tail 100 rsshub || true
+      - name: Stop temporary RSSHub
+        if: always()
+        run: docker rm -f rsshub || true
