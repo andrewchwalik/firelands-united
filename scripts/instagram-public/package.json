@@ -1,0 +1,14 @@
+{
+  "name": "instagram-public",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "node --test extract.test.mjs",
+    "collect": "node collect.mjs"
+  },
+  "type": "commonjs",
+  "dependencies": {
+    "playwright": "1.65.0"
+  },
+  "private": true
+}

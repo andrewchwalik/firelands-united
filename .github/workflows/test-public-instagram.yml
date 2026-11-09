@@ -1,0 +1,34 @@
+name: Test public Instagram collector
+on:
+  workflow_dispatch:
+  push:
+    branches: [codex/test-public-instagram]
+    paths:
+      - 'scripts/instagram-public/**'
+      - '.github/workflows/test-public-instagram.yml'
+permissions:
+  contents: read
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: scripts/instagram-public
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: scripts/instagram-public/package-lock.json
+      - run: npm ci
+      - run: npm test
+      - run: npx playwright install --with-deps chromium
+      - run: npm run collect
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: public-instagram-candidate
+          path: scripts/instagram-public/output/
+          retention-days: 3
