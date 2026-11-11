@@ -1455,7 +1455,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ----- Internship application forms -----
   const internshipForms = document.querySelectorAll(".internship-application-form");
-  const contactRelayUrl = "https://firelandsunited-contact.chwalik.workers.dev";
+  const contactRelayUrl = "https://firelandsunited-contact.firelandsunited.workers.dev";
 
   if (internshipForms.length > 0) {
     internshipForms.forEach((form) => {

@@ -2,7 +2,7 @@ backend:
   name: github
   repo: andrewchwalik/firelands-united
   branch: main
-  base_url: https://firelandsunited-cms-auth.chwalik.workers.dev
+  base_url: https://firelandsunited-cms-auth.firelandsunited.workers.dev
 
 media_folder: "img/blogs"
 public_folder: "/img/blogs"

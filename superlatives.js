@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
       submitButton.textContent = "Submitting...";
     }
 
-    fetch("https://firelandsunited-contact.chwalik.workers.dev/", {
+    fetch("https://firelandsunited-contact.firelandsunited.workers.dev/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload)
