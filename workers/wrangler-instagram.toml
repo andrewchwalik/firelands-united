@@ -1,5 +1,16 @@
 name = "firelandsunited-instagram-feed"
+account_id = "882451379435f963fab05affbfafdc3b"
 main = "instagram-feed.js"
 compatibility_date = "2026-02-19"
 
-# RSS.app-backed feed; no Instagram token or Discord reminder secrets required.
+# Apify-backed cached feed. Scraping and credentials stay in the separate candidate service.
+
+[[services]]
+binding = "INSTAGRAM_SOURCE"
+service = "firelands-instagram-candidate"
+
+[observability]
+enabled = true
+
+[observability.traces]
+enabled = true

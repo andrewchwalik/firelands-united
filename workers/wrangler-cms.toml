@@ -1,0 +1,16 @@
+name = "firelandsunited-cms-auth"
+main = "cms-auth.js"
+account_id = "882451379435f963fab05affbfafdc3b"
+compatibility_date = "2026-02-10"
+workers_dev = true
+preview_urls = false
+
+[vars]
+ALLOWED_DOMAINS = "firelandsunited.com"
+GITHUB_CLIENT_ID = "Ov23lian6v6JUHPkEAuF"
+
+[observability]
+enabled = true
+
+[observability.traces]
+enabled = true

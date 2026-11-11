@@ -1,3 +1,4 @@
 name = "firelandsunited-social-feed"
+account_id = "882451379435f963fab05affbfafdc3b"
 main = "social-feed.js"
 compatibility_date = "2026-03-19"

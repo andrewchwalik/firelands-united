@@ -1,4 +1,5 @@
 name = "firelandsunited-contact"
+account_id = "882451379435f963fab05affbfafdc3b"
 main = "contact-relay.js"
 compatibility_date = "2026-02-17"
 
@@ -7,7 +8,7 @@ compatibility_date = "2026-02-17"
 
 [[kv_namespaces]]
 binding = "SUPERLATIVES_KV"
-id = "50c14f2634fb4472a7595c5c3a460055"
+id = "2cb04ead0e6342f4ad27070b000601b2"
 
 # Set these secrets via CLI, not in this file:
 # wrangler secret put DISCORD_WEBHOOK_URL
