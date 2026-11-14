@@ -9,6 +9,10 @@
   const submit = document.getElementById('tryout-submit');
   let current = 0;
   let furthest = 0;
+  const releaseVersion = '2027-tryouts-2026-11-14';
+  const draftKey = 'firelands-tryouts-2027-draft';
+  let registrationId = crypto.randomUUID();
+  let completed = false;
   form.noValidate = true;
   const errorBox = document.createElement('div');
   errorBox.id = 'tryout-validation';
@@ -55,6 +59,7 @@
   }
   attendance.forEach(input => input.addEventListener('change', updateAttendance));
   function updateGuardian() {
+    if (completed) return false;
     // Use the club's calendar date, not a UTC-parsed birthday or the tryout date.
     const parts = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date());
     const part = type => parts.find(item => item.type === type).value;
@@ -76,6 +81,48 @@
   window.addEventListener('pageshow', updateGuardian);
   updateGuardian();
   const fields = [['fullName', 'Name'], ['email', 'Email'], ['phone', 'Phone'], ['homeAddress', 'Home address'], ['dateOfBirth', 'Date of birth'], ['availability', 'Can attend at least 80% of club activities'], ['positions', 'Primary position'], ['secondaryPosition', 'Secondary position'], ['height', 'Height'], ['dominantFoot', 'Dominant foot'], ['highlightVideo', 'Highlight video'], ['experience', 'Playing experience'], ['motivation', 'Why Firelands United?'], ['emergencyName', 'Emergency contact'], ['emergencyRelationship', 'Relationship'], ['emergencyPhone', 'Emergency phone'], ['releaseName', 'Player name on release'], ['playerSignature', 'Player signature'], ['playerSignatureDate', 'Player signature date']];
+  const draftFields = new Set(['team', ...fields.map(([name]) => name), 'guardianName', 'guardianSignature']);
+  // Dates are assigned afresh when the draft is reopened and again by the server.
+  draftFields.delete('playerSignatureDate');
+  function saveDraft() {
+    if (completed) return;
+    const answers = {};
+    for (const input of form.querySelectorAll('input[name], textarea[name]')) {
+      if (!draftFields.has(input.name) || (input.type === 'radio' && !input.checked)) continue;
+      answers[input.name] = input.value;
+    }
+    try {
+      if (!Object.values(answers).some(value => value.trim())) { localStorage.removeItem(draftKey); return; }
+      localStorage.setItem(draftKey, JSON.stringify({releaseVersion, registrationId, savedAt:Date.now(), step:current, answers}));
+    } catch { /* Storage may be unavailable in private or restricted browsers. */ }
+  }
+  function restoreDraft() {
+    try {
+      const draft = JSON.parse(localStorage.getItem(draftKey));
+      if (!draft) return;
+      if (draft.releaseVersion !== releaseVersion || !/^[a-f0-9-]{36}$/i.test(draft.registrationId || '') ||
+          !Number.isFinite(draft.savedAt) || Date.now() - draft.savedAt > 30 * 24 * 60 * 60 * 1000 ||
+          !draft.answers || typeof draft.answers !== 'object' || Array.isArray(draft.answers)) {
+        localStorage.removeItem(draftKey);
+        return;
+      }
+      registrationId = draft.registrationId;
+      for (const input of form.querySelectorAll('input[name], textarea[name]')) {
+        const value = draft.answers[input.name];
+        if (!draftFields.has(input.name) || typeof value !== 'string' || value.length > 5000) continue;
+        if (input.type === 'radio') input.checked = input.value === value;
+        else input.value = value;
+      }
+      updateGuardian();
+      updateAttendance();
+      // Saved progress never bypasses required fields or the guardian/attendance checks.
+      const firstInvalid = steps.findIndex(step => [...step.querySelectorAll('input, textarea')].some(input => !input.checkValidity()));
+      const reachable = firstInvalid < 0 ? steps.length - 1 : firstInvalid;
+      const requested = Number.isInteger(draft.step) ? Math.max(0, Math.min(draft.step, steps.length - 1)) : 0;
+      furthest = Math.min(requested, reachable);
+      show(furthest);
+    } catch { /* A damaged draft must not prevent a fresh registration. */ }
+  }
   function review() {
     const minor = updateGuardian();
     const data = new FormData(form);
@@ -112,6 +159,7 @@
     if (index === steps.length - 1) review();
     steps[index].querySelector('h2').focus({ preventScroll: true });
     const top = form.getBoundingClientRect().top;
+    saveDraft();
     if (top < 80) window.scrollBy({ top: top - 90, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
   }
   function advance() {
@@ -144,7 +192,11 @@
     });
   });
   back.addEventListener('click', () => show(Math.max(0, current - 1)));
-  const registrationId = crypto.randomUUID();
+  form.addEventListener('input', saveDraft);
+  form.addEventListener('change', saveDraft);
+  window.addEventListener('pagehide', saveDraft);
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') saveDraft(); });
+  restoreDraft();
   let sending = false;
   form.addEventListener('submit', async event => {
     event.preventDefault();
@@ -156,7 +208,8 @@
       const invalid = [...steps[i].querySelectorAll('input, textarea')].find(input => !input.checkValidity());
       if (invalid) { show(i); showError(invalid); return; }
     }
-    const payload = {...Object.fromEntries(new FormData(form)), registrationId, releaseVersion:'2027-tryouts-2026-11-14'};
+    const payload = {...Object.fromEntries(new FormData(form)), registrationId, releaseVersion};
+    saveDraft();
     sending = true;
     submit.disabled = true;
     submit.textContent = 'Submitting...';
@@ -166,6 +219,8 @@
       const response = await fetch(form.dataset.endpoint, {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:AbortSignal.timeout(35000)});
       const result = await response.json();
       if (!response.ok || !result.ok || result.registrationId !== registrationId) throw new Error(result.message || 'We could not confirm your registration. Please try again.');
+      completed = true;
+      try { localStorage.removeItem(draftKey); } catch { /* Submission still succeeds when storage is restricted. */ }
       const reviewStep = progress[progress.length - 1];
       reviewStep.classList.add('is-complete');
       reviewStep.removeAttribute('aria-current');
