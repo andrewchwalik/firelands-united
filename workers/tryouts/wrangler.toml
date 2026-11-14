@@ -1,0 +1,23 @@
+name = "firelandsunited-tryouts"
+account_id = "882451379435f963fab05affbfafdc3b"
+main = "worker.mjs"
+compatibility_date = "2026-11-14"
+workers_dev = true
+
+[observability]
+enabled = true
+head_sampling_rate = 0.1
+
+[observability.traces]
+enabled = true
+head_sampling_rate = 0.1
+
+[vars]
+RELEASE_HASH = "cbcec7673a2cd5305bfdf899bcc14449002d2a737a3d06b97221e7a4b055f1b5"
+
+SHEETS_URL = "https://script.google.com/macros/s/AKfycbz11W3XSui8JaOmVDQKEuAxDtCmsYwaXztFYNIE4vlI7SPtQudpCpdnelN08gauzFMr5w/exec"
+
+[[ratelimits]]
+name = "RATE_LIMITER"
+namespace_id = "20271114"
+simple = { limit = 12, period = 60 }

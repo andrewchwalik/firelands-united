@@ -1,0 +1,14 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {validate, RELEASE_VERSION} from './validation.mjs';
+const now=new Date('2026-11-14T17:00:00Z');
+const valid={team:'women',registrationId:'aaaaaaaa-bbbb-4ccc-8ddd-eeeeeeeeeeee',releaseVersion:RELEASE_VERSION,fullName:'Test Player',email:'test@example.com',phone:'555-0100',homeAddress:'Test address',dateOfBirth:'2000-01-01',availability:'Yes',positions:'Goalkeeper',secondaryPosition:'None',height:'170 cm',dominantFoot:'Right Footed',experience:'Test',motivation:'Test',emergencyName:'Test Contact',emergencyRelationship:'Parent',emergencyPhone:'555-0101',releaseName:'Test Player',playerSignature:'TEST ONLY'};
+test('both teams accepted and dates server controlled',()=>{for(const team of ['women','men']) assert.equal(validate({...valid,team,playerSignatureDate:'1900-01-01'},now).playerSignatureDate,'2026-11-14');});
+test('No attendance rejected',()=>assert.throws(()=>validate({...valid,availability:'No'},now)));
+test('missing emergency contact rejected',()=>assert.throws(()=>validate({...valid,emergencyPhone:''},now)));
+test('minor requires guardian signatures',()=>assert.throws(()=>validate({...valid,dateOfBirth:'2008-11-15'},now)));
+test('eighteenth birthday does not require guardian',()=>assert.equal(validate({...valid,dateOfBirth:'2008-11-14'},now).guardianDate,''));
+test('minor guardian date assigned by server',()=>assert.equal(validate({...valid,dateOfBirth:'2010-01-01',guardianName:'Test Guardian',guardianSignature:'TEST ONLY'},now).guardianDate,'2026-11-14'));
+test('invalid and future dates rejected',()=>{for(const dateOfBirth of ['2027-01-01','2009-02-29','not-date'])assert.throws(()=>validate({...valid,dateOfBirth},now));});
+test('unsupported team and release rejected',()=>{assert.throws(()=>validate({...valid,team:'other'},now));assert.throws(()=>validate({...valid,releaseVersion:'old'},now));});
+test('oversized fields rejected',()=>assert.throws(()=>validate({...valid,motivation:'x'.repeat(5001)},now)));
