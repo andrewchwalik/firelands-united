@@ -166,6 +166,18 @@
       const response = await fetch(form.dataset.endpoint, {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:AbortSignal.timeout(35000)});
       const result = await response.json();
       if (!response.ok || !result.ok || result.registrationId !== registrationId) throw new Error(result.message || 'We could not confirm your registration. Please try again.');
+      const reviewStep = progress[progress.length - 1];
+      reviewStep.classList.add('is-complete');
+      reviewStep.removeAttribute('aria-current');
+      const reviewButton = reviewStep.querySelector('button');
+      reviewButton.removeAttribute('aria-current');
+      reviewButton.setAttribute('aria-label', 'Review complete — registration submitted');
+      const reviewStep = progress[progress.length - 1];
+      reviewStep.classList.add('is-complete');
+      reviewStep.removeAttribute('aria-current');
+      const reviewButton = reviewStep.querySelector('button');
+      reviewButton.removeAttribute('aria-current');
+      reviewButton.setAttribute('aria-label', 'Review complete — registration submitted');
       form.replaceChildren(document.getElementById('tryout-confirmation-template').content.cloneNode(true));
       document.getElementById('confirmation-title').focus();
     } catch (error) {
