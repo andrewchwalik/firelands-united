@@ -6,11 +6,11 @@ workers_dev = true
 
 [observability]
 enabled = true
-head_sampling_rate = 0.1
+head_sampling_rate = 1
 
 [observability.traces]
 enabled = true
-head_sampling_rate = 0.1
+head_sampling_rate = 1
 
 [vars]
 RELEASE_HASH = "cbcec7673a2cd5305bfdf899bcc14449002d2a737a3d06b97221e7a4b055f1b5"
@@ -21,3 +21,11 @@ SHEETS_URL = "https://script.google.com/macros/s/AKfycbz11W3XSui8JaOmVDQKEuAxDtC
 name = "RATE_LIMITER"
 namespace_id = "20271114"
 simple = { limit = 12, period = 60 }
+
+[[d1_databases]]
+binding = "REGISTRATIONS"
+database_name = "firelandsunited-tryout-registrations"
+database_id = "01fc024b-6091-4ffc-b6cd-9f75bcb782fc"
+
+[triggers]
+crons = ["* * * * *"]

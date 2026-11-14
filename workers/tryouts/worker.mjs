@@ -1,7 +1,8 @@
 import {validate} from './validation.mjs';
+import {saveRegistration, deliverRegistration, flushPending} from './outbox.mjs';
 const origins = new Set(['https://firelandsunited.com','https://www.firelandsunited.com']);
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const origin = request.headers.get('Origin');
     const headers = {'Content-Type':'application/json','Cache-Control':'no-store','Vary':'Origin'};
     if (origins.has(origin)) Object.assign(headers, {'Access-Control-Allow-Origin':origin,'Access-Control-Allow-Methods':'POST, OPTIONS','Access-Control-Allow-Headers':'Content-Type'});
@@ -10,7 +11,7 @@ export default {
     if (request.method==='OPTIONS') return new Response(null,{status:204,headers});
     if (request.method!=='POST') return reply({ok:false,message:'Method not allowed.'},405);
     if (!env.RATE_LIMITER || !(await env.RATE_LIMITER.limit({key:request.headers.get('CF-Connecting-IP') || 'unknown'})).success) return reply({ok:false,message:'Too many attempts. Please wait a minute and try again.'},429);
-    if (!env.SHEETS_URL || !env.SHEETS_SECRET) return reply({ok:false,message:'Registration is not open yet.'},503);
+    if (!env.SHEETS_URL || !env.SHEETS_SECRET || !env.REGISTRATIONS) return reply({ok:false,message:'Registration is not open yet.'},503);
     if (!(request.headers.get('Content-Type')||'').includes('application/json')) return reply({ok:false,message:'Invalid request.'},415);
     let input;
     try {
@@ -31,15 +32,18 @@ export default {
       const digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(JSON.stringify(identity)));
       data.registrationId=[...new Uint8Array(digest)].map(x=>x.toString(16).padStart(2,'0')).join('');
       const timestamp=new Date().toISOString();
-      const payload=JSON.stringify({data,timestamp,releaseHash:env.RELEASE_HASH});
-      const key=await crypto.subtle.importKey('raw',new TextEncoder().encode(env.SHEETS_SECRET),{name:'HMAC',hash:'SHA-256'},false,['sign']);
-      const mac=await crypto.subtle.sign('HMAC',key,new TextEncoder().encode(payload));
-      const signature=[...new Uint8Array(mac)].map(x=>x.toString(16).padStart(2,'0')).join('');
-      const response=await fetch(env.SHEETS_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({payload,signature}),signal:AbortSignal.timeout(25000)});
-      if (!response.ok) throw new Error('upstream');
-      const result=await response.json();
-      if (!result.ok || result.registrationId!==data.registrationId) throw new Error('upstream');
+      await saveRegistration(env, {data,timestamp,releaseHash:env.RELEASE_HASH});
+      // Success depends on durable private storage, not Google's availability.
+      ctx.waitUntil(deliverRegistration(env, data.registrationId).catch(() => {
+        console.error(JSON.stringify({event:'roster_sync_deferred',registrationId:data.registrationId}));
+      }));
       return reply({ok:true,registrationId:clientId});
-    } catch { return reply({ok:false,message:'We could not confirm your registration. Your answers are still here. Please try again.'},503); }
+    } catch {
+      console.error(JSON.stringify({event:'registration_storage_failed'}));
+      return reply({ok:false,message:'Your registration has not been saved yet. Your answers are still in this form. Please try submitting again.'},503);
+    }
+  },
+  async scheduled(event, env, ctx) {
+    ctx.waitUntil(flushPending(env));
   }
 };
