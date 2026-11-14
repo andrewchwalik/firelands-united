@@ -1,5 +1,6 @@
 const SHEET_ID = '1oalr0oaCyeLrKCZnsU3z_1WZDqXoruZtyc2yRQ-b2wU';
 const FIELD_ORDER = ['fullName','email','phone','homeAddress','dateOfBirth','availability','positions','secondaryPosition','height','dominantFoot','highlightVideo','experience','motivation','emergencyName','emergencyRelationship','emergencyPhone','releaseName','playerSignature','playerSignatureDate','guardianName','guardianSignature','guardianDate'];
+const ORIGINAL_HEADERS = ["Registration ID", "Submitted (UTC)", "Name", "Email", "Phone", "Home address", "Date of birth", "Attendance commitment", "Primary position", "Secondary position", "Height", "Dominant foot", "Highlight video", "Playing experience", "Why Firelands United", "Emergency contact", "Emergency relationship", "Emergency phone", "Player name on release", "Player signature", "Player signature date", "Guardian name", "Guardian signature", "Guardian signature date", "Release version", "Release SHA-256", "Tryout date", "Fee due (USD)", "Payment status"];
 function doPost(e) {
   let lock;
   try {
@@ -16,10 +17,14 @@ function doPost(e) {
     lock=LockService.getScriptLock();lock.waitLock(20000);
     const sheet=SpreadsheetApp.openById(SHEET_ID).getSheetByName(data.team==='women'?"Women's Tryouts":"Men's Tryouts");
     const count=sheet.getLastRow();
-    if(count>1 && sheet.getRange(2,1,count-1,1).createTextFinder(data.registrationId).matchEntireCell(true).findNext()) return result_({ok:true,registrationId:data.registrationId});
+    const headers=sheet.getRange(1,1,1,ORIGINAL_HEADERS.length).getValues()[0];
+    if(new Set(headers).size!==ORIGINAL_HEADERS.length || ORIGINAL_HEADERS.some(header=>!headers.includes(header))) throw new Error('Unexpected roster headers');
+    const idColumn=headers.indexOf('Registration ID')+1;
+    if(count>1 && sheet.getRange(2,idColumn,count-1,1).createTextFinder(data.registrationId).matchEntireCell(true).findNext()) return result_({ok:true,registrationId:data.registrationId});
     const values=[data.registrationId,envelope.timestamp,...FIELD_ORDER.map(key=>data[key]||''),data.releaseVersion,envelope.releaseHash,data.team==='women'?'2026-12-19':'2026-12-20',10,'Unpaid'];
     // Prevent user-controlled values from becoming spreadsheet formulas.
-    const safe=values.map(value=>typeof value==='string' && /^[=+@\-\t\r]/.test(value)?"'"+value:value);
+    const ordered=headers.map(header=>values[ORIGINAL_HEADERS.indexOf(header)]);
+    const safe=ordered.map(value=>typeof value==='string' && /^[=+@\-\t\r]/.test(value)?"'"+value:value);
     sheet.getRange(count+1,1,1,safe.length).setValues([safe]);
     SpreadsheetApp.flush();
     return result_({ok:true,registrationId:data.registrationId});
