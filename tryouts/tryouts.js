@@ -172,12 +172,6 @@
       const reviewButton = reviewStep.querySelector('button');
       reviewButton.removeAttribute('aria-current');
       reviewButton.setAttribute('aria-label', 'Review complete — registration submitted');
-      const reviewStep = progress[progress.length - 1];
-      reviewStep.classList.add('is-complete');
-      reviewStep.removeAttribute('aria-current');
-      const reviewButton = reviewStep.querySelector('button');
-      reviewButton.removeAttribute('aria-current');
-      reviewButton.setAttribute('aria-label', 'Review complete — registration submitted');
       form.replaceChildren(document.getElementById('tryout-confirmation-template').content.cloneNode(true));
       document.getElementById('confirmation-title').focus();
     } catch (error) {
