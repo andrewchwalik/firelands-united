@@ -7,5 +7,77 @@
 #guardian legend {font-weight:bold}
 .consent {display:flex;align-items:baseline;gap:.7rem;margin:1rem 0}
 #status:not(:empty) {padding:1rem;background:#fff1dc;border-left:3px solid #e18200}
-@media(max-width:760px){.tryout-progress{display:flex;flex-wrap:wrap;gap:10px}.tryout-progress li{position:relative;width:auto;flex:1;padding:20px 0 0;text-align:center}.tryout-progress li:after{display:none}.tryout-progress li:before{left:calc(50% - 6px)}}
+/* Four contract steps share one marker column and one label column. */
+.contract-progress {
+  list-style: none;
+  margin: 44px 0 0;
+  padding: 0;
+  color: #d0d2d7;
+}
+.contract-progress li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  align-items: center;
+  gap: 16px;
+  min-height: 48px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.contract-progress li::before {
+  content: "";
+  box-sizing: border-box;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #969ca7;
+}
+.contract-progress li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: calc(50% + 9px);
+  width: 2px;
+  height: calc(100% - 18px);
+  background: #969ca7;
+}
+.contract-progress li[aria-current="step"], .contract-progress li.is-complete {
+  color: white;
+  font-weight: 700;
+}
+.contract-progress li[aria-current="step"]::before {
+  background: var(--orange);
+  border: 3px solid white;
+}
+.contract-progress li.is-complete::before {
+  content: "✓";
+  background: #23834b;
+  color: white;
+  text-align: center;
+  font: bold 14px/18px Arial, sans-serif;
+}
+@media (max-width: 760px) {
+  .contract-progress {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-top: 20px;
+  }
+  .contract-progress li {
+    grid-template-columns: 1fr;
+    grid-template-rows: 18px auto;
+    justify-items: center;
+    align-items: start;
+    align-content: start;
+    gap: 8px;
+    padding: 0 2px;
+    font-size: 12px;
+    text-align: center;
+  }
+  .contract-progress li:not(:last-child)::after {
+    top: 8px;
+    left: calc(50% + 9px);
+    width: calc(100% - 18px);
+    height: 2px;
+  }
+}
 #contract input[type=checkbox] {width:1rem;height:1rem;min-width:1rem;accent-color:#aa5600;vertical-align:middle}

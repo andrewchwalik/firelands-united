@@ -2,7 +2,7 @@
   const form = document.querySelector('#contract');
   const fields = form.elements;
   const steps = [...form.querySelectorAll('.tryout-step')];
-  const markers = [...document.querySelectorAll('.tryout-progress li')];
+  const markers = [...document.querySelectorAll('.contract-progress li')];
   const next = document.querySelector('#tryout-next');
   const back = document.querySelector('#back');
   const status = document.querySelector('#status');
