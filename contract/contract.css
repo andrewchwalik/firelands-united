@@ -81,3 +81,5 @@
   }
 }
 #contract input[type=checkbox] {width:1rem;height:1rem;min-width:1rem;accent-color:#aa5600;vertical-align:middle}
+
+#signing-photo[hidden] { display: none; }

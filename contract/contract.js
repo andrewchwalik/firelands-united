@@ -47,8 +47,11 @@
       input.min=input.max=date;
       if (!input.value) input.value=date;
     }
-    fields.photo.required=!fields.returning.checked;
-    document.querySelector('#photo-label').textContent=fields.returning.checked?'Signing photo (optional replacement)':'Signing photo (required)';
+    const returning = fields.returning.checked;
+    document.querySelector('#signing-photo').hidden = returning;
+    fields.photo.disabled = returning;
+    fields.photo.required = !returning;
+    if (returning) fields.photo.value = '';
     const file=fields.photo.files[0];
     fields.photo.setCustomValidity(file && (!/^image\/(jpeg|png|webp|gif|heic|heif|avif|tiff|bmp|x-adobe-dng)$/i.test(file.type) || file.size<1 || file.size>1024**3)?'Choose a supported photo up to 1 GB.':'');
   }
@@ -71,7 +74,7 @@
         if(key.startsWith('guardian') && fields.guardianName.matches(':disabled')) return;
         row(labels[i],typeof a[key]==='boolean'?(a[key]?'Yes':'No'):a[key]);
       });
-      row('Signing photo',fields.photo.files[0]?.name || 'Use photo on file');
+      if (!a.returning) row('Signing photo', fields.photo.files[0]?.name);
     }
     if(focus) steps[step].querySelector('h2').focus();
   }
@@ -109,7 +112,8 @@
     if(step<3){step++;render(true);save();return;}
     busy=true;next.disabled=back.disabled=true;save();
     try {
-      const file=fields.photo.files[0], a=answers();
+      const a = answers();
+      const file = a.returning ? null : fields.photo.files[0];
       status.textContent='Saving your contract…';
       let result=await send({action:'begin',answers:a,mime:file?.type||'',size:file?.size||0});
       if(!result.done){
@@ -126,7 +130,11 @@
       complete=true;
       try {localStorage.removeItem(draftKey);} catch {}
       markers[3].removeAttribute('aria-current');markers[3].classList.add('is-complete');
-      form.innerHTML='<div class="tryout-form-content tryout-step"><h2 tabindex="-1">Contract received</h2><p>Welcome to the 2027 Firelands United roster. Your signed player contract has been saved.</p></div>';
+      form.innerHTML = `<div class="tryout-form-content tryout-step">
+        <h2 tabindex="-1">Welcome to the 2027 Firelands United roster!</h2>
+        <p>We're thrilled to have you representing the Lands. Our club director will be reaching out with more details soon. If you have any questions in the meantime, you can drop us a DM on <a href="https://www.instagram.com/firelandsunited/">Instagram</a>.</p>
+        <p>If you want to get hyped for the season, you can watch <a href="https://www.youtube.com/playlist?list=PLWFAnIt998Ss4F09pFNZu6jtiLMItm7kz">last season's vlog</a>. Be sure to get yourself ready to be on camera for the 2027 vlog! We'll see you on the pitch soon.</p>
+      </div>`;
       form.querySelector('h2').focus();
     } catch {
       status.textContent='We could not confirm your signed contract. Your answers are still here. Please try submitting again.';
