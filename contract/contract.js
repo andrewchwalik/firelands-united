@@ -24,6 +24,7 @@
   function answers() {
     return Object.fromEntries(names.map(name => {
       const input = fields.namedItem(name);
+      if (name === 'instagram' && input.value) return [name, '@' + input.value.trim().replace(/^@+/, '')];
       return [name, input.type === 'checkbox' ? input.checked : input.value.trim()];
     }));
   }
@@ -50,13 +51,14 @@
       choice.setCustomValidity(choice.value && selected.has(choice.value) ? 'Choose a different kit number for each preference.' : '');
       selected.add(choice.value);
     }
+    if (fields.instagram.value.startsWith('@')) fields.instagram.value = fields.instagram.value.replace(/^@+/, '');
     fields.dob.max=date;
     const minor=fields.dob.value && fields.dob.value>cutoff;
     const guardian=document.querySelector('#guardian');
     guardian.hidden=guardian.disabled=!minor;
     for(const input of [fields.signed,fields.guardianDate]) {
       input.min=input.max=date;
-      if (!input.value) input.value=date;
+      input.value=date;
     }
     const returning = fields.returning.checked;
     document.querySelector('#signing-photo').hidden = returning;
@@ -69,6 +71,32 @@
   function invalid(panel) {
     return [...panel.querySelectorAll('input,select')].find(el=>el.willValidate && !el.checkValidity());
   }
+  const errorHint = document.createElement('small');
+  errorHint.id = 'contract-field-error';
+  errorHint.setAttribute('role', 'alert');
+  let errorField;
+  function clearError() {
+    if (!errorField) return;
+    errorField.removeAttribute('aria-invalid');
+    const descriptions = (errorField.getAttribute('aria-describedby') || '').split(' ').filter(id => id && id !== errorHint.id);
+    if (descriptions.length) errorField.setAttribute('aria-describedby', descriptions.join(' '));
+    else errorField.removeAttribute('aria-describedby');
+    errorHint.remove();
+    errorField = null;
+  }
+  function showError(field) {
+    clearError();
+    errorField = field;
+    field.setAttribute('aria-invalid', 'true');
+    field.setAttribute('aria-describedby', [field.getAttribute('aria-describedby'), errorHint.id].filter(Boolean).join(' '));
+    errorHint.textContent = field.validity.patternMismatch && field.title ? field.title : field.validationMessage;
+    const label = field.closest('label');
+    label.append(errorHint);
+    const focusTarget = field === fields.dob && field.classList.contains('has-custom-picker')
+      ? document.getElementById('birth-picker-open') : field;
+    focusTarget.focus({preventScroll:true});
+    label.scrollIntoView({block:'center',behavior:'instant'});
+  }
   function updateMarkers() {
     markers.forEach((marker, i) => {
       marker.disabled = busy || complete || i > furthestStep || i === step;
@@ -77,6 +105,8 @@
     });
   }
   function visit(index) {
+    clearError();
+    conditions();
     step = index;
     furthestStep = Math.max(furthestStep, step);
     status.textContent = '';
@@ -106,8 +136,13 @@
   conditions();
   for(let i=0;i<step;i++) if(invalid(steps[i])) {step=i;break;}
   render();
-  form.addEventListener('input',()=>{conditions();save();});
-  form.addEventListener('change',()=>{conditions();save();});
+  function updateDraft() {
+    conditions();
+    if (errorField && errorField.validity.valid) clearError();
+    save();
+  }
+  form.addEventListener('input', updateDraft);
+  form.addEventListener('change', updateDraft);
   window.addEventListener('pagehide',save);
   back.onclick = () => visit(step - 1);
   markers.forEach((marker, i) => marker.addEventListener('click', () => visit(i)));
@@ -133,7 +168,7 @@
     conditions();
     for(let i=0;i<=step;i++){
       const el=invalid(steps[i]);
-      if(el){step=i;render();el.reportValidity();return;}
+      if(el){step=i;render();showError(el);return;}
     }
     if(step<3){visit(step + 1);return;}
     busy=true;next.disabled=back.disabled=true;updateMarkers();save();
@@ -156,10 +191,11 @@
       complete=true;
       try {localStorage.removeItem(draftKey);} catch {}
       markers[3].removeAttribute('aria-current');markers[3].classList.add('is-complete');
-      form.innerHTML = `<div class="tryout-form-content tryout-step">
+      form.innerHTML = `<div class="tryout-form-content tryout-step contract-confirmation">
         <h2 tabindex="-1">Welcome to the 2027 Firelands United roster!</h2>
         <p>We're thrilled to have you representing the Lands. Our club director will be reaching out with more details soon. If you have any questions in the meantime, you can drop us a DM on <a href="https://www.instagram.com/firelandsunited/">Instagram</a>.</p>
         <p>If you want to get hyped for the season, you can watch <a href="https://www.youtube.com/playlist?list=PLWFAnIt998Ss4F09pFNZu6jtiLMItm7kz">last season's vlog</a>. Be sure to get yourself ready to be on camera for the 2027 vlog! We'll see you on the pitch soon.</p>
+        <iframe title="Tryouts for 2026 — Season 2, Episode 1" src="https://www.youtube-nocookie.com/embed/SfSausCcHOs" referrerpolicy="strict-origin-when-cross-origin" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
       </div>`;
       form.querySelector('h2').focus();
     } catch {
