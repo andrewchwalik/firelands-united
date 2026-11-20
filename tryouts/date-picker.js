@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  const birth = document.querySelector('[name="dateOfBirth"]');
+  const birth = document.querySelector('input[type="date"][autocomplete="bday"]');
   const dialog = document.getElementById('birth-picker');
   const opener = document.getElementById('birth-picker-open');
   const month = document.getElementById('birth-month');
