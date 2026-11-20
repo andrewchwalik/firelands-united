@@ -75,25 +75,41 @@ function recorded(id) {
 function begin(p) {
   const a=validated(p.answers,p.version);
   if(typeof a.returning!=='boolean') throw Error();
-  if(recorded(p.id)) return {done:true};
   if(a.returning && p.size===0 && p.mime==='') return record(p.id,a,'',p.version);
+  if(recorded(p.id)) return {done:true};
+  return startPhoto(p, '2027 - '+a.name+' - '+p.id.slice(0,8), false);
+}
+function startPhoto(p, name, staged) {
+  if(p.version !== VERSION && !(p.version === PREVIOUS_VERSION && !staged)) throw Error();
   if(!TYPES.test(p.mime) || !Number.isSafeInteger(p.size) || p.size<=0 || p.size>MAX) throw Error();
-  const metadata={name:'2027 - '+a.name+' - '+p.id.slice(0,8),mimeType:p.mime};
+  const metadata={name:name,mimeType:p.mime};
+  // Drive automatically clears trash. Abandoned or replaced photos stay there.
   const r=drive('post','https://www.googleapis.com/upload/drive/v3/files?uploadType=resumable&fields=id',{
     contentType:'application/json',payload:JSON.stringify(metadata),headers:{'X-Upload-Content-Type':p.mime,'X-Upload-Content-Length':String(p.size)}});
   const url=r.getHeaders().Location || r.getHeaders().location;
   if(r.getResponseCode()!==200 || !url || !url.startsWith('https://www.googleapis.com/')) throw Error();
   const key=Utilities.getUuid();
-  PropertiesService.getScriptProperties().setProperty(key,JSON.stringify({id:p.id,version:p.version,url:url,mime:p.mime,size:p.size,expires:Date.now()+86400000}));
+  PropertiesService.getScriptProperties().setProperty(key,JSON.stringify({id:p.id,staged:staged,version:p.version,url:url,mime:p.mime,size:p.size,expires:Date.now()+86400000}));
   return {key:key};
+}
+function stageCompletedPhoto(key,session,props) {
+  if (session.staged && !session.inTrash) {
+    const result=drive('patch','https://www.googleapis.com/drive/v3/files/'+encodeURIComponent(session.file),{
+      contentType:'application/json',payload:JSON.stringify({trashed:true})});
+    if (result.getResponseCode() !== 200) throw Error();
+    session.inTrash = true;
+    props.setProperty(key,JSON.stringify(session));
+  }
+  return {offset:session.size};
 }
 function receive(p) {
   const props=PropertiesService.getScriptProperties();
   if (!/^[a-f0-9-]{36}$/.test(p.key)) throw Error();
   const session=JSON.parse(props.getProperty(p.key)||'null');
+  if (!session && p.action === 'finish' && recorded(p.id)) return {done:true};
   if(!session || session.id!==p.id || session.expires<Date.now()) throw Error();
   if(p.action==='chunk'){
-    if(session.file) return {offset:session.size};
+    if(session.file) return stageCompletedPhoto(p.key,session,props);
     const start=p.offset;
     if(!Number.isSafeInteger(start)||start<0||start%CHUNK!==0||start>=session.size||typeof p.data!=='string'||p.data.length>Math.ceil(CHUNK/3)*4) throw Error();
     const bytes=Utilities.base64Decode(p.data);
@@ -103,11 +119,19 @@ function receive(p) {
     if([200,201].includes(res.getResponseCode())){
       session.file=JSON.parse(res.getContentText()).id;
       props.setProperty(p.key,JSON.stringify(session));
+      return stageCompletedPhoto(p.key,session,props);
     } else if(res.getResponseCode()!==308 || end===session.size) throw Error();
     return {offset:end};
   }
   if(p.action!=='finish'||!session.file||p.version!==(session.version||PREVIOUS_VERSION)) throw Error();
   const a=validated(p.answers,p.version);
+  if (session.staged) {
+    if (a.returning) throw Error();
+    const fileUrl = 'https://www.googleapis.com/drive/v3/files/'+encodeURIComponent(session.file);
+    const restored = drive('patch',fileUrl,{contentType:'application/json',
+      payload:JSON.stringify({trashed:false,name:'2027 - '+a.name+' - '+p.id.slice(0,8)})});
+    if (restored.getResponseCode() !== 200) throw Error();
+  }
   const result=record(p.id,a,session.file,p.version); props.deleteProperty(p.key); return result;
 }
 function record(id,a,file,version){
@@ -130,11 +154,11 @@ function doPost(e) {
     if(e.postData.length>6000000) throw Error();
     const p=JSON.parse(e.postData.contents);
     if(!/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(p.id)) throw Error();
-    if(p.action==='begin'){
+    if(p.action==='begin' || p.action==='photo'){
       // Purge abandoned session handles; Google expires unfinished uploads.
       const props=PropertiesService.getScriptProperties(), entries=props.getProperties();
       Object.keys(entries).forEach(k=>{if(JSON.parse(entries[k]).expires<Date.now()) props.deleteProperty(k);});
-      result=begin(p);
+      result=p.action==='photo' ? startPhoto(p,'Pending signing photo - '+p.id.slice(0,8),true) : begin(p);
     } else result=receive(p);
     result.ok=true;
   } catch(err) {result={ok:false};}

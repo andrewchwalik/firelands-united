@@ -20,6 +20,8 @@
   let id = crypto.randomUUID();
   let busy = false;
   let complete = false;
+  let upload;
+  const photoProgress = document.getElementById('photo-progress');
   const day = () => new Intl.DateTimeFormat('sv-SE',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
 
   function answers() {
@@ -148,8 +150,9 @@
   conditions();
   for(let i=0;i<step;i++) if(invalid(steps[i])) {step=i;break;}
   render();
-  function updateDraft() {
+  function updateDraft(event) {
     conditions();
+    if (event.target === fields.photo || event.target === fields.returning) syncPhoto();
     if (errorField && errorField.validity.valid) clearError();
     save();
   }
@@ -158,9 +161,10 @@
   window.addEventListener('pagehide',save);
   back.onclick = () => visit(step - 1);
   markers.forEach((marker, i) => marker.addEventListener('click', () => visit(i)));
-  async function send(body) {
+  async function send(body, active = () => true) {
     const payload = JSON.stringify({...body,id,version});
     for (let attempt = 0; ; attempt++) {
+      if (!active()) throw Error();
       const controller = new AbortController();
       const timeout = setTimeout(() => controller.abort(), 90000);
       let permanent = false;
@@ -178,7 +182,7 @@
       } finally {
         clearTimeout(timeout);
       }
-      status.textContent = 'Connection interrupted. Retrying…';
+      if (busy) status.textContent = 'Connection interrupted. Retrying…';
       await new Promise(resolve => setTimeout(resolve, 1000 * (attempt + 1)));
     }
   }
@@ -189,6 +193,43 @@
       reader.onerror=reject;
       reader.readAsDataURL(blob);
     });
+  }
+  function syncPhoto(retry = false) {
+    const file = fields.returning.checked || !fields.photo.validity.valid ? null : fields.photo.files[0];
+    if (!file) {
+      upload = null;
+      photoProgress.textContent = '';
+      return;
+    }
+    if (upload?.file === file && !(retry && upload.failed)) return upload;
+    const job = {file, failed:false, ready:false};
+    upload = job;
+    const active = () => upload === job;
+    function progress(message) {
+      if (active()) photoProgress.textContent = message;
+    }
+    job.promise = (async () => {
+      try {
+        progress('Uploading your photo… You can continue with the form.');
+        const {key} = await send({action:'photo',mime:file.type,size:file.size}, active);
+        if (!key) throw Error();
+        const chunk = 4 * 1024 * 1024;
+        for (let offset = 0; offset < file.size; offset += chunk) {
+          if (!active()) return;
+          const data = await base64(file.slice(offset, offset + chunk));
+          const reply = await send({action:'chunk',key,offset,data}, active);
+          if (reply.offset !== Math.min(offset + chunk, file.size)) throw Error();
+          progress('Uploading your photo… ' + Math.round(100 * reply.offset / file.size) + '%');
+        }
+        job.ready = true;
+        progress('Photo uploaded.');
+        return key;
+      } catch {
+        job.failed = true;
+        progress('Photo upload interrupted. We’ll retry when you submit.');
+      }
+    })();
+    return job;
   }
   form.onsubmit=async event=>{
     event.preventDefault();
@@ -202,22 +243,21 @@
     busy=true;next.disabled=back.disabled=true;updateMarkers();save();
     try {
       const a = answers();
-      const file = a.returning ? null : fields.photo.files[0];
-      status.textContent='Saving your contract…';
-      let result=await send({action:'begin',answers:a,mime:file?.type||'',size:file?.size||0});
-      if(!result.done){
-        if(!file || !result.key) throw Error();
-        const key=result.key, chunk=4*1024*1024;
-        for(let offset=0;offset<file.size;offset+=chunk){
-          status.textContent='Uploading your photo… '+Math.floor(100*offset/file.size)+'%';
-          await send({action:'chunk',key,offset,data:await base64(file.slice(offset,offset+chunk))});
-        }
+      let result;
+      if (a.returning) {
+        status.textContent='Saving your contract…';
+        result=await send({action:'begin',answers:a,mime:'',size:0});
+      } else {
+        const job = syncPhoto(true);
+        if (!job) throw Error();
+        status.textContent=job.ready ? 'Saving your signed contract…' : 'Finishing your photo upload…';
+        const key = await job.promise;
+        if (!key || job !== upload) throw Error();
         status.textContent='Saving your signed contract…';
         try {
           result=await send({action:'finish',key,answers:a});
         } catch (error) {
-          // An acknowledged Drive upload can have a committed row even after its session expires.
-          // For a new player, begin without a photo can only succeed if this ID is already recorded.
+          job.failed = true;
           result=await send({action:'begin',answers:a,mime:'',size:0});
           if (!result.done) throw error;
         }
