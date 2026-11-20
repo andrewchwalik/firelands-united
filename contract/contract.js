@@ -51,6 +51,11 @@
 
   function conditions() {
     const date = day(), cutoff = (Number(date.slice(0,4))-18)+date.slice(4);
+    for (const input of form.querySelectorAll('input[required]')) {
+      if (['text','tel'].includes(input.type)) {
+        input.setCustomValidity(input.value && !input.value.trim() ? 'Please enter a value.' : '');
+      }
+    }
     const selected = new Set();
     for (const choice of kitChoices) {
       choice.setCustomValidity(choice.value && selected.has(choice.value) ? 'Choose a different kit number for each preference.' : '');
@@ -154,12 +159,28 @@
   back.onclick = () => visit(step - 1);
   markers.forEach((marker, i) => marker.addEventListener('click', () => visit(i)));
   async function send(body) {
-    if (!form.dataset.endpoint) throw Error('Submission service is unavailable');
-    const response=await fetch(form.dataset.endpoint,{method:'POST',credentials:'omit',body:JSON.stringify({...body,id,version})});
-    if(!response.ok) throw Error();
-    const data=await response.json();
-    if(!data.ok) throw Error();
-    return data;
+    const payload = JSON.stringify({...body,id,version});
+    for (let attempt = 0; ; attempt++) {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 90000);
+      let permanent = false;
+      try {
+        const response = await fetch(form.dataset.endpoint, {
+          method:'POST', credentials:'omit', body:payload, signal:controller.signal
+        });
+        permanent = response.status >= 400 && response.status < 500 && ![408,422].includes(response.status);
+        if (!response.ok) throw Error();
+        const data = await response.json();
+        if (!data.ok) throw Error();
+        return data;
+      } catch (error) {
+        if (permanent || attempt >= 2 || navigator.onLine === false) throw error;
+      } finally {
+        clearTimeout(timeout);
+      }
+      status.textContent = 'Connection interrupted. Retrying…';
+      await new Promise(resolve => setTimeout(resolve, 1000 * (attempt + 1)));
+    }
   }
   function base64(blob) {
     return new Promise((resolve,reject)=>{
@@ -192,7 +213,14 @@
           await send({action:'chunk',key,offset,data:await base64(file.slice(offset,offset+chunk))});
         }
         status.textContent='Saving your signed contract…';
-        result=await send({action:'finish',key,answers:a});
+        try {
+          result=await send({action:'finish',key,answers:a});
+        } catch (error) {
+          // An acknowledged Drive upload can have a committed row even after its session expires.
+          // For a new player, begin without a photo can only succeed if this ID is already recorded.
+          result=await send({action:'begin',answers:a,mime:'',size:0});
+          if (!result.done) throw error;
+        }
       }
       if(!result.done) throw Error();
       complete=true;

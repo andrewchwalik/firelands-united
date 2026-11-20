@@ -1,0 +1,13 @@
+name = "firelandsunited-contract"
+account_id = "882451379435f963fab05affbfafdc3b"
+main = "relay.mjs"
+compatibility_date = "2026-11-14"
+workers_dev = true
+
+[vars]
+SHEETS_URL = "https://script.google.com/macros/s/AKfycbxWVle52s6Y2nd-UKw3LXc4oHDvvEojy53UAUV83mUgy7LlIA31DcIF8i0GDX77MTrU/exec"
+
+[[ratelimits]]
+name = "LIMITER"
+namespace_id = "20271120"
+simple = { limit = 120, period = 60 }
