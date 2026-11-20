@@ -14,8 +14,17 @@
   padding: 0;
   color: #d0d2d7;
 }
-.contract-progress li {
-  position: relative;
+.contract-progress li { position: relative; }
+.contract-progress button {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
   display: grid;
   grid-template-columns: 18px 1fr;
   align-items: center;
@@ -24,7 +33,7 @@
   font-size: 14px;
   line-height: 1.4;
 }
-.contract-progress li::before {
+.contract-progress button::before {
   content: "";
   box-sizing: border-box;
   width: 18px;
@@ -34,6 +43,7 @@
 }
 .contract-progress li:not(:last-child)::after {
   content: "";
+  pointer-events: none;
   position: absolute;
   left: 8px;
   top: calc(50% + 9px);
@@ -41,15 +51,15 @@
   height: calc(100% - 18px);
   background: #969ca7;
 }
-.contract-progress li[aria-current="step"], .contract-progress li.is-complete {
+.contract-progress button[aria-current="step"], .contract-progress button.is-complete {
   color: white;
   font-weight: 700;
 }
-.contract-progress li[aria-current="step"]::before {
+.contract-progress button[aria-current="step"]::before {
   background: var(--orange);
   border: 3px solid white;
 }
-.contract-progress li.is-complete::before {
+.contract-progress button.is-complete::before {
   content: "✓";
   background: #23834b;
   color: white;
@@ -62,7 +72,7 @@
     grid-template-columns: repeat(4, minmax(0, 1fr));
     margin-top: 20px;
   }
-  .contract-progress li {
+  .contract-progress button {
     grid-template-columns: 1fr;
     grid-template-rows: 18px auto;
     justify-items: center;
@@ -88,3 +98,7 @@
 .contract-kit legend { font-weight: 700; }
 .contract-kit .tryout-fields { margin-top: 12px; }
 .contract-kit p { margin-top: 12px; font-size: 13px; line-height: 1.6; }
+
+.contract-progress button:disabled { cursor: default; opacity: 1; }
+.contract-progress button:enabled:hover { text-decoration: underline; }
+.contract-progress button:focus-visible { outline: 2px solid white; outline-offset: 2px; }

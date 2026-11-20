@@ -2,7 +2,7 @@
   const form = document.querySelector('#contract');
   const fields = form.elements;
   const steps = [...form.querySelectorAll('.tryout-step')];
-  const markers = [...document.querySelectorAll('.contract-progress li')];
+  const markers = [...document.querySelectorAll('.contract-progress button')];
   const next = document.querySelector('#tryout-next');
   const back = document.querySelector('#back');
   const status = document.querySelector('#status');
@@ -15,6 +15,7 @@
     for (let number = 0; number <= 99; number++) choice.add(new Option(String(number), String(number)));
   }
   let step = 0;
+  let furthestStep = 0;
   let id = crypto.randomUUID();
   let busy = false;
   let complete = false;
@@ -27,7 +28,7 @@
     }));
   }
   function save() {
-    if (!complete) try { localStorage.setItem(draftKey,JSON.stringify({id,step,answers:answers(),at:Date.now()})); } catch {}
+    if (!complete) try { localStorage.setItem(draftKey,JSON.stringify({id,step,furthestStep,answers:answers(),at:Date.now()})); } catch {}
   }
   try {
     const d = JSON.parse(localStorage.getItem(draftKey));
@@ -38,6 +39,7 @@
         else if(typeof value==='string') input.value=value;
       }
       id=d.id; step=Number.isInteger(d.step)?Math.min(3,Math.max(0,d.step)):0;
+      furthestStep = Number.isInteger(d.furthestStep) ? Math.max(step, Math.min(steps.length - 1, d.furthestStep)) : step;
     }
   } catch {}
 
@@ -67,9 +69,23 @@
   function invalid(panel) {
     return [...panel.querySelectorAll('input,select')].find(el=>el.willValidate && !el.checkValidity());
   }
+  function updateMarkers() {
+    markers.forEach((marker, i) => {
+      marker.disabled = busy || complete || i > furthestStep || i === step;
+      if (!complete && i === step) marker.setAttribute('aria-current', 'step');
+      else marker.removeAttribute('aria-current');
+    });
+  }
+  function visit(index) {
+    step = index;
+    furthestStep = Math.max(furthestStep, step);
+    status.textContent = '';
+    render(true);
+    save();
+  }
   function render(focus=false) {
     steps.forEach((panel,i)=>panel.hidden=i!==step);
-    markers.forEach((marker,i)=>i===step?marker.setAttribute('aria-current','step'):marker.removeAttribute('aria-current'));
+    updateMarkers();
     back.hidden=step===0;
     next.textContent=step===3?'Sign and submit':'Continue';
     if(step===3){
@@ -93,7 +109,8 @@
   form.addEventListener('input',()=>{conditions();save();});
   form.addEventListener('change',()=>{conditions();save();});
   window.addEventListener('pagehide',save);
-  back.onclick=()=>{if(!busy && step>0){step--;status.textContent='';render(true);save();}};
+  back.onclick = () => visit(step - 1);
+  markers.forEach((marker, i) => marker.addEventListener('click', () => visit(i)));
   async function send(body) {
     if (!form.dataset.endpoint) throw Error('Submission service is unavailable');
     const response=await fetch(form.dataset.endpoint,{method:'POST',credentials:'omit',body:JSON.stringify({...body,id,version})});
@@ -118,8 +135,8 @@
       const el=invalid(steps[i]);
       if(el){step=i;render();el.reportValidity();return;}
     }
-    if(step<3){step++;render(true);save();return;}
-    busy=true;next.disabled=back.disabled=true;save();
+    if(step<3){visit(step + 1);return;}
+    busy=true;next.disabled=back.disabled=true;updateMarkers();save();
     try {
       const a = answers();
       const file = a.returning ? null : fields.photo.files[0];
@@ -147,6 +164,6 @@
       form.querySelector('h2').focus();
     } catch {
       status.textContent='We could not confirm your signed contract. Your answers are still here. Please try submitting again.';
-    } finally {busy=false;next.disabled=back.disabled=false;}
+    } finally {busy=false;next.disabled=back.disabled=false;updateMarkers();}
   };
 })();
