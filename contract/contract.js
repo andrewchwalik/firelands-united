@@ -6,10 +6,11 @@
   const next = document.querySelector('#tryout-next');
   const back = document.querySelector('#back');
   const status = document.querySelector('#status');
-  const version = 'summer-2027-v1';
-  const draftKey = 'firelands-contract-' + version;
-  const names = ['returning','name','email','address','phone','dob','instagram','height','weight','primaryPosition','secondaryPosition','jersey','shorts','kit1','kit2','kit3','agree','esign','signature','signed','guardianAgree','guardianName','guardianDate'];
-  const labels = ['Returning player','Name','Email','Address','Phone','Date of birth','Instagram','Height (ft/in)','Weight (lb)','Primary position','Secondary position','Jersey size','Shorts size','First kit preference','Second kit preference','Third kit preference','Contract acknowledged','Electronic signature consent','Player signature','Player signature date','Guardian agreement','Guardian signature','Guardian signature date'];
+  const version = 'summer-2027-v2';
+  const reviewStep = steps.length - 1;
+  const draftKey = 'firelands-contract-summer-2027-v1';
+  const names = ['returning','name','email','address','phone','dob','instagram','height','weight','primaryPosition','secondaryPosition','jersey','shorts','kit1','kit2','kit3','emergencyName','emergencyRelationship','emergencyPhone','releaseName','playerSignature','playerSignatureDate','releaseGuardianName','releaseGuardianSignature','releaseGuardianDate','agree','esign','signature','signed','guardianAgree','guardianName','guardianDate'];
+  const labels = ['Returning player','Name','Email','Address','Phone','Date of birth','Instagram','Height (ft/in)','Weight (lb)','Primary position','Secondary position','Jersey size','Shorts size','First kit preference','Second kit preference','Third kit preference','Emergency contact name','Emergency relationship','Emergency phone','Player named on release','Player release signature','Player release date','Guardian name on release','Guardian release signature','Guardian release date','Contract acknowledged','Electronic signature consent','Player signature','Player signature date','Guardian agreement','Guardian signature','Guardian signature date'];
   const kitChoices = [fields.kit1, fields.kit2, fields.kit3];
   for (const choice of kitChoices) {
     for (let number = 0; number <= 99; number++) choice.add(new Option(String(number), String(number)));
@@ -29,7 +30,7 @@
     }));
   }
   function save() {
-    if (!complete) try { localStorage.setItem(draftKey,JSON.stringify({id,step,furthestStep,answers:answers(),at:Date.now()})); } catch {}
+    if (!complete) try { localStorage.setItem(draftKey,JSON.stringify({id,version,step,furthestStep,answers:answers(),at:Date.now()})); } catch {}
   }
   try {
     const d = JSON.parse(localStorage.getItem(draftKey));
@@ -39,8 +40,12 @@
         if (input.type==='checkbox') input.checked=value===true;
         else if(typeof value==='string') input.value=value;
       }
-      id=d.id; step=Number.isInteger(d.step)?Math.min(3,Math.max(0,d.step)):0;
+      id=d.id; step=Number.isInteger(d.step)?Math.min(reviewStep,Math.max(0,d.step)):0;
       furthestStep = Number.isInteger(d.furthestStep) ? Math.max(step, Math.min(steps.length - 1, d.furthestStep)) : step;
+      if (d.version !== version) {
+        step = Math.min(step, 2);
+        furthestStep = Math.min(furthestStep, 2);
+      }
     }
   } catch {}
 
@@ -56,7 +61,9 @@
     const minor=fields.dob.value && fields.dob.value>cutoff;
     const guardian=document.querySelector('#guardian');
     guardian.hidden=guardian.disabled=!minor;
-    for(const input of [fields.signed,fields.guardianDate]) {
+    const releaseGuardian = document.getElementById('release-guardian');
+    releaseGuardian.hidden = releaseGuardian.disabled = !minor;
+    for(const input of [fields.signed,fields.guardianDate,fields.playerSignatureDate,fields.releaseGuardianDate]) {
       input.min=input.max=date;
       input.value=date;
     }
@@ -117,8 +124,8 @@
     steps.forEach((panel,i)=>panel.hidden=i!==step);
     updateMarkers();
     back.hidden=step===0;
-    next.textContent=step===3?'Sign and submit':'Continue';
-    if(step===3){
+    next.textContent=step===reviewStep?'Sign and submit':'Continue';
+    if(step===reviewStep){
       const dl=document.querySelector('#tryout-review'); dl.replaceChildren();
       function row(label,value){
         const dt=document.createElement('dt'),dd=document.createElement('dd');
@@ -126,7 +133,7 @@
       }
       const a=answers();
       names.forEach((key,i)=>{
-        if(key.startsWith('guardian') && fields.guardianName.matches(':disabled')) return;
+        if((key.startsWith('guardian') || key.startsWith('releaseGuardian')) && fields.guardianName.matches(':disabled')) return;
         row(labels[i],typeof a[key]==='boolean'?(a[key]?'Yes':'No'):a[key]);
       });
       if (!a.returning) row('Signing photo', fields.photo.files[0]?.name);
@@ -170,7 +177,7 @@
       const el=invalid(steps[i]);
       if(el){step=i;render();showError(el);return;}
     }
-    if(step<3){visit(step + 1);return;}
+    if(step<reviewStep){visit(step + 1);return;}
     busy=true;next.disabled=back.disabled=true;updateMarkers();save();
     try {
       const a = answers();
@@ -190,7 +197,7 @@
       if(!result.done) throw Error();
       complete=true;
       try {localStorage.removeItem(draftKey);} catch {}
-      markers[3].removeAttribute('aria-current');markers[3].classList.add('is-complete');
+      markers[reviewStep].removeAttribute('aria-current');markers[reviewStep].classList.add('is-complete');
       form.innerHTML = `<div class="tryout-form-content tryout-step contract-confirmation">
         <h2 tabindex="-1">Welcome to the 2027 Firelands United roster!</h2>
         <p>We're thrilled to have you representing the Lands. Our club director will be reaching out with more details soon. If you have any questions in the meantime, you can drop us a DM on <a href="https://www.instagram.com/firelandsunited/">Instagram</a>.</p>

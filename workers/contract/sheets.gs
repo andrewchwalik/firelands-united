@@ -1,6 +1,7 @@
 // Deploy as the Firelands United account, with anonymous access for players.
 const BOOK = '1xn3_7nZDAn4_vY6uEC2Pa7T9A8GJWDpLp62nft9krJs';
-const VERSION = 'summer-2027-v1';
+const VERSION = 'summer-2027-v2';
+const PREVIOUS_VERSION = 'summer-2027-v1';
 const MAX = 1024 * 1024 * 1024;
 const CHUNK = 4 * 1024 * 1024;
 const TYPES = /^image\/(jpeg|png|webp|gif|heic|heif|avif|tiff|bmp|x-adobe-dng)$/i;
@@ -27,7 +28,8 @@ function minor(dob, date) {
   const cutoff = (Number(date.slice(0,4))-18) + date.slice(4);
   return dob > cutoff;
 }
-function validated(a) {
+function validated(a, version) {
+  if (![VERSION, PREVIOUS_VERSION].includes(version)) throw Error();
   const required = ['name','email','address','phone','dob','instagram','jersey','shorts','signature','signed'];
   if (!a || required.some(k=>typeof a[k]!=='string' || !a[k].trim() || a[k].length>500)) throw Error();
   const date=today();
@@ -42,6 +44,13 @@ function validated(a) {
     if (typeof a.weight !== 'string' || !Number.isFinite(Number(a.weight)) || Number(a.weight) <= 0) throw Error();
     const choices = [a.kit1,a.kit2,a.kit3];
     if (choices.some(n => typeof n !== 'string' || !/^(0|[1-9][0-9]?)$/.test(n)) || new Set(choices).size !== 3) throw Error();
+  }
+  if (version === VERSION) {
+    const requiredRelease = ['emergencyName','emergencyRelationship','emergencyPhone','releaseName','playerSignature'];
+    if (minor(a.dob,date)) requiredRelease.push('releaseGuardianName','releaseGuardianSignature');
+    if (requiredRelease.some(key => typeof a[key] !== 'string' || !a[key].trim() || a[key].length > 300)) throw Error();
+    if (!detailKeys.every(key => Object.prototype.hasOwnProperty.call(a,key)) || a.playerSignatureDate !== date || (minor(a.dob,date) && a.releaseGuardianDate !== date)) throw Error();
+    if (!minor(a.dob,date)) { a.releaseGuardianName=''; a.releaseGuardianSignature=''; a.releaseGuardianDate=''; }
   }
   const sizes=['XS','S','M','L','XL','XXL'];
   if (!sizes.includes(a.jersey) || !sizes.includes(a.shorts)) throw Error();
@@ -64,10 +73,10 @@ function recorded(id) {
   return n>1 && !!s.getRange(2,18,n-1,1).createTextFinder(id).matchEntireCell(true).findNext();
 }
 function begin(p) {
-  const a=validated(p.answers);
-  if(p.version!==VERSION || typeof a.returning!=='boolean') throw Error();
+  const a=validated(p.answers,p.version);
+  if(typeof a.returning!=='boolean') throw Error();
   if(recorded(p.id)) return {done:true};
-  if(a.returning && p.size===0 && p.mime==='') return record(p.id,a,'');
+  if(a.returning && p.size===0 && p.mime==='') return record(p.id,a,'',p.version);
   if(!TYPES.test(p.mime) || !Number.isSafeInteger(p.size) || p.size<=0 || p.size>MAX) throw Error();
   const metadata={name:'2027 - '+a.name+' - '+p.id.slice(0,8),mimeType:p.mime};
   const r=drive('post','https://www.googleapis.com/upload/drive/v3/files?uploadType=resumable&fields=id',{
@@ -75,7 +84,7 @@ function begin(p) {
   const url=r.getHeaders().Location || r.getHeaders().location;
   if(r.getResponseCode()!==200 || !url || !url.startsWith('https://www.googleapis.com/')) throw Error();
   const key=Utilities.getUuid();
-  PropertiesService.getScriptProperties().setProperty(key,JSON.stringify({id:p.id,url:url,mime:p.mime,size:p.size,expires:Date.now()+86400000}));
+  PropertiesService.getScriptProperties().setProperty(key,JSON.stringify({id:p.id,version:p.version,url:url,mime:p.mime,size:p.size,expires:Date.now()+86400000}));
   return {key:key};
 }
 function receive(p) {
@@ -97,17 +106,18 @@ function receive(p) {
     } else if(res.getResponseCode()!==308 || end===session.size) throw Error();
     return {offset:end};
   }
-  if(p.action!=='finish'||!session.file) throw Error();
-  const a=validated(p.answers);
-  const result=record(p.id,a,session.file); props.deleteProperty(p.key); return result;
+  if(p.action!=='finish'||!session.file||p.version!==(session.version||PREVIOUS_VERSION)) throw Error();
+  const a=validated(p.answers,p.version);
+  const result=record(p.id,a,session.file,p.version); props.deleteProperty(p.key); return result;
 }
-function record(id,a,file){
+function record(id,a,file,version){
   if(typeof a.returning!=='boolean' || (!file && !a.returning)) throw Error();
   const lock=LockService.getScriptLock(); lock.waitLock(12000);
   try {
     if(!recorded(id)){
-      const values=[a.name,a.email,a.address,a.phone,a.dob,a.instagram,a.jersey,a.shorts,file?'https://drive.google.com/open?id='+file:'','Yes','Yes',a.signature,a.signed,a.guardianAgree?'Yes':'',a.guardianName,a.guardianDate,VERSION,id,new Date().toISOString(),a.returning?'Yes':'No',
+      const values=[a.name,a.email,a.address,a.phone,a.dob,a.instagram,a.jersey,a.shorts,file?'https://drive.google.com/open?id='+file:'','Yes','Yes',a.signature,a.signed,a.guardianAgree?'Yes':'',a.guardianName,a.guardianDate,version,id,new Date().toISOString(),a.returning?'Yes':'No',
         ...['height','weight','primaryPosition','secondaryPosition','kit1','kit2','kit3'].map(key => a[key] || '')];
+      if (version === VERSION) values.push(...['emergencyName', 'emergencyRelationship', 'emergencyPhone', 'releaseName', 'playerSignature', 'playerSignatureDate', 'releaseGuardianName', 'releaseGuardianSignature', 'releaseGuardianDate'].map(key => a[key] || ''));
       sheet().appendRow(values.map(textCell));
       SpreadsheetApp.flush();
     }

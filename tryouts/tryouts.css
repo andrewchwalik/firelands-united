@@ -40,3 +40,5 @@
 .tryout-progress li.is-complete:before{content:'✓';display:flex;align-items:center;justify-content:center;background:#23834b;border:2px solid #23834b;box-shadow:none;color:#fff;font-family:Arial,sans-serif;font-size:12px;font-weight:700;line-height:1}
 .tryout-progress li.is-complete{color:#fff;font-weight:700}
 .tryout-progress li.is-complete button:disabled{opacity:1}
+
+.tryout-fields select[name="height"] { width:100%; padding:12px; font:inherit; background:white; color:#343943; border:1px solid #dedad5; border-radius:2px; }

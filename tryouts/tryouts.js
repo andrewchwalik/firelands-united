@@ -87,7 +87,7 @@
   function saveDraft() {
     if (completed) return;
     const answers = {};
-    for (const input of form.querySelectorAll('input[name], textarea[name]')) {
+    for (const input of form.querySelectorAll('input[name], textarea[name], select[name]')) {
       if (!draftFields.has(input.name) || (input.type === 'radio' && !input.checked)) continue;
       answers[input.name] = input.value;
     }
@@ -107,7 +107,7 @@
         return;
       }
       registrationId = draft.registrationId;
-      for (const input of form.querySelectorAll('input[name], textarea[name]')) {
+      for (const input of form.querySelectorAll('input[name], textarea[name], select[name]')) {
         const value = draft.answers[input.name];
         if (!draftFields.has(input.name) || typeof value !== 'string' || value.length > 5000) continue;
         if (input.type === 'radio') input.checked = input.value === value;
@@ -116,7 +116,7 @@
       updateGuardian();
       updateAttendance();
       // Saved progress never bypasses required fields or the guardian/attendance checks.
-      const firstInvalid = steps.findIndex(step => [...step.querySelectorAll('input, textarea')].some(input => !input.checkValidity()));
+      const firstInvalid = steps.findIndex(step => [...step.querySelectorAll('input, textarea, select')].some(input => !input.checkValidity()));
       const reachable = firstInvalid < 0 ? steps.length - 1 : firstInvalid;
       const requested = Number.isInteger(draft.step) ? Math.max(0, Math.min(draft.step, steps.length - 1)) : 0;
       furthest = Math.min(requested, reachable);
@@ -165,7 +165,7 @@
   function advance() {
     updateGuardian();
     updateAttendance();
-    for (const input of steps[current].querySelectorAll('input, textarea')) {
+    for (const input of steps[current].querySelectorAll('input, textarea, select')) {
       if (input.type !== 'radio' && input.type !== 'date') input.value = input.value.trim();
       if (!input.checkValidity()) { showError(input); return; }
     }
@@ -180,7 +180,7 @@
       // Returning is unrestricted; moving forward rechecks any edited required fields.
       if (index > current) {
         for (let i = 0; i < index; i++) {
-          const invalid = [...steps[i].querySelectorAll('input, textarea')].find(input => !input.checkValidity());
+          const invalid = [...steps[i].querySelectorAll('input, textarea, select')].find(input => !input.checkValidity());
           if (invalid) {
             show(i);
             showError(invalid);
@@ -205,7 +205,7 @@
     updateGuardian();
     updateAttendance();
     for (let i = 0; i < steps.length; i++) {
-      const invalid = [...steps[i].querySelectorAll('input, textarea')].find(input => !input.checkValidity());
+      const invalid = [...steps[i].querySelectorAll('input, textarea, select')].find(input => !input.checkValidity());
       if (invalid) { show(i); showError(invalid); return; }
     }
     const payload = {...Object.fromEntries(new FormData(form)), registrationId, releaseVersion};
