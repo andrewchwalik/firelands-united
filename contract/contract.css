@@ -105,7 +105,9 @@
 
 .contract-handle { display: flex; align-items: center; border: 1px solid #dedad5; background: white; border-radius: 2px; padding-left: 12px; }
 .contract-handle > span { font-size: 14px; }
-#contract .contract-handle input { border: 0; padding-left: 2px; }
+#contract .contract-handle input { border: 0; padding-left: 2px; min-width: 0; outline: none; }
+.contract-handle:focus-within { outline: 2px solid #b86000; outline-offset: 3px; }
+.contract-handle:has(input[aria-invalid="true"]) { outline: 2px solid #a23418; outline-offset: 3px; }
 #contract [aria-invalid="true"] { outline: 2px solid #a23418; }
 #contract #contract-field-error { display: block; color: #902e15; font-size: 13px; line-height: 1.5; }
 #contract .contract-confirmation p { font-size: 18px; line-height: 1.65; }
