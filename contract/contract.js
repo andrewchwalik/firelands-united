@@ -8,8 +8,12 @@
   const status = document.querySelector('#status');
   const version = 'summer-2027-v1';
   const draftKey = 'firelands-contract-' + version;
-  const names = ['returning','name','email','address','phone','dob','instagram','jersey','shorts','agree','esign','signature','signed','guardianAgree','guardianName','guardianDate'];
-  const labels = ['Returning player','Name','Email','Address','Phone','Date of birth','Instagram','Jersey size','Shorts size','Contract acknowledged','Electronic signature consent','Player signature','Player signature date','Guardian agreement','Guardian signature','Guardian signature date'];
+  const names = ['returning','name','email','address','phone','dob','instagram','height','weight','primaryPosition','secondaryPosition','jersey','shorts','kit1','kit2','kit3','agree','esign','signature','signed','guardianAgree','guardianName','guardianDate'];
+  const labels = ['Returning player','Name','Email','Address','Phone','Date of birth','Instagram','Height (ft/in)','Weight (lb)','Primary position','Secondary position','Jersey size','Shorts size','First kit preference','Second kit preference','Third kit preference','Contract acknowledged','Electronic signature consent','Player signature','Player signature date','Guardian agreement','Guardian signature','Guardian signature date'];
+  const kitChoices = [fields.kit1, fields.kit2, fields.kit3];
+  for (const choice of kitChoices) {
+    for (let number = 0; number <= 99; number++) choice.add(new Option(String(number), String(number)));
+  }
   let step = 0;
   let id = crypto.randomUUID();
   let busy = false;
@@ -39,6 +43,11 @@
 
   function conditions() {
     const date = day(), cutoff = (Number(date.slice(0,4))-18)+date.slice(4);
+    const selected = new Set();
+    for (const choice of kitChoices) {
+      choice.setCustomValidity(choice.value && selected.has(choice.value) ? 'Choose a different kit number for each preference.' : '');
+      selected.add(choice.value);
+    }
     fields.dob.max=date;
     const minor=fields.dob.value && fields.dob.value>cutoff;
     const guardian=document.querySelector('#guardian');

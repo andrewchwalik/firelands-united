@@ -32,6 +32,17 @@ function validated(a) {
   if (!a || required.some(k=>typeof a[k]!=='string' || !a[k].trim() || a[k].length>500)) throw Error();
   const date=today();
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(a.email) || !validDate(a.dob) || a.dob>date || a.signed!==date || a.agree!==true || a.esign!==true) throw Error();
+  // An already-open older form can finish without the new details.
+  const detailKeys = ['height','weight','primaryPosition','secondaryPosition','kit1','kit2','kit3'];
+  if (detailKeys.some(k => Object.prototype.hasOwnProperty.call(a,k))) {
+    for (const key of ['height','primaryPosition']) {
+      if (typeof a[key] !== 'string' || !a[key].trim() || a[key].length > (key === 'height' ? 30 : 100)) throw Error();
+    }
+    if (typeof a.secondaryPosition !== 'string' || a.secondaryPosition.length > 100) throw Error();
+    if (typeof a.weight !== 'string' || !Number.isFinite(Number(a.weight)) || Number(a.weight) <= 0) throw Error();
+    const choices = [a.kit1,a.kit2,a.kit3];
+    if (choices.some(n => typeof n !== 'string' || !/^(0|[1-9][0-9]?)$/.test(n)) || new Set(choices).size !== 3) throw Error();
+  }
   const sizes=['XS','S','M','L','XL','XXL'];
   if (!sizes.includes(a.jersey) || !sizes.includes(a.shorts)) throw Error();
   if (minor(a.dob,date)) {
@@ -95,7 +106,8 @@ function record(id,a,file){
   const lock=LockService.getScriptLock(); lock.waitLock(12000);
   try {
     if(!recorded(id)){
-      const values=[a.name,a.email,a.address,a.phone,a.dob,a.instagram,a.jersey,a.shorts,file?'https://drive.google.com/open?id='+file:'','Yes','Yes',a.signature,a.signed,a.guardianAgree?'Yes':'',a.guardianName,a.guardianDate,VERSION,id,new Date().toISOString(),a.returning?'Yes':'No'];
+      const values=[a.name,a.email,a.address,a.phone,a.dob,a.instagram,a.jersey,a.shorts,file?'https://drive.google.com/open?id='+file:'','Yes','Yes',a.signature,a.signed,a.guardianAgree?'Yes':'',a.guardianName,a.guardianDate,VERSION,id,new Date().toISOString(),a.returning?'Yes':'No',
+        ...['height','weight','primaryPosition','secondaryPosition','kit1','kit2','kit3'].map(key => a[key] || '')];
       sheet().appendRow(values.map(textCell));
       SpreadsheetApp.flush();
     }
