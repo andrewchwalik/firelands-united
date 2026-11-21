@@ -1,5 +1,5 @@
 // Deploy as the Firelands United account, with anonymous access for players.
-const BOOK = '1xn3_7nZDAn4_vY6uEC2Pa7T9A8GJWDpLp62nft9krJs';
+const BOOK = '1ZxcoJ9vJYCiW9KQ4jGi9-kTcAEnY6ZD884hrLoolRbM';
 const VERSION = 'summer-2027-v2';
 const PREVIOUS_VERSION = 'summer-2027-v1';
 const MAX = 1024 * 1024 * 1024;
