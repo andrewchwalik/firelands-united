@@ -241,6 +241,8 @@
     }
     if(step<reviewStep){visit(step + 1);return;}
     busy=true;next.disabled=back.disabled=true;updateMarkers();save();
+    next.setAttribute('aria-busy', 'true');
+    next.textContent = 'Submitting…';
     try {
       const a = answers();
       let result;
@@ -275,6 +277,10 @@
       form.querySelector('h2').focus();
     } catch {
       status.textContent='We could not confirm your signed contract. Your answers are still here. Please try submitting again.';
-    } finally {busy=false;next.disabled=back.disabled=false;updateMarkers();}
+    } finally {
+      next.removeAttribute('aria-busy');
+      busy=false;next.disabled=back.disabled=false;updateMarkers();
+      if (!complete) next.textContent = 'Sign and submit';
+    }
   };
 })();

@@ -213,6 +213,7 @@
     sending = true;
     submit.disabled = true;
     submit.textContent = 'Submitting...';
+    submit.setAttribute('aria-busy', 'true');
     back.disabled = true;
     progress.forEach(item => { item.querySelector('button').disabled = true; });
     try {
@@ -238,6 +239,9 @@
       submit.textContent = 'Submit registration';
       back.disabled = false;
       progress.forEach((item,i) => { item.querySelector('button').disabled = i > furthest; });
-    } finally { sending = false; }
+    } finally {
+      submit.removeAttribute('aria-busy');
+      sending = false;
+    }
   });
 })();
